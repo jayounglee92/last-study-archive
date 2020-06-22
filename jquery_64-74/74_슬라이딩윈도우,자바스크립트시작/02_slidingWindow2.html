@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> slidingWindow </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		html{ height:100%; }
+		body{ 
+			background-image:-webkit-linear-gradient(top, #000 0%, #111 80%, darkred 100%);
+			background-image:-moz-linear-gradient(top, #000 0%, #111 80%, darkred 100%);
+			background-image:-ms-linear-gradient(top, #000 0%, #111 80%, darkred 100%);
+			height:100%;
+		}
+
+		h1{ text-align:center; padding:80px 0 40px;}
+			h1 img{width:500px;}
+
+
+		#screen{width:800px; height:420px; margin:0 auto; border:5px solid #ccc; position:relative;}
+			#film{ width:3200px; }
+				.scene{ width:800px; float:left;}
+			#film:after{content:""; display:block; clear:both; }
+			
+			#btn p{ position:absolute; width:50px; height:100px; top:50%; margin-top:-50px; }
+				#btn p img{ width:100%; height:100%;}
+			
+			#btn .prevBtn{ left:0; }
+			#btn .nextBtn{ right:0; }
+			/*
+				right 값을 설정하고 싶은데 제대로 적용되지 않는 이유는?
+					position의 경우 초기값 설정 부분에서 좌표가 충돌이 생겨 제대로 배치가 어려움
+						대상을 통합 적으로 설정하기 보다는 각각 설정하는것이 제대로 적용할수 있음
+			*/
+  </style>
+  <script>
+	$(function(){
+		/*
+			이전 이후 버튼을 클릭하면, 장면이 한장면씩 나타나도록 설정하기
+				1) 다음버튼 클릭해서 다음 화면으로 전환되도록 만들기
+
+				대상: .nextBtn
+				이벤트: 클릭
+				이벤트 핸들러: 전체 필름을 움직여서 한장면씩 나오도록 만들기
+		*/
+		$(".nextBtn").click(function(){
+			$("#film").animate({"marginLeft":"-=800px"},800,"linear",function(){
+				/*
+					문제점:
+						스크린 바깥쪽으로 필름 전체가 빠져나가 버림
+					해결: 첫번째 이미지가 마지막으로 돌아와야 함!
+				*/
+			
+			});
+		
+		});
+	
+	});
+  </script>
+ </head>
+ <body>
+	<h1><img src="img/logo.png" alt="logo"/></h1>
+	<div id="screen">
+		<ul id="film">
+			<li class="scene">
+				<img src="img/a00.jpg" alt="img0"/>
+			</li>
+			<li class="scene">
+				<img src="img/a01.jpg" alt="img1"/>
+			</li>
+			<li class="scene">
+				<img src="img/a02.jpg" alt="img2"/>
+			</li>
+			<li class="scene">
+				<img src="img/a03.jpg" alt="img3"/>
+			</li>
+		</ul>
+		<div id="btn">
+			<p class="nextBtn"><img src="img/next_shadow.png" alt="다음버튼" class="next"/></p>
+			<p class="prevBtn"><img src="img/prev_shadow.png" alt="이전버튼" class="prev"/></p>
+		</div>
+	</div>
+ </body>
+</html>

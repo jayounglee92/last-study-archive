@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> test </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+ </head>
+
+ <body>
+	<h3>DOCTYPE을 작성하는 이유는?</h3>
+	<p>
+		xhtml 이나 html5 문서를 사용하여 해당하는 태그와 영역을 사용하겠다고 선언!<br/>
+		사용목적에 맞춰서 사용하겠다는 선언!<br/>
+		다양한 문자열들을 깨지지 않고 호환이 가능하도록 사용하기 위하여 doctype 선언
+	</p>
+
+	<h3>문서의 종류 3가지 중에서 호환성이 뛰어난 문서는?</h3>
+	<p>
+		답: transitional.dtd<br/>
+		html5에서는 기본적으로 사용 가능!
+	</p>
+
+	<h3>문자열이 깨졌을때 의심해볼만한 부분은? </h3>
+	<p>
+		meta 태그에 charset="utf-8" 저장시 인코딩 utf-8<br/>
+		chaset="euc-kr"  저장시 인코딩 ANSI 로 저장
+	</p>
+
+	<h3>링크를 적용할때 사용하는 기능은?</h3>
+	<p>
+		a태그 사용, 이미지 맵
+	</p>
+
+	<h3>headline태그에서 파편화 현상때문에 사용할때 주의해야하는 태그는?</h3>
+	<p>
+		h5~h6 가급적 사용하지 않는다.( 모바일 기기에서는 더욱 작게 보일수 있음 )
+	</p>
+
+	<h3>section 영역에서 반드시 작성되어야 하는 태그는?</h3>
+	<p>
+		헤드라인태그 ( 비슷한 정보의 값들을 모아놓았을때 제목이 없으면 위험요소 발생 )
+	</p>
+
+
+	<h3>position 속성중에서 모든 position 효과를 해제하는 기능은?</h3>
+	<p>
+		답 : static
+	</p>
+
+	<h3>position의 기능들 나열하고 간단하게 내용 작성하기</h3>
+	<p>
+		position:fixed(해당하는 좌표에 무조건 고정시킴, 형제 요소가 있어도 그자리로 위치함)<br/>
+		position:relative( 
+		형제 요소로 사용할때: 상대는 고정 시키고 스스로의 값만 움직임 , 자신이 있던 공간을 그대로 두고 움직임<br/> 부모요소로 사용할때: absolute의 기능을 막아줄수 있음 + 상대고정역할도 유지
+		)
+		position:absolute(절대고정 : 해당하는 좌표에 고정, 절대 빈공간을 두지 않음)<br/>
+		position:static( 모든 포지션 기능 해제 )
+	</p>
+
+
+	<h3>position 속성들 중에서 빈공간을 두지 않고 움직일수 있는 기능은?</h3>
+	<p>
+		position:absolute
+	</p>
+
+	<h3>위의 기능을 적용했을때 담아줄 수 있는 position은?</h3>
+	<p>
+		부모요소에 position:relative 적용
+	</p>
+	
+
+	<h3>a태그를 사용할 경우 hover 기능외에 가능한 또 다른 기능은?</h3>
+	<p>
+		focus( 초점이 해당영역에 맞았을때 ), tab키로 이동!
+	</p>
+
+	<h3>a태그를 사용하지 않을 경우 focus가 적용될까?  (css에서만..)</h3>
+	<p>
+		a태그가 있어야지만 제대로 focus 기능이 적용된다. javascript, jQuery에서<br/>
+		a태그가 없어도 사용이 가능할지라도 a태그를 사용해야 정확도가 높아진다.
+	</p>
+
+
+	<h3>아래에 a태그 3개 만들기 각각의 a태그는 p태그에 담기 그리고 다음, 네이버, 구글 링크걸기</h3>
+	<p>
+		<a href="http://www.naver.com" title="네이버">네이버</a>
+	</p>
+	<p>
+		<a href="http://www.daum.net" title="다음">다음</a>
+	</p>
+	<p>
+		<a href="http://www.google.com" title="구글">구글</a>
+	</p>
+
+
+	<h3>위에 정해져있는 사이트에 링크를 걸때 절대좌표, 상대좌표중 어디에 속할까?</h3>
+	<p>절대좌표 </p>
+
+
+	<h3>./../의 뜻은?</h3>
+	<p>
+		현재 위치에서 폴더한번 나가서
+	</p>
+	<h3>a태그에 밑줄을 만드는 기능은?</h3>
+	<p>
+		text-decoration:underline<br/>
+		a태그에서만 사용하는 값이 아니라 글자가 있는 모든 대상에 사용가능
+	</p>
+
+	<h3>a태그에 초기화 부분 작성하기 </h3>
+	<p>
+		a:link,a:visited{ text-decoration:none; color:#000;}
+	</p>
+
+
+	<h3>영역에서 넘치면 숨겨주는 값은?</h3>
+	<p>
+		overflow:hidden
+	</p>
+
+
+	<h3>글자가 넘치면 ....으로 보이게 만들기 위하여 작성하는 값들 나열하고 각각의 기능 간략히 작성하기</h3>
+	<p>
+		1) 너비와 높이 먼저 설정<br/>
+		2) overflow:hidden 영역에서 넘치면 숨겨주기 <br/>
+		3) white-space:nowrap 텍스트가 한줄로 나타나도록 만들기 <br/>
+		4) text-overflow:ellipsis 텍스트가 넘치면 ...으로 보이게 만들기 
+	</p>
+
+
+	<h3>float를 끊는 방법중 가상객체를 사용하는 방법은?</h3>
+	<p>
+		가상객체사용하기 : 대상:after<br/>
+		content:"" : 내용이 없음<br/>
+		display:block : 박스로 만들기 위해 작업<br/>
+		clear:both ( 선택사항 상위 객체에 float가 없으면 사용하지 않아도 상관없음 )
+	</p>
+
+
+	<h3>display 기능들 아는데로 나열하고 각각의 성질들 작성하기 </h3>
+	<p>
+		display:inline ( 블록성질을 인라인으로 바꿀때 )<br/>
+		display:block ( 인라인 속성을 블록으로도 바꾸지만, none 사라진 값을 나타나게 할때도 사용)<br/>
+		display:none( 화면에서 사라지게 할때 사용, 읽어주는 태그에서 사용하면 문제가 발생 <br/>
+		헤드라인, strong, em)<br/>
+		display:inline-block( 인라인속성과 블록속성 같이 사용 , 단점 여백이 있음)
+	</p>
+
+	<h3>아래 방법대로 풀어보기 </h3>
+	<ol>
+		<li>position_test.html 문서 만들기</li>
+		<li> div 태그만들고 p태그 담아주기 </li>
+		<li> div 태그는 720* 480 으로 만들고 border는 알아서 작성하기 </li>
+		<li> p태그는 150*150으로 만들고 div태그 안쪽에서 오른쪽 아래 방향에 위치하도록 만들기</li>
+		<li>배경 색상은 알아서 지정하기 </li>
+	</ol>
+	<h3>다음 사이트 일부분 만들어서 보내기 : 기획전 부분 만들어서 제출하기 ( daumContent.html )</h3>
+ </body>
+</html>

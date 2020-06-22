@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> a_tag </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+ </head>
+ <body>
+	<h2>a_tag : 링크걸기</h2>
+	<dl>
+		<dt>
+			절대경로: 고정된 주소( 절대 변하지 않는 경로 또는 주소 )
+		</dt>
+		<dd>
+			네이버, 다음, 삼성, 엘지, 애플...기업사이트, 관공소 등등의 주소는
+			변하지 않는다.
+		</dd>
+		<dd>
+			<a href="http://www.naver.com" title="네이버 주소">
+				네이버
+			</a>
+		</dd>
+		<dd>
+			<a href="http://www.daum.net" title="다음주소">
+				<!-- <p>다음</p> -->
+				<span>다음</span>
+			</a>
+		</dd>
+		<dd>
+			a태그는 인라인태그중에 가장 중요한 요소 중 하나!<br/>
+			a태그 사이에는 블록요소를 담을수가 없음!
+		</dd>
+		<dd>
+			a태그는 리스트 항목을 담을때 리스트 안에다가 사용하기<br/>
+			<!--
+				<li>
+					<a href="사이트주소" title="사이트이름">
+						올바르게 사용하는 방식
+					</a>
+				</li>
+			-->
+		</dd>
+		<dd>
+			a태그 사용시에는 무조건 인라인요소로만 작업하기!
+		</dd>
+		<dd>
+			영역은 블록요소로 작성하고, 꾸며주거나 기능하는 파트는 인라인요소로 작성!
+		</dd>
+	</dl>
+	<h3>상대경로: 상대의 경로가 바뀔수 있으며, 그 상대가 어디있는지 찾아서 링크걸기</h3>
+	<p> img 태그에 src는 이미지를 찾아서 링크를 걸때 사용... 상대경로는 이와 같음</p>
+	<ol>
+		<li>
+			<a href="02_inline.html" title="같은 경로상의 파일 링크걸기">
+				같은 경로상의 파일 링크걸기
+			</a>
+		</li>
+		<li>
+			sub1폴더 만들고 그 안에 01_food.html 파일 넣어두기<br/>
+			현재 li에 a태그 만들어서 링크걸기!<br/>
+			<a href="sub1/01_food.html" title="sub1 폴더안의 파일 링크걸기">
+				sub1 폴더안의 파일 링크걸기
+			</a>
+		</li>
+		<li>
+			<h3>응용문제</h3>
+			<ol>
+				<li> sub1폴더안에 sub2 폴더만들기 </li>
+				<li> sub2폴더안에 subpage2.html 문서 만들어서 저장하기</li>
+				<li> subpage2.html에 제목을 클릭하면 현재 01_a_tag.html 파일이 열리도록 만들기 </li>
+				<li>
+					현재 li태그에는 sub2 폴더 안에 저장된 subpage2.html 파일링크걸기<br/>
+					<a href="sub1/sub2/subpage2.html" title="subpage2에 링크걸기">subpage2</a>
+				</li>
+			</ol>
+		</li>
+	</ol>
+
+ </body>
+</html>

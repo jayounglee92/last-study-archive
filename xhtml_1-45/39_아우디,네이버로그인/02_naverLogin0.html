@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> naverLogin </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+	/*############ 초기화 ############*/
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		a:link, a:visited{text-decoration:none; color:#999;}
+		a:hover, a:focus{text-decoration:underline;}
+		body{ background-color:#f5f6f7; font-family:'돋움',Dotum,Arial,Helvetica,sans-serif;}
+	
+	/*####### wrap + formWrap #######*/
+		#wrap{ width:1025px; margin:0 auto;  font-size:12px;}
+			#formWrap{ width:767px; margin:0 auto; padding-top:15px;}
+	
+	/*####### formHeader #######*/
+		#formHeader{ width:100%; height:172px; position:relative;}
+			/* 로고 높이 52픽셀 */
+			h1{width:100%; height:52px; padding-top:60px;}
+				/* 
+					a태그는 링크 영역인데 대상이 되는 객체보다 너무 크게 잡으면 엉뚱한 곳에서 
+					링크가 작동한다.
+				*/
+				h1 a{display:block; width:240px; height:48px; margin:0 auto;}
+					h1 a img{width:100%;}
+
+			#formHeader p{width:95px; height:30px; position:absolute; right:0; top:0;}
+				
+				/* select 태그는 a태그 처럼 직접 선택해야 변경되는 것들이 많음
+						+ 글자색상 / 글꼴 */
+				#formHeader p select{width:100%; height:100%;  font-family:'돋움',Dotum,Arial,Helvetica,sans-serif; text-indent:6px; }
+	
+	/*####### formContainer #######*/
+		#formContainer{width:100%; }
+			#loginArea{ width:460px; margin:0 auto; }
+				#loginArea fieldset{border:none;}
+					#loginArea legend{height:24px; text-align:right;}
+					#loginArea form p{ width:100%; height:50px; padding-bottom:20px;}
+						#loginArea form p input{border:1px solid #ccc; width:458px; height:48px;}
+
+	/*###### p.btn #####*/
+		#loginArea form p.btn{ width:100%; height:60px; padding-top:10px;}
+			#loginArea form p.btn input{width:100%; height:100%; border:none; background-color:#1fbc02; font-size:20px; color:#fff; cursor:pointer;}
+
+	/*####### checkInfo #######*/
+		#loginArea .checkInfo{width:100%; height:16px; overflow:hidden; padding:7px 0 27px; 
+		border-bottom:1px solid #ddd; }
+			
+			#loginArea .checkInfo p{ width:50%; height:100%; float:left;}
+				#loginArea .checkInfo input{width:16px; height:16px;}
+				#loginArea .checkInfo label{padding-left:10px; vertical-align:bottom;}
+
+	/*####### checkInfo + loginOn #######*/
+		#loginArea .loginOn{text-align:right;}
+			#loginArea .loginOn span{ padding:0 10px 0 5px;}
+				#loginArea .loginOn .on{color:#1fbc02; font-weight:700;}
+				#loginArea .loginOn .gray{color:#ccc;}
+				#loginArea .loginOn a{color:#555; text-decoration:underline;}
+				#loginArea .loginOn #help{margin-left:10px; background-color:#fff; color:#aaa; cursor:pointer;}
+
+	/*####### linkArea #######*/
+		.linkArea{ width:100%; text-align:center; height:24px; line-height:24px; padding:13px 0 20px;}
+			.linkArea li{display:inline;}
+				.linkArea li .gray{color:#ccc; padding:0 3px;}
+
+	/*########## formFooter ###########*/
+		#formFooter{ width:100%; line-height:20px; }
+			.footerLink{ width:460px; margin:0 auto; text-align:center;}
+				.footerLink li{display:inline;}
+					.footerLink li a{color:#333;}
+						.footerLink li .gray{color:#ccc; padding:0 3px;}
+
+			.naverCopy{ width:460px; margin:0 auto; overflow:hidden;}
+				.naverCopy p{float:left;}
+				.logoImg{ width:120px; height:14px; padding:3px 0 ;  text-align:right;}
+				.copy{ width:340px; text-indent:5px;}
+					.copy a{font-weight:bold;}
+			
+  </style>
+ </head>
+
+ <body>
+	<div id="wrap">
+		<div id="formWrap">
+			<div id="formHeader">
+				<h1>
+					<a href="https://nid.naver.com/nidlogin.login" title="네이버 로그인 사이트">
+						<img src="img/logo.png" alt="네이버로고"/>
+					</a>
+				</h1>
+				<p>
+					<select id="langSelect">
+						<option value="ko_KR">한국어</option>
+						<option value="en_US">English</option>
+						<option value="zh-Hans_CN">中文(简体)</option>
+						<option value="zh-Hant_TW">中文(台灣)</option>
+					</select>
+				</p>
+			</div>
+			<div id="formContainer">
+				<div id="loginArea">
+					<form action="#" method="post">
+						<fieldset>
+							<legend>
+								<a href="#" title="단체아이디 로그인 방법">단체아이디 로그인 방법</a>
+							</legend>
+							<p>
+								<input id="userid" type="text" name="userid" title="아이디입력"/>
+							</p>
+							<p>
+								<input id="userpw" type="password" name="userpw" title="비밀번호입력"/>
+							</p>
+							<p class="btn">
+								<input id="btn" type="submit" value="로그인" title="전송"/>
+							</p>
+						</fieldset>
+						<div class="checkInfo">
+							<p class="chkbtn">
+								<input type="checkbox" id="check" name="check" /><label for="check">로그인 상태 유지</label>
+							</p>
+							<p class="loginOn">
+								IP보안<span class="on">ON</span><span class="gray">|</span><a href="#" title="일회용 로그인">일회용 로그인</a><input type="button" id="help" value="?" title="도움말"/>
+							</p>
+						</div>
+					</form>
+					<ul class="linkArea">
+						<li>
+							<a href="#" title="아이디 찾기">아이디 찾기</a>
+							<span class="gray">|</span>
+						</li>
+						<li>
+							<a href="#" title="비밀번호 찾기">비밀번호 찾기</a>
+							<span class="gray">|</span>
+						</li>
+						<li>
+							<a href="#" title="회원가입">회원가입</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="formFooter">
+				<ul class="footerLink">
+					<li>
+						<a href="#" title="이용약관">이용약관</a>
+						<span class="gray">|</span>
+					</li>
+					<li>
+						<a href="#" title="개인정보취급방침">개인정보취급방침</a>
+						<span class="gray">|</span>
+					</li>
+					<li>
+						<a href="#" title="책임의 한계와 법적고지">책임의 한계와 법적고지</a>
+						<span class="gray">|</span>
+					</li>
+					<li>
+						<a href="#" title="회원정보 고객센터">회원정보 고객센터</a>
+					</li>
+				</ul>
+				<div class="naverCopy">
+					<p class="logoImg">
+						<a href="http://www.naver.com" title="네이버">
+							<img src="img/small_logo.jpg" alt="네이버로고"/>
+						</a>
+					</p>
+					<p class="copy">
+						Copyright &copy; <a href="http://www.naver.com" title="네이버">NAVER Corp.</a> All Rights Reserved.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

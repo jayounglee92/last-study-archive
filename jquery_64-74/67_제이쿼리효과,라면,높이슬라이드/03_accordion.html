@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> new document </title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="js/jquery-ui.min.js"></script>
+
+   
+
+  <style>
+	*{margin:0; padding:0;}
+	#main{width:1280px; margin:80px auto 0;}
+		#main h2, #main .desc{text-align:center;}
+			#main dl{width:460px; margin:40px auto 0; cursor:pointer;}
+				#main dt{height:27px; background-color:#ccc; text-align:center; line-height:27px;
+				background-image:-webkit-linear-gradient(top, #ddd 0%, #f3f3f3 50%, #ededed 51%, #ddd 100%);
+				background-image:-moz-linear-gradient(top, #ddd 0%, #f3f3f3 50%, #ededed 51%, #ddd 100%);
+				background-image:-ms-linear-gradient(top, #ddd 0%, #f3f3f3 50%, #ededed 51%, #ddd 100%);
+				background-image:-o-linear-gradient(top, #ddd 0%, #f3f3f3 50%, #ededed 51%, #ddd 100%);
+				}
+		#main dd{width:96%; background-color:#333; color:#999; font-size:0.9em; padding:5px 2%;}
+  </style>
+
+  <script>
+	$(document).ready(function(){
+		// 클릭전숨겨주기
+		$("dd").hide();
+			//dt를 클릭하면 dd가 보이게
+
+
+
+		$("dt").click(function(){
+			$("dd").slideUp(500);
+			$(this).next().slideDown(500);
+		});
+
+		/*
+			문제점:dt를 클릭하면 모든 dd가 열림
+			해결: 1) class 또는 id를 사용하여 해결
+
+				2) this(지금 선택한 대상)선택자를 사용하는 방법
+					+ 순서가 중요!
+						이벤트가 발생하고, 위에서부터 순서대로 읽어줌
+						 1) dd들 숨겨주기
+						 2) 지금 선택한 대상의다음 요소 보여주기
+		*/
+
+		// dt를 클릭하면 dd가 슬라이드 되면서 나타나고 사라지게 하기
+		// dt, 클릭, dd가 슬라이드
+	
+	});
+  </script>
+ </head>
+ <body>
+	<div id="main">
+		<h2>accordion</h2>
+		<p class="desc">제한된 공간에서 정보를 제시하는 컨텐츠 패널을 접을 수 있도록 사용하는 위젯</p>
+		<dl>
+		<dt id="apple">애플(APPLE)</dt>
+		<dd class="apple">
+			<p class="desc">
+				매킨토시 시리즈, 아이팟, 아이폰, 아이패드로 유명한 애플은 1976년 4월 설립되어 이듬해 주식을 상장했다. 창립 이후 30여년 동안 사용한 '애플컴퓨터(Apple Computer, Inc.)'란 회사명을 2007년 '애플(Apple Inc.)'로 바꾸었다. 2008년 경제 전문 &lt;포춘&gt; 지에 의해 미국에서 가장 존경받는 기업으로 선정되었으며, S&amp;P 지수를 구성하는 기업니다.
+			</p>
+		</dd>
+		<dt id="samsung">삼성(SAMSUNG)</dt>
+		<dd class="samsung">
+			<p class="desc">
+				삼성은 1990년대 초 수십개의 계열사와 복잡한 사업구조로 인해 기업 이미지는 전혀 체계가 없이 중구난방이었다. 로고도 삼성을 한자로 표기한 것과 해외에서 쓰는 세개 별 마크 등 여러가지가 공존했다. 이들 로고는 시대에 매우 뒤떨어졌으며 다양한 대상에 일관되게 적용하기에도 복잡한 형태였다. 또한, CEO가 이건희로 바뀌면서 '제2의 삼성'이라는 슬로건을 내걸로 있었다. 이에 따라 1993년 하나의 삼성으로 통일하는 대대적인 리뉴얼이 단행되었다. 이 작업은 미국의 CI전문회사인 L&amp;M이 맡았다.
+			</p>
+		</dd>
+		<dt id="lg">엘지(LG)</dt>
+		<dd class="lg">
+			<p class="desc">
+				1931년부터 1946년까지는 구인상회의 상업활동이 전개된 시기, 1947년부터 1950년까지는 락희화학에서 크림을 생산하던 시키, 1951년부터 1960년까지는 락희산업(과거의 럭키금성상사주식회사)설립으로 무역업을 시작하고 주식회사 금성사 설립으로 전자공업을 시작한 시기이다.
+			</p>
+		</dd>
+	</dl>
+	</div>
+ </body>
+</html>

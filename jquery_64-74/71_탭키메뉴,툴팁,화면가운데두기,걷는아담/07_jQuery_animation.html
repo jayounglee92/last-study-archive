@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> jQuery_animation </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		#wrap{ width:240px; height:200px; 
+					background-image:url("img/back.jpg");
+					background-position:0 -100px;
+					position:relative;}
+
+		#plays{ 
+			width:120px; height:182px;
+			position:absolute;
+			left:0; 
+			bottom:0;
+			
+		}
+
+		p{ width:50px; height:50px; background-color:#03a; border-radius:25px;text-align:center;  line-height:50px;
+		position:absolute; font-size:13px; color:#abcdef;}
+
+		p:after{content:""; display:block; 
+			border-right:10px solid #03a;
+			border-top:10px solid transparent;
+			border-bottom:10px solid transparent;
+			position:absolute;
+			left:-8px;
+			top:15px;
+		}
+
+		/*######## 이벤트 클래스 : 이벤트로 클래스속성 부여하기 #########*/
+
+		/*##### 사람이 걷는 부분 #####*/
+		.walk{
+			background-image:url("img/adam.png");
+			background-position:left top;
+			animation:plays 1s steps(8) infinite;
+		}
+
+		@keyframes plays{
+			100%{background-position:-960px;}
+		}
+
+		/*##### 배경이 움직이는 부분 ######*/
+		.backs{ animation:backs 80s infinite; }
+		@keyframes backs{ 100%{background-position:-500px -50px} }
+  </style>
+  <script>
+		$(document).ready(function(){
+			/*
+				화면에는 배경하고 버튼만 남기고, 말풍선 과 사람은 숨겨지게 만들기
+					+ 말풍선 화면에서 숨기기
+			*/
+			$("p").hide();
+
+			/*
+				애니메이션보기 버튼 클릭하면 사람이 걷도록 만들고 배경도 움직이는
+				속성 부여 받아서 나오도록 만들기 
+					+ 이벤트 클래스 이어주기!
+						+ 주의할 점:
+								정확한 대상을 지정해주기
+								클래스명은 2개 3개 이상을 한꺼번에 사용할 수 있음
+
+						+ 사람이 움직이려면 어느대상에 적용?
+							#plays
+
+						+ 배경이 움직이려면 어느대상에 적용?
+							#wrap
+			*/
+
+			$("#btn1").click(function(){
+				$("#plays").addClass("walk");
+				$("#wrap").addClass("backs");
+			});
+
+			/*
+				btn2: 말풍선 보기 버튼 클릭하면 말풍선이 보이도록 만들기
+					대상: btn2
+					이벤트: 클릭
+					이벤트 핸들러: p태그가 보이도록 만들기
+			*/
+
+			$("#btn2").click(function(){
+					/*
+						말풍선이 plays 옆으로 오도록 만들기 
+						offset 사용하여 만들기
+
+							대상: p태그
+							이벤트: offset 사용하기 css
+							이벤트 핸들러 : 말풍선
+					*/
+
+					$("p").fadeIn(500).css({"left":$("#plays").offset().left+$("#plays").width()+"px","top":$("#plays").offset().top});
+			});
+		
+		});
+  </script>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="plays"></div>
+		<p>걷기!</p>
+	</div>
+	<input type="button" id="btn1" value="애니메이션보기"/>
+	<input type="button" id="btn2" value="말풍선보기"/>
+ </body>
+</html>

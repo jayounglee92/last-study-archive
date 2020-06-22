@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> apple </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/> 
+<style type="text/css">
+	/*###############여백초기화 + 블릿기호 초기화#############*/
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+	/*####################################################*/
+
+	body{background-image:url("img/bg_grid.gif"); font:bold 20px gulim, sans-serif;}
+	
+	#wrap{width:1600px; background-color:gold; margin:0 auto;}
+		h1{text-align:center; background-color:lightblue; width:100%; font-size:34px; line-height:60px;}
+		#content{width:1440px; height:250px; background-color:#777; margin:0 auto;}
+			#content li{width:360px; height:200px; background-color:#aaa; background-size:90% 90%; background-repeat:no-repeat; background-position:center center; float:left; margin:25px 0;}
+
+			li.one{  background-image:url("img/apple_accessories.jpg");}
+			li.two{ background-image:url("img/apple_ipad_pro.jpg");}
+			li.three{  background-image:url("img/apple_airPods.jpg");}
+			li.four{ background-image:url("img/apple_game.jpg");}
+
+			/*
+				background-color나 width 등 css에서 같은 대상에 같은 기능을 2번 사용하면
+				마지막에 적용된 값을 읽어버린다.
+
+				ex)
+					li{background-color:red; background-color:blue;}
+						위와 같이 같은 대상에 같은 기능이 2번 적용되면\
+						뒤에 적용된 background-color:blue가 실행된다.
+			*/
+</style>
+ </head>
+
+ <body>
+	<div id="wrap">
+		<h1>Apple Store</h1>
+		<ul id="content">
+			<li class="one">accessories</li>
+			<li class="two">ipad pro</li>
+			<li class="three">airPods</li>
+			<li class="four">game</li>
+		</ul>
+	</div>
+ </body>
+</html>

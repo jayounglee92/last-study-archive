@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> jQuery_animation </title>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	#bg{width:400px; height:400px; background-image:url("img/back.jpg"); background-size:430%; position:relative;}
+		#adam{width:120px; height:182px; background:url("img/adam.png")left top; position:absolute; left:50px; top:180px;}
+	
+	@keyframes bgs{
+		100%{background-position:-1024px top;}
+	}
+	
+	@keyframes plays{
+		100%{background-position:-960px;}
+	}
+
+	#words{width:140px; height:140px; position:relative;}
+		#words span{display:block; width:0; height:0; border-right:20px solid blue; border-left:20px solid transparent; border-top:20px solid transparent; border-bottom:20px solid transparent; position:absolute; left:5px; top:45px;}
+		#words p{width:100px; height:100px; background-color:blue; color:#fff; border-radius:50px; text-align:center; line-height:100px; position:absolute; right:0; top:0;}
+
+	button{cursor:pointer;}
+  </style>
+  <script>
+	$(function(){
+		$("#adam").hide();
+
+		$("#words").css({"left":$("#adam").offset().left+$("#adam").width()+"px","top":$("#adam").offset().top+$("#adam").height()+"px"}).hide();
+
+		$("#btn1").click(function(){
+			$("#bg").css({"animation":"bgs 50s infinite"});
+			$("#adam").show().css({"animation":"plays 1s steps(8) infinite"});
+		});
+
+		$("#btn2").click(function(){
+			$("#words").fadeIn(500);
+		});
+	});
+  </script>
+ </head>
+ <body>
+  <div id="bg">
+	<p id="adam">
+	</p>
+	<div id="words">
+		<span></span>
+		<p>랄라~</p>
+	</div>
+  </div>
+  <button id="btn1">애니메이션보기</button><button id="btn2">말풍선보기</button>
+  
+ </body>
+</html>
+<!--
+	01) 움직이지 않고 배경만 있음
+	02) 애니메이션 보기 클릭하면 사람은 걷고, 배경도 움직이기
+	03) 말풍선 보기 누르면 말풍선 나오도록 만들기
+	04) 말풍선의 위치는 offset이용하기
+-->

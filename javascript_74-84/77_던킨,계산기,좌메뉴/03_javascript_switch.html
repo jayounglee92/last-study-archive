@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> javascript_switch </title>
+  <script>
+		function total(){
+			alert("결과값 확인");
+			/*
+				input공간의 내용들을 이용하여 작업
+				결과.value = 숫자1.value	+(연산자.value)	숫자2.value
+				
+				입력받는 방식
+				: input 태그를 이용하는 방식?
+				: prompt를 이용하는 방식?
+
+				출력하는 방식
+				: input 태그에 출력
+				: 문서에 출력?, 알림창에 출력?, 확인창에 출력
+
+				현재 작업은?
+					태그에서 입력받고, 태그에 출력받기 
+			
+				1) id 객체로 만들기
+				2) value값으로 접근하기
+			*/
+
+			var num1 = document.getElementById("num1");
+			var oper = document.getElementById("oper");
+			var num2 = document.getElementById("num2");
+			var result = document.getElementById("result");
+
+			// console.log( num2 );
+			
+			/*
+				if문을 활용하는 방식
+					result.value = num1.value ( oper.value( +, - , * ,  / ) ) num2.value;
+
+				문제점:
+					num1.value와 num2.value 더해지지 않음
+					
+					console.log( typeof(num1.value) );
+					: 확인을 했더니 속성이 string으로 확인됨
+						: input에는 type="number"로 설정
+
+					+ input이 가지고 있는 type의 number과 속성은 다름!
+						: 표현 방법을 number로 표현한것뿐 속성을 바꾼것은 아님!
+
+					+ input 공간이 다르면 각각을 선택하여 속성바꾸기 
+						parseInt(num1.value) + parseInt(num2.value)
+			
+			
+
+			if(oper.value == "+"){
+				result.value = parseInt(num1.value) + parseInt(num2.value);
+			}
+			else if(oper.value == "-"){
+				result.value = parseInt(num1.value) - parseInt(num2.value);
+			}
+			else if(oper.value == "*"){
+				result.value = parseInt(num1.value) * parseInt(num2.value);
+			}
+			else if(oper.value == "/"){
+				result.value = parseInt(num1.value) / parseInt(num2.value);
+			}
+			
+			*/	
+
+			switch( oper.value ){
+				case "+" :result.value = parseInt(num1.value) + parseInt(num2.value); break;
+				case "-" :result.value = parseInt(num1.value) - parseInt(num2.value); break;
+				case "*" :result.value = parseInt(num1.value) * parseInt(num2.value); break;
+				case "/" :result.value = parseInt(num1.value) / parseInt(num2.value); break;
+			}
+		
+		}
+  </script>
+ </head>
+ <body>
+	<h3>javascript:switch</h3>
+	<form action="#" method="get">
+		<p>
+			<input type="button" value="계산하기" onclick="total();"/>
+		</p>
+		<p>
+			<label for="num1">숫자입력1: </label>
+			<input id="num1" type="number" name="num1"/>
+		</p>
+		<p>
+			<label for="oper">연산자입력: </label>
+			<input id="oper" type="text" name="oper"/>
+		</p>
+		<p>
+			<label for="num2">숫자입력2: </label>
+			<input id="num2" type="number" name="num2"/>
+		</p>
+		<p>
+			<label for="result">결과값: </label>
+			<input id="result" type="text" name="result" readonly/>
+		</p>
+	</form>
+ </body>
+</html>

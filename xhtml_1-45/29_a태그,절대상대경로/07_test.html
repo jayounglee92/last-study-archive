@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> test </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		h3{ line-height:60px;}
+		#testBox{ background-color:#ccc; width:900px; margin:50px 0;s}
+			ul{width:100%; background-color:pink; border:2px solid blue; overflow:hidden;}
+				ul li{width:300px; height:300px; background-color:red; float:left; text-align:center; line-height:300px;}
+				.no1{background-color:gold;}
+				.no2{background-color:#ff0;}
+
+  </style>
+ </head>
+ <body>
+	<h3>문자열이 깨졌을때 확인해볼 수 있는 부분은?</h3>
+	<p>
+		charset부분에 utf-8로 설정되어 있는지 확인하기<br/>
+		인코딩시 utf-8로 저장이 되었는지 확인하기<br/>
+		운영체제가 다른 컴퓨터에서 작업했을경우 깨질 우려가 있음
+	</p>
+
+
+	<h3>글자에 밑줄이 자동으로 만들어졌을때 설정되어 있는 값은?</h3>
+	<p>
+		a태그가 설정되어 있을때 밑줄이 만들어짐
+	</p>
+
+
+	<h3>a태그에서 사이트에 방문하고 왔을때에 대한 기능은?</h3>
+	<p>
+		a:visited
+	</p>
+
+
+	<h3>아래 문제 풀기! </h3>
+	<ol>
+		<li>아래에 div 태그 만들기</li>
+		<li>ul li태그 만들기 </li>
+		<li>ul의 너비는 900으로 만들고 li태그3개 float로 나열하기</li>
+		<li>li태그 사이의 글자는 test1, test2, test3 작성하기</li>
+		<li>배경 색상은 알아서 작성하고 글자가운데 x,y축 정렬하기</li>
+	</ol>
+	<div id="testBox">
+		<ul>
+			<li class="no1">test1</li>
+			<li class="no2">test2</li>
+			<li class="no3">test3</li>
+		</ul>
+	</div>
+
+
+	<h3>float를 끊는 방법에 대하여 작성하기 ( 부모요소인 경우! )</h3>
+	<p>
+		+ 부모요소에 너비와 높이 설정하기 ( 높이 설정시 주의! 자녀를 담을수 있도록 설정하기 )<br/>
+		+ 자녀의 높이가 제각각 일 경우 ( overflow:hidden ) 설정하기
+	</p>	
+
+
+	<h3>px과 %작업시 어떤 것을 우선시 해야 하는지 작업하기</h3>
+	<p>픽셀 작업을 우선시 하고 % 작업하기</p>
+
+	<h3>익스플로러 구형 브라우저는 몇버전까지일까?</h3>
+	<p>8버전 까지가 구형 브라우저!</p>
+
+
+	<h3>모든 브라우저에 같은 환경으로 맞추는 작업을 무엇이라할까?</h3>
+	<p>
+		크로스브라우징( 구형브라우저 뿐 아니라 모든 브라우저의 환경을 통일성 있게 맞추기)
+	</p>
+
+
+	<h3>같은 영역안에 같은 헤드라인 태그를 사용할수 있을까? 사용하지 못한다면 이유는?</h3>
+	<p>
+		같은 헤드라인 태그를 사용할수는 있으나 모두가 우선순위가 높으면
+		읽어들일때 버거움!
+		h3를 사용했다면 h2나 h4와 같은 다른 헤드라인 태그 사용을 권장한다.
+	</p>
+	<div>
+		<h3>h3헤드라인</h3>
+		<div>
+			<h3>영역이 달라졌을때 같은 헤드라인 사용가능</h3>
+		</div>
+	</div>
+
+
+	<h3>밑줄이 만들어졌을때 지우는 기능은?</h3>
+	<p>
+		text-decoration:none;
+	</p>
+
+
+
+	<h3>border는 기본적으로 어떤 기능인지 작성하기</h3>
+	<p>
+		어떠한 객체의 테두리를 만드는 기능<br/>
+		벡터방식을 따르고 있기 때문에 깨지지 않는다.<br/>
+		반응형 작업시 너비의 간격이 넓어지거나 줄어들수 있기 때문에<br/>
+		선명함이 유지 되려면 border로 만들어서 작업해야 한다.
+	</p>
+
+	<h3>border는 축약형 표현인데 무엇부터 적용되는지 작성하기</h3>
+	<p>
+		border:1px solid blue<br/><br/>
+		선의 두께가 우선작업<br/>
+		선의 타입(모양)<br/>
+		선의 색상
+	</p>
+
+
+	<h3>font 축약형 표현방법은 무엇부터 적용하는지 작성하기</h3>
+	<p>
+		font:italic bold 12px/1.5em batang, sans-serif<br/><br/>
+		1) font-style (생략가능)<br/>
+		2) font-weight (생략가능)<br/>
+		3) font-size( 생략불가능)<br/>
+		4) line-height( 생략가능 )<br/>
+		5) font-family( 생략불가능)
+	</p>
+
+
+	<h3>폰트의 굵기를 변형하려할때 우선적으로 작업해야 하는것은?</h3>
+	<p>
+		폰트의 모양이 바뀐다면, 폰트의 모양부터 확인하기<br/>
+		폰트의 모양중에는 기본적으로 굵은 서체가 있고, 얇은 서체가 있음
+	</p>
+
+	<h3>기본이 되는 글꼴 크기는?</h3>
+	<p>
+		16픽셀
+	</p>
+
+
+	<h3>링크를 걸때 사용하는 태그는?</h3>
+	<p>
+		a태그, 이미지맵
+	</p>
+
+
+	<h3>overflow를 해제하는 유일한 기능은?</h3>
+	<p>
+		overflow:visible
+	</p>
+
+
+	<h3>display 기능중에서 인라인 속성을 블록으로 바꾸는 방법은? 그리고 고려해야 하는 상황은?</h3>
+	<p>
+		display:block( 인라인속성을 블록으로 바꿀때 사용)<br/>
+		display:inline( 블록속성을 인라인으로 바꿀때 사용)
+	</p>
+
+
+	<h3>현재 폴더에 subpage 폴더 만들고 , 새로운 문서로 test2.html 파일 만들기, h2태그에 링크 걸어서 현재 페이지로 연결되도록 만들기 </h3>
+
+	<h3>./와 ../의 차이점 작성하기</h3>
+
+	<p>
+		./ 는 현재있는 위치에서 찾기 ( 윈도우에서는 작업을 할경우가 거의 없음)<br/>
+		맥에서 작업할때는 프로그래밍 작업시 경로설정에서 사용<br/><br/>
+		../ 현재 위에서 한번 나가서 찾기
+	</p>
+	<h3>1) 이론테스트 보내주기 / 2번째는 아래 문제 보내주기</h3>
+	<h3>화면에 보이는것 새로운 페이지 열어서 작성하기</h3>
+ </body>
+</html>

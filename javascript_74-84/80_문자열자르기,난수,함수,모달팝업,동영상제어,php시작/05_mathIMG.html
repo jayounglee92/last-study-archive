@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> math </title>
+  <script>
+	
+	// 이미지가 6장이 있음, 번호는 0~9 까지 나오고 있음
+	// 1) 정수 표현으로 바꾸기
+	// 2) 이미지 시작은 1 부터, 끝나는 번호는 6
+
+	var index = Math.floor(Math.random()*10)%6+1;
+	/*
+		나머지 구하기!
+	
+			6 나누기 1 === 몫을 구하는 방식이 아님 , 나눌수 없으면 1출력
+			6 나누기 2			2출력
+			6 나누기 3			3출력
+			6 나누기 4			4출력
+			6 나누기 5			5출력
+
+			6 나누기 6			계산은 가능하나 나머지가  0
+			6 나누기 7			나머지 1
+			6 나누기 8			나머지 2
+			6 나누기 9			나머지 3
+	*/
+
+	document.write("현재 번호: "+index);
+	window.onload = function(){
+		var view = document.getElementById("view");
+		view.innerHTML="<img src='img/image0"+index+".jpg' alt='이미지'/>";
+	}
+  </script>
+ </head>
+ <body>
+	<div id="view">
+	</div>
+ </body>
+</html>

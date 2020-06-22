@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> google </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+  <style>
+  /*############### 초기화 ##################*/
+	*{margin:0; padding:0;}
+	body, header, nav, section, article, footer, div{margin:0; padding:0;}
+	header, nav, section, article, footer{display:block;}
+	li{list-style:none;}
+	h2{width:1px; height:1px; line-height:0; overflow:hidden; position:absolute; left:-9999px;}
+	
+	#googleWrap{width:1920px; height:100px; margin:0 auto;}
+		#header{width:100%; text-align:center; padding:50px 0 30px;}
+
+		#videoArea{width:100%; text-align:center;}
+			#videoArea video{width:600px;}
+
+		#searchArea{width:100%; height:40px; text-align:center; padding:20px 0;}
+			#searchArea input{width:600px; height:40px; font-size:20px; border:1px solid #aaa; text-indent:10px;}
+		
+		#siteArea{width:100%;}
+			#siteArea ul{width:860px; margin:0 auto;}
+			#siteArea ul:after{content:""; display:block; clear:both;}
+				#siteArea ul li{width:24%; float:left; margin-right:1%; margin-bottom:1%; box-shadow:2px 2px 4px #ccc;}
+					/*#siteArea ul li:last-child{margin-right:0;}*/
+					#siteArea ul li img{width:100%;}
+			#siteArea p{width:100%; padding:20px 0;text-align:center; text-transform:uppercase; letter-spacing:2px; font-weight:bold; color:#aaa;}
+	
+	/* pc 버전 해상도*/
+	@media all and (min-width:1025px) and (max-width:1920px){
+		#header{background-color:pink;}
+	}
+
+	/* 테블릿 pc버전*/
+	@media all and (min-width:768px) and (max-width:1024px){
+		#header{background-color:green;}
+		#videoArea video{width:560px;}
+		#searchArea input{width:560px;}
+		#siteArea ul{width:720px;}
+			#siteArea ul li{width:32%;}
+			#siteArea ul li.noshow{display:none;}
+	}
+
+	/*스마트폰 가로 버전*/
+	@media all and (min-width:481px) and (max-width:767px){
+		#header{background-color:gray;}
+			#videoArea video{width:430px;}
+			#searchArea{padding:30px 0;}
+				#searchArea input{width:430px;}
+			#siteArea ul{width:460px;}
+				#siteArea ul li{width:49%;}
+	}
+
+	/*스마트폰 세로 버전*/
+	@media all and (min-width:320px) and (max-width:480px){
+		#header{background-color:gold;}
+			#videoArea video{width:340px;}
+			#searchArea{padding:30px 0;}
+				#searchArea input{width:340px;}
+			#siteArea ul{width:320px;}
+				#siteArea ul li{width:100%; margin:0;}
+	}
+
+
+	
+  </style>
+ </head>
+ <body>
+	<div id="googleWarp">
+		<header id="header">
+			
+			<a href="#none" title="google">
+				<img src="img/googlelogo_color_272x92dp.png" alt="구글 로고 이미지"/>
+			</a>
+		</header>
+		<section id="videoArea">
+			<h2>비디오 영역</h2>
+			<video controls poster="">
+				<source src="img/DEAN - instagram Official Teaser.mp4" type="video/mp4"/>
+			</video>
+		</section>
+		<section id="searchArea">
+			<h2>검색 영역</h2>
+			<input id="search" type="search" name="search" placeholder="Google 검색 또는 입력"/>
+		</section>
+		<section id="siteArea">
+			<h2>자주방문하는 사이트 영역</h2>
+			<ul>
+				<li>
+					<a href="#none" title="아우디 사이트">
+						<img src="img/audi.jpg" alt="아우디 이미지"/>
+					</a>
+				</li>
+				<li>
+					<a href="#none" title="다음 사이트">
+						<img src="img/daum.jpg" alt="다음 이미지"/>
+					</a>
+				</li>
+				<li>
+					<a href="#none" title="엘지 사이트">
+						<img src="img/lg.jpg" alt="엘지 이미지"/>
+					</a>
+				</li>
+				<li>
+					<a href="#none" title="네이버 사이트">
+						<img src="img/naver.jpg" alt="네이버 이미지"/>
+					</a>
+				</li>
+				<li>
+					<a href="#none" title="닌텐도 사이트">
+						<img src="img/nintendo.jpg" alt="닌텐도 이미지"/>
+					</a>
+				</li>
+				<li>
+					<a href="#none" title="삼성 사이트">
+						<img src="img/samsung.jpg" alt="삼성 이미지"/>
+					</a>
+				</li>
+				<li class="noshow">
+					<a href="#none" title="소니 사이트">
+						<img src="img/sony.jpg" alt="소니 이미지"/>
+					</a>
+				</li>
+				<li class="noshow">
+					<a href="#none" title="w3c 사이트">
+						<img src="img/w3c.jpg" alt="w3c 이미지"/>
+					</a>
+				</li>
+			</ul>
+			<p>google:mediaquery</p>
+		</section>
+	</div>
+ </body>
+</html>
+<!--
+구글로고
+검색창
+
+1) pc버전 : 4x2
+2) 테블릿 : 3x2
+3) 스마트폰가로 : 2x4
+4) 스마트폰세로 : 1x8
+이미지에 호버하면 그림자
+-->

@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title>float</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		h2{ line-height:60px; text-align:center; width:100%;}
+		#wrap{width:1280px; margin:0 auto; }
+
+		/*############# test0 #############*/
+			#test0{width:1000px; margin:0 auto; overflow:hidden; }
+				#test0 li{width:200px; height:100px; background-color:blue; float:left; text-align:center; line-height:100px; color:#fff;}
+				#test0 .li0_1{background-color:#00f;}
+				#test0 .li0_2{background-color:#00c;}
+				#test0 .li0_3{background-color:#00a;}
+				#test0 .li0_4{background-color:#008;}
+				#test0 .li0_5{background-color:#005;}
+
+		/*############# test1 #############*/
+			#test1{ width:600px; background-color:pink; margin:50px auto; overflow:hidden;}
+				#test1 li{width:200px; height:200px; background-color:green; float:left; text-align:center; line-height:200px;}
+					#test1 li div{width:100%; height:100%; background-color:gold; }
+						#test1 li div p{width:50%; height:50%; background-color:green; line-height:100px; float:left;}
+
+					#test1 .li1_2{background-color:#aca;}
+					#test1 .li1_3{background-color:#7c7;}
+						#test1 div .p1_1{background-color:#0a0;}
+						#test1 div .p1_2{background-color:#0b0;}
+						#test1 div .p1_3{background-color:#0c0;}
+						#test1 div .p1_4{background-color:#070;}
+
+
+		/*############# test2 #############*/
+			#test2{width:1280px; background-color:#a00; height:200px;}
+				#test2 li{width:340px; height:200px; background-color:#ccc; float:left; text-align:center; line-height:200px;}
+				
+				#test2 li.li2_1{width:600px; height:200px; background-color:#333;}
+					#test2 li.li2_1 div{width:100%; height:100%;}
+						#test2 li.li2_1 .p2_1{background-color:#fc0; width:200px; height:200px; float:left;}
+						#test2 li.li2_1 .p2_2{background-color:#fa0; width:400px; height:200px; float:left;}
+				#test2 li.li2_2{ background-color:#ffa;}
+				#test2 li.li2_3{ background-color:#ff0;}
+
+		/*############# test3 #############*/
+			#test3{ width:1100px; height:200px; margin:50px auto; }
+				#test3 li{width:254px; height:200px; background-color:pink; float:left; text-align:center; line-height:200px; margin-right:1px;}
+				#test3 .li3_2{width:334px;  background-color:red;}
+				/*
+					기본 크기가 275픽셀 335가 혼자 60픽셀을 차지하고 있음
+					나머지 li태그들이 각각 20씩 감소하여 255가 됨!
+				*/
+
+		/*############# test4 #############*/
+			#test4{width:1200px; background-color:#333; margin:0 auto; height:300px;}
+				#test4 li{width:300px; height:300px; background-color:aqua; float:left; text-align:center; line-height:300px;}
+				#test4 .li4_1{border:5px solid #00f; width:290px; height:290px;}
+				#test4 .li4_3{border:5px solid #f00; width:290px; height:290px;}
+
+		/*############# test5 #############*/
+			#test5{ width:900px; background-color:gray; margin:50px auto 0; height:400px;}
+				#test5 li{width:300px; height:400px; background-color:#ccc; float:left; text-align:center; line-height:400px; color:#fff;}
+				#test5 div{width:100%; height:100%; }
+					#test5 div p{width:50%; height:200px; background-color:gold; line-height:200px; float:left;}
+					#test5 div .p5_2{background-color:#aaa;}
+					#test5 div .p5_3{background-color:#999; width:100%;} 
+
+		/*
+			중요!
+				
+				자녀들이 float가 적용되면 항상 부모요소에 border나 background-color를 사용하여
+				부모요소가 제대로 역할을 하는지 확인하기!
+					+ 부모요소에 너비와 높이 작업 or overflow:hidden 작업하기!
+		*/
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<h2>float_test2 : 기본 큰 틀은 ul li로 만들기</h2>
+		<!-- 01_전체 너비 1000으로 만들기 -->
+		<ul id="test0">
+			<li class="li0_1">
+				test1
+			</li>
+			<li class="li0_2">
+				test2
+			</li>
+			<li class="li0_3">
+				test3
+			</li>
+			<li class="li0_4">
+				test4
+			</li>
+			<li class="li0_5">
+				test5
+			</li>
+		</ul>
+		
+		<!-- 02_전체 너비 600으로 만들기 안에 들어있는 작은 박스는 p태그로 만들기! -->
+		<ul id="test1">
+			<li class="li1_1">
+				<div>
+					<p class="p1_1">p태그1</p>
+					<p class="p1_2">p태그2</p>
+					<p class="p1_3">p태그3</p>
+					<p class="p1_4">p태그4</p>
+				</div>
+			</li>
+			<li class="li1_2">
+				test2
+			</li>
+			<li class="li1_3">
+				test3
+			</li>
+		</ul>
+
+		<!-- 03_전체 너비 1280으로 만들기 li태그는 3개
+				컨텐츠 영역 + 글씨 영역은 각각 p태그에 담아서 2개
+		-->
+		<ul id="test2">
+			<li class="li2_1">
+				<div>
+					<p class="p2_1">컨텐츠 영역</p>
+					<p class="p2_2">글씨영역</p>
+				</div>
+			</li>
+			<li class="li2_2">
+				li태그2
+			</li>
+			<li class="li2_3">
+				li태그3
+			</li>
+		</ul>
+
+		<!-- 04_전체 너비 1100으로 만들기 
+				주의! 박스와 박스 사이의 하얀선은 border 적용 X
+		-->
+		<ul id="test3">
+			<li class="li3_1">
+				test1
+			</li>
+			<li class="li3_2">
+				test2
+			</li>
+			<li class="li3_3">
+				test3
+			</li>
+			<li class="li3_4">
+				test4
+			</li>
+		</ul>
+
+		<!-- 05_전체 너비 1200으로 만들기-->
+		<ul id="test4">
+			<li class="li4_1">
+				li태그1
+			</li>
+			<li class="li4_2">
+				li태그2
+			</li>
+			<li class="li4_3">
+				li태그3
+			</li>
+			<li class="li4_4">
+				li태그4
+			</li>
+		</ul>
+
+		<!-- 06_전체 너비 900으로 만들기 -->
+		<ul id="test5">
+			<li class="li5_1">
+				test1
+			</li>
+			<li class="li5_2">
+				<div>
+					<p class="p5_1">p태그1</p>
+					<p class="p5_2">p태그2</p>
+					<p class="p5_3">p태그3</p>
+				</div>
+			</li>
+			<li class="li5_3">
+				test3
+			</li>
+		</ul>
+	</div>
+ </body>
+</html>

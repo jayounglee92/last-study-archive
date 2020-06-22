@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> samsung </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		/*############ 초기화 ############*/
+			*{margin:0; padding:0;}
+			li{list-style-type:none;}
+		/*##############################*/
+		#wrap{width:1280px; margin:0 auto; overflow:hidden;}
+			ul{ width:1180px; margin:50px auto 0; height:150px; padding:25px 0; border:1px solid #ccc;}
+				ul li{width:200px; padding-left:40px; height:150px; float:left; overflow:hidden;}
+					ul li h3{color:#1a559b;}
+					ul li.first h3{padding-bottom:10px;}
+
+					ul li p.subImg{width:100%; }
+						ul li p.subImg img{width:100%;}
+					
+			
+				/* 
+					자녀요소들 float를 붙이고 고민하기? 
+						+ 부모요소에 배경이미지나, 배경색상, 테두리등이 
+						적용되는지 꼭확인하기
+
+						만약에 제대로 적용되지 않는다면 부모요소에 너비와 높이값이 
+						제대로 설정되어있는지 확인하기
+				*/
+				
+				ul li#news{width:380px; padding-left:40px;}
+					ul li#news .title{font-weight:700; padding-top:25px;}
+					ul li#news .text{font-size:15px;}
+
+					.subTitle{ background-color:pink; 
+					width:200px; height:20px; 
+					overflow:hidden;
+					white-space:nowrap;
+					text-overflow:ellipsis;
+					}
+				/*
+					문제점:
+						너비와 높이값을 설정하면 글씨가 사라진것처럼 보이나.. 실제로 높이에 
+						해당하지 못하여 다른 객체의 밑으로 숨게 된다.
+					
+					해결
+						숨기기: overflow:hidden
+							
+							+ 해당하는 영역에서 넘치면 ...으로 보이게 만들기
+								
+								+ 조건1: 반드시 너비와 높이값이 있어야 한다.( 영역을 만들어야 함 )
+								+ 조건2: 영역에서 넘치면 숨겨주기 overflow:hidden
+								+ 조건3: 한줄로만 표현하기 
+												: 비어있는 공간있어도 옆으로만 길게 나오게 만들기
+												white-space:nowrap ( 빈공란이 있어도 감싸주지 않겠다. )
+
+								+ 조건4: 글씨가 넘치면 ...으로 해결하기	
+									text-overflow:ellipsis
+
+						+ 중요!
+							위에 나열된 조건들이 하나라도 만족하지 못할 경우 값이 제대로 적용되지
+							않을 수 있음
+				*/
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<ul>
+			<li class="first">
+				<h3>NEWS</h3>
+				<p class="subImg">
+					<img src="img/sam0.jpg" alt="지도이미지"/>
+				</p>
+			</li>
+			<li id="news">
+				<p class="title">
+					Samsung Engineering receives two contracts worth $ 500 million USD from Thailand
+				</p>
+				<p class="text">
+					Samsung Engineering announced that it received two contracts from two subsidiaries of PTT, a Thailand state-owned oil & gas company. The contracts which have a combined value of approximately $ 500 million USD are awarded for a petrochemical project and a power generation project located in Rayong, 150km southeast of Bangkok.Samsung Engineering will deliver both on an EPCC (Engineering, Procurement, Construction and Commissioning) lump-sum turnkey basis. The power generation project is anticipated to be delivered in 2019 and the petrochemical project is expected to be completed in 2020.&nb…
+				</p>
+			</li>
+			<li>
+				<h3>CSR ACTIVITIES</h3>
+				<p class="subTitle">
+					Samsung Engineering launched the Eco-generation School in Abu Dhabi, UAE
+				</p>
+				<!--
+				<p class="subImg">
+					<img src="img/sam1.jpg" alt="CSR ACTIVITIES 관련 사진"/>
+				</p>
+				-->
+			</li>
+			<li>
+				<h3>MEET OUR PEOPLE</h3>
+				<p class="subTitle">
+					Melecio Jr. / Pre-Commissioning Engineer
+				</p>
+				<p class="subImg">
+					<img src="img/sam2.jpg" alt="MEET OUR PEOPLE 관련 사진"/>
+				</p>
+			</li>
+		</ul>
+	</div>
+ </body>
+</html>
+<!--
+	참고 사이트:	
+		삼성엔지니어링
+			사이트분석
+			+ 반응형 페이지 확인하기
+				이유는?	px만 고정적으로 사용하는 것이 아니라 % 단위를 함께 사용하기 때문에
+				사이즈의 변화가 심하다!
+			
+			+	pc버전에 맞춰서 작업하기
+				+ 픽셀 고정! 고정된 픽셀 사용하기
+				장점: 어떠한 화면에서도 깨질 우려가 없음! 사이즈 변화도 고정!
+				단점: 고정되어 있기 때문에 움직이지 않음!
+
+				+ 반응형, 웹접근성 and 웹표준 ( 추후협의 )
+				+ 자바스크립트 and jQuery 개발 ( 개발이 필요하면 추후협의 )
+				+ 데이터베이스 장착!
+-->

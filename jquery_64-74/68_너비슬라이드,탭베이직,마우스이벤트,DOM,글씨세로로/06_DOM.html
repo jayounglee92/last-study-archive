@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> DOM </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+	$(document).ready(function(){
+		/*
+			01) DOMControl에서 li요소 중에 홀수만 선택하여 배경색상 핑크색상 적용
+				+ 대상:DOMControl
+				+ 이벤트:css
+				+ 이벤트핸들러:li요소중에서도 홀수에 배경색상적용하기
+
+				현재 li태그들의 숫자가 0,1,2,3...작성되어 있음
+					작성되어있는 숫자는 의미가 없음!
+
+					중요!)
+						li태그들은 만들어질 때 처음부터 공간값이 생김!
+							0,1,2,3,4,5,6...(배열:array(자바스트립트))
+							0번째 공간이 첫번째공간, 1번째 공간이 두번째 공간
+							0이 짝수, 1이홀수...
+		*/
+		$("#DOMControl li:odd").css({"backgroundColor":"pink"});
+		
+
+		/*
+			02) DOMControl에서 li요소 중 짝수만 선택하여 배경색상 lightblue 적용
+			+ 대상 : DOMControl li요소 중 짝수
+			+ 이벤트 : css
+			+ 이벤트핸들러 : li요소 중 짝수만 배경색상lightblue적용
+		*/
+		$("#DOMControl li:even").css({"backgroundColor":"lightblue"});
+
+
+
+		/*
+			03) DOMControl에서 li요소 중 첫번째 요소를 클릭하면 border 1픽셀 실선 빨간색, 글자가운데정렬, 박스그림자 주기
+			+ 대상 : li요소 중 첫번째요소
+			+ 이벤트 : css
+			+ 이벤트핸들러 : li요소 중 첫번째요소 border 1픽셀 실선 빨간색, 글자가운데정렬, 박스그림자 주기 
+		*/
+		$("#DOMControl li:first").click(function(){
+			//+ 이벤트핸들러 : li요소 중 첫번째요소 border 1픽셀 실선 빨간색, 글자가운데정렬, 박스그림자 주기 
+			//대상 : this
+			//이벤트 : css
+			//이벤트핸들러 : 자기자신(this)
+			$(this).css({"border":"1px solid red","text-align":"center","boxShadow":"2px 2px 5px #ccc"});
+		});
+		
+
+
+		/*
+			04) h1태그를 클릭하면 li태그 중 그 마지막값이 slideUp이 되도록 만들기,easing사용하기, 시간은 1.5초, 알림창에는 slideUp성공띄우기
+			+ 대상 : h1
+			+ 이벤트 : 클릭
+			+ 이벤트핸들러 : li태그 중 그 마지막값이 slideUp이 되도록 만들기,easing사용하기, 시간은 1.5초, 알림창에는 slideUp성공띄우기
+		*/
+		$("h1").click(function(){
+			//+ 이벤트핸들러 : li태그 중 그 마지막값이 slideUp이 되도록 만들기,easing사용하기, 시간은 1.5초, 알림창에는 slideUp성공띄우기
+			//대상 : li태그중 마지막값
+			//이벤트 : slideUp
+			//이벤트핸들러 : li태그중 마지막값
+
+			$("#DOMControl li:last").slideUp(1500,"swing",function(){
+				alert("slideUp성공띄우기");
+			});
+		});
+
+
+
+		/*
+			05) DOMControl에서 li요소 중 3번째 이전요소에 외곽선 만들기 이전 요소는? (꺽쇠여는부분)
+			+ 대상 : DOMControl
+			+ 이벤트 : css
+			+ 이벤트핸들러 : li요소 중 3번째 이전요소에 외곽선 만들기
+
+			0 1 2...
+			+ 공간값은 0부터 시작
+			+ index == 공간값
+		*/
+		$("#DOMControl li:lt(2)").css({"outline":"1px solid orange"});
+		
+
+
+		/*
+			06) DOMControl에서 li요소 중 4번째 이후 요소에 스탸일적용,너비 500픽셀, 높이 50픽셀, 글자가운데 정렬, 글자 그림자 효과적용
+			+ 대상 : DOMControl
+			+ 이벤트 : css
+			+ 이벤트핸들러 : li요소 중 4번째 이후 요소에 스탸일적용,너비 500픽셀, 높이 50픽셀, 글자가운데 정렬, 글자 그림자 효과적용
+		*/
+		$("#DOMControl li:gt(3)").css({"width":"500px","height":"50px","textAlign":"center","textShadow":"2px 2px 2px #fff"});
+
+		
+
+		/*
+			07) DOMControl에서 li요소 중 2번째 요소를 클릭하면 스스로 너비가 400픽셀, 높이20, 글자크기 15픽셀, 글자 그림자 적용, 백그라운드 컬러는 노랑색적용
+			+ 대상 : DOMControl li요소 중 2번째 요소
+			+ 이벤트 : 클릭
+			+ 이벤트핸들러 : li요소 중 2번째 요소를 클릭하면 스스로 너비가 400픽셀, 높이20, 글자크기 15픽셀, 글자 그림자 적용, 백그라운드 컬러는 노랑색적용
+		*/
+		$("#DOMControl li:eq(1)").click(function(){/*eq:해당하는 대상의 값을 정확하게 잡아줄 때 사용*/
+			//+ 이벤트핸들러 : li요소 중 2번째 요소를 클릭하면 스스로 너비가 400픽셀, 높이20, 글자크기 15픽셀, 글자 그림자 적용, 백그라운드 컬러는 노랑색적용
+			//대상 : li요소 중 2번째 요소
+			//이벤트 : css
+			//이벤트핸들러 : li요소 중 2번째 요소
+			$(this).css({"width":"400px","height":"20px","fontSize":"15px","textShadow":"2px 2px 3px #aaa","backgroundColor":"yellow"});
+		});
+	
+	});
+  </script>
+ </head>
+ <body>
+  <h1>DOMControl:여러가지 선택자</h1>
+  <p>
+	일반적으로 접근하는 방법 : 태그, id, class<br/>
+	DOM : Document Object Model의 약자 : <br/>
+	문서상의 모든 객체들에 접근하여 컨트롤이 가능함
+  </p>
+  <ul id="DOMControl">
+	<li>0) 홀수인 것 선택하기</li>
+	<li>1) 짝수인 것 선택하기</li>
+	<li>2) 첫번째 요소만 선택하기</li>
+	<li>3) 현재 id영역을 어떠한 기준으로 li요소중에 첫번째인 것 선택</li>
+	<li>4) 현재 id영역을 어떠한 기준으로 li요소중에 마지막인 것 선택</li>
+	<li>5) 현재 id영역을 어떠한 기준으로 3번째 이전요소 선택</li>
+	<li>6) 현재 id영역을 어떠한 기준으로 4번째 이후요소 선택</li>
+  </ul>
+ </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> sliding </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		html{ height:100%; }
+		body{ background-image:-webkit-linear-gradient(top,#222 0%, #000 80%, #777 100%); height:100%;}
+		h1{ text-align:center; padding:20px 0; }
+		h1 img{width:40%;}
+
+		#screen{ max-width:800px; width:100%; border:5px solid #ccc; margin:0 auto; position:relative; 
+			overflow:hidden;
+		}
+			#film{width:400%;}
+				.scene{float:left; width:25%;}
+				.scene img{ width:100%; }
+			#film:after{ content:""; display:block; clear:both; }
+
+		#btn{ width:240px; height:30px; position:absolute; left:50%; margin-left:-120px; top:350px;}	
+			#btn ul{ width:100%;}
+				#btn ul li{ width:20px; height:20px; border-radius:10px; background-color:#ccc; float:left; margin-left:32px; cursor:pointer; }
+				#btn ul span{display:none;}
+			#btn ul:after{ content:""; display:block; clear:both; }
+
+			/*######## 이벤트 클래스 #########*/
+			#btn li.addBtn{background-color:#f00;}
+
+			/*##########  next버튼버리기 ##########*/
+			#btn2{width:1px; height:1px; font-size:1px; line-height:0; overflow:hidden; position:absolute; left:-9999px;}
+  </style>
+  <script>
+	$(function(){
+		$("#btn ul li:eq(0)").addClass("addBtn");
+
+		/* nextBtn을 클릭할때마다 번호 가져오기
+			li:eq(0) li:eq(1) li:eq(2) li:eq(3) 일 때 빨간색 이벤트 클래스 이어주기
+			: index, substring중에 숫자 자르기!
+		*/
+		$(".nextBtn").click(function(){
+
+			$("#film:not(:animated)").stop().animate({"marginLeft":"-=100%"},1000,"swing",function(){
+				$("#film").append($(".scene:first"));
+				$("#film").css({"marginLeft":"0"});
+
+				var btnNum = $(".scene img").attr("src").substring(6,7);
+				//alert(btnNum);
+				
+				$("#btn ul li").removeClass();
+				$("#btn ul li:eq("+btnNum+")").addClass("addBtn");
+			});
+
+		});
+
+		
+		$("#btn ul li").click(function(){
+				var btnIndex = $(this).index();
+				$("#btn ul li").removeClass();
+				$("#btn ul li:eq("+btnIndex+")").addClass("addBtn");
+				width = $("#screen").width();
+				for(var i=0; i<width; i++){
+					if(btnIndex == i){
+						$("#film").animate({"marginLeft":"-"+width*btnIndex+"px"},500);
+					}
+				}
+		});
+
+		//자동클릭
+		var autoSel = setInterval(function(){ $(".nextBtn").click(); },3000);
+
+		//자동클릭 멈추기: 로고클릭하면 멈추게 만들기
+		$("h1").click(function(){
+			clearInterval(autoSel);
+		});
+
+		
+	});
+
+
+  </script>
+ </head>
+ <body>
+	<h1><img src="img/logo.png" alt="logo"/></h1>
+	<div id="screen">
+		<ul id="film">
+			<li class="scene">
+				<img src="img/a00.jpg" alt="img0"/>
+			</li>
+			<li class="scene">
+				<img src="img/a01.jpg" alt="img1"/>
+			</li>
+			<li class="scene">
+				<img src="img/a02.jpg" alt="img2"/>
+			</li>
+			<li class="scene">
+				<img src="img/a03.jpg" alt="img3"/>
+			</li>
+		</ul>
+		<div id="btn">
+			<ul>
+				<li><a href="#btn0" title="btn0"><span>0</span></a></li>
+				<li><a href="#btn1" title="btn1"><span>1</span></a></li>
+				<li><a href="#btn2" title="btn2"><span>2</span></a></li>
+				<li><a href="#btn3" title="btn3"><span>3</span></a></li>
+			</ul>
+		</div>
+		<div id="btn2">
+			<p class="nextBtn"><img src="img/next_shadow.png" alt="다음버튼" class="next"/></p>
+		</div>
+	</div>
+ </body>
+</html>

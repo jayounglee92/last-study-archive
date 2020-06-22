@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>test</title>
+  <style>
+		.test1{text-indent:-9999px; width:150px; height:150px; background-color:gold; transition:all 1s;}
+		.test1:hover{ transform:rotate(-720deg); background-color:red;}
+  </style>
+ </head>
+ <body>
+	<h2>position 속성중에서 유일하게 모든 기능을 해제하는 속성은?</h2>
+	<p>fixed, relative, absolute, [ static ]</p>
+	<h2>html5에서 css 버전은 몇버전인지 작성하기</h2>
+	<p>css3, css3.0</p>
+	<h2>css영역에서 type이 적히면 에러나 오류가 나는 이유는?</h2>
+	<p>
+		html5에서는 type이 적히면 xhtml 버전이 아니기 때문에 에러발생!<br/>
+		에러가 발생했을경우 (type제외) / 에러가 발생하지 않았을경우 권장사항이기 때문에 작성해주는게 좋음
+	</p>
+	
+	<h2>html5에서 사이즈를 변형할때 사용했던 기능은?</h2>
+	<p>
+		transform:scale<br/>
+		일반적으로 사이즈 줄일때는 width, height 높이를 사용하여 줄임!<br/>
+		(참고자료 05_width_scale.html)
+	</p>
+
+
+	<h2>html5에서 이동을 하기위해 사용했던 기능은?</h2>
+	<p> transform:translate(x축, y축) </p>
+
+	<h2>html5에서 회전을 위해 사용했던 기능은?</h2>
+	<p> transform:rotate(45deg)</p>
+
+
+	<h2>아래 순서대로 현재 페이지에 작성하기</h2>
+	<ol>
+		<li>아래 p태그 만들기</li>
+		<li>p태그의 너비와 높이는 150 으로 작성하기</li>
+		<li>배경색상은 알아서 작성하기</li>
+		<li>p태그에 마우스를 올리면 배경색상이 변경되면서 회전하도록 만들기</li>
+	</ol>
+	<p class="test1">
+		test1
+	</p>
+	<h2>장면전환을 위해 사용했던 기능은?</h2>
+	<p>transition</p>
+	<h2>ease-in의 뜻은?</h2>
+	<p>
+		처음이 느리게 반응하다가 점점 평균적인 속도로 바뀜!
+	</p>
+	<h2>장면전환에서 마우스를 올리고 처음 시작할때까지 걸리는 시간을 컨트롤 하는 명령어는?</h2>
+	<p>
+		delay
+	</p>
+	<h2>장면전환에서 일반적인 속도로 표현할때 사용하는 명칭은?</h2>
+	<p>
+		linear<br/>
+		timing-function에서 제외를 하면 linear로 자동설정됨<br/>
+		값이 작성되어 있지 않다면 linear가 아닌 브라우저를 따라갈 수 있음
+	</p>
+	
+	
+	<h2>장면전환에서 처음과 끝이 느리게 표현하는 방법은?</h2>
+	<p>ease-in-out</p>
+
+	<h2>html5에서 이동을 위해 사용했던 기능이 position의 어떤 기능과 흡사한지 작성하기</h2>
+	<p>position:relative</p>
+
+	<h2>장면전환에서 ~~ 하는 동안의 명칭은?</h2>
+	<p>duration</p>
+
+	<h2>form 작성시 꼭 필요한 2가지 속성과 내용을 아는데로 작성하기</h2>
+	<p>
+		action : 컨트롤 파트나 데이터베이스에 넘겨줄때 사용하는 주소연결 역할<br/>
+		method : 검색하거나 입력한 내용을 주소줄에 보여줄지 보여주지 않을지에 대하여 설정
+	</p>
+
+	<h2>form에서 각각의 구역을 나눌때 사용했던 태그는?</h2>
+	<p>
+		fieldset
+	</p>
+	<h2>form에서 구역을 나눈 태그에 제목을 작성하는 방법은?</h2>
+	<p>
+		legend
+	</p>
+
+	<h2>ouliner로 확인할때 무슨 태그로 작성된 내용만 작성될까?</h2>
+	<p>
+		 헤드라인태그
+	</p>
+
+	<h2>form에서 아이디와 비밀번호를 작성할때 method는 어떤게 좋을까?</h2>
+	<p>
+		post
+	</p>
+
+	<h2>아래 form 태그 만들고 아이디 입력받는 input 만들기 그 아래쪽에는 전송버튼 만들기</h2>
+	<form action="#none" method="post">
+		<fieldset>
+			<legend>간편 로그인</legend>
+			<label for="userid">아이디</label><input id="userid" type="text" name="userid"/>
+			<input type="submit" id="btn" value="전송" title="전송버튼"/>
+		</fieldset>
+	</form>
+
+	<h2>input 태그 작성시 짝을 맞추던 태그는?</h2>
+	<p>label</p>
+
+	<h2>input 태그에서 짝을 맞추던 태그가 없을경우 작성하는 값은?</h2>
+	<p>title(대체텍스트)</p>
+
+	<h2>클래스명이나 아이디 앞에 태그명을 작성하지 않는 이유는?</h2>
+	<p>
+		태그가 바뀌었을때 영향을 받지 않음!
+	</p>
+
+	<h2>클래스명이나 아이디 앞에 태그명을 작성하는 이유는?</h2>
+	<p>특징적으로 해당하는 값의 태그를 붙여서 해당하는 값에만 적용하기 위해 작성</p>
+
+	<h2>어떤 영역에서 빈곳에 마우스를 올렸는데 작동하였다. 의심해볼만한 값은?</h2>
+	<p>담고 있는 블록요소의 너비와 높이 확인하기</p>
+
+	<h2>기능 작성시 너비와 높이 설정이 왜 필요한지 작성하기</h2>
+	<p>빈 영역이나 엉뚱한 공간에서 작동되지 않도록 만들기 위해 작성</p>
+
+	<h2>화면에 보이는것 만들기! ( 1) 이론문제,2) 실습문제, 3)서브페이지 제작하기 )</h2>
+ </body>
+</html>

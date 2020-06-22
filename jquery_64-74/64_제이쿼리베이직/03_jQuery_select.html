@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> jQuery Select </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+		jQuery(document).ready(function(){
+			// 01) class가 title인 값을 찾아서 왼쪽선 5픽셀, 파란색 실선 적용
+			// 대상: class가 title, 이벤트: css, 이벤트 핸들러: class가 title			
+			jQuery(".title").css("borderLeft","5px solid blue");
+
+			// 02) class가 title인 값을 찾아서 아래쪽 1픽셀, 파란색 실선 적용
+			jQuery(".title").css("borderBottom","1px solid blue");
+	
+			// 03) class가 title인 값을 찾아서 글자 들여쓰기 10픽셀 
+			jQuery(".title").css("textIndent","10px");
+
+			// 04) class가 title인값을 찾아서 글자 색상 빨간색 변경
+			jQuery(".title").css("color","red");
+
+			// 05) dd를 선택하고, 배경색상 lightblue 적용
+			// 대상: dd, 이벤트: css, 이벤트 핸들러 : dd
+			jQuery("dd").css("backgroundColor","lightblue");
+
+			// 06) dd의 글자 가운데 정렬
+			jQuery("dd").css("textAlign","center");
+
+			// 07) dd의 글자 높이 간격 35픽셀 적용
+			jQuery("dd").css("lineHeight","35px");
+
+			// 08) dd의 아래쪽선 2픽셀 실선 어두운 파란색 적용
+			jQuery("dd").css("borderBottom","2px solid darkblue");
+
+		    // 09) ol태그를 선택하고, 배경색상 아쿠아색상 적용
+			// 대상: ol, 이벤트: css, 이벤트 핸들러: ol
+
+			jQuery("ol").css("backgroundColor","aqua");
+
+			// 10) ol태그를 선택하고, 글자크기 12픽셀 적용
+			jQuery("ol").css("fontSize","12px");
+
+
+			/*
+				11) ulParent의 자녀요소 ( 아들 ) 선택하여 글자색상 파란색 적용하기
+					
+					대상: ulParent 의 자녀요소(아들)
+					이벤트: css
+					이벤트 핸들러: ulParent 의 자녀요소(아들)
+			*/
+
+			jQuery(".ulParent li").css("color","blue");
+			jQuery(".ulParent > li").css("color","brown");
+
+			/*
+				ul li태그로 선택하면 아들 요소뿐만 아니라 손자요소 까지도 전부 선택된다.
+					ul > li 아들까지만 선택가능
+						대상 > 대상, 처음오는 대상까지만 선택할때 사용
+
+				중요! 단독으로 효과를 적용하면 적용되지가 않음 ( ul > li)
+					
+					올바른 표현방법
+						01) jQuery(".ulParent li").css("color","blue")  == 전체적으로 손자요소까지 기능 적용!
+						02) jQuery(".ulParent > li").css("color","brown") == 해당하는 아들요소까지만 다시 적용!
+			*/
+	
+		
+		});
+  </script>
+ </head>
+ <body>
+	<dl>
+		<dt class="title">jQuery 기본(요소) 선택자 </dt>
+		<dd>
+			01) class가 title인 값을 찾아서 왼쪽선 5픽셀, 파란색 실선 적용<br/>
+			02) class가 title인 값을 찾아서 아래쪽 1픽셀, 파란색 실선 적용<br/>
+			03) class가 title인 값을 찾아서 글자 들여쓰기 10픽셀 <br/>
+		</dd>
+		<dt class="title">아래 테스트 문제 풀기</dt>
+		<dd>
+			<ol>
+				<li>class가 title인값을 찾아서 글자 색상 빨간색 변경</li>
+				<li>dd를 선택하고, 배경색상 lightblue 적용</li>
+				<li>dd의 글자 가운데 정렬</li>
+				<li>dd의 글자 높이 간격 35픽셀 적용</li>
+				<li>dd의 아래쪽선 2픽셀 실선 어두운 파란색 적용</li>
+				<li>ol태그를 선택하고, 배경색상 아쿠아색상 적용</li>
+				<li>ol태그를 선택하고, 글자크기 12픽셀 적용</li>
+			</ol>
+		</dd>
+	</dl>
+	<hr/>
+	<hr/>
+	<div id="basicWrap">
+		<h2>부모 자녀요소 선택자</h2>
+		<ul class="ulParent">
+			<li>11) ulParent의 자녀요소중 li요소
+				<ul>
+					<li>NO_0</li>
+					<li>NO_1</li>
+					<li>NO_2</li>
+					<li>NO_3</li>
+					<li>NO_4</li>
+				</ul>
+			</li>
+			<li class="theSon">자녀요소 테스트 중입니다.</li>
+			<li>12) 자녀요소</li>
+			<li>13) 자녀요소</li>
+			<li>14) 자녀요소</li>
+		</ul>
+	</div>
+ </body>
+</html>

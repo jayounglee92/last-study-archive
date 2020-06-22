@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> list_style </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		
+			#none{list-style-type:none;} /* 블릿기호를 사용하지 않을때 설정*/
+			#etc1{list-style-type:disc;} /*ul li와 같이 검정색 동그라미 호출하기*/
+			#etc2{list-style-type:circle;} /*ul li ul li 처럼 하얀색 동그라미 호출하기*/
+			#etc3{list-style-type:square;}/*사각형으로 호출하기*/
+			#etc4{list-style-type:decimal;}/* ul li를 ol li 처럼 숫자로 바꾸기 */
+			#etc5{list-style-type:lower-roman;}/*로마숫자 소문자로 호출하기*/
+			#etc6{list-style-type:upper-roman;}/*로마숫자 대문자로 호출하기*/
+			#etc7{list-style-type:lower-alpha;}/*알파벳 소문자 호출하기*/
+			#etc8{list-style-type:upper-alpha;}/*알파벳 대문자 호출하기*/
+
+
+			#url{list-style-image:url("img/logo.png");}
+  </style>
+ </head>
+ <body>
+	<h2> list style: 총정리 </h2>
+	<p>
+		+ 정의 : 숫자나 특수기호( 블릿기호 )의 형태를 원하는 모양, 원하는 숫자형태로
+		호출하거나 사용자가 직접 설정하여 사용할 수 있다.
+	</p>
+	<p>
+		list-style( 축약형 표현방법 ), list-style-type
+	</p>
+	<ol id="none">
+		<li>블릿기호는 숫자나 기호, 아이콘등을 표현할때 사용한다. </li>
+		<li> list-style-type으로 표현( 정식표현 방법 )</li>
+	</ol>
+	
+	<ol id="etc1">
+		<li>ul li태그에는 블릿기호중에 검정색 동그란 형태의 기호가 붙는다.</li>
+		<li>ol li태그에는 블릿기호중에 숫자가 붙는다.</li>
+		<li>검정색 동그라미 호출하기 ul li태그 처럼</li>
+	</ol>
+	
+	<ol id="etc2">
+		<li>리스트안에 리스트 항목을 넣을 수 있다.</li>
+		<li>하얀색 동그라미를 ol li태그에 호출하기</li>
+	</ol>
+
+	<ul>
+		<li>
+			첫번째 li태그
+			<ul>
+				<li>
+					li태그안에 리스트를 담을때는 반드시 무슨 리스트인지 설정하기
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<ol id="etc3">
+		<li>ol태그는 숫자</li>
+		<li>ul li는 검정색 동그라미</li>
+		<li>ul li ul li 하얀색 동그라미</li>
+		<li>사각형 호출하기</li>
+	</ol>
+
+	<ul id="etc4">
+		<li>ul태그의 첫번째 li</li>
+		<li>ul태그의 두번째 li</li>
+		<li>ol li 처럼 숫자사용하기</li>
+	</ul>
+
+	<ol id="etc5">
+		<li>ol 의 li태그에는 1 2 3 4...</li>
+		<li>i, ii, iii 로마숫자로 표현하기</li>
+		<li>로마숫자 소문자로 표현하기</li>
+	</ol>
+
+	<ol id="etc6">
+		<li>로마숫자로 표현하기</li>
+		<li>로마숫자 대문자로 표현하기</li>
+		<li>각국의 숫자 표현이 다름</li>
+	</ol>
+	
+	<ol id="etc7">
+		<li>소문자 a,b,c </li>
+		<li>소문자 변경하기 lower</li>
+		<li>a,b,c,d,e,f.....</li>
+	</ol>
+
+	<ol id="etc8">
+		<li>대문자 A,B,C </li>
+		<li>대문자 변경하기 upper</li>
+		<li>A,B,C,D,E,F.....</li>
+	</ol>
+	
+	<ol id="url">
+		<li>list-style은 축약형 표현방법</li>
+		<li>list-style-type은 블릿기호 호출하는 방법</li>
+		<li>특수기호 또는 각국의 숫자표현방법</li>
+		<li>ol li나 ul li는 얼마든지 블릿기호를 변경하여 표현이 가능함</li>
+		<li>사용자가 직접 블릿기호 작성하기(아이콘 사용하기)</li>
+		<li>list-style-image 사용하기</li>
+	</ol>
+ 
+ </body>
+</html>

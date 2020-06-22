@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>cube</title>
+  <style>
+		@font-face{ font-family:"jmr"; src:url("font/JejuMyeongjo-Regular.woff");}
+
+		*{margin:0; padding:0;}
+		h1{padding:20px 0; text-align:center; text-transform:uppercase; letter-spacing:2px;}
+		h2{font-family:"jmr"; font-size:20px; text-align:center; color:#333;}
+		p{text-indent:-9999px;}
+
+		.top{width:200px; height:98px; background-color:red; transform:skew(60deg, -10deg); position:relative;
+				left:198px; top:83px;
+			}
+		/*
+			skew는 박스에 왜곡이 되기 때문에 정사각형으로 만들어도 너비나 높이에서
+			지나치게 길어보일수 있음
+				+ skew를 적용하고 나서 높이나 너비 값 바꾸기
+				+ position: absolute를 사용하면 비어있는 공간에 객체가 자리 하게 된다.
+		*/
+
+		.front{ width:200px; height:200px; background-color:pink; position:relative; left:284px; top:83px; transform:skewy(-10deg);}
+
+		/*
+			skew라는 값을 적용하게 되면 너비와 높이가 변형될 확률이 높기 때문에 먼저 위치값을 
+			찾아서 배치해놔도 다시 변경해서 값을 적용할 확률이 높다.
+				+ skew값을 먼저 적용한 후, 나중에 높이나 너비값 수정하기
+		*/
+		.side{width:170px; height:200px; background-color:blue; transform:skewy(30deg); position:relative; left:114px; top:-148px;}
+
+		.shadow{ width:120px; height:98px; background-color:rgba(0,0,0,0.5); transform:skew(60deg, -10deg);
+			position:relative; left:78px; top:-187px;
+		}
+  </style>
+ </head>
+ <body>
+	<h1>transform &amp; skew</h1>
+	<h2>한글폰트 다운받고, 폰트페이스 만들어서 적용하기</h2>
+	<p class="top">top</p>
+	<p class="front">front</p>
+	<p class="side">side</p>
+	<p class="shadow">shadow</p>
+ </body>
+</html>

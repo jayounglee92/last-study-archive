@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> iriver </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+  /*###############초기화##############*/
+    *{margin:0; padding:0;}
+	 li{list-style-type:none;}
+	 a:link, a:visited{text-decoration:none;}
+	 a:hover, a:focus{text-decoration:none;}
+
+	/*############ wrap ###############*/
+	#wrap{width:100%; height:80px; max-width:1920px; border-bottom:1px solid #FF5930;}
+
+
+	/*############ head ###############*/
+	#head{width:1025px; height:100%; margin:0 auto; position:relative;}
+	/*로고 86*24*/
+		/*############ 로고*/
+		h1{position:absolute; left:0; top:28px;}
+		/*############ 로그인,회원가입 부분*/
+		#infoMenu{width:100%; height:28px; line-height:28px; text-align:right;background-color:lightblue; }
+			#infoMenu li{font-size:10px; display:inline}
+				#infoMenu li a{padding:2px 6px; color:#8A8A8A;}
+			/*전체보기 58*20*/
+				#infoMenu li button{font-size:10px; color:#8A8A8A; background-color:#fff; border:1px solid #ccc; padding:2px 6px; cursor:pointer;}
+					#infoMenu li button span.orange{color:#FF5930; font-weight:bold;}
+
+		/*############ 메인메뉴부분*/
+		#gnb{width:500px; height:52px; text-align:right; float:left; background-color:pink; }
+			#gnb li{display:inline-block; height:48px;margin-left:30px;}
+				#gnb li a{color:#333; font-weight:bold; padding:2px 6px; font-size:14px;}
+
+		#gnb li:hover{border-bottom:2px solid #FF5930;}
+		#gnb li:hover a{color:#FF5930;}
+
+		/*############ 쇼핑메뉴부분*/
+		#shopNav{width:300px; height:52px; float:left; background-color:gold; }
+			#shopNav li{display:inline; margin-left:20px;}
+				#shopNav li a{color:#8A8A8A; font-weight:bold; padding:2px 6px; font-size:12px;}
+		#shopNav li:hover a{color:#FF5930;}
+
+		/*############ 검색부분*/
+		#searchArea{width:225px; height:52px; background-color:aqua; float:left;}
+			#searchArea form{width:100%;  height:40px; padding-top:12px; text-align:right;}
+				#searchArea input{}
+				#searchArea img{}
+  </style>
+
+ </head>
+
+ <body>
+	<div id="wrap">
+		<div id="head">
+			<div id="header">
+				<h1>
+					<a href="http://www.iriver.co.kr" title="아이리버 홈으로">
+						<img src="img/logo.gif" alt="아이리버 로고 이미지"/>
+					<a> 
+				</h1>
+				<ul id="infoMenu">
+					<li><a href="#" title="로그인">로그인</a></li>
+					<li><a href="#" title="회원가입">회원가입</a></li>
+					<li><a href="#" title="마이페이지">마이페이지</a></li>
+					<li><a href="#" title="공지사항">공지사항</a></li>
+					<li><button><span class="orange">+</span>전체보기</button></li>
+				</ul>
+				<ul id="gnb">
+					<li><a href="#" title="제품">제품</a></li>
+					<li><a href="#" title="커뮤니티">커뮤니티</a></li>
+					<li><a href="#" title="고객지원">고객지원</a></li>
+					<li><a href="#" title="쇼핑몰">쇼핑몰</a></li>
+				</ul>
+				<ul id="shopNav">
+					<li><a href="#" title="그루버스">그루버스</a></li>
+					<li><a href="#" title="">아스텔엔컨</a></li>
+				</ul>
+				<div id="searchArea">
+					<form action="#" method="get">
+						<input id="search" type="text" name="search"/>
+						<img src="img/btnSearch.gif" alt="검색 버튼 이미지"/>
+					</form>
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

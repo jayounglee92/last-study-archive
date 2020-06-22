@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> nav </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		a:link, a:visited{ text-decoration:none; color:#fff;}
+		a:hover, a:focus{ color:#f00; text-decoration:underline; }
+		li{ list-style:none; }
+
+			div{width:800px; margin:0 auto;  position:relative; top:30px;}
+				#parent{ width:100%; }
+					#parent li{width:20%; float:left; background-color:blue; text-align:center; line-height:40px; 
+						border-right:1px solid #fff;
+						border-top:1px solid #fff;
+						box-sizing:border-box;
+					}
+
+						#parent li .son{width:100%; position:absolute;}
+							#parent li .son li{}
+							/*
+								position:relative는 세로로 떨어 뜨릴때 사용
+								position:absolute는 가로로 퍼뜨릴때 사용
+							
+							*/
+				#parent:after{ content:""; display:block; clear:both; }
+  </style>
+  <script>
+		$(function(){
+	
+			$(".son").hide();
+			$("#parent li").mouseover(function(){
+				$(this).children(".son").stop().slideDown(500);
+			}).mouseout(function(){
+				$(this).children(".son").stop().slideUp(500);
+			});
+		});
+  </script>
+ </head>
+ <body>
+	<div id="content">
+		<ul id="parent">
+			<li>
+				<a href="#none" title="로그인">로그인</a>
+				<ul class="son">
+					<li><a href="#none" title="정회원 로그인">정회원 로그인</a></li>
+					<li><a href="#none" title="비회원 로그인">비회원 로그인</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#none" title="뉴스">뉴스</a>
+				<ul class="son">
+					<li><a href="#none" title="정치">정치</a></li>
+					<li><a href="#none" title="경제">경제</a></li>
+					<li><a href="#none" title="스포츠">스포츠</a></li>
+					<li><a href="#none" title="지도">지도</a></li>
+					<li><a href="#none" title="블로그">블로그</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#none" title="갤러리">갤러리</a>
+				<ul class="son">
+					<li><a href="#none" title="정회원 갤러리">정회원 갤러리</a></li>
+					<li><a href="#none" title="비회원 갤러리">비회원 갤러리</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#none" title="게시판">게시판</a>
+				<ul class="son">
+					<li><a href="#none" title="정치 게시판">정치 게시판</a></li>
+					<li><a href="#none" title="경제 게시판">경제 게시판</a></li>
+					<li><a href="#none" title="스포츠 게시판">스포츠 게시판</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#none" title="상세문의">상세문의</a>
+				<ul class="son">
+					<li><a href="#none" title="정치 문의">정치 문의</a></li>
+					<li><a href="#none" title="경제 문의">경제 문의</a></li>
+					<li><a href="#none" title="스포츠 문의">스포츠 문의</a></li>
+					<li><a href="#none" title="카페 문의">카페 문의</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+ </body>
+</html>

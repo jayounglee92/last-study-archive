@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> img_covering </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ </head>
+ <style>
+	*{margin:0; padding:0;}
+	body{background-color:#C9C4A4;}
+	div{width:1025px; margin:0 auto; position:relative;}
+		ul{width:400px; margin:0 auto;}
+		li{list-style:none; width:200px; height:300px; outline:2px solid #642223; margin-top:20px; overflow:hidden;}
+			li img{width:100%;}
+		p{width:200px; height:300px; background-color:rgba(100,34,35,0.3); text-align:center; line-height:300px; color:#fff; position:absolute; left:313px; top:0; transition:all 1s;}
+ </style>
+ <script>
+	jQuery(document).ready(function(){
+
+		$("li").mouseover(function(){
+			$("p").css({"width":"200px","height":"300px","lineHeight":"300px"});
+		});
+
+		$("li:eq(0)").mouseover(function(){
+			$("p").css({"top":"0"});
+		});
+
+		$("li:eq(1)").mouseover(function(){
+			$("p").css({"top":$("li").height()+20+"px"});
+		});
+
+		$("li:eq(2)").mouseover(function(){
+			$("p").css({"top":($("li").height()+20)*2+"px"});
+		});
+
+		$("li:eq(3)").mouseover(function(){
+			$("p").css({"top":($("li").height()+20)*3+"px"});
+		});
+
+		$("li:eq(4)").mouseover(function(){
+			$("p").css({"top":($("li").height()+20)*4+"px"});
+		});
+/*
+		$("li").mouseout(function(){
+			$("p").css({"width":"0","height":"0","lineHeight":$("p").height()});
+		});
+*/
+	});
+ </script>
+ <body>
+	<div>
+	  <ul>
+		<li><img src="img/burberry0.jpg" alt="버버리이미지1"/></li>
+		<li><img src="img/burberry1.jpg" alt="버버리이미지2"/></li>
+		<li><img src="img/burberry2.jpg" alt="버버리이미지3"/></li>
+		<li><img src="img/burberry3.jpg" alt="버버리이미지4"/></li>
+		<li><img src="img/burberry4.jpg" alt="버버리이미지5"/></li>
+	  </ul>
+	  <p>IMAGE</p>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>modal2</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		ul{ width:980px; margin:50px auto 0;}
+			li{ width:230px; height:125px; display:inline-block;}
+				li img{ width:100%; border:1px solid #ccc; }
+
+		#view{ width:670px; height:300px; position:absolute; left:50%; top:50%;
+			margin-left:-335px; margin-top:-150px; box-shadow:10px 10px 10px rgba(0,0,0,0.5);
+			z-index:7;
+		}
+
+		#full{ position:fixed; width:100%; height:100%; background-color:rgba(0,0,0,0.5); left:0; top:0;}
+  </style>
+  <script>
+	$(function(){
+		/*
+			1) view 영역과 full 영역이 없음 : div 태그로 만들기 
+			: div태그를 어디에 만들것인지 대상지정
+		*/
+		$("body").append("<div id='view'></div><div id='full'></div>");
+
+		// 2) view와 full 영역 화면에서 숨기기
+		$("#view, #full").hide();
+
+		// 3) ul li a를 클릭하면 해당하는 이미지가 view영역에 보이도록 만들기
+		$("ul li a").click(function(){
+		
+			$("#view, #full").show();
+			/* 해당하는 이미지 번호 가져오기 
+				 문제점:	1자리 숫자와 두자리 이상의 숫자가 등장하면 substring으로 번호를 공토으로 
+				 자를수 없음
+			*/
+
+			$("#view").html("<img src='  "+$(this).attr("href")+"    ' alt='이미지'/>");
+
+			return false;
+		});
+
+		// 4) view나 full영역 클릭하면 숨기기
+		$("#view, #full").click(function(){
+			$("#view, #full").hide();
+		});
+	
+	
+	});
+  </script>
+ </head>
+ <body>
+	<div>
+		<ul>
+			<li>
+				<a href="img/ad1.jpg" title="이미지1">
+					<img src="img/ad1.jpg" alt="이미지1"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad2.jpg" title="이미지2">
+					<img src="img/ad2.jpg" alt="이미지2"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad3.jpg" title="이미지3">
+					<img src="img/ad3.jpg" alt="이미지3"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad4.jpg" title="이미지4">
+					<img src="img/ad4.jpg" alt="이미지4"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad5.jpg" title="이미지5">
+					<img src="img/ad5.jpg" alt="이미지5"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad6.jpg" title="이미지6">
+					<img src="img/ad6.jpg" alt="이미지6"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad7.jpg" title="이미지7">
+					<img src="img/ad7.jpg" alt="이미지7"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad8.jpg" title="이미지8">
+					<img src="img/ad8.jpg" alt="이미지8"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad9.jpg" title="이미지9">
+					<img src="img/ad9.jpg" alt="이미지9"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad10.jpg" title="이미지10">
+					<img src="img/ad10.jpg" alt="이미지10"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad11.jpg" title="이미지11">
+					<img src="img/ad11.jpg" alt="이미지11"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad12.jpg" title="이미지12">
+					<img src="img/ad12.jpg" alt="이미지12"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad13.jpg" title="이미지13">
+					<img src="img/ad13.jpg" alt="이미지13"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad14.jpg" title="이미지14">
+					<img src="img/ad14.jpg" alt="이미지14"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad15.jpg" title="이미지15">
+					<img src="img/ad15.jpg" alt="이미지15"/>
+				</a>
+			</li>
+			<li>
+				<a href="img/ad16.jpg" title="이미지16">
+					<img src="img/ad16.jpg" alt="이미지16"/>
+				</a>
+			</li>
+		</ul>
+	</div>
+ </body>
+</html>

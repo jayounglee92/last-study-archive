@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+	01) strict.dtd(엄격)
+		+ 완벽한 표준버전으로만 사용 
+			xhtml 표준 : 1.0으로만 존재
+			html 비표준 : 4.0 사용
+		
+		+ 표준버전은 대문자, 한글, 한자 등등 언어사용에 제약이 큼
+		+ "무조건 소문자" 로만 작성!
+		+ 표준이나 구형 브라우저중에 한쪽에만 치우치게 된다.
+
+	02) transitional.dtd
+		+ 기존의 문서들과 호환성이 가장 좋음, 하위버전의 문서와 호환성이 뛰어남!
+		+ 비표준 + 표준문서 사용이 가능
+			+  대문자, 소문자, 한글, 한자, 일본어 등등 어떤 언어의 문서와도 호환성이 뛰어남!
+
+	03) frameset.dtd
+		+ 화면을 분할하여 각각의 역할을 지정할때 사용
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> new document </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <!--
+		+ meta태그는 문서의 용도를 정의할 때 사용
+			- http-equiv : 서버(주소)를 통해 장비를 사용
+				+ xhtml: 문자열 관련 장비
+				+ php: 페이지에서 페이지 연동을 위해 사용
+				+ html5: 반응형 작업시
+
+			- charset: 문자열 셋팅
+				+ utf-8 : 다국적언어팩 , 무거운게 단점
+					한국어, 일본어, 영어, 불어 , 한자 등등 모든언어 사용가능
+					+ 저장시(인코딩) : utf-8
+
+				+ euc-kr : 한국어, 영어만 지원(2벌씩) , 가벼운게 장점
+								단점은 다른언어 지원X
+					+ 저장시(인코딩) : ANSI로 저장
+				
+			- 중요) 압축할때 용량을 줄이기 위해서 utf-8을 ANSI로 바꾸는 경우가 생길수 있음
+			이럴땐 문자열이 깨지기 때문에 조심할 것
+				+ 해결은 다시 utf-8로 저장하기
+  -->
+	
+ </head>
+
+ <body>
+  
+ </body>
+</html>

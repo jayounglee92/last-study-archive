@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> test </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+ </head>
+ <body>
+	<h3>
+		글씨를 너비 100픽셀 높이 30 픽셀인 도형 가운데 정렬하려 한다. 이때 작성해야 하는 값은?
+		(단! 글자가 한 줄일 경우)
+	</h3>
+	<p>
+		답: x축은 text-align:center / y축은 line-height 로 작업(도형의 높이값)
+	</p>
+
+
+	<h3>
+		블록요소를 가운데 정렬할때 사용하는 방법은?
+	</h3>
+	<p>
+		margin:0 auto : 단! 높이 부분은 0이기 때문에 작업 환경에 맞춰서 
+		계산하여 작성하기!
+	</p>
+
+
+	<h3>
+		어느 영역에서 내용이 넘쳤을때 자동으로 스크롤을 만드는 기능은?
+	</h3>
+	<p>
+		overflow:scroll ( 강제적으로 스크롤 생성 ) / overflow:auto는 넘치는 값이 없으면
+		스크롤 생성이 어려움!
+	</p>
+
+
+	<h3>
+		id와 class는 어떤 경우에 사용하는지 구분하여 작성하기
+	</h3>
+	<ol>
+		<li>
+			<h2>id 사용의 이유</h2>
+		</li>
+		<li>
+			이름이 중복되지 않도록 하는 값에 사용
+		</li>
+		<li>
+			지정된 영역에서 사용 ( 헤더, 메인, 컨테이너, 푸터 등등)
+		</li>
+		<li>
+			담고 있는 자녀요소가 많을때 해당하는 부모에 id 사용<br/>
+			이유는? 해당하는 부모로 부터 자녀요소에 접근하기가 편리함
+		</li>
+		<li>
+			자바스크립트에서 호출할때 사용하는 이름으로 사용
+		</li>
+		<li>
+			영역을 호출하거나, 어떠한 값을 호출할때 사용!
+		</li>
+	</ol>
+	<ol>
+		<li>
+			<h2> class의 사용 이유 </h2>
+		</li>
+		<li>
+			이름을 중복해서 사용해도 오류가 없음
+		</li>
+		<li>
+			기능파트에서 중요한 역할들을 담당함!
+		</li>
+		<li>
+			소스가 되는 자료 ( 자녀요소들에 주로 사용 ) / 부모요소에 
+			사용해도 문제는 없음!
+		</li>
+	</ol>
+	<p>
+		<strong>id와 class를 함께 사용하는 이유: </strong>
+		id로 영역에 접근하고 class로 기능을 부여할때 사용!
+	</p>
+
+
+
+	<h3>
+		float를 끊는 방법에 대하여 작성하기( 부모와 자녀를 구분하여 작성 )
+	</h3>
+	<ol>
+		<li>
+			<h3> 자녀요소의 경우 </h3>
+		</li>
+		<li>
+			하위객체에 너비 생성
+		</li>
+		<li>
+			하위객체에 너비와 높이 생성
+		</li>
+		<li>
+			하위객체에 clear:both 작업하기
+		</li>
+	</ol>
+	
+	<ol>
+		<li>
+			<h3>부모요소의 경우</h3>
+		</li>
+		<li>
+			자녀요소가 float가 끊기지 않으면 배경색상이나 배경이미지가
+			적용되지 않는 문제 발생
+		</li>
+		<li>
+			너비와 높이값을 생성하여 해결
+		</li>
+		<li>
+			자녀들의 높이값이 각자가 달라서 높이값을 알기 어려울때..<br/>
+			overflow:hidden으로 해결
+		</li>
+	</ol>
+
+	<h3>
+		내용이 넘치면...으로 보이게 만드는 방법을 아는데로 작성하고, 각각의 기능이
+		하는 역할을 작성하기
+	</h3>
+	<dl>
+		<dt> 내용이 ...으로 보에기 만들기 </dt>
+		<dd>
+			1) 너비와 높이를 먼저 생성
+		</dd>
+		<dd>
+			2) overflow:hidden(  영역에서 넘치면 숨겨주기 )
+		</dd>
+		<dd>
+			3) white-space:nowrap(  한줄로만 표현할때 사용 : 빈공간 없이 사용할때 )
+		</dd>
+		<dd>
+			4) text-overflow:ellipsis ( 글자가 넘쳤을때 ...으로 보이게 만들기)
+		</dd>
+	</dl>
+
+
+	<h3>
+		여러줄로 표현되는 내용에서...으로 표현하는 방법이 가능할까? 가능하지 않다면 이유는?
+	</h3>
+	<p>
+		답: 기사내용이 여러줄일때 ...으로 표현하는 것은 불가능하다.
+		기본적으로 ...으로 만드는 기능은 한줄일경우에 표현하는 기능이다!
+	</p>
+
+
+	<h3>
+		단위사용시 고정시킬때 사용하는 단위는?
+	</h3>
+	<p>
+		고정시킬때 사용하는 단위? px( 픽셀 )
+	</p>
+
+
+	<h3>
+		list-style 관련 기능 3가지 나열하기
+	</h3>
+	<p>
+		list-style-type : 블릿기호 관련 <br/>
+		list-style-image : 블릿기호 대신에 아이콘으로 사용<br/>
+		list-style-position: 블릿기호의 위치( 기본:outside, inside)
+	</p>
+
+
+	<h3>
+		너비와 높이값이 하위객체에 적용되었는데도 float에 의해 상위 객체를 따라
+		올라갔을경우 끊어주는 방법은?
+	</h3>
+	<p>
+		clear:both 적용하기( 하위객체에.. )
+	</p>
+
+
+	<h3>
+		header, container, footer, nav, section, article, aside, test1, source0, no1, desc2, img1 등등
+		현재 나열된 값들에서 기본적으로 id로 사용해야 하는 값들만 분리하기!
+	</h3>
+	<p>
+		id는 약속된 영역의 이름을 찾으면 됨<br/>
+		header, container, footer ( 정해진 영역의 이름 )<br/><br/>
+		section은 id="container" : section 태그는 비슷한 정보의 값들을 모아주는 영역이기때문에
+		section id="section" 이라 사용하지 않는다. ( 영역의 이름이 정확하게 나뉘어져야 함)<br/>
+		section id="sportNews" ( id값으로 무슨 정보가 있는지 알려주어야 함 )<br/>
+		nav id="gnb"<br/>
+		article="shopDesc" ( 어떤 샵에 대한 정보들을 배포가능하게 해주는 영역 )<br/>
+	</p>
+
+
+	<h3>
+		class 속성을 css영역에서 호출할때 사용하는 기호는?
+	</h3>
+	<p>
+		.(점)
+	</p>
+
+
+	<h3>
+		tab키 대신에 사용할수 있는 특수기호는?
+	</h3>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</p>
+
+	<h3>
+		class 이름에 2.4 라고 적용하였다. 적용이 가능할까? 가능하지 않다면 이유는?
+	</h3>
+	<p>
+		적용은 가능하나. 기능에서 클래스명을 읽어올때 오류를 일으킬 확률이 높다!<br/>
+		2.4의 .4 부분을 클래스 명이나 배열값으로 잘못 인식할 확률이 높음!
+	</p>
+
+
+	<h3>
+		리스트 스타일 항목중 로마숫자 소문자로 표현하는 방법은?
+	</h3>
+	<p>
+		list-style-type: lower-roman
+	</p>
+
+
+	<h3>
+		소문자를 대문자로, 대문자를 소문자로 표현하는 방법작성하기
+	</h3>
+	<p>
+		text-transform:uppercase ( 대문자로 변형 )<br/>
+		text-transform:lowercase ( 소문자로 변형 )
+	</p>
+
+
+	<h3>
+		border 라는 값은 영역을 차지할까? 차지 하지 않을까?
+	</h3>
+	<p>
+		border 라는 값은 영역을 차지함( float 속성을 적용했을경우 주의해야 하는 값들 중에 하나!)
+	</p>
+
+	<h3>
+		font 축약형 표현방법시 첫번째로 적용하는 값은? ( bold , font-size, font-family 중에서 )
+	</h3>
+	<p>
+		모양이나 형태가 되는 값들을 먼저 적용<br/>
+		italic bold과 먼저 적용<br/>
+		제시된 내용중에서는 bold를 가장 먼저 적용해야 함!
+	</p>
+
+	<h3>
+		font 축약형 순서 나열하기
+	</h3>
+	<p>
+		01) font-style:italic  or  font-weight:bold <br/>
+		02) font-size / line-height
+		03) font-family
+	</p>
+
+
+	<h3>
+		border도 축약형 표현인데 어떤 값을 우선으로 하여 순서대로 나열되는지 작성하기
+	</h3>
+	<p>
+		border:1px solid blue<br/>
+		01) 테두리두께<br/>
+		02) 테두리모양<br/>
+		03) 테두리의 색상
+	</p>
+
+
+	<h3>
+		float 속성은 기본적으로 상위객체에 적용이 되었을때 하위객체가 따라 올라 갈 수 있다.
+		하위객체가 상위객체를 따라 올라가려면 어떤 조건이 갖추어져야 할까?
+		아는데로 작성하기
+	</h3>
+	<p>
+		1) 상위객체가 float가 적용이 되었는지 확인!<br/>
+		2) 하위객체에 너비와 높이가 있는지 확인한후 float 적용하기
+	</p>
+
+
+	<h3>
+		상위객체에서 너비 100%를 적용했을때 하위객체가 위로 올라갈수 있을까?
+	</h3>
+	<p>
+		너비를 100% 차지 하고 있으면, 공간이 없기때문에 float 기능이 제대로
+		적용되지 않을 수 있다.
+	</p>
+
+
+	<h3>
+		overflow를 해제하는 유일한 기능은?
+	</h3>
+	<p>
+		overflow:visible
+	</p>
+
+	<h3>
+		참고이미지1 실습예제까지 하고 제출하기( 개별제출! )
+	</h3>
+ </body>
+</html>

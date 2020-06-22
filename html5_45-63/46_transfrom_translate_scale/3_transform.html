@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> transform </title>
+  <style>
+	/* 
+		html5에서 type을 작성하면 위험요소 발생!
+		css3를 전부 사용하기 위해서 type="text/css"를 제외함!
+			+ type="text/css"가 작성되면 css3이전버전 
+			+ type=""text/css가 없으면 css3버전으로 인식
+	*/
+	*{margin:0; padding:0;}
+	body{background-color:#333; color:#fff; font-family:arial, sans-serif;}
+
+		#wrap{width:960px; margin:0 auto;}
+			#content{width:100%; height:}
+				#content h2{text-align:cetner; padding:20px 0; text-transform:uppercase;}
+				#content p{text-align:center; padding-bottom:20px;}
+
+				#content h4{font-size:17px; padding:15px 0;}
+					#content h4:after{content="test"}
+					article{width:240px; height:240px; float:left; margin-left:40px; margin-top:40px;  background-color:pink; text-align:center;}
+						article img{width:180px; height:180px; border:1px solid #fff;}
+
+				/* overflow :hidden =으로 끝게 되면 화면에서 커지는 대상이 공간안에 숨겨져 보일 수 있음*/
+				#content:after{content:"", display:block; clear:both;}
+
+				/*####################### scale 문제 ######################*/
+				/*
+					01) 기본이 되는 박스 만들기
+					02) x축, y축 둘다 50%줄어들게 만들기
+						50% == 0.5
+						구형브라우저의 경우 따로 작업	0.5, 0.5 == x축, y축
+						표준 브라우저 경우 한번에 작업이 가능! 0.5
+					03) 
+				*/
+				.box50{transform:scale(0.5);}
+
+				/* scale 문제2 : 120% 늘어나게 만들기 */
+				.box120{transform:scale(1.2);} 
+
+				/* scale 문제3 : 25%였다가 75%로 늘어나게 만들기 */
+				.box25{transform:scale(0.25);
+					/* 
+						+속성이 transform인 경우에는 transform을 작성
+						transition:transform:scale개념은 없음
+				
+						+속성을 알면, 속성을 제대로 기입하는 것이 좋다.
+							transition:transform 1s ease-in-out, background-color 1s ease-in-out;
+
+						중요!) 변환되는 속성이 너무 많거나, 속성을 정확하게 모를때 다른 방법으로 속성을 지정할 수 있음
+							+ 속성을 기입하는 것이 가장 좋고, 모르거나 속성이 길 때 all을 사용한다.
+
+						중요!)
+							모든 객체는 왼쪽 상단을 기준으로 만들어짐
+							너비와 높이 방향을 늘리면
+								왼쪽에서 오른쪽으로 왼쪽에서 오른쪽으로
+								위에서 아래로 객체가 늘어남
+
+							transform의 scale의 경우에는
+							객체의 중심에서 부터 늘어나거나 줄어든다.
+
+					*/
+					transition:all 0.5s ease-in;
+
+				}
+				.box25:hover{transform:scale(0.75); background-color:lightblue;}
+
+				/* scale 문제4 : x축 방향으로 50%줄어들게 만들기!
+					scalex와 scaley는 지정된 축만 변형이 가능하게 만듬
+				*/
+				.box_x50{transform:scalex(0.5);}
+
+				/* scale 문제5 : y축 방향으로 50%줄어들게 만들기!*/
+				.box_y50{transform:scaley(0.5);}
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<section id="content">
+			<h2>transform:scale</h2>
+			<p>
+				section : 컨텐츠들을 담아주는 영역, 어떠한 주제를 가지고 객체들을 영역에 모아주는 곳<br/>
+				article : 코멘트, 명언, 감사평, 기사내용, 독립적으로 사용이 가능하며 <strong>"배포가능"</strong>한 값들을 모아주는 영역
+			</p>
+			<article class="box">
+				<h4>basic</h4>
+				<img src="img/score.png" title="score 관련 이미지"/>
+			</article>
+
+			<article class="box50">
+				<h4>scale50%</h4>
+				<img src="img/score.png" title="score 관련 이미지"/>
+			</article>
+
+			<article class="box120">
+				<h4>scale120%</h4>
+				<img src="img/score.png" title="score 관련 이미지"/>
+			</article>
+
+			<article class="box25">
+				<h4>scale from 25%</h4>
+				<img src="img/score.png" title="score 관련 이미지"/>
+			</article>
+
+			<article class="box_x50">
+				<h4>scalex_50%</h4>
+				<img src="img/score.png" title="score 관련 이미지"/>
+			</article>
+
+			<article class="box_y50">
+				<h4>scaley_50%</h4>
+				<img src="img/score.png" title="score 관련 이미지"/>
+			</article>
+		</section>
+	</div>
+ </body>
+</html>
+<!--
+	시멘틱 태그들은 대부분 약속된 영역을 만들기 때문에 대부분 제목을 요구함!
+	
+	+ xhtml에서 배운 css는 css버전
+	+ html5에서 배우는 css는 css3 또는 css3.0버전
+
+	xhtml에서는 구형 브라우저에 맞추는 크로스브라우징 작업을 함
+	html5에서는 표준 브라우저에 맞는 작업과 반응형, 적응형, 절대형 작업을 함!
+
+		+ html5로 작업하는 것은 표준 브라우저나 디바이스들에 맞추는 작업을 하게 되며
+		구형 브라우저일경우 알림창이나 주소줄을 띄워 업데이트를 안내하게 됨!
+
+		+ 구형 브라우저의 경우 보안상의 문제와 기능의 부재가 심각함
+-->

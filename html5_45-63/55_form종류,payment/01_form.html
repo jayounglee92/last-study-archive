@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> form </title>
+ </head>
+ <body>
+	<h2>html5에서 form 사용하기</h2>
+	<form action="#" method="post">
+		<fieldset>
+			<legend>input type의 종류</legend>
+			<em>
+				xhtml기준의 type:<br/>
+				type="text", type="password", type="submit", type="button"<br/><br/>
+				
+				html5에서의 type<br/>
+				각종 디바이스들에 맞추는 반응형, 적응형, 절대형 페이지를 만들게 되면
+				디바이스기기들에서  type에 맞춰 기능을 하게 된다.
+			</em>
+			<p>
+				<label for="search">검색: </label><input id="search" type="search" name="search"/>
+				<!-- search는 == text로 변경해서 사용해도 상관없다. -->
+			</p>
+			<p>
+				<label for="email">이메일: </label><input id="email" type="email" name="email"/>
+				<!-- 중요!!!!!!!!! type작성시 맞춰야 하는 항목들중 중요요소 -->
+			</p>
+			<p>
+				<label for="url">사이트주소: </label><input id="url" type="url" name="url"/>
+				<!-- url은 == text로 변경해서 사용해도 상관없다. 
+					type을 url로 맞춰놓으면 주소줄에 http를 입력하라는 문구가 자주 뜨게 됨
+				-->
+			</p>
+			<p>
+				<label for="phone">전화번호: </label><input id="phone" type="tel" name="phone"/>
+				<!--
+					중요!
+						type을 phone으로 맞추면 사용하는 의미가 전혀 없음!
+						
+						tel로 맞춰야 제대로 작동하게 됨!
+						+ 중요!
+							디바이스 기기들에서 순수하게 키보드를 사용하면
+							키패드 모양이 전화번호에 맞춰서 변경된다.
+				-->
+			</p>
+			<p>
+				<label for="number">수량: </label><input id="number" type="number" name="number" value="5" min="1" max="11" step="2"/>
+				<!--
+					중요!
+					min은 최소수치에 대한 값 지정
+					max는 최대수치에 대한 값 지정
+					value는 기본값을 지정
+					step  == value + step : 기본값에서 부터 몇단계씩 띄워서 읽을것인지 설정
+				-->
+			</p>
+			<p>
+				<label for="range">범위: </label><input id="range" type="range" name="range" min="1" max="10" value="7"/>
+				<!--중요! -->
+			</p>
+			<p>
+				<label for="date">날짜: </label><input id="date" type="date" name="date"/>
+			</p>
+			<p>
+				<label for="month">월: </label><input id="month" type="month" name="month"/>
+			</p>
+			<p>
+				<label for="time">시간: </label><input id="time" type="time" name="time"/>
+			</p>
+			<p>
+				<label for="datetime-local">날짜시간: </label><input id="datetime-local" type="datetime-local" name="datetime-local"/>
+			</p>
+			<p>
+				<label for="week">주: </label><input id="week" type="week" name="week"/>
+			</p>
+			<p>
+				<label for="color">색상: </label><input id="color" type="color" name="color"/>
+			</p>
+		</fieldset>
+	</form>
+ </body>
+</html>

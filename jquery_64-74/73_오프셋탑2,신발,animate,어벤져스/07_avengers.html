@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> avengers </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	body{background-color:#333;}
+		#wrap{width:1025px; margin:0 auto;}
+			h1{text-align:center;}
+			.frame{width:800px; height:420px; margin:0 auto; position:relative;}
+				p{width:100%; height:100%; position:absolute; left:0; top:0; outline:2px solid #ccc;}
+					p img{width:100%;}
+
+  </style>
+  <script>
+	jQuery(document).ready(function(){
+
+		$(".fox").click(function(){
+			$(".fox").hide();
+		});
+
+		$(".aven").click(function(){
+			$(".fox").show();
+		});
+	});
+  </script>
+
+ </head>
+ <body>
+  <div id="wrap">
+	<h1><img src="img/avengers_logo.png" alt="어벤져스로고"/></h1>
+	<div class="frame">
+		<p class="aven"><img src="img/avengers.jpg" alt="어벤져스 이미지"/></p>
+		<p class="fox"><img src="img/20th_century_Fox.jpg" alt="20세기폭스 이미지"/></p>
+	</div>
+  </div>
+ </body>
+</html>

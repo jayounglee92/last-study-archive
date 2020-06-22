@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> time2 </title>
+  <script>		
+		function onlyTime(){
+			// 시간, 분, 초 입력
+			var today = new Date();
+			var hours	 = today.getHours();
+			var minutes	= today.getMinutes();
+			var seconds	 = today.getSeconds();
+
+			/*
+				12시가 넘으면 오후 1시로 나오도록 만들기
+				넘지 않으면 오전 12시로 나오도록 만들기
+			*/
+			
+			if(hours > 12){ hours = "오후"+(hours-12);}
+			else{ hours ="오전"+hours; }
+
+			var myTime = hours+" 시 "+minutes+" 분 "+seconds+" 초";
+			document.title=myTime;
+		}
+		
+		// 함수 안에 있는 기능들은 onclick이나 onmouseover 같은 기능이 없으면 출력받기 어렵다.
+		// 기능을 가지고 있는 메서드를 이용하여 출력받기 
+		// alert(  onlyTime()  );
+
+		// setInterval(function(){ onlyTime(); },1000);
+
+
+		
+		/*
+			setInterval은 몇초에 한번씩 클릭되는 기능! 
+			setInterval(function(){ 클릭할 대상 },몇 초);
+			
+			setInterval(function(){ alert("나타나라!"); },1000);
+
+				: 장점
+					사용자가 직접 클릭하지 않아도 지정해준 시간동안 알아서 자동 클릭
+				: 단점
+					많이 사용하게 되면 클릭받아야 하는 위치값에서 오작동이 일어날수 있음
+					사용자와 setInterval의 이벤트가 동시에 적용되거나 시간차로 적용될수 있음
+						+ 웹 접근성에 문제가 있음 ( 직접 컨트롤 하기 어려움 )
+						+ 멈춤 버튼 만들기로 해결!
+		
+			+ setTimeout(function(){ alert("나타나라"); },1000);
+				몇 초뒤에 한번만 실행되는 기능
+					자주 실행되는 값이 아니라 한번 실행후 종료된다.
+					팝업창이나 광고창등에 사용
+			
+			+ setInterval 을 지우는 기능
+				clearInterval(function(){ 해제할 대상 });
+		*/
+
+		
+
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>

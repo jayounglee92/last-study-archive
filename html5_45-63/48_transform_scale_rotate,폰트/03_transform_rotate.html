@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> transform:rotate </title>
+  <style>
+		*{margin:0; padding:0;}
+		body{background-color:#333;}
+			/* #wrap{width:1280px; margin:0 auto;}
+
+				기능: h1에 마우스를 올리면 글자색상 변화되도록 만들기 
+						
+						주의! 블록요소는 끝에서 끝까지 영역을 차지 하기 때문에
+						마우스가 빈공간에 닿아도 작동하게 되버린다.
+					
+						기능이 적용될때는 영역을 해당하는 범위근처까지만
+						설정해야함!
+				*/
+				h1{text-align:center; color:#777; padding:20px 0; width:340px; margin:0 auto; 
+				transition:color 0.5s;}
+				/*
+					timing-function 필요없으면 제외가능 이때는 자동으로 linear로 설정됨!
+				
+				*/
+				h1:hover{color:#fff; cursor:pointer;}
+
+				section{width:100%;}
+
+					/*
+						현재 h2에는 기능이 없기때문에 영역을 굳이 설정하지 않아도 상관없음
+							+ 기능이 있는 부분인지, 아닌지 설정부분에서 확인하면서 작업하기!
+					*/
+					section h2{text-align:center; color:#aaa; text-decoration:underline;}
+				
+				.box{width:240px; height:240px; margin:50px auto 0; background-color:rgba(255,255,255,0.5);text-align:center;  transition:transform 1s; }
+
+				.box:hover{transform:rotate(-15deg);}
+				/*
+					주의사항!
+						브라우저에서 x축이나 y축의 스크롤이 만들어지면서 덜컹거리는 문제가 발생할때는
+						부모요소나 담아주는 큰 영역에서 스크롤을 만들수 있기때문에 확실히 정리해주어야한다.
+				*/
+				
+				.box img{border:1px solid #fff; margin-top:10px; box-shadow:5px 5px 10px rgba(0,0,0,0.5);
+					transition:transform 1s ease-in-out 0.3s;
+				}
+				.box:hover img{ transform:rotate(30deg);}
+				/*
+					box에 그림자주기!
+						box-shadow (box형태에 적용)
+							+ x축 밀리는 정도
+							+ y축 밀리는 정도
+							+ 흐림효과(blur)
+
+
+					기능2: img는 box 반대로 돌아가도록 만들기!
+						
+						1) .box:hover img : 부모에 올렸을때 부모도 작동되고, 자녀요소도 작동될수 있음
+						2) .box img:hover : 부모에 상관없이 자신만 움직일수 있음
+
+					delay작업설정을 할때는 timing-function이 제외가 어렵기 때문에 설정을 해주고
+					delay 작업을한다.
+						+ delay를 효과적으로 사용하려면 맨처음에 보여지는 어떤 객체가 나타나고
+						그다음 객체들이 천천히 하나씩 나타날때 delay를 적용한다.
+				*/
+
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<h1>transform:rotate</h1>
+		<section>
+			<h2>rotate</h2>
+			<div class="box">
+				<img src="img/score.png" alt="이미지"/>
+			</div>
+		</section>
+	</div>
+ </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>arrayTEST</title>
+  <script>
+	/*
+		1) 순차배열로 작성하기
+			animal 만들기 
+				dog, cat, duck, pig 작성하기
+				문서로 출력받기 for문 사용하여 출력받기
+	*/
+
+		var animal  = ["dog","cat","duck","pig","bear","eagle","crocodile"];
+	
+		/*
+			document.write( "동물 : "+animal[0]+" <br/>");
+			document.write( "동물 : "+animal[1]+" <br/>");
+			document.write( "동물 : "+animal[2]+" <br/>");
+			document.write( "동물 : "+animal[3]+" <br/>");
+
+			종료지점:
+				종료지점에 대해 직접세서 몇개 전까지 막아줌...
+				쇼핑몰이라면??
+					1000개 이상이라면??
+			
+								["dog","cat","duck","pig","bear","eagle","crocodile"]
+			공간					0			1		2		3		4			5				6
+			길이(갯수)		1			2		3		4		5			6				7
+
+			animal은 배열공간 전체 값을 담고 있음
+			대상.length
+				0이 아닌 1부터 세어줌!
+					공간보다 숫자가 하나 더 있음
+					종료지점 어디전까지 성립가능!
+		*/
+		
+		for(var i=0; i<animal.length; i++){
+			document.write( "동물 : "+animal[ i ]+" <br/>");
+		}
+
+		/*
+			02) 배열공간 고양이
+				고양이 이름, 몇살, 몇킬로 그램 kg까지 작성
+				문서출력 받기 : for문으로 출력받기
+
+		*/
+		var cat = ["navi",3,"3.5kg"];
+		
+		for(i=0; i<cat.length; i++){
+			document.write( "고양이 정보 "+cat[ i ]+" <br/>");
+		}
+		
+		/*
+			03) 스포츠 종류
+				축구, 야구, 농구, 배구, 하키 등등 7개 정도 나열
+				문서로 출력받기 : for문으로 출력받기 
+		*/
+
+		var sports = ["축구", "야구", "농구", "배구", "하키","역도","육상","수영"];
+		
+		for(i=0; i<sports.length; i++){
+			document.write( sports[ i ] +" , ");
+		}
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>

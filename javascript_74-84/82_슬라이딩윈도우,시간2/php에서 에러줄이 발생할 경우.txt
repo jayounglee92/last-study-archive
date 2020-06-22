@@ -1,0 +1,18 @@
+에러줄 발생
+
+1) xampp 에서 Apache 위치에
+config 버튼 클릭
+
+권장 X PHP (php.ini) 메모장에 열림
+권장 O browser [PHP] 클릭
+
+2) php.ini 에디터플러스로 열기 
+error_reporting 찾기: 449번째 줄 쯤 있음
+
+; error_reporting (맨앞에 세미콜론, 주석글과 같음)
+
+3) 저장하기 
+
+
+4) xampp의 버튼 stop 2군데 눌렀다가 다시 
+start로 켜기

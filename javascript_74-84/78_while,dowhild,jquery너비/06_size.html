@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> body_size </title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+   <style>
+	*{margin:0; padding:0;}
+	h3{width:100%; height:50px;}
+	p{width:1600px; height:400px; background-color:blue; margin:0 auto;}
+   </style>
+
+   <script>
+      $(function(){
+         /*
+            브라우저의 사이즈
+            + 브라우저를 대상으로 잡을 수 없음
+               : body의 너비가 필요!
+         */
+         /*
+            지역변수는 일정한 구역에서 사용
+            전역변수는 전체 구역에서 사용
+               
+               + var 변수명: javascript, jQuery   : var body
+               + $ 변수명: 주로 jQuery   : $body
+               + 변수명: jQuery에서만 사용가능   : body
+         */
+
+         // window의 사이즈가 변화되는 정보를 실시간으로 넘겨받지 위한 작업
+         $(window).resize(function(){
+            body = $("body").width();
+            //alert(body);
+
+            $("h3").html(body);
+            $("p").css({"width":body});
+            
+            // 모바일의 가로사이즈: 481~767
+            if(body>=481 && body<=767){
+               $("p").css({"backgroundColor":"red"});   
+            }else if(body>=320 && body<=480){
+               $("p").css({"backgroundColor":"gold"});   
+            }else{
+               $("p").css({"backgroundColor":"blue"});
+            }
+         });
+      });
+   </script>
+ </head>
+ <body>
+	<h3></h3>
+	<p></p>
+ </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>addClass</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		h2{ width:700px; margin:20px; text-align:center; background-color:#a3a; color:#fff; }
+		ul{ width:700px; margin:0 0 20px 20px;}
+			li{ list-style-type:none; width:200px; height:200px; background-color:#aaa; float:left; margin-right:5px; margin-bottom:5px; text-align:center; line-height:200px;}
+
+			.circle{ border-radius:100px; background-color:orange; cursor:pointer; transition:all 1s;}
+			.circle:hover{ transform:rotate3d(1,-1,0,360deg);}
+
+			
+			/*########### 이벤트 클래스 ###########*/
+			/* 처음부터 적용하는 것이 아니라 이벤트에 의해서 적용하게 될 클래스
+			.normal{ border-radius:0; width:200px; height:200px; background-color:#aaa; float:left; margin-right:5px; margin-bottom:5px; text-align:center; line-height:200px;} 
+			*/
+
+
+			/* 중요!  클래스명만 연결 받는것이아니라 클래스명으로 연결된 기능도 함께 사용할 수 있음 */
+		ul:after{ content:""; display:block; clear:both; }
+  </style>
+  <script>
+		jQuery(document).ready(function(){
+			/*
+				1) 클릭한 li태그에 클래스 속성이어받기
+						+ 대상 : ul li
+						+ 이벤트: 클릭
+						+ 이벤트 핸들러 : 클릭한 li (this)
+			*/
+			$("ul li").click(function(){
+				// 이벤트 핸들러 : 클릭한 li (this)
+				// 대상: this
+				// 이벤트: 클래스속성 이어주기
+				// 이벤트 핸들러: 대상과 같음
+				
+				$("ul li").removeClass("circle");
+				$(this).addClass("circle");
+
+
+				/*
+					2) 클릭한 값을 제외하고 나머지 li태그들은 원래대로 돌려놓기
+						
+						해결해야될 부분:
+							클릭한 값을 제외하고 나머지 li태그들은 원래대로 돌려놓기
+							 : normal 클래스 만들어서 해결? (이벤트 클래스 사용)
+							
+							나쁜예:
+								$(this).addClass("circle");
+								$("ul li").addClass("normal");
+								
+								중요!: 순서를 주의해서 사용하기
+
+							좋은예: 해제 속성을 먼저 적용하기
+								$("ul li").addClass("normal");
+								$(this).addClass("circle");
+
+					: 이벤트 클래스 (normal)로 해결하지 못함
+						+ class 속성은 2, 3, 4 개 이상 사용할수 있기 때문에 
+						클래스 속성이 추가가 되어버림
+
+					: 다른해결 방법
+						클래스명 지우기!
+						대상.removeClass()
+							주의할점
+								 removeClass( 클래스명 작성 )
+									: 클래스명을 작성하지 않으면 3개든 4개든 전부 지워지게 됨!
+								
+								removeClass( )
+									: 클래스명을 작성하지 않으면 전부 지우게 되기 때문에 한꺼번에
+									지울때 편리함!
+				*/
+			});		
+		});
+  </script>
+ </head>
+ <body>
+	<h2> addClass : 대상.addClass(클래스명 작성하기)</h2>
+	<ul>
+		<li class="circle">01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+		<li>06</li>
+	</ul>
+ </body>
+</html>

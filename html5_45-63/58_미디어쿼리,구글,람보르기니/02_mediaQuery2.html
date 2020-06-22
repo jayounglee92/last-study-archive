@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> mediaQuery </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+  <style>
+		 *{margin:0; padding:0;} /*pc버전만 초기화*/ 
+		body,header, footer, section,article, nav,div{margin:0; padding:0;}
+		header,section,footer, article, nav{ display:block; }
+		li{list-style:none;}
+			/*
+				+ 공통 범위의 값들은 하위의 모든 미디어 범위에 영향을 줄 수 있다.
+				+ 미디어 범위는 해당하는 해상도에서만 주는 효과를 적용할 때 사용한다.
+			*/
+
+		/*pc버전 해상도*/
+		@media all and (min-width:1025px) and (max-width:1920px){
+			header{ background-color:blue; text-align:center; color:#fff;}
+			
+			#content{ width:100%;}
+				#content h3{ text-align:center; padding:20px 0;}
+				.banner{ text-align:center; width:85%; margin:20px auto;}
+					.banner li{width:31%; border:1px solid #aaa; float:left; margin-left:3%;}
+					.banner li:first-child{ margin-left:0;}
+					/*
+						부모요소가 85%, 75%, 70% 여도 자녀요소가 볼때는 무조건
+						100%로 인지한다.
+					*/
+						.banner li img{ width:100%;}
+				
+				.banner:after{content:""; display:block; clear:both;}
+			
+			section{ background-color:#333; color:#aaa; text-align:center; line-height:20px; font-size:14px;  }
+			footer{ background-color:#000; text-align:center; color:#ddd; font-size:14px; }
+				
+			
+		}
+
+		/* 태블릿 pc */
+		@media all and (min-width:768px) and (max-width:1024px){
+			header{color:#aaa; text-align:center; background-color:pink;}
+				#content{ width:100%; }
+					.banner{ width:80%; margin:0 auto;}	
+						.banner ul{ width:100%; padding:40px 0; }
+							.banner ul li{width:48%; float:left; border:1px solid #ccc; margin-left:3%;}
+							.banner ul li:first-child{margin-left:0;}
+							.banner ul li:last-child{ clear:both; margin:10px 25%; border:1px solid red;}
+								.banner ul li img{width:100%;}
+							/*
+								형제요소들이 가로로 배치되어 있다면 clear:both로 끊어줘도
+								margin:0 auto의 영향을 받지 몫한다.
+									이때는 나머지 여백값을 계산하여 배치하면 사용이 가능!
+							*/
+
+						.banner ul:after{content:""; display:block; clear:both;}
+
+			section{background-color:gold; text-align:center;}
+			footer{text-align:center;}
+		}
+
+		/* 스마트폰 */
+		@media all and (min-width:320px) and (max-width:767px){
+			header{text-align:center; background-color:red;}
+			#content{ width:100%;}
+				.banner{ width:75%; margin:0 auto; padding:30px 0;}
+					.banner ul{ width:100%; }
+						.banner ul li{ width:70%; border:1px solid #333; margin:0 auto;}
+						.banner ul li img{ width:100%;}
+						/*
+							li태그들은 가로로 배치하면 양쪽으로 여백이 서로 다르기 때문에
+							margin 값으로 가운데 배치하기가 어렵다.
+							하지만 세로로 배치하면 서로 양쪽으로 영역을 똑같이 사용할수
+							있기 때문에 margin으로 가운데 배치가 가능하다.
+						*/
+		
+
+			section{background-color:#ccc; text-align:center;}
+			footer{background-color:#333; text-align:center; color:#aaa;}
+		}
+
+		/* 스마트폰 세로버전
+		@media all and (min-width:320px) and (max-width:480px){
+			header{text-align:center;}
+			} 
+		*/
+  </style>
+ </head>
+ <body>
+	<header>
+		<h1>mediaQuery</h1>
+		<nav id="gnb">
+			로그인, 게시판, 블로그, 카페, 지도, 쇼핑<br/>
+			부트스트랩에서는 header 영역안에 nav태그를 사용할수가 없다.<br/>
+			이유는?? a태그를 사용했는데도 불구하고 링크가 작동하지 않을 수 있음<br/>
+			무한로딩(루프) 현상에 빠질 수 있음 ( 예약어와 사용자가 지정한 언어가 충돌 났을때 )<br/>
+			기본적으로 header 영역 안에 사용하는 것이 nav 태그!
+		</nav>
+	</header>
+	<div id="content">
+		<h3>ul, li, a 태그 사용하여 실습하기</h3>
+		<div class="banner">
+			<ul>
+				<li>
+					<a href="#none" title="이미지1">
+						<img src="img/banner01.jpg" alt="베너이미지1"/>
+					</a>
+				</li>
+				<li>
+					<a href="#none" title="이미지2">
+						<img src="img/banner02.jpg" alt="베너이미지2"/>
+					</a>
+				</li>
+				<li>
+					<a href="#none" title="이미지3">
+						<img src="img/banner03.jpg" alt="베너이미지3"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<section>
+		<h2>h2~h6까지 사용이 가능함</h2>
+		<h3>비슷한 정보의 값들을 모아주는 영역</h3>
+		<h5>파편화 현상이 일어나기 때문에 모바일 기기에서 사용하기가 불편하다.</h5>
+		<article>
+			<h2>서로 이어지지 않아도 되는 배포가능한 독립영역</h2>
+			<p>
+				article, aside 의 시멘틱 태그들은 section 영역안에서 사용이 가능하나..<br/>
+				시멘틱 태그 안에 시멘틱 태그를 사용하면 부트스트랩에서는 인식이 안될수 있음<br/>
+				부트스트랩에서 div 태그 사용을 권장함
+			</p>
+		</article>
+	</section>
+	<section>
+		<h2>반응형 VS 절대형 VS 적응형</h2>
+		<ol>
+			<li>
+				<h3>반응형</h3>
+			</li>
+			<li> 모든 해상도를 고려하여 맞추는 작업 (px로 고정하고 나머지는 대부분 % 작업)</li>
+			<li>
+				<h3>절대형(적응형)</h3>
+			</li>
+			<li> 고정된 단위를 사용하여 작업 </li>
+			<li> px 단위를 사용하여 주로 작업한다.</li>
+			<li> 쇼핑몰의 제품이미지나 사람의 이미지가 늘어나거나 줄어들면 원본의 형태가
+			깨질수 있음! <br/>
+			구매 페이지나 원본이 유지되어야 하는 사이트에서는 비율을 중요시 작업!</li>
+			<li>
+				<h3>적응형</h3>
+			</li>
+			<li>
+				제일 많이 하는 작업?
+			</li>
+			<li>
+				반응형과 절대형을 섞어서 작업하기
+			</li>
+			<li>
+				비쥬얼 영역처럼 이미지가 큰 영역은 반응형으로 작업<br/>
+				상품이미지가 깨지거나 비율 유지가 되어야 하는 영역은
+				절대형으로 작업
+			</li>
+		</ol>
+	</section>
+	<hr/>
+	<footer>
+		<h2>푸터: 카피라이터, 개인정보 방침, 법률정보</h2>
+		<p> 시멘틱 태그들의 인식률이 떨어질 경우 id를 설정하여 이름 적용하기 (id="footer")</p>
+		<address>
+			회사주소, 사업자번호등이 있다면 적용해주는 태그
+		</address>
+	</footer>
+ </body>
+</html>

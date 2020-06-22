@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> id_class </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		/*
+			id명 p1에 해당하는 strong에 배경색상 pink 색 적용
+			id명 p2에 해당하는 strong에 배경색상 pink 색 적용
+
+				+ id속성의 단점
+					같은 값을 적용하더라도 두번 이상의 대상을 호출해서 적용해야 하는 문제 발생
+		*/
+		
+		#p1 strong{background-color:pink;}
+		#p2 strong{background-color:pink;}
+		
+
+		/*
+			+ id를 호출시에는 특수기호 #
+			+ class를 호출시에는 특수기호 .
+
+			+ 클래스명이 test인 값에 포함된 strong에 밑줄 만들기
+		*/
+
+		.test strong{ text-decoration:underline;}
+  </style>
+ </head>
+ <body>
+	<h2> id와 class </h2>
+	<p id="p1" class="test">
+		<strong>id속성은? </strong><br/>
+		+ 한번만 사용해야 하는 값들에 이름을 적용할때 사용<br/>
+		+ 영역이 되는 곳에 이름을 작성할때 사용<br/>
+		+ 소스 또는 자녀요소에 id를 설정할 경우, 기능을 하는 부분인지에 따라서 작성<br/>
+		+ 유일한 값을 작성할때( 제품등록번호, 주민번호, 카드번호, 쿠폰번호)<br/>
+		+ 같은 이름을 사용할 경우 기능은 하지만, 문법에 치명적인 오류 발생
+	</p>
+	<p id="p2" class="test">
+		<strong>class속성은? </strong><br/>
+		+ javascript나 jQuery에서 유용한 기능을 만들때 사용한다. <br/>
+		+ id값은 유일하게 사용할때 적용하기 때문에 제약이 있음 이러한 단점을 class속성이 보완할 수 있다.<br/>
+		+ 같은 이름을 사용할 수 있다.<br/>
+		+ 클래스명은 영역이 되는 부분에도 작성할 수 있지만...소스가 되는 부분에도 작성할 수 있다.<br/>
+		+ 인식률이 id나 tag보다 좋다고 볼수는 없다. 그래서 클래스명 앞에다가 태그명을 붙여서 호출하는
+		경우도 종종 있다.
+	</p>
+ </body>
+</html>

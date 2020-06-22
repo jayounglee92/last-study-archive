@@ -1,0 +1,12 @@
+
+중요: 대상.이벤트. 이벤트핸들러 작성
+
+1) h1으로 만들기 : click 박스 누르면 알림창 띄우기
+2) h2 ( clickEVENT1 ) 클릭하면 
+box1, box2의 블릿기호가 없어짐
+
+3) h3( clickEVENT2 )클릭하면
+box2, box2의 dotted가 있는 테두리가 생성
+
+4) p_click TEST 박스는 클릭하면
+글자가 가운데 정렬됨

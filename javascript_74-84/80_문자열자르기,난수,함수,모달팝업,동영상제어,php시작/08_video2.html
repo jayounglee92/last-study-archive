@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> video </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	h1{ text-align:center;}
+	div{ width:720px; height:405px; margin:50px auto; position:relative;}
+		div video{width:100%;}
+			div p{width:100px; height:90px; position:absolute; left:50%; top:50%; margin-left:-50px; margin-top:-45px;}
+				div p img{ width:100%; height:100%; cursor:pointer;}
+  </style>
+  <script>
+	// 익명적 함수 사용하기 
+		var mov = function(){ var movs = document.getElementById("movies"); return movs; }
+
+	// 브라우저가 활성화 되면 비디오 자동재생
+	window.onload = function(){
+		var movss = document.getElementById("movies");
+		if(movss.paused == true){ movss.autoplay = true; movss.load(); }
+		else{ movss.pause(); }
+	}
+
+	// 마우스를 버튼에 올리면 재생되도록 만들기 
+	// 버튼 사라지도록 만들기
+	function btnOver(){
+		mov().play();
+		$("#playBtn").animate({"opacity":"0"},500);
+	}
+	
+	// 마우스를 버튼에 내리면 멈추게 만들기
+	// 버튼 나타나도록 만들기
+	function btnOut(){
+		mov().pause();
+		$("#playBtn").animate({"opacity":"1"},500);
+	}
+
+  </script>
+ </head>
+ <body>
+	<h1>마우스를 올리면 재생, 내리면 멈추기</h1>
+	<div>
+		<video id="movies">
+			<source src="iPhone6s.mp4"/>
+		</video>
+		<p>
+			<img id="playBtn" src="img/playico.png" alt="플레이버튼" onmouseover="btnOver();" onmouseout="btnOut();"/>
+		</p>
+	</div>
+ </body>
+</html>

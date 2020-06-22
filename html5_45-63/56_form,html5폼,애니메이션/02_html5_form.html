@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> html5_form </title>
+  <style>
+	li{list-style:none; padding:4px 0;}
+	input[type="submit"]{cursor:pointer;}
+
+	form .red{color:#f00;}
+		form fieldset ul{padding:0;}
+		form fieldset fieldset{border:none;}
+		form fieldset fieldset legend{font-weight:bold; float:left; text-indent:-16px;}
+		form #submit{border:none;}
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<h2>HTML5 form</h2>
+		<form action="#none" method="post">
+			<p>회원가입을 위한 필수 입력<span class="red">(*)</span>항목을 입력해주세요.</p>
+			<fieldset>
+				<legend>개인정보입력:필수</legend>
+				<ul>
+					<li>
+						<label for="userid"><span class="red">(*)</span>아이디 : </label>
+						<input id="userid" type="text" name="userid" placeholder="최대 아이디 8자까지 입력" title="최대 아이디 8자까지 입력" autocomplete="off" maxlength="8" autofocus required/>
+					</li>
+					<li>
+						<label for="userpw"><span class="red">(*)</span>비밀번호 : </label>
+						<input id="userpw" type="password" name="userpw" placeholder="비밀번호 10자까지 입력" title="비밀번호 10자까지 입력" autocomplete="off" maxlength="10" required/>
+					</li>
+					<li>
+						<label for="userpwchk"><span class="red">(*)</span>비밀번호확인 : </label>
+						<input id="userpwchk" type="password" name="userpwchk" placeholder="비밀번호 10자까지 입력" title="비밀번호 10자까지 입력"autocomplete="off" required/>
+					</li>
+					<li>
+						<label for="email"><span class="red">(*)</span>이메일 : </label>
+						<input id="email" type="email" name="email" placeholder="아이디@google.com 권장" title="아이디@google.com 권장" autocomplete="off" required/>
+					</li>
+					<li>
+						<label for="phone"><span class="red">(*)</span>전화번호 : </label>
+						<input id="phone" type="tel" name="phone" autocomplete="off" placeholder="'-'표시 넣고 입력하기" title="예) 010-0000-0000" pattern="\d{3}-\d{3,4}-\d{4}" required/>
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset>
+				<legend>개인정보 체크</legend>
+				<ul>
+					<li>
+						<label for="skinrange">피부만족도 : </label>
+						<input id="skinrange" type="range" name="skinrange" min="1" max="5" value="3"/>
+					</li>
+					<li>
+						<label for="dietnum">다이어트시도 횟수 : </label>
+						<input id="dietnum" type="number" name="dietnum" min="0" max="20" value="5"/>
+					</li>
+					<li>
+						<label for="dietdate">최근다이어트 날짜 : <label>
+						<input id="dietdate" type="date" name="dietdate"/>
+					</li>
+					<li>
+						<label for="color">좋아하는 색상 : </label>
+						<input id="color" type="color" name="color"/>
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset id="furtherInfo">
+				<legend>추가정보 입력</legend>
+				<ul>
+					<li>
+						<fieldset>
+							<legend>피부타입</legend>
+							<input id="trouble" type="checkbox" name="trouble"/><label for="trouble">트러블/여드름</label>
+							<input id="sensitive" type="checkbox" name="sensitive"/><label for="sensitive">민감성</label>
+							<input id="atopic" type="checkbox" name="atopic"/><label for="atopic">아토피</label>
+						</fieldset>
+					</li>
+					<li>
+						<label for="skinSelect">피부고민</label>
+						<input id="skinSelect" type="text" name="skinSelect" list="skinlist" placeholder="아래 항목 선택"/>
+						<datalist id="skinlist">
+							<option value="트러블">트러블</option>
+							<option value="건조/지성">건조/유분</option>
+							<option value="잡티">잡티</option>
+							<option value="주름">주름</option>
+						</datalist>
+
+						<label for="skinstepSelect">피부고민단계</label>
+						<select id="skinstepSelect">
+							<option selected="selected" value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</li>
+					<li>
+						<fieldset>
+							<legend>메일 수신에 동의하십니까?</legend>
+							<input id="agree" type="radio" name="agreement"/>
+							<label for="agree">네, 동의합니다.</label>
+							<input id="disagree" type="radio" name="agreement"/>
+							<label for="disagree">아니오, 동의하지 않습니다.</label>
+						</fieldset>
+					</li>
+					<li>
+						<label for="file">파일첨부</label>
+						<input id="file" type="file" name="file"/>
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset id="submit">
+				<input id="signup" type="submit" value="회원가입" title="회원가입"/>
+				<input id="cancel" type="submit" value="취소" title="취소"/>
+			</fieldset>
+		</form>
+	</div>
+ </body>
+</html>

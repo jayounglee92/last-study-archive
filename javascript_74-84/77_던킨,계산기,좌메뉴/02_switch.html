@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>switch</title>
+  <script>
+	/*
+		++++++++ 제어문 ++++++++
+			if  / switch
+			
+			+ if문의 기본 사용방법
+			if(조건){ 조건에 맞는 기능 구현 }
+			else if( 또 다른 조건 ){ 
+
+					1) 또 다른 조건에 대한 기능 구현
+					2) 또 다른 조건이 없으면 제외가능
+				
+				}
+			else{ 조건에 맞지 않는 기능 구현 }
+
+			+ switch 기본 사용방법
+
+			switch( 재료(토마토) ){
+				case 재료1 : 스파게티
+				case 재료2 : 샌드위치
+				case 재료3 : 토마토 주스
+				case 재료4 : 그냥 먹을 수 있음 
+			}
+	
+		var text ='a';
+
+		switch( text ){
+			case 'a': document.write("재료가 a가 맞습니다.");
+		}
+	
+	*/
+	/*
+		응용문제
+			입력창에 a,b,c 각각 입력받기
+			재료가 a일경우 문서에 a가 맞습니다. 출력받기
+			재료가 b일경우 문서에 b가 맞습니다. 출력받기
+			재료가 c일경우 문서에 c가 맞습니다. 출력받기
+	
+
+		var ans = prompt("문자 입력: ","예) a, b, c");
+		
+		switch( ans ){
+			case 'a': document.write("a가 맞습니다."); break;
+			case 'b': document.write("b가 맞습니다."); break;
+			case 'c': document.write("c가 맞습니다."); break;
+			default: document.write("해당하는 값이 없음"); break;
+		}
+		*/
+		/*
+			switch의 특징
+				처리하는 a에서 출력이 시작되면 자신을 포함한 아래 나열되어 잇는 모든 값들이
+				전부 출력되는 현상이 발생한다.
+
+				a를 입력하면 : a, b, c 출력됨
+				b를 입력하면 : b, c 출력됨
+				c를 입력하면 : c 출력됨
+
+				: 위쪽으로 역방향으로 읽어주지 못 함
+				
+				if문을 멈추기위하여 사용하는 값 :  return false
+				jQuery에서 a태그로 탭을 설정했을때 해당하는  영역으로 움직이는것 막기 :return false
+
+				jQuery 의 stop과 return false는 기능이 비슷함
+					: 어떤 수식 안에서는 작동을 하지 못할 수 있음 
+					: 현재는 switch 문이 작동하지 않음!
+
+
+			+ switch의 기본문법, case, default(재료가 없을 경우), break
+			switch( 재료(ans) ){
+				case 'a': document.write("a가 맞습니다."); break;
+				case 'b': document.write("b가 맞습니다."); break;
+				case 'c': document.write("c가 맞습니다."); break;
+				default: if문에서 조건에 맞지 않을때 사용하는 것이 else인데 그것과 같은 기능을 함
+							default는 사용이 필요없으면 제외가능!
+			}
+
+			 :: break는 수식을 멈출때 사용할 뿐 아니라 switch문 바깥쪽으로 나오게 만들때 사용한다.
+			break를 설정하지 않으면 swtich문 안에서 빠져 나오지 못한다.
+
+			return false는 수식 자체를 멈추는 기능
+			break는 현재 수식 안에서 나오는 기능 
+			( 다음 영역에 강제로 작동되는 if나 알림창등이 있으면 작동이 되어 버림!)
+		*/
+
+		/*
+			응용문제1
+				a나 A를 입력받으면 apple 입니다. 문서에 출력받기
+				b나 B를 입력받으면 banana 입니다. 문서에 출력받기
+				c나 C를 입력받으면 coconut 입니다. 문서에 출력받기
+				해당하는 값이 없으면 해당하는 과일이 없습니다. 문서에 출력받기 
+		
+		
+		var ans = prompt("문자 입력받기 : ","예) a,b,c or A,B,C");
+		switch( ans ){
+			case 'a': 
+			case 'A': document.write("apple 입니다."); break;
+
+			case 'b': 
+			case 'B': document.write("banana 입니다."); break;
+			
+			case 'c': 
+			case 'C': document.write("coconut 입니다."); break;
+			default: document.write("해당하는 과일이 없습니다."); break;
+		}
+		
+		*/
+		
+			
+		/*
+			응용문제2
+				숫자 1을 입력받으면 숫자 1입니다. 문서에 출력받기
+				숫자 2를 입력받으면 숫자 2입니다. 문서에 출력받기
+				숫자 3을 입력받으면 숫자 3입니다. 문서에 출력받기
+				해당하는 값이 없으면 제외가능!
+		*/
+		
+		var num = parseInt(prompt("숫자입력: ","예) 1,2,3"));
+		
+		/*
+			문제점 발생:
+				숫자를 넘겨주었으나 switch문이 작동하지 않음
+
+			해결:
+				console.log로 확인하고 재료가 어떤 특성을 가지고 있는지 
+				typeof(대상) 사용하기
+
+			중요:
+			switch 문에서는 재료의 값이 매우 중요
+			특성이 어떤 특성인지 확인하기
+	
+		*/
+
+		console.log( typeof(num) );
+		switch( num ){
+			case 1: document.write("숫자 1입니다. "); break;
+			case 2: document.write("숫자 2입니다. "); break;
+			case 3: document.write("숫자 3입니다. "); break;
+		}
+
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>

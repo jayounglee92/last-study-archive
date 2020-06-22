@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> web test </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		#header{width:1025px; height:50px; background-color:blue;}
+			#nav{background-color:#ff0; width:100%;}	
+				#nav span{text-decoration:underline;}
+			
+		/*
+			pc에서 가장 기본적인 해상도(반응형 고려): 1025px, 1280px
+				pc에서만 사용하는 해상도( 관공서 , 예전 pc ): 
+					940px(리뉴얼 하기전의 네이버와 다음의 너비사이즈), 960px, 980px 
+		*/
+
+	#test0{width:300px; height:300px; background-color:#ccc; letter-spacing:5px;}
+	#test1{width:500px; background-color:gold; text-align:justify;}
+	#test2 span{ text-transform:capitalize; background-color:lightblue;}
+	#test3{font-weight:400; font-size:30px;}
+
+	/*
+		글자정렬:
+			text-align:
+				left, right, center
+
+				+ left: 글자들을 왼쪽정렬( 오른쪽이 공간이 남음 )
+				+ right: 글자들을 오른쪽 정렬( 왼쪽으로 공간이 남음)
+				+ center: 글자들 가운데 정렬( 오른쪽 왼쪽 공간이 남음)
+				+ justify: 수평정렬( 글자하나 정도의 공간이 남았을때 양쪽의 여백을 채울때 사용)
+					+ letter-spacing으로 정밀하게 맞출 수 있음
+	*/
+	#divBox{ width:400px; height:200px; background-color:red;}
+		#divBox p{background-color:pink; width:100%; height:200px;}
+
+	/*
+		블록요소는 기본적으로 끝에서 끝까지느 영역을 차지함!
+			그 중 너비를 끝에서 끝까지 차지한다!
+		
+		중요!)
+			블록은 끝까지 가지만 직접 제대로 적용해주지 않으면 다른객체에
+			여백을 뺏길수 있다.
+
+			+ 얼마를 사용할것인지 반드시 적용해주기!
+				100% 를 사용할 것이라면 100% 라고 꼭 작성하기!
+				
+				+ 100%나 퍼센트 단위를 사용하려면 부모요소가 px로 고정이 되어있는지
+				꼭 확인한 후 작업하기
+	*/
+
+  </style>
+ </head>
+ <body>
+	<h2>web Test</h2>
+	<h3>h1태그에 글자 크기변경하려고 할때 css에서 글자크기를 변경하는 방법은?</h3>
+	<p>
+		font-size ( h5와 h6는 파편화 현상때문에 사용하지 않고, 기본적으로 글씨크기가 큰 
+		객체의 글자사이즈를 조절해서 사용한다. ( ex) 작은 이미지를 늘리면 깨짐 ) )
+	</p>
+
+	<h3>홈페이지 작성시 가장 먼저 작성되어야 하는 영역은?</h3>
+	<p>
+		wrap, wrapper, 기업명_wrap
+	</p>
+
+	<h3>광고영역을 제작하려 한다. 어떤영역에 어떤이름으로 작성해야 할까?</h3>
+	<p>container영역에 visual 영역을 만들어서 제작</p>
+
+	<h3>section 영역을 만들었을때 반드시 들어가야할 태그는?</h3>
+	<p>헤드라인태그( 주의사항:h2~h6까지 사용가능 ( h5~h6 파편화 주의! ))</p>
+
+	<h3>헤더, 컨테이너, 푸터등의 영역을 만들때 사용되는 태그는?</h3>
+	<p>xhtml: div<br/>
+			html5: 시멘틱태그<br/>
+			div는 표준이나 구형브라우저에서 인식률이 가장 좋다.<br/>
+			무엇이든 담을수 있는 가장큰 태그이다.
+	</p>
+
+
+	<h3>id="header" 라고 작성했을때 id를 작성하는 이유는?( 개인이 생각하는데로 자세히 적기)</h3>
+	<p>
+		+ 영역을 지칭하는 유일한 이름<br/>
+		+ 객체를 컨트롤 할수 있음( 자바스크립트에서 영역에 접근할때 사용)<br/>
+		+ 호출할때 사용하는 유일한 이름: css, 기능파트에서도 호출<br/>
+		+ 어떠한 영역에 기준이 되는 이름( 자녀요소, 손자요소에 접근가능 )
+	</p>
+
+	<h3>div와 p태그중 영역을 만들때 가장 많이 사용되는 태그는? 그리고 이유는?</h3>
+	<h3>아래 작성된 내용에 따라 만들기 (현재 페이지에 만들기)</h3>
+	<p>
+		01) div태그 만들기 <br/>
+		02) div태그의 이름은 header 작성하기 <br/>
+		03) div태그안에 p태그 작성하기 <br/>
+		04) p태그의 이름은 nav 작성하기 <br/>
+		05) span 태그 만들고, 각각 작성할 내용은 메일, 카페, 지식인, 쇼핑작성하기<br/>
+		06) header와 nav 영역이 구분이 되도록 배경색상은 각각 다른 색상 적용하기<br/> 
+		07) span태그에 글자 밑줄 생기도록 만들기
+	</p>
+	<div id="header">
+		<p id="nav">
+			<span>메일</span> <span>카페</span> <span>지식인</span> <span>쇼핑</span>
+		</p>
+	</div>
+
+
+	<h3 id="test0">현재 h3태그에 너비 300픽셀, 높이 300픽셀, 배경색상 밝은 회색 (16진법), 자간 5픽셀 적용</h3>
+	
+	<h3 id="test1">현재 h3태그에 배경색상 골드적용, 너비 600픽셀, 글자 수평정렬</h3>
+	<h3 id="test2">red, <span>yellow</span>, blue, <span>green</span>, orange, <span>lightblue</span> 나열된 색상들 중에서 yellow, green, lightblue 값만 선택한 후 앞글자만 대문자로 변경하기</h3>
+
+	<h3>span, strong, em 등에서 width 값이 적용될까? 적용되지 않는다면 이유는?</h3>
+	<p>
+		너비나 높이가 적용되지 않는다. <br/>
+		인라인 태그는 글씨크기만큼의 너비와 높이만 가질수 있다.
+	</p>
+
+	<h3>h4, h3, div, p, br, span, em, i , strong, b 태그중 너비값과 높이값이 적용이 가능한 태그 고르기</h3>
+	<p>
+		블록요소: h3, h4, div, p
+	</p>
+
+
+	<h3>스타일 영역에서 두께를 작성하기 위하여 적용하는 방식은? 그리고 어떤 태그와 같은지 작성하기</h3>
+	<p>
+		font-weight:bold == b태그와 같음( 스크린리더기가 읽을수 없음! )
+	</p>
+
+	<h3 id="test3">현재 h3태그에 글자크기 30픽셀 적용, 두께는 normal적용 ( 숫자로! )</h3>
+	<h3>스타일 영역에서 글자두께를 얇게 주려면 숫자로 어떤 범위에 해당하는지 작성하기</h3>
+	<p>100, 200, 300</p>
+
+	<h3>16진법으로 보라색을 만들려고 한다, 어떻게 혼합하는게 좋을까?</h3>
+	<p>rgb == #f0f (red와 blue의 혼합)</p>
+
+	<h3>16진법은 어느쪽으로 갈수록 어두워지는지 작성하기</h3>
+	<p># 0 1 2 3 4 5 6 7 8 9 a b c d e f == 0으로 갈수록 어두워짐 </p>
+
+	<h3>#은 어떤 의미로 사용할까?</h3>
+	<p>id를 호출시 사용, 어떠한 값을 호출시 사용</p>
+
+	<h3>2배, 3배를 표현할때 사용하는 단위는?</h3>
+	<p>em(배율)</p>
+
+	<h3>위의 단위를 대체할때 사용하는 단뒤는?</h3>
+	<p>%단위로 변경 ex) 1.5em == 150% </p>
+
+	<h3>아래 나열된 순서를 보고 현재페이지에 만들기</h3>
+	<p>
+		01) div 태그로 id = divBox 만들기<br/>
+		02) div 태그에 속하는 p태그 만들기 <br/>
+		03) 각각배경색상은 알아서 적용하기 <br/>
+		04) div 태그의 너비는 400 , 200 픽셀로 만들기 <br/>
+		05) div에 속해있는 p태그는 div에 꽉차도록 만들기
+	</p>
+	<div id="divBox">
+		<p>
+			p태그
+		</p>
+	</div>
+
+
+	<h3>보내준 주소의 사이트 만들기 (02_실습)</h3>
+	<h3>저희반 이름은?</h3>
+	<h3>선생님 이름?</h3>
+ </body>
+</html>

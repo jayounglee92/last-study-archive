@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> test </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		h3{line-height:50px; }
+		.marginTest{width:1920px; height:30px; background-color:#ff0; margin:100px 0;}
+		.paddingTest{width:1920px; height:30px; background-color:#0ff; padding:100px 0; }
+		
+		#olTest1{ width:300px; background-color:pink; margin:0 auto;}
+		#olTest1 li{list-style-type:lower-roman;}
+
+		.test1{width:300px; height:200px; background-color:#00f; margin:50px auto; color:#fff; text-align:center; line-height:200px;}
+
+		.test2{width:300px; height:84px; background-color:#ff0; margin:50px auto; text-align:center; 
+		padding:58px 0;}
+		/*
+			전체 도형 높이 200 픽셀
+				글씨높이가 84 픽셀
+					200-84 == 116 픽셀
+					116에서 위아래로 양분해서 작업해야 하기 때문에 나누기2 
+					116/2 == 58 
+					padding:58px 0이 나오게 됨!
+
+					200을 그대로 놔두면 116 크기가 포함되서 316이 되기 때문에
+					200크기를 유지 하기 위해서 높이값 84로 변경
+		*/
+
+		#ulTest{list-style-type:decimal; width:300px; background-color:lightblue; margin:50px auto;}
+		.test3{ width:200px; height:200px; background-color:red; color:#fff; margin:0 auto; overflow:scroll;}
+  </style>
+ </head>
+ <body>
+	<h3>test: 여백 초기화 없이 작업해도 상관없음</h3>
+	<h3>title 부분에 제목을 작성해야 하는 이유에 대하여 작성하기</h3>
+	<p>
+		페이지의 제목을 알수가 없음!<br/>
+		new document는 새문서로 읽히는 개념이기 때문에 제목이 없는 페이지와 같음<br/>
+		제목이 없으면 웹접근성이나 웹표준에 어긋남
+	</p>
+
+
+	<h3>margin과 padding에 대하여 설명하기</h3>
+	<p>
+		margin: 바깥쪽여백<br/>
+		대상의 경계가 정확하게 떨어지고, 바깥쪽에 구분이 확실할때 사용권장!<br/><br/>
+		padding: 안쪽여백<br/>
+		대상의 경계가 정확하지 않고, 바깥쪽에 경계가 없을때 사용권장!
+	</p>
+	<h5 class="marginTest">marginTest</h5>
+	<h5 class="paddingTest">paddingTest</h5>
+
+
+	<h3>margin:50px auto 0은 어떻게 적용된 값인지 분석하여 작성하기</h3>
+	<p>
+		현재 margin값은 축약형<br/>
+		top - right - bottom - left 방향으로 순서대로 적용<br/>
+		50px	auto		0		auto 로 읽음<br/>
+		위쪽은 50픽셀,  좌우는 같기 때문에 auto 한번 적용, 아래 값은 없음 <br/>
+		위아래는 다른 값이고 좌우가 같을때 사용
+	</p>
+
+
+	<h3>영역이 불분명한 부분에 공백처리를 할때 margin과 padding중 어떤 것을 사용하는것이 좋은지 이유 작성하기</h3>
+	<p>
+		padding: 안쪽여백<br/>
+		대상의 경계가 정확하지 않고, 바깥쪽에 경계가 없을때 사용권장!
+	</p>
+
+	<h3>list-style의 종류 3가지 작성하고 각각의 기능 설명하기</h3>
+	<p>
+		+ list-style-type : 블릿기호들을 호출할때 사용<br/>
+		+ list-style-image: url로 이미지를 호출하여 사용가능<br/>
+		+ list-style-position: inside, outside가 있어서 블릿기호의 위치 변경가능
+	</p>
+
+	<h3>아래 ol태그 만들고 li태그에 각각 test1, test2, test3, test4, test5 작성하고 블릿기호가 로마 숫자 소문자로 나오도록 만들기</h3>
+	<ol id="olTest1">
+		<li>test1</li>
+		<li>test2</li>
+		<li>test3</li>
+		<li>test4</li>
+		<li>test5</li>
+	</ol>
+	<!--
+		ol, ul, dl의 경우에는 부모자녀가 자연스럽게 나뉘어져 있음
+		부모에 id값을 사용하여 이름을 작성하면 나중에 javascript나 
+		jQuery에서 자녀요소에 접근하기가 편하다.
+	-->
+
+	<h3>반드시 제목이 있어야 하고 설명글이 들어가야 하는 리스트는 무엇인지 작성하기</h3>
+	<p>
+		dl리스트, dt( 제목에 관련 ), dd(설명글에 관련되어 있음)
+	</p>
+
+	<h3>dl리스트에 dt를 3번 작성하고 dd를 작성하지 않았다. dl리스트에 문제가 생길지에 대한 개인적인 생각작성하기</h3>
+	<p>
+		dt를 3번 ~100번 사용해도 상관없음..하지만 dd가 없으면 제목만있는 설명서를 보는 행동이기 때문에
+		간단하더라도 dd를 꼭 작성해주어야 한다.<br/>
+		dl리스트는 제목과 설명글을 사용하기 위해 만들어진 리스트!
+	</p>
+
+
+
+	<h3>list-style에 none을 적용하였다. 이때 우려되는 문제는?</h3>
+	<p>
+		list-style:none<br/>
+		list-style-type,list-style-image, list-style-position의 모든 기능을 사용하지 않겠다와 같기
+		때문에 주의해서 사용해야 한다.
+	</p>
+
+
+	<h3>아래 내용에 맞춰서 현재 페이지에 작성하기</h3>
+	<ol>
+		<li>ol 끝난 부분 뒤에 div태그 만들기</li>
+		<li>div태그에 내용은 div 박스테스트 라고 작성하기</li>
+		<li>300 * 200 크기의 상자만들기, 배경은 알아서 지정하기</li>
+		<li>현재 만든 div 박스를 화면 가운데로 배치하고, 글자도 박스의 가운데로 배치하기</li>
+		<li>글자의 가운데 위치는 가로축 과 세로축 전부 가운데 배치하기</li>
+	</ol>
+	<div class="test1">
+		div 박스테스트
+	</div>
+
+
+	<h3>
+		p태그에 담을수 있는 태그들만 아래 나열하고, 나열한 태그들은 어떤 기능을 하는지
+		간단히 작성하기
+	</h3>
+	<p>
+		인라인속성만 담을수 있음<br/>
+		span( 아무기능도 없지만 글씨 속성들 담아줄때 사용)<br/>
+		img( 이미지를 가져올 수 있고, alt 때문에 접근성에 좋다)<br/>
+		strong( 화면에 두껍게 보이고, 스크린리더기가 읽어줌)<br/>
+		em(화면에서 기울여져 보이고, 스크린리더기가 읽어줌)<br/>
+		b, i, br, hr 이 있음<br/>
+		이중에 hr은 작은 단위의 박스인 p태그를 뚫고 나오게 된다.
+	</p>
+	<hr/>
+
+
+
+	<h3>list를 작성했을때 숫자나 기호가 영역 바깥에 표시되었다. 영역안으로 넣는 방법은?</h3>
+	<p>
+		list-style-position:inside
+	</p>
+
+
+	<h3>img태그는 언제 사용하며, background-image는 언제 사용하는것이 적절한지 작성하기</h3>
+	<p>
+		background-image는 윈도우 배경화면 처럼 뒤에 배경으로 사용하기 위해서 작업하는 경우가
+		많음<br/>
+		img태그는 src나 alt의 개념이 정확하게 있기 때문에 실제 기능을 하는 값에 적용할때 사용<br/>
+		배경화면에 어떤 객체가 겹쳐서 표현이 된다면 background-image사용을 권장, 이미지 클릭의 
+		대상이 되거나 읽어줘야 하는 개념이고 이미지와 설명글이 위아래로 떨어져있다면 img 사용!<br/>
+		주로 img태그를 사용하는 것을 권장!
+	</p>
+
+
+	<h3>background 기능중에 구형브라우저 부터 사용가능한 기능들 나열하고, 표준브라우저에서 
+	사용가능한 기능은 무엇인지 작성하기</h3>
+	<p>
+		표준브라우저에서만 사용가능한 기능<br/>
+		background-size는 인터넷익스플로러 9버전 이상부터 사용가능<br/><br/>
+		구형브라우저에서 사용가능한 기능<br/>
+		background-color, background-image, background-repeat, background-position
+	</p>
+
+
+	<h3>구형 브라우저와 표준 브라우저의 종류 나열하기</h3>
+	<p>
+		구형브라우저 : 윈도우의 종류가 아직 통일성있게 정리되지 않아서 구형 익스플로러가
+		존재함!<br/> 
+		익스플로러 :5, 6(문제점이 많음), 7, 8 까지 구형 브라우저
+		표준브라우저 : 익스플로러 9,10,11<br/>
+		엣지익스플로러<br/><br/>
+		크롬, 사파리(mac에서 맞추는것을 권장!), 오페라, 파이어폭스
+	</p>
+
+
+	<h3>아래 내용에 따라서 작성하기</h3>
+	<ol>
+		<li>아래 div태그 만들기</li>
+		<li>
+			background-image가 반복이 되면 제어하는 기능으로 background-repeat를 사용하며
+			이에 해당하는 option은 no-repeat와 repeat-x, repeat-y가 있습니다. 글 작성하기
+		</li>
+		<li>
+			300 * 200크기의 박스만들기 배경색상은 알아서 지정하기
+		</li>
+		<li>
+			위에 작성된 글이 박스의 가운데 배치되도록 만들기, 가로 세로 모두 
+			가운데 배치되도록 만들기 ( line-height는 2줄 이상일때 가운데 배치되는 값이 아니니 주의할 것)
+		</li>
+	</ol>
+	<div class="test2">
+		<!--background-image가 반복이 되면 제어하는 기능으로 background-repeat를 사용하며 이에 해당하는 option은 no-repeat와 repeat-x, repeat-y가 있습니다.-->
+		<span>background-image가 반복이 되면 제어하는 기능으로 background-repeat를 사용하며 이에 해당하는 option은 no-repeat와 repeat-x, repeat-y가 있습니다.</span>
+	</div>
+	<!--
+		글씨가 가진 크기만큼 사이즈를 알고 싶은데 div태그는 전체 너비와 높이를 가지기 때문에
+		글씨만큼의 사이즈를 알기는 어렵다. 그래서 인라인 속성은 인라인태그로 담아주면
+		그 크기만을 알수 있게 해준다.
+			ex)
+				+ 글씨크기만큼만 사이즈를 잡기가 어려움
+				div
+					test1
+				/div
+
+
+				+ 안에 담고 있는 span이 글씨 크기만큼만 사이즈를 알 수 있음
+			ex)
+				div
+					span   text1   span
+				/div
+	
+	-->
+
+
+	<h3>아래 내용에 따라서 작성하기</h3>
+	<ul id="ulTest">
+		<li>
+			현재 ul태그의 블릿기호를 숫자로 바꾸기
+		</li>
+		<li>
+			아래 div:200 * 200픽셀의 상자만들기 / 색상은 알아서 지정
+		</li>
+		<li>
+			박스의 내용은 ulText 작성하기
+		</li>
+		<li>
+			현재 box에 스크롤 만들기
+		</li>
+	</ul>
+	
+	<div class="test3">
+		ulText
+	</div>
+
+	<!--
+		test3번의 경우 스크롤을 만들어야 하는데 내용이 넘치지 않으면
+		overflow:auto의 값이 적용되지 않는다.
+		overflow:auto의 경우에는 내용이 넘쳤을때만 생성되는 스크롤 기능
+
+		overflow:scroll은 기본적으로 내용이 넘치지 않아도 스크롤바 생성이 가능하다.
+	-->
+
+
+	<h3> 상세페이지를 제작할 때 ul, ol, dl 중 어떤것을 사용하는것이 효과적인지 작성하기</h3>
+	<p>
+		dl리스트 사용하기 <br/>
+		기본적으로 제목과 설명글을 작성해야 하기 때문에 dl리스트 사용!
+	</p>
+
+	<h3>1.5em이 뜻하는 것은? </h3>
+	<p>
+		배율: 1.5배
+	</p>
+
+	<h3> 영역을 만들면 작성되어야 하는 태그와 이유는? </h3>
+	<p>
+		헤드라인 태그( h2 ~ h6 )<br/>
+		헤드라인 태그가 없으면 해당하는 영역을 읽기가 어려움<br/>
+		목차 형태로 제공이 되지 않음
+	</p>
+
+	<h3> id나 class명을 사용할때 합성어 일 경우 어떤 식으로 표현하는 것이 좋을까? </h3>
+	<p>
+		합성어일 경우 처음에 오는 부분이 대문자로 변경되는것이 좋다 ( javascript의 규칙에 해당함)<br/>
+		testbox( x ) - testBox(0)<br/>
+		photoShop <br/>
+		javascript + query == jQuery
+	</p>
+
+
+	<h3> 한 영역에 같은 헤드라인 태그를 여러번 작성하는 것은 좋은 방법일까? </h3>
+	<p>
+		같은 영역안에서 같은 헤드라인을 여러번 사용하면 전부 중요도가 높기때문에
+		접근성 관련된 프로그램이나 영역에서 읽어들일때 문제가 발생할 수 있음<br/><br/>
+		한영역에 헤드라인태그를 여러번 사용해도 상관없으나 중요도의 높낮이에 따라서
+		나눠주는것이 좋다.
+	</p>
+
+
+	<h3 style="width:800px; height:50px; background-color:#aca; text-align:center; text-decoration:underline; overflow:auto;"> 현재 h3태그에만 인라인 적용방식을 사용하여 800*50, 배경색상은 알아서 지정, 밑줄 나오도록 만들기, 글자는 가로방향만 가운데 배치하기</h3>
+
+	<h3>li태그와 li태그 사이에 다른태그가 적용이 가능할까? 가능하지 않다면 이유는?</h3>
+	<p>
+		li태그와 li태그는 생성될때 첫째, 둘째, 셋째가 나뉘어짐 그래서 li와 li사이에는 아무것도
+		올수가 없음
+	</p>
+
+	<h3>블록요소 뒤에 br태그가 적용할 필요가 있을까? 필요가 없다면 이유는?</h3>
+	<p>
+		블록요소는 알아서 밑으로 떨어짐<br/>
+		글씨요소들은 옆으로만 나열됨 그래서 br태그는 글씨요소들을 끊어주는 개념으로 사용!
+	</p>
+
+	<h4>
+		어제 예제 남은 분들은 어제 예제부터 진행!<br/>
+		어제 예제 끝난 분을은 현재 페이지 풀이하기 / 다음주 제작( 포토샵으로 레이아웃 구성하기)
+	</h4>
+ </body>
+</html>

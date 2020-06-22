@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> offsetTop </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding::0;}
+	li{list-style:none;}
+	body{background-color:#000;}
+		div{width:1026px; margin:0 auto;}
+		ul{width:800px; margin:0 auto;}
+			li{width:800px; height:400px; border:1px solid #ccc; margin:20px 0; overflow:hidden;}
+				li img{width:100%;}
+
+				p{width:1px; height:1px; position:absolute; background-color:rgba(0,0,120,0.3); color:#fff; text-align:center; line-height:1px; left:0; top:0; transition:all 1s;}
+
+				/*############## 이벤트 클래스 #############*/
+				.plus{width:800px; height:400px; line-height:400px; font-size:16px;}
+				.minus{width:1px; height:1px; font-size:0px; line-height:1px;}
+				/* 글자는 0으로 지정해도 다시 형태를 만들 수 있지만, 너비와 높이는 0으로 만들면 커지지 않음
+					최소0.1이상 사용하기, 0아니면 적용가능
+				*/
+  </style>
+  <script>
+	$(function(){
+		/* 
+			li태그에 마우스올리면 p태그가 해당하는 li태그 위로 오도록 만들기 
+				문제점: p태그를 움직였으나 크기가 나오지않음
+				해결 : plus이벤트클래스부여하기
+
+				문제점: mouseout하게 되면 p태그를 다시 처음상태로 돌려야 하나 제이쿼리에서 css를 전부 다시 재설정해야함
+				해결: minus이벤트클래스 부여하기
+
+				주의할 점: 클래스는 두세개를 한꺼번에 적용가능
+					클래스명을 적용할 때는 지우는 값도 생각해야함
+
+				순서: 먼지 지우고, 해당하는 값 적용
+
+				현재만들어진 기능은 제품들끼리 촘촘하게 연결되어 있을 때 주로 사용, mouseout을 제와하는 경우도 있음
+		*/
+		$("li").mouseover(function(){
+			$("p").removeClass().addClass("plus").css({"left":$(this).offset().left,"top":$(this).offset().top});
+		}).mouseout(function(){
+			$("p").removeClass().addClass("minus");
+		});
+	});
+  </script>
+ </head>
+ <body>
+  <div>
+	<ul>
+		<li><img src="img/01.jpg" alt="이미지1"/></li>
+		<li><img src="img/02.jpg" alt="이미지2"/></li>
+		<li><img src="img/03.jpg" alt="이미지3"/></li>
+		<li><img src="img/04.jpg" alt="이미지4"/></li>
+	</ul>
+  </div>
+  <p>
+	IMAGE
+  </p>
+ </body>
+</html>

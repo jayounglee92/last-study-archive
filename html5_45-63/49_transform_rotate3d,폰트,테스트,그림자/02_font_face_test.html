@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> font-face </title>
+  <link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
+  <style>
+		@font-face{
+			font-family:"cor";
+			src:url("font/Courgette-Regular.woff");
+		}
+
+		.ggl1{font-family:"cor";}
+		.ggl2{font-family: 'Macondo', cursive;}
+		/*
+			font-face는 2개~3개 이상 사용하게되면 페이지가 로드되는 속도가
+			느려질수 있음
+
+				링크를 통해서 가져올때 주의할점
+					서버에서 가져오기 때문에 다른 서버를 또 연결할경우 원활하게 
+					사용하기가 힘듬
+		*/
+  </style>
+ </head>
+ <body>
+	<h3>test:BASIC</h3>
+	<h3 class="ggl1">google:TESTDOWN</h3>
+	<h3 class="ggl2">google:TESTLink</h3>
+ </body>
+</html>

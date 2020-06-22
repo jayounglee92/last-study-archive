@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> css_nav </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	li{list-style:none;}
+	
+	body{background-color:#efefef;}
+	#wrap{width:1025px; margin:0 auto;}
+		#header h1{width:100%; border-left:15px solid yellow; text-indent:10px; margin:30px 0;}
+		ul{width:500px;}
+		ul:after{content:""; display:block; clear:both;}
+			ul li{width:100px; height:36px; float:left;}
+			
+  </style>
+  <script>
+	$(function(){
+		$(".li0").on("mouseover focusin",function(){
+			$(this).attr("src","img/menua_on.gif");
+		});
+		$(".li1").on("mouseover focusin",function(){
+			$(this).attr("src","img/menub_on.gif");
+		});
+		$(".li2").on("mouseover focusin",function(){
+			$(this).attr("src","img/menuc_on.gif");
+		});
+		$(".li3").on("mouseover focusin",function(){
+			$(this).attr("src","img/menud_on.gif");
+		});
+		$(".li4").on("mouseover focusin",function(){
+			$(this).attr("src","img/menue_on.gif");
+		});
+
+
+		$(".li0").on("mouseout focusout",function(){
+			$(this).attr("src","img/menua_off.gif");
+		});
+		$(".li1").on("mouseout focusout",function(){
+			$(this).attr("src","img/menub_off.gif");
+		});
+		$(".li2").on("mouseout focusout",function(){
+			$(this).attr("src","img/menuc_off.gif");
+		});
+		$(".li3").on("mouseout focusout",function(){
+			$(this).attr("src","img/menud_off.gif");
+		});
+		$(".li4").on("mouseout focusout",function(){
+			$(this).attr("src","img/menue_off.gif");
+		});
+
+	});
+  </script>
+ </head>
+ <body>
+  <div id="wrap">
+	<header id="header">
+	<h1>rollover nav</h1>
+	<nav>
+		<ul>
+			<li>
+				<a href="#none" title="고객민원">
+					<img class="li0" src="img/menua_off.gif" alt="고객민원"/>
+				</a>
+			</li>
+			<li>
+				<a href="#none" title="행정정보">
+					<img class="li1" src="img/menub_off.gif" alt="행정정보"/>
+				</a>
+			</li>
+			<li>
+				<a href="#none" title="뉴스/소식">
+					<img class="li2" src="img/menuc_off.gif" alt="뉴스/소식"/>
+				</a>
+			</li>
+			<li>
+				<a href="#none" title="정책홍보">
+					<img class="li3" src="img/menud_off.gif" alt="정책홍보"/>
+				</a>
+			</li>
+			<li>
+				<a href="#none" title="행정안전부">
+					<img class="li4" src="img/menue_off.gif" alt="행정안전부"/>
+				</a>
+			</li>
+		</ul>
+	</nav>
+  </div>
+ </body>
+</html>

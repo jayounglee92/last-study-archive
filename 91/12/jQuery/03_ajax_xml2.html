@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8">
+  <title>ajax_xml</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	h2{ border-left:10px solid blue; border-bottom:1px solid blue; text-indent:10px;}
+	#result{ border:4px solid #ccc; width:720px; height:480px; overflow:hidden;}
+  </style>
+  <script>
+	$(function(){
+		$("#xmlBtn").click(function(){
+			$.ajax({
+				url:"data/d_xml.xml",
+				type:"get",
+				dataType:"xml",
+				success:function( xml ){
+				
+
+				/*
+					for문은 시작조건, 종료조건, 증감문 , 시작조건, 종료조건이 만족할 경우 반복문 실행
+					each 시작과 종료조건이 없음, 반복할 값이 있을경우 순차적으로 반복시킴
+				*/
+				$(xml).find("company").each(function(){
+						// 01) xml 문서에서 태그를 분해하고 내용들 변수에 담기
+						var model = $(xml).find("model").text(); // iPhone, Galaxy Note, v-series
+						var os = $(xml).find("os").text();
+						var display = $(xml).find("display").text();
+
+
+						// 02) html 태그에 담아주기
+						var ol = $("<ol>");
+						var li1 = $("<li>").html("기종: "+model);
+						var li2 = $("<li>").html("운영체제: "+os);
+						var li3 = $("<li>").html("디스플레이: "+display);
+
+						// 03) ol태그에 생성한 li태그들 담아주기
+						ol.append(li1).append(li2).append(li3);
+
+						// 04) 결과창에 보여주기
+						$("#result").append( ol );
+				});
+
+				
+				},error:function(){
+						alert("에러!");
+				}
+			});
+		});
+	});
+  </script>
+ </head>
+ <body>
+	<h2> ajax를 활용한 xml 파일 요청하기 </h2>
+	<p>
+		<input type="button" value="xml파일 요청하기" id="xmlBtn"/>
+	</p>
+	<div id="result">
+	</div>
+ </body>
+</html>
+

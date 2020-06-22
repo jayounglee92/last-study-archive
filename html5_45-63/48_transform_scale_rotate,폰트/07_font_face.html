@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> font_face </title>
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+  <style>
+		@font-face{
+			font-family:"gb";
+			src:url("font/NanumGothicBold.woff");
+			/*
+				font-face를 제작할때 필요조건
+					+ 시스템에 해당하는 폰트가 있어야함( 소스로 사용할 폰트가 있어야함 )
+						.woff : 표준브라우저에서 사용가능한 폰트 
+							익스플로러 9..10, 사파리, 크롬, 오페라, 파이어폭스, 엣지익스플로러
+
+						.eot : 익스플로러 구형에서 사용가능한 폰트 7, 8
+						
+						위에 적용된 파일들로 폰트가 적용되지 않는다면 이미지로 대체!
+			*/
+		}
+		.gb{ font-family:"gb"; }
+		.ggl{font-family: 'Dancing Script', cursive;}
+  </style>
+ </head>
+ <body>
+	<h2>font-face:BASIC</h2>
+	<h2 class="gb">testing:gb</h2>
+	<h2 class="ggl">testing:googleFonts</h2>
+ </body>
+</html>
+<!--
+	++++++++++++++++++++ font-face ++++++++++++++++++++++++++
+		예쁜 글꼴을 사용하는 목적이 아니라 모든 브라우저에서 동일한 모양의 
+		폰트를 사용하기 위한 목적으로 사용!
+			
+			+ 글꼴을 가지고 작업하는 영역들에서 주로 작업
+				:: 신문, 잡지, 정보를 다루는 영역에서 주로 작업( 가독성에 문제가 생길 수 있음 )
+			+ 가장 안정적으로 사용하는 방법은 시스템에 설치하고 사용하는 것이 좋다.
+
+		+ https://fonts.google.com/
+			+ 구글에서 검색 fonts라고 작성하면 페이지 확인 가능
+			+ 사용방법
+				: 사용하고 싶은 폰트 오른쪽 상단에 (+) 버튼 클릭
+				: 하단의 family Selected의 -버튼 클릭
+		
+-->

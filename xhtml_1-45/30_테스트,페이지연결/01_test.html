@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> test </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		h3{padding:20px 0;}
+			
+
+			#test1{width:1200px; height:300px; }
+				#test1 li{width:299px; height:300px; margin-right:1px; background-color:rgba(200,0,0,1); float:left;}
+					#test1 li a{background-color:red; display:block; width:100%; height:100%;}
+
+				#test1 li:hover{background-color:rgba(200,0,0,0.5);}
+				/*
+					기본기능이 rgb이거나 16진법이라면 바뀌지 않을수 있음
+					hover는 기존 기능을 바꿀때 사용하는 기능이기 때문에
+					제대로 효과가 나타나지 않으면 적용된 값과 같은 값으로 바꾸기
+				*/
+		#test2{ width:1000px; height:150px; margin:50px  auto; }
+			#test2 li{ width:200px; height:150px; float:left; background-color:blue; text-align:center; line-height:150px;}
+				#test2 li a{color:#fff; text-decoration:none;}
+					#test2 li a:hover{color:#f00; text-decoration:underline;}
+					/*
+						li:hover a 의 경우
+							부모인 li태그에 마우스를 올리면 a태그가 반응함!
+								: 부모에 마우스를 가져다 대면 a태그가 반응하게 됨
+						li a:hover
+							자녀인 a태그에 직접 마우스를 올렸을때만 a태그가 반응함
+								: 부모요소에 올려도 반응하지 않음 자녀에게 직접 올렸을때의 기능구현!
+						
+						중요!) css에서는 부모에서 자녀에 접근하는 방식만 고려하여 작업하기!
+							아니면 자녀가 직접 구현되는 방식 고려하기!
+					
+					*/
+			
+  </style>
+ </head>
+ <body>
+	<h3>meta태그란 무엇일까?</h3>
+	<p>
+		현재 페이지가 어떠한 역할을 하는지 어떠한 기능을 하는지 명시할때 사용<br/>
+		어떠한 용도로 사용하는지 확인 뿐아니라 기능도 제공함!
+	</p>
+
+	<h3>문서의 제목을 작성하는 곳은?</h3>
+	<p>
+		title에 문서의 제목 작성
+	</p>
+
+
+	<h3>문서의 제목을 작성하는 이유는?</h3>
+	<p>
+		현재 페이지가 어떤 용도 어떠한 목적으로 만들어져있는지
+		확인하기 위하여 제목 제공!
+	</p>
+
+
+	<h3>어느 영역을 만들었을때 반드시 작성되어야 하는 태그는?</h3>
+	<p>
+		헤드라인태그( h2~h6 )<br/>
+		h5~h6는 파편화 현상때문에 사용하지 않는다.( 모바일기기에서 문제가 발생)<br/>
+		h5~h6를 사용한다면 pc에서 주로 사용가능!
+	</p>
+
+
+	<h3>영역을 만들었을때 제목 태그를 사용하는 이유는?</h3>
+	<p>
+		이미지나 사진을 보지않고도 헤드라인 태그만 가지고 자신이 
+		만든 페이지를 목차로 읽을수 있어야 함!
+	</p>
+
+
+	<h3>p태그 안에 넣을 수 있는 요소는?</h3>
+	<p>
+		인라인요소만 넣을수 있음!<br/>
+		단! 인라인 요소가 css에서 display:block로 바뀌는경우엔 담을수 있음<br/>
+		기본 성질이 인라인지 아닌지가 중요함!
+	</p>
+
+
+	<h3>리스트의 종류 3가지 나열하고 어떤 용도로 사용하는지 간단히 작성하기</h3>
+	<p>
+		ul li : 순서가 없는 리스트( 홈페이지를 만들때 제일 많이 사용 )<br/>
+		ol li : 순서가 있는 리스트( 숫자를 사용해야 되는 페이지에서 사용, <br/>
+		외국 템플릿에서 종종 발견할수 있음)<br/> 
+		dl dt dd : 상세페이지 만들때 사용( 무조건 제목과 설명글이 있어야 함! )
+	</p>
+
+
+	<h3>header, main, content, container에는 class와 id 속성중 어느것을 사용하는것이 좋을까? 그리고 이유는?</h3>
+	<p>
+		id를 사용!<br/>
+		중복되는 영역을 만들지 않고, 약속된 언어로 사용하기 위하여 사용!<br/>
+		header, footer, container 등등 명칭만 봐도 무슨 역할을 하는지 알수 있어야 함!
+	</p>
+
+
+	<h3>문서를 읽어줄때 가장먼저 읽어주는 좌표는?</h3>
+	<p>왼쪽, 상단<br/>
+			오른쪽과 아래쪽은 어떠한 객체의 값이 넘치면
+			넘치는 만큼 늘어나기 때문에 오른쪽 아래쪽으로
+			계산하는 경우는 드물다.
+	</p>
+
+
+	<h3>너비와 높이중 우선 작업이 되는 값은? 그리고 이유는?</h3>
+	<p>
+		너비를 우선하여 작업!
+	</p>
+
+	<h3>img와 background-image의 차이에 대하여 작성하기</h3>
+	<p>
+		1) img는 태그이기 때문에 class나 id속성을 부여할 수 있음<br/>
+		2) img는 태그이며 alt라는 속성이 있기 때문에 읽어줄수 있음<br/>
+		3) img는 읽어줄수 있고, 실제로 화면에서 클릭하는 대상으로 사용할 수 있기 때문에<br/>
+		기능적인 면에서도 뛰어남!<br/><br/>
+
+		4) background-image의 경우에는 정확하게 영역설정이 되지 않으면 표현이 되지 않는다.<br/>
+		5) background-image는 태그가 아니고 alt와 title 같은 대체 텍스트가 없음<br/>
+		6) background-image 화면에서 배경화면 처럼 사용할때 사용!
+	</p>
+
+
+
+	<h3>background의 기능 나열하고 각각의 기능 작성하기</h3>
+	<p>
+		background-color : 배경색상<br/>
+		background-image:url("경로명") ( 배경이미지 )<br/>
+		background-repeat:no-repeat( 반복제어)<br/>
+		background-position: 수치또는 명칭으로 제어가능(50% or center) 배경이미지의 위치 조절<br/>
+		background-size: 배경이미지의 사이즈 조절<br/><br/>
+		+ 동영상이 재생되지 않을시에는 background-image나 img로 대체하기 <br/>
+		background-image나 img가 나오지 않을경우에는 background-color로 대체하기
+	</p>
+
+
+	<h3>background의 기능중 css3버전에서만 사용가능한 기능은?</h3>
+	<p>
+		background-size만 css3버전부터 가능
+	</p>
+
+
+	<h3>어떤 문서를 제작할때 반드시 제목과 설명글이 필요할때 사용하는 리스트는?</h3>
+	<p>dl리스트 사용하기 dt와 dd 사용!</p>
+
+
+	<h3>리스트안에 리스트를 담을수 있을까? 만약에 가능하다면 ul li태그를 예를들어 아래에 표현해보기</h3>
+	<p>담을수 있음</p>
+
+	<ul>
+		<li>
+			<ul>
+				<li>
+					<ul>
+						<li></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h3>css를 적용하려 한다. style영역에서의 값에 영향을 받지 않고 현재 값에만 유일하게 표현하는 방법은?</h3>
+	<p>
+		inline-style 적용방식
+	</p>
+
+
+	<h3>background-image를 작성하였다. 구형브라우저에서 확인해보니 이미지크기가 원본의 크기로 돌아갔을 경우 어떻게 해결해야 할까?</h3>
+	<p>
+		background-size가 구형브라우저에서 지원되지 않음!( 익스플로러 8버전 부터 적용이 안됨!)<br/>
+		이미지가 원본크기로 나오게 됨!<br/>
+		background-size에 의존하지 말고, 해당하는 사이즈에 맞춰서 이미지를 제작하는것이 가장 좋음
+	</p>
+
+
+	<h3>ftp(서버)에 이미지를 업로드 하였다. 이미지가 제대로 나오지 않는다면 의심해봐야 하는 부분에 대하여 아는데로 작성하기</h3>
+	<p>
+		01) img폴더 확인하기<br/>
+		02) pc에서는 대상.jpg, 대상.JPG, 대상.Jpg 대소문자 상관없이 읽을수 있음<br/>
+		하지만 서버를 통해 올라가면 확장자가 대문자 나 소문자를 가려서 읽음<br/>
+		ext)	대상.Jpg ( 소문자로 변경하는것이 가장 좋음 만약에 Jpg로 사용할경우엔 아래처럼 변경하기)<br/>
+		img src="대상.Jpg" 로 바꾸기!<br/><br/>
+		03) 포토샵이나 일러스트 기타 이미지를 편집할 수 있는 프로그램에서 열어보기 !<br/>
+		04) 깨진 이미지를 사용해야 할 경우엔 화면을 캡쳐하여 다시 저장하기
+	</p>
+
+
+
+	<h3>블록요소들을 옆으로 나열하기 위하여 사용하는 기능은?</h3>
+	<p>
+		float:left or float:right<br/>
+		display:inline-block<br/><br/>
+		display:inline-block의 문제점<br/>
+		구조의 모양을 만들다보면 여백을 만들게 되는데<br/>
+		이때문에 inline-block으로 배치하면 여백이 생김!<br/>
+		구형 브라우저 + 구형 디바이스에서 더블마진과 더블패딩<br/>
+		현상을 일으킬 수 있음
+	</p>
+
+	<h3>자녀요소들을 옆으로 나열한 후 반드시 해결되어야 하는 값과 이유는?</h3>
+	<p>
+		부모요소 해결하기!<br/>
+		부모요소가 배경색상, 테두리, 배경이미지등이 표현되지 않음<br/>
+		하위객체가 상단의 위치까지 따라올라 올 수 있음
+	</p>
+
+
+	<h3>자녀요소에 의해 부모요소에 margin 값이 적용되었다. 해결 가능한 방법은? </h3>
+	<p>
+		부모요소에 overflow:hidden 적용하기!
+	</p>
+
+
+	<h3>첫째, 둘째, 셋째 요소중 둘째에만 float 속성이 작성되었고, 셋째에는 너비와 높이값이 없다! 이때 첫째와 셋째는 어떻게 될까?</h3>
+	<p>
+		float의 기본 성질<br/>
+		float는 적용된 대상의 하위객체에만 영향을 미친다.<br/><br/>
+		둘째에 float값이 적용되어 있다면 세번째 요소를 잡아당기게 된다.<br/>
+		만약 세번째요소에 너비와 높이가 있다면 둘째를 따라 올라갈지 선택사항이<br/>
+		생기지만 너비도 높이도 없다면 무작정 따라올라가게 된다.(단 여백이 있을 경우)<br/>
+		 float는 하위객체에만 영향을 주기 때문에 상위객체인 첫째는 아무 영향을 받지 않는다.
+	</p>
+
+
+
+	<h3>dl 리스트 작성시 dt만 작성하였다. 문법상 문제가 없을까? 문제가 있다면 이유는?</h3>
+	<p>
+		dl리스트는 기본이 제목과 설명글을 사용하기 위하여 사용!
+	</p>
+	<dl>
+		<dt>제목1</dt>
+		<dd>설명글1</dd>
+		<dt>제목2</dt>
+		<dd>설명글2</dd>
+	</dl>
+
+
+	<h3>hr구분선에 class나 id속성 사용이 가능할까?</h3>
+	<p>태그이기 때문에 class와 id속성 사용가능 </p>
+
+
+	<h3>display의 기능들 나열하고, 각각의 기능들에 대하여 설명하기</h3>
+	<p>
+		display:inline( 블록속성을 인라인으로 변경)<br/>
+		display:block( 인라인 속성을 블록으로 바꿀때)<br/>
+		display:inline-block( 인라인 속성의 나열되는 특징과 블록속성의 너비와 높이를 동시에 가짐 )
+	</p>
+
+
+	<h3>인라인 속성중 링크를 걸때 사용하는 대표적인 태그는?</h3>
+	<p> a태그 사용하기 </p>
+
+	<h3>위의 값에 반드시 들어가야할 속성2가지 작성하고 왜 사용하는지 작성하기</h3>
+	<p> href( 주소연결시 사용 ), title( 현재 연결된 주소의 대체텍스트 사용 )</p>
+	
+	<h3>rgba와 rgb의 차이에 대하여 작성하기</h3>
+	<p>alpha값이 하나더 있어서 rgba는 투명도를 조절할 수 있음!</p>
+
+
+	<h3>rgba에서 75%를 작성할때 어떻게 작성되어야 할까?</h3>
+	<p>rgba(255,0,0,0.75)<br/>
+		1== 100%<br/>
+		0.5 == 50%
+	</p>
+
+	<h3>인라인요소중 아무특징이 없는 태그는?</h3>
+	<p>span태그 ( 특징이 없기 때문에 사용하지 않을때는 제일 먼저 지우는 태그 )</p>
+
+	<h3>블록요소 하나를 가운데 배치할때 고려해야 하는 상황과 기능은?</h3>
+	<p>
+		너비가 100%라면 가운데 배치가 어려움<br/>
+		99%라면 1%가 남기때문에 가운데 배치가 가능함<br/>
+		margin:0 auto로 배치가능!
+	</p>
+
+
+	<h3>글씨를 ...으로 나오게 하는 방법에 대하여 작성하고 간단히 기능에 대한 내용 작성하기</h3>
+	<p>
+		1) 너비와 높이를 먼저 설정<br/>
+		2) overflow:hidden 설정하기<br/>
+		3) white-space:nowrap 빈공간을 사용하지 않고 한줄로 나오게 만들기 <br/>
+		4) text-overflow:ellipsis ...으로 표현하기
+	</p>
+
+
+	<h3>a태그의 초기 설정방법을 아래 작성하기</h3>
+	<p>a:link, a:visited{ text-decoration:none; }</p>
+	<h3>초점이 맞았을때 설정방법은?</h3>
+	<p>a:focus</p>
+	<h3>hover와 focus기능은 각각 따로 사용해야 하나? 그렇지 않다면 이유는?</h3>
+	<p>장애가 있는 사람도 없는 사람도 같은 기능을 사용해야 하기 때문에 hover와 focus는 같은 기능 사용!</p>
+	<h3>+++++++++++++ 실습문제1 +++++++++++++</h3>
+	<ol id="test1">
+		<li>현재 ol에 li태그들의 크기 300*300으로 작성하기 , float 나열하기</li>
+		<li>
+			<a href="http://www.google.com" title="구글 사이트">현재 li태그에만 절대경로로 사이트 하나만 링크걸기</a>
+		</li>
+		<li>위의 링크가 걸려있는 li태그에 a태그 영역이 li태그만큼 설정되도록 만들기</li>
+		<li>li태그들에 마우스를 올리면 rgba의 색상을 활용하여 투명도가 적용되도록 만들기</li>
+	</ol>
+	<h3>+++++++++++++ 실습문제2 +++++++++++++</h3>
+	<p>
+		01) 아래에 p태그 만들기<br/> 
+		02) select 태그 만들어서 담아주기 <br/>
+		03) select 태그에 들어가야할 내용은 각각 봄, 여름, 가을, 겨울 작성하기<br/>
+		04) 겨울 부분이 먼저 선택되어 있도록 설정하기<br/>
+		05) validator에서 문제가 없는지 꼭 확인하기!
+	</p>
+	<p>
+		<select id="selectArea">
+			<option value="봄">봄</option>
+			<option value="여름">여름</option>
+			<option value="가을">가을</option>
+			<option selected="selected" value="겨울">겨울</option>
+		</select>
+	</p>
+
+	<h3>+++++++++++++ 실습문제3 +++++++++++++</h3>
+	<ol>
+		<li>현재 위치에 img 폴더와 sub 폴더 각각 만들기</li>
+		<li>img 폴더에 배경사진 최대한 이쁜거 찾아서 하나만 가져다 놓기!</li>
+		<li>sub 폴더에 background.html 파일 만들어서 img폴더에 있는 이미지 연결하기</li>
+		<li>background.html 파일에 제목 태그에 메인연결이라 작성하고 현재 페이지 연결하기</li>
+	</ol>
+	<h3>+++++++++++++ 실습문제4 +++++++++++++</h3>
+	<div>
+		01) 아래 ul태그 만들기<br/>
+		02) li태그에는 각각 a태그 작성하고, test1, test2, test3, test4, test5 작성하기<br/>
+		03) 200*150 박스만들고 배경색상은 파란색으로 만들기<br/>
+		04) 글자 색상은 하얀색, 글자 x, y위치는 가운데로 배치하기<br/>
+		05) 링크는 알아서 작성하기<br/>
+		06) li태그에 마우스를 올리면 글자색상이 노란색으로 나오게 만들고,
+		밑줄 표현되도록 만들기!
+	</div>
+
+	<ul id="test2">
+		<li>
+			<a href="#" title="test1">
+				<!-- #이라는 기호는 호출할때 사용하는 약속된 특수 기호 -->
+				test1
+			</a>
+		</li>
+		<li>
+			<a href="#" title="test2">
+				test2
+			</a>
+		</li>
+		<li>
+			<a href="#" title="test3">
+				test3
+			</a>
+		</li>
+		<li>
+			<a href="#" title="test4">
+				test4
+			</a>
+		</li>
+		<li>
+			<a href="#" title="test5">
+				test5
+			</a>
+		</li>
+	</ul>
+ </body>
+</html>

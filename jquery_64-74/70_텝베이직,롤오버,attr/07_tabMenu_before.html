@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<title>tabMenu</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		body{color:#000; font-size:0.9em; font-family:sans-serif; line-height:1.2em;}
+		a:link, a:visited{color:#000; text-decoration:none;}
+		a:hover, a:focus{color:#f00; text-decoration:underline; outline:none;}
+	
+		#tabBasic{width:800px; margin:0 auto;}
+			.tabs{width:765px; border:1px solid #ccc width:765px;}
+				.tabs li{width:100%; height:100%; position:relative;}
+
+				.tabs li.linkTab{width:255px; height:150px; float:left; text-align:center;}
+					.tabs li.linkTab a{display:block; width:100%; height:100%; position:relative; color:#333;}
+						.tabs li.linkTab img{width:100%;}
+						.tabs li.linkTab span, .tabs li.linkTab strong{position:absolute; left:0; top:73px; display:block; width:100%; font-size:0.8em;}
+						.tabs li.likTab strong{top:100px;}
+
+			.panel{width:100%; height:405px;overflow:hidden; border-top:10px solid #ccc;}
+				.panel .left .panel .right{width:40%; padding:5%; float:left;}
+
+				.buttonl a{display:block; width:200px; text-align:center; line-height:24px; margin:10px; color:#fff; border-radius:5px; box-shadow:5px 5px 5px rgba(0,0,0,0.2);}
+
+
+				.selected{color:#0ca;}
+
+
+		/*##########  이벤트 클래스  ########*/
+		.selected{color:#0ca;}
+
+	
+	</style>
+	<script>
+		$(function(){
+			$(".tabs li a").children("span","strong").hide();
+			$(".lineTab a:eq(:0)").children("span, strong").show();
+			/*
+				tabs a클릭하면 href에 연결되어 있는 값들 보여주기!!
+			*/
+			$(".tabs li a").click(function(){
+
+				$("panel").hide();
+				$((this).attr("href")).show;
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="tabBasic">
+		<h3>TAB TEST</h3>
+
+		<ul class="tabs">
+			<li class="linkTab">
+				<a class="tablink" href="#tab0" title="tab1">
+					<img src="img/img_tlj.gif" alt="뚜레쥬르"/>
+					<span>재료부터 다른 건강한 베이커리</span>
+					<strong>뚜레쥬르</strong>
+				</a>
+			</li>
+			<li class="linkTab">
+				<a class="tablink" href="#tab1" title="tab2">
+					<img src="img/img_vips.gif" alt="빕스"/>
+					<span>My No.1 스테이크 하우스</span>
+					<strong>빕스</strong>
+				</a>
+			</li>
+			<li class="linkTab">
+				<a class="tablink" href="#tab2" title="tab3">
+					<img src="img/img_bibigo.gif" alt="비비고"/>
+					<span>Healthy &amp; Fresh Korean Kitchen</span>
+					<strong>비비고</strong>
+				</a>
+			</li>
+			<li>
+				<div class="panel" id="tab0">
+					<div class="left">
+						<h4>재료부터 다른 건강한 베이커리</h4>
+						<p>뚜레쥬르는 빵마다 고유의 맛을 살려주는 맞춤 밀가루, 빵에 1% 들어 가는 소금까지도 신안 천일염을 사용하는 재료부터 다른 건강한 베이커리입니다.</p>
+						<p>프랑스어로 ’매일매일(Everyday)’이라는 뜻을 가진 뚜레쥬르는 매장에서 직접 구운 신선한 빵을 제공하는 국내 최초의 오븐 베이커리로, 꾸미지 않은 재료 그대로의 풍미를 담아 맛있고, 좋은 재료로 건강하며, 어머니의 정성을 담아 신선하고 정직한 빵과 케이크를 만듭니다.</p>
+						<p class="button"><a href="#" title="뚜레쥬르 바로가기">뚜레쥬르 홈페이지 바로가기</a></p>
+					</div>
+					<p class="right">
+						<img src="img/img_brand01.jpg" alt="뚜레쥬르 이미지"/>
+					</p>
+				</div>
+			</li>
+			<li>
+				<div class="panel" id="tab1">
+					<div class="left">
+						<h4>My No.1 스테이크하우스</h4>
+						<p>해외에 로열티를 지불하지 않는 국내 토종 브랜드 빕스는 고급 스테이크 하우스에서 맛볼 수 있던 정통 프리미엄 스테이크와 계절별로 다양하고 신선하게 준비된 샐러드 바를 제공하여 다양한 연령대에서 사랑 받고 있는 브랜드입니다.</p>
+						<p>빕스(VIPS)는 브랜드 이름(Very Important Person’s Society)처럼 ‘고객 한 분 한 분을 귀한 손님으로 소중하게 모시겠다’ 는 마음가짐으로 최상의 서비스와 최고의 맛을 제공하기 위해 노력하고 있습니다.</p>
+						<p class="button"><a href="#" title="빕스 바로가기">빕스 홈페이지 바로가기</a></p>
+					</div>
+					<p class="right">
+						<img src="img/img_brand02.gif" alt="빕스 이미지"/>
+					</p>
+				</div>
+			</li>
+			<li>
+				<div class="panel" id="tab2">
+					<div class="left">
+						<h4>Healthy &amp; Fresh Korean Kitchen</h4>
+						<p>건강하고 신선한 한식을 재해석하다. 비비고는 정갈한 정통한식의 현대적인 해석을 통해, 건강하고 신선한 한 끼 식사를 선사하는 글로벌 대표 한식 브랜드 입니다.</p>
+						<p>비비고라는 이름은, 한식의 철학 ‘비빔’과 편리함을 상징하는 ‘투 고(to-go)’의 합성어로 영양소가 고루 담긴 정갈하고 편리한 식사로 현대인의 바쁜 하루에 활기를 더하는 상차림을 뜻합니다. 현재 비비고는 한국·미국·영국·중국·싱가포르 등 전세계 7개국 21개점에서 한국의 맛과 멋을 널리 알리고 있습니다.</p>
+						<p class="button"><a href="#" title="비비고 바로가기">비비고 홈페이지 바로가기</a></p>
+					</div>
+					<p class="right">
+						<img src="img/img_brand03.gif" alt="비비고 이미지"/>
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

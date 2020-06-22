@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> new document </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		#wrap{background-color:pink; width:1366px;}
+		/*
+			pc 버전으로만 따졌을때 전체적으로 제일 많이 사용하는 너비값	
+				
+				pc 버전으로만 제일 많이 사용하는 해상도
+					+ 940px
+					+ 960px
+					+ 980px
+
+				+ 1025부터 pc버전에 해당! 
+					반응형페이지 : 1025px ~ 이상의 해상도를 전부 pc버전
+
+				+ 높이값 생성시 주의사항!
+					wrap이란 영역은 담고 있는 컨텐츠가 얼마나 늘어날지 모르기 때문에
+					높이를 설정해두면 담고 있는 컨텐츠들이 제대로 표현되지 못 할 수 있다!
+
+					+ 높이가 어느정도 늘어날지 예측이 불가능한 영역은 높이설정을 
+					미리하지 않는다.
+
+		*/
+
+		/*######################### header ########################*/
+		#header{width:100%; height:100px; background-color:green; color:#fff; }
+			#header h1{font-size:14px;}
+				  #nav h2{font-size:14px;}
+				  #nav span{background-color:#f00;}
+
+		
+		/*######################### container ########################*/
+		#container{background-color:lightblue; width:100%;}
+			#visual{width:100%; height:480px; background-color:#000; color:#fff;}
+			#section{width:100%; background-color:#ccc; }
+				#section_content1{width:200px; height:200px; background-color:#f00;}
+				#section_content2{width:300px; height:300px; background-color:brown;}
+				#section_content3{width:200px; height:250px; background-color:darkred;}
+		
+
+		/*
+			+ 밝은회색 : #ccc ( f에 가까울수록 밝은 회색 )
+				+  어두운회색: #333( 색약이나 색맹인 사람들이 구분할 수 있는 색상( 웹표준) )
+
+			
+			+ 영역을 설계할때 주의할 점
+				+ ex) 200, 200 
+				+			== x, y
+				+			== width, height
+
+				+ 너비를 먼저 고려하고 높이를 계산해서 맞춘다. ( 비율계산 )
+		*/
+		
+		/*######################### footer ########################*/
+		#footer{width:100%; background-color:#000; color:#fff; text-align:center;}
+			#footer span{background-color:darkblue;}
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		각각의 영역들을 모아서 담아주는 영역( wrap, wrapper, 기업명wrap )
+		<div id="header">
+			<h1>로고</h1>
+			<div id="nav">
+				<h2>네비게이션바</h2>
+				<span>로그인</span> <span>갤러리</span> <span>게시판</span>
+			</div>
+		</div>
+		<div id="container">
+			<h2>홈페이지에 작성되어야 할 내용들 : 비쥬얼 (광고), 기사내용들, 
+			정보의 목적을 전달하는 내용들 </h2>
+			<div id="visual">
+				<h3>비쥬얼영역: 광고</h3>
+				<p>
+					비쥬얼영역: 광고, html5( 애니메이션 ), jQuery( 슬라이딩 윈도우 ), 동영상, 플러그인(캐로셀)
+				</p>
+			</div>
+			<div id="section">
+				<h3>section영역은 비슷한 값들을 모아주는 영역</h3>
+				<div id="section_content1">
+					<h4>스포츠</h4>
+					<p>
+						축구,야구,농구, 배구...등등 스포츠에 해당하는 정보만 모아두기
+					</p>
+				</div>
+				<div id="section_content2">
+					<h4>게임</h4>
+					<p>
+						LOL, 오버워치, 리니지...등등 게임에 해당하는 정보만 모아두기
+					</p>
+				</div>
+				<div id="section_content3">
+					<h4>쇼핑</h4>
+					<p>
+						쇼핑에 관련된 정보들을 모아두는 영역
+					</p>
+				</div>
+			</div>
+			<div id="subVisual">
+				<h3>보조비쥬얼 영역: 비쥬얼영역의 상세소개나 신제품소개</h3>
+				비쥬얼영역보다 크지 않지만 간단한 광고를 하는 영역!
+			</div>
+			<div id="subVisual">
+				<h3>보조비쥬얼 영역: 비쥬얼영역의 상세소개나 신제품소개</h3>
+				비쥬얼영역보다 크지 않지만 간단한 광고를 하는 영역!
+			</div>
+			<div id="subVisual">
+				<h3>보조비쥬얼 영역: 비쥬얼영역의 상세소개나 신제품소개</h3>
+				비쥬얼영역보다 크지 않지만 간단한 광고를 하는 영역!
+			</div>
+			<div id="subVisual">
+				<h3>보조비쥬얼 영역: 비쥬얼영역의 상세소개나 신제품소개</h3>
+				비쥬얼영역보다 크지 않지만 간단한 광고를 하는 영역!
+			</div>
+			<div id="subVisual">
+				<h3>보조비쥬얼 영역: 비쥬얼영역의 상세소개나 신제품소개</h3>
+				비쥬얼영역보다 크지 않지만 간단한 광고를 하는 영역!
+			</div>
+		</div>
+		<div id="footer">
+			<h2>꼬릿말영역</h2>
+			<p>
+				<span>카피라이터</span>
+				<span>개인정보 방침</span>
+				<span>제휴제안</span>
+				<span>법률정보</span>
+			</p>
+		</div>
+	</div>
+ </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> basic </title>
+  <style>
+	#wrap{width:1280px; background-color:pink; margin:0 auto;}
+  </style>
+ </head>
+
+ <body>
+	<div id="wrap">
+		<header id="header">
+			<h1>로고, 상징적인 요소 작업, 페이지에 대표제목</h1>
+			<nav id="gnb">
+				<ul>
+					<li><a href="#none" title="login">login</a></li>
+					<li><a href="#none" title="member">member</a></li>
+					<li><a href="#none" title="gallery">gallery</a></li>
+					<li><a href="#none" title="board">board</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div id="container">
+			<h2>비쥬얼 또는 여러가지 정보의 영역</h2>
+			<section id="section0">
+				<h2>크게 분류되는 영역 : 비슷한 정보들 모아주기(뉴스)</h2>
+				<article>
+					<h3>리스트처럼 형제 요소를 고려하지 않음! 독립적인 형태의 작업</h3>
+					<p>배포가능한 기사나 내용들을 담아주는 영역</p>
+				</article>
+				<article>
+					<h3>날씨관련 뉴스정보</h3>
+				</article>
+			</section>
+
+			<section id="section1">
+				<h2>패션 쇼핑관련 영역</h2>
+				<article>
+					<h3>날씨관련 뉴스정보</h3>
+					<p>article 영역은 필요하면 얼마든지 재배포가 가능함!</p>
+				</article>
+			</section>
+
+			<section id="section2">
+				<h2>영화 관련 정보</h2>
+				<article>
+					<h3>영화제목</h3>
+					영화관련 줄거리, 명대사, 명언...
+				</article>
+				<article>
+					<h3>오류발생...</h3>
+						어떠한 정보를 나를건지 제목이 없기 때문에 오류가 발생함
+				</article>
+				<aside id="aside">
+					<h2>제목작성 : 오류나 에러는 없지만 영역에 대한 제목 작성하기</h2>
+					<p>사이드 메뉴를 만들 때 사용, 간략한 뉴스, 고아고 등 어떠한 정볻르을 사이드에 다룰 때 만드는 영역</p>
+				</aside>
+			</section>
+		</div>
+		<footer id="footer">
+			<h2>꼬릿말영역</h2>
+			<address>
+				서울시 강남구 역삼동(관리자의 이메일, 사업자 번호 등이 작성되는 영역)
+			</address>
+		</footer>
+	</div>
+  
+ </body>
+</html>
+<!--
+	시멘틱태그 : 약속된 작업을 하기 위한 태그 또는 영역!
+		+ header : 로고, 네비게이션 작업
+		+ section : 비슷한 정보의 값들을 모아주는 영역
+			(하나의 큰 영역을 설계할 때 사용 == headerWrap, 실제로 사용하는 영역)
+				+ article : 독립적인 기사내용을 다루는 영역
+					( section 영역에서 분류별로 나눌 때 사용!)
+				+ aside : 사이드메뉴, 사이드광고의 영역
+
+				:: section, article 영역 작업시 주의사항!
+					validator에서 검색시 제목이 없기 때문에 위험요소가 발생한다!
+
+				:: aside의 경우에는 위험요소가 발생하지는 않지만
+				하나의 영역이기 때문에 제목을 작성하는 것을 권장한다.
+				
+		+ footer : 꼬릿말영역(카피라이터, 법률정보)
+			+ 주의사항
+				footer 태그는 인식률에 문제가 생길 수 있음!
+				css가 적용되지 않은 것처럼 디바이스에서 문제가 발생하거나 브라우저에서 문제가 발생!
+
+				해결 : div id="footer"
+				footer태그를 사용하지 않고 div태그로 전환 후 id명으로 해결!
+
+		::: 시멘틱태그에 id와 class명을 사용하는 이유??
+			ex) header id="header" 이런식으로 사용하는 이유??
+				.header, #header라고 호출하면 시멘틱태그나 div태그에 의존하지 않고 호출하기 때문에 구형브라우저에서 호출할 때 인식률이 좋음!
+				id와 class명은 브라우저에서 읽어줄 때 무리가 없음!
+					+ 필수 : 시멘틱태그를 사용시 반드시 id와 class명 작성하기
+
+		::: 시멘틱태그 사용시 필수로 사용중인 태그!
+			+ header, section, footer(div)
+
+		::: 시멘틱태그 사용시 권장사항으로 사용하는 태그!
+			+ nav, article, address(사업자번호, 주소가 있을 때 사용) 
+
+		::: xhtml VS html5에서 css영역!
+			+ xhtml 문서에서는 style영역에서 에러가 발생합!
+				+ type="text/css"를 붙이지 않으면 에러가 발생한다.(xhtml 버전에서는 필수사항!)
+
+			+ html5 문서에서는 style영역에서 에러가 발생하지 않음!
+				style영역에서 type="text/css"를 붙이지 않아도 에러가 발생하지 않는다.
+				단! 필수사항이 아니라 권장사항으로 type="text/css"를 사용한다.
+
+		++ html5 모든 영역의 오류가 어느정도 해결이 되기 때문에 놓치고 가는 문법들이 많을 수 있다.
+			+ 에러가 발생하면 반드시 해결해야 한다.
+			+ html5에서는 에러보다 더 많이 발생하는 것
+				== 경고요소( warning )
+					+ warning 요소중에는 validator로 확인했을 때 보여지지 않는 것과
+					보여지는 것들이 있는데 보여지는 요소는 반드시 해결해야 한다.
+
+				+ html5는 광범위한 작업들을 할 수 있기 때문에 위험할 수 있다라는
+				공지사항같이 경고를 보여주게 되는데 이 때 확실히 어떤 줄에서 
+				위험요소가 뜨면 해결해주고 그렇지 않다면 넘어가도 상관없음!
+-->

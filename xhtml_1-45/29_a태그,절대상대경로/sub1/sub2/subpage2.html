@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> subpage2 </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+			h2{width:100%; text-align:center; padding:20px 0;}
+
+			ul{width:1025px; height:130px; margin:50px auto 0; border:1px solid #ccc;}
+				ul li{width:340px; height:130px;  float:left;}
+					ul li p{float:left; height:90px; padding:20px 0; font-size:12px;}
+						ul li p strong{ display:block; padding:10px 0;}
+					ul li p.img{width:180px; }
+					ul li p.text{width:160px; }
+
+				ul li.last{width:345px; text-align:right;}
+
+  </style>
+ </head>
+ <body>
+	<h2>
+		<a href="../../01_a_tag.html" title="메인페이지 바로가기">메인페이지 바로가기</a>
+	</h2>
+	<h2>
+		<a href="../01_food.html" title="food페이지 바로가기">food페이지 바로가기</a>
+	</h2>
+	<!--
+		../ 현재 위치에서 폴더 한번 나가서
+		../../ 현재 위치에서 폴더 2번 나가서 
+		../../img/ 현재 위치에서 두번 나가서 img 폴더 들어가서 
+
+		./ 현재 폴더에서 찾기! (현재 위치에서 파일찾기)
+		./../ 현재 위치에서 찾아보고 없으면 한번나가서 찾기
+		.././ 현재위치에서 한번 나가서 나간 위치에서 찾기!
+	-->
+	<ul>
+		<li>
+			<p class="img">
+				<img src="../../img/s0.png" alt="소스이미지0"/>
+			</p>
+			<p class="text">
+				<span style="color:#21a900;">헬로!아티스트</span>
+				<strong>동시대 작가들과의 만남</strong>
+				<span class="textArea">
+					말로 표현할 수 없는<br/>
+					즉흥성이 그림 속으로!
+				</span>
+			</p>
+		</li>
+		<li>
+			<p class="img">
+				<img src="../../img/s1.png" alt="소스이미지1"/>
+			</p>
+			<p class="text">
+				<span style="color:#21a900;">커넥트재단</span>
+				<strong>마버드CS50</strong>
+				<span class="textArea">
+					비전공생을 위한<br/>
+					컴퓨터과학 입문 강좌
+				</span>
+			</p>
+		</li>
+		<li class="last">
+			<img src="../../img/s3.jpg" alt="광고이미지"/>
+		</li>
+	</ul>
+ </body>
+</html>

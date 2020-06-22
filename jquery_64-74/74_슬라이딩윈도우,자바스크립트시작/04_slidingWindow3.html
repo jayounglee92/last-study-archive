@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> slidingWindow </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		html{ height:100%; }
+		body{ 
+			background-image:-webkit-linear-gradient(top, #000 0%, #111 80%, darkred 100%);
+			background-image:-moz-linear-gradient(top, #000 0%, #111 80%, darkred 100%);
+			background-image:-ms-linear-gradient(top, #000 0%, #111 80%, darkred 100%);
+			height:100%;
+		}
+
+		h1{ text-align:center; padding:80px 0 40px;}
+			h1 img{width:500px;}
+
+
+		#screen{width:800px; height:420px; margin:0 auto; border:5px solid #ccc; position:relative;}
+			#film{ width:3200px; }
+				.scene{ width:800px; float:left;}
+			#film:after{content:""; display:block; clear:both; }
+			
+			#btn p{ position:absolute; width:50px; height:100px; top:50%; margin-top:-50px; }
+				#btn p img{ width:100%; height:100%;}
+			
+			#btn .prevBtn{ left:0; }
+			#btn .nextBtn{ right:0; }
+  </style>
+  <script>
+	$(function(){
+			/*
+				문제점:
+					스크린 바깥쪽으로 필름 전체가 빠져나가 버림
+				
+				해결: 첫번째 이미지가 마지막으로 돌아와야 함!
+				
+				: 첫번째 이미지를 필름의 맨뒤로 보내기!
+						: 필름의 맨뒤로 첫번째 이미지 보내기!
+						: 위에 글은 의미는 같으나 대상이 달라짐
+					
+					
+					대상: 필름
+					이벤트: append
+					이벤트 핸들러 : li의 첫번째 이미지가 film의 맨뒤로 가기!
+							+ li요소가 너무 많기 때문에 모든영역의 li가 적용될수 있음
+								+ .scene의 첫번째 요소가 맨뒤로 가도록 만들기!
+					
+				
+			*/
+
+		$(".nextBtn").click(function(){
+			$("#film").animate({"marginLeft":"-=800px"},800,"linear",function(){
+				$("#film").append( $(".scene:first") );
+				/*
+					문제점:
+						첫번째 장면이 필름의 맨뒤로 가고는 있으나..
+						화면바깥으로 빠져나가는 문제는 계속 발생
+					
+					해결:
+						화면 바깥으로 못빠져 나가도록 막아주기
+						문제가 되는 원인?
+							필름에서 배정연산자가 계속 작동되기 때문에
+							바깥으로 빠져나가는 문제 발생
+
+								: 배정연산자 초기화 시키기
+
+					
+					문제: 이전버튼 클릭하면 작동되도록 만들기!
+				*/
+				$("#film").css({"marginLeft":"0"});
+				
+			});
+		});
+	
+	});
+  </script>
+ </head>
+ <body>
+	<h1><img src="img/logo.png" alt="logo"/></h1>
+	<div id="screen">
+		<ul id="film">
+			<li class="scene">
+				<img src="img/a00.jpg" alt="img0"/>
+			</li>
+			<li class="scene">
+				<img src="img/a01.jpg" alt="img1"/>
+			</li>
+			<li class="scene">
+				<img src="img/a02.jpg" alt="img2"/>
+			</li>
+			<li class="scene">
+				<img src="img/a03.jpg" alt="img3"/>
+			</li>
+		</ul>
+		<div id="btn">
+			<p class="nextBtn"><img src="img/next_shadow.png" alt="다음버튼" class="next"/></p>
+			<p class="prevBtn"><img src="img/prev_shadow.png" alt="이전버튼" class="prev"/></p>
+		</div>
+	</div>
+ </body>
+</html>

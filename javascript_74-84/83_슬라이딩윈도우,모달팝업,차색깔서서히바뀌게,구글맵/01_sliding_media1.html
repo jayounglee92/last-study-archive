@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> sliding </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		html{ height:100%; }
+		body{ background-image:-webkit-linear-gradient(top,#222 0%, #000 80%, #777 100%); height:100%;}
+		h1{ text-align:center; padding:20px 0; }
+		h1 img{width:40%;}
+
+		/*
+			너비를 100%로 수정하고 
+			최대 너비를 800으로 설정한 이유는
+			최대 너비 안쪽에서 100% 사이즈 조절을 자유롭게  하기 위하여 사용
+
+				높이 설정은 제외!
+		*/
+		#screen{ max-width:800px; width:100%; border:5px solid #ccc; margin:0 auto; position:relative; 
+			overflow:hidden;
+		}
+			#film{width:400%;}
+				.scene{float:left; width:25%;}
+				.scene img{ width:100%; }
+			#film:after{ content:""; display:block; clear:both; }
+
+		#btn p{ position:absolute; top:50%; width:50px; height:100px; margin-top:-50px;}
+			#btn p img{ width:100%; height:100%;}
+
+		#btn .nextBtn{right:0;}
+		#btn .prevBtn{left:0;}
+  </style>
+  <script>
+	$(function(){
+
+		$("#film").prepend($(".scene:last"));
+		$("#film").css({"marginLeft":"-100%"});
+	
+		$(".nextBtn").click(function(){
+			/* 중요: 
+				800씩 잡아당김 하지만, 모바일 버전에서는 너비가 달라지기 때문에 문제가 생김
+
+				중요:
+					연속적으로 클릭하면 animate가 자동으로 계속 움직임
+					시간이 쌓이는 개념때문에 생기는 문제
+					: 해결: clearQueue(), stop()
+
+				중요:
+					연속으로 클릭하게 되면 화면이 멈출때 간격에서 이상현상 발생
+					: 해결: 한장면이 끝나고 나면 멈춰주세요
+						film:not(:animated)
+
+			*/
+			$("#film:not(:animated)").stop().animate({"marginLeft":"-=100%"},1000,"swing",function(){
+				$("#film").append($(".scene:first"));
+				$("#film").css({"marginLeft":"-100%"});
+			});
+		});
+
+		$(".prevBtn").click(function(){
+			$("#film:not(:animated)").stop().animate({"marginLeft":"+=100%"},1000,"swing",function(){
+				$("#film").prepend($(".scene:last"));
+				$("#film").css({"marginLeft":"-100%"});
+			});
+		});
+	
+	
+	});
+  </script>
+ </head>
+ <body>
+	<h1><img src="img/logo.png" alt="logo"/></h1>
+	<div id="screen">
+		<ul id="film">
+			<li class="scene">
+				<img src="img/a00.jpg" alt="img0"/>
+			</li>
+			<li class="scene">
+				<img src="img/a01.jpg" alt="img1"/>
+			</li>
+			<li class="scene">
+				<img src="img/a02.jpg" alt="img2"/>
+			</li>
+			<li class="scene">
+				<img src="img/a03.jpg" alt="img3"/>
+			</li>
+		</ul>
+		<div id="btn">
+			<p class="nextBtn"><img src="img/next_shadow.png" alt="다음버튼" class="next"/></p>
+			<p class="prevBtn"><img src="img/prev_shadow.png" alt="이전버튼" class="prev"/></p>
+		</div>
+	</div>
+ </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> if </title>
+  <script>
+	/*
+		제어문: if문 / switch
+			
+			+ if문 : 조건에 맞을경우 (만약에~ 라면 ~ 하겠다)
+				else 아닐경우
+	*/
+
+	document.write("<h3> 01_if문 기본사용 </h3>");
+	if( false ){ document.write("true는 참의 성질을 가짐"); }
+	else{ document.write("false는 거짓의 성질을 가짐"); }
+	
+
+	document.write("<h3>02_변수를 이용하여 비교하기1</h3>");
+	var num = 9;
+	
+	if(num > 10){ document.write("비교하는 변수의 값이 10보다 큽니다. "); }
+	else{ document.write("비교하는 변수의 값이 10보다 작습니다. <"); }
+
+	/*
+		응용문제1:
+			변수값 지정하기 
+				만약에 지정한 변수의 값이 100보다 작으면 100보다 작습니다. 문서에 출력받기
+				아니라면 100보다 큽니다. 문서에 출력받기
+	
+	
+		document.write("<h3>03_변수를 이용하여 비교하기2</h3>");
+		var num1 = 99;
+		if(num1 < 100){ document.write("100보다 작습니다."); }
+		else{ document.write("100보다 큽니다.");}
+	*/
+
+	/*
+		응용문제2:
+			입력받은 숫자가 1과 같으면 숫자 1이 맞습니다. 알림창띄우기
+			다르면 1이 아닙니다. 알림창띄우기
+	
+
+		document.write("<h3>03_입력받은 값 비교하기</h3>");
+		var num2 = prompt("숫자입력: ");
+		
+		if(num2 == 1 ){ alert("숫자 1이 맞습니다."); }
+		else{ alert("숫자 1이 아닙니다."); }
+	*/
+
+	document.write("<h2>조건 표현방법</h2>");
+	document.write("<ol>");
+	document.write("<li>비교하는 값이 타입이나 속성까지 같을때 : num === 1</li>");
+	document.write("<li>비교하는 값이 같을때 : num == 1</li>");
+	document.write("<li>비교하는 값이 다를때 : num != 1</li>");
+	document.write("<li>비교하는 값이 1보다 클때 : num > 1</li>");
+	document.write("<li>비교하는 값이 1보다 크거나 같을때: num >= 1</li>");
+	document.write("<li>비교하는 값이 1보다 작을때 : num < 1</li>");
+	document.write("<li>비교하는 값이 1보다 작거나 같을때 : num <= 1</li>");
+	document.write("</ol>");
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>

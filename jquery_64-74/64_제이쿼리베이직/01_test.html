@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> test </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;} /* pc버전에서만 여백값 빼주기 */
+		header,section,article, nav, footer, aside,div, ul, li, ol, dl{ margin:0; padding:0;}
+		header,section,article, nav, footer, aside{display:block;}
+
+		.circles{ width:300px; height:300px; background-color:gold; transition:all .3s; 
+		text-align:center; line-height:300px;}
+		.circles:hover { border-radius:150px; background-color:pink;}
+
+		.box{ width:400px; height:400px; background-color:aqua; transform:translatex(-400px); 
+		animation:box1 7s infinite alternate;}
+
+		@keyframes box1{
+			100%{ transform:translate(1025px); }
+		}
+		
+		#content{ width:100%; height:150px; max-width:1600px;  background-color:pink; margin:0 auto; font-size:20px; text-align:center; line-height:150px;}
+
+		@media all and (min-width:1025px) and (max-width:1280px){
+			#content{background-color:aqua;}
+		}
+		
+		@media all and (min-width:768px) and (max-width:1024px){
+			#content{background-color:red;}
+		}
+
+		@media all and (min-width:481px) and (max-width:767px){
+			#content{background-color:blue;}
+		}
+
+		@media all and (min-width:320px) and (max-width:480px){
+			#content{background-color:darkblue; color:#fff; }
+			.circles, .box{ display:none; }
+		}
+
+		h2:before{ content:"───────────";}
+		h2:after{ content:"───────────";}
+  </style>
+ </head>
+ <body>
+	<h2>서술형 문제</h2>
+	<h3>xhtml과 html5의 차이점에 대하여 작성하기</h3>
+	<p>1번의 답은 textarea에 작성하기</p>
+	<div>
+		<p style="width:490px; height:405px;">
+			<textarea id="text1" name="text1" title="글씨영역" style="width:100%; height:100%;">
+01) css 와 css3의 차이점
+css는 크로스브라우징 and 정적인 페이지 규칙에 맞춰서 표현할수 있음 (웹표준)
+웹접근성( 웹에 접근하는 방법, 장애가 있던 장애가 없던 같은 기능을 사용할수 있어야 함!)
+(조건주석문을 이용하여 인터넷 익스플로러 구형 브라우저에서 맞추는 작업이 가능)
+
+css3는 동적인 기능을 작업할 수 있음( transition + animation ) + 모든 웹 환경에 맞는 
+화면을 구성할수 있음( 반응형, 절대형, 적응형)
+			</textarea>
+		</p>
+		<p style="width:490px; height:405px;">
+			<textarea id="text2" name="text2" title="글씨영역" style="width:100%; height:100%;">
+02) 태그 사용의 차이점
+xhtml에서는 영역을 작업할때 div, 컨텐츠나 어떤 형제 요소들을 설계할때 ,ul, ol, dl로 작업..
+( 영역에 맞춰서 사용하기 보다는 태그의 크기에 따라서 사용했음 )
+
+html5에서는 시멘틱 태그의 등장
+사용목적에 맞춰 영역을 설계할수 잇음
+header( 로고, 네비게이션) nav, section( 비슷한 정보의 값들을 모아주는 영역), article( 배포가능한 정보들을 모아주는 영역), aside( 사이드 메뉴 만들때 사용 ), footer, address 등등..
+			</textarea>
+		</p>
+	</div>
+	<h3>animation과 transition의 차이에 대하여 아는데로 작성하기</h3>
+	<p>
+		<strong>animation</strong>
+		기본적으로 조작하지 않아도 기능이 구현이 됨, 조작도 가능함!
+	</p>
+	<p>
+		<strong>transition</strong>
+		transtion은 원본의 대상이 있고 그 원본의 대상이 변화하는 모습을
+		부드럽게 표현할때 사용함<br/>
+		jQuery에서 보자면...<br/>
+		원본의 대상. 마우스 올렸을때(이벤트). 이벤트 핸들러 ( 원본의 대상이 변화함 )
+	</p>
+
+
+	<h3>반응형과 절대형에 대하여 설명하고, 적응형은 무엇인지 작성하기</h3>
+	<p>
+		반응형: 브라우저환경에서 영역이 반응을 하는 형태( 주로 %로 작업 )<br/>
+		절대형: 제품이나 변형이 되면 않되는 영역에 픽셀로 고정하는 작업<br/>
+		적응형: 반응형 + 절대형이 합쳐져있는 작업<br/>
+		중요! ) 반응을 시킬 영역과 고정시킬 영역 잘 나눠서 작업하기
+	</p>
+
+
+	<h3>스킵네비게이션 작성시 반드시 사용해야 하는 태그와 그 이유는?</h3>
+	<p>
+		탭키로만 작동되는 네비게이션 <br/>
+		태그는 a태그만 사용이 가능함, a태그에는 focus라는 설정이 가능하기 때문에<br/> 
+		유일하게 tab키로 접근이 가능하다.
+	</p>
+
+
+	<h3>스킵네비게이션을 작성하는 이유는?</h3>
+	<p>
+		구간건너뛰기를 위하여 사용
+	</p>
+
+
+	<h3>1초에 몇번이상 깜박일 경우 어떤 현상이 발생할수 있는지 작성하기</h3>
+	<p>
+		3~10회 이상 반복되면, 발작증상을 일으킬수 있음
+	</p>
+
+
+	<h3>반응형과 절대형, 적응형 작업시 브라우저를 줄일때 소리나 깜박임이 들어가면
+	안되는 이유는?</h3>
+	<p>
+		장애가 있거나 반복적인 효과에 예민하게 반응할수 있는 사람들이 있기 때문에
+		웹표준 에 맞지 않음 ( 만약에 사용해야 한다면 어딘가에 알림을 알려줄수 있도록 작성하기)
+	</p>
+
+
+	<h3>비디오 재생시 사용자가 컨트롤 기능을 만드는 것이 맞는지, 브라우저에서 제공되는
+	것을 사용하는 것이 맞는지에 대하여 설명하기</h3>
+	<p>
+		사용자가 직접 컨트롤 할 수 있도록 기능을 만들어서 제공하는 것이 좋다<br/>
+		모든 사용자가 같은 위치에서 플레이와 멈춤을 할 수 있어야 함<br/>
+		스크립트를 이용하여 설정할 수 있도록 하는것이 권장사항<br/>
+		만약 스크립트를 다루기 어렵다면 controls 사용하기<br/>
+		슬라이딩 윈도우 에서는 2가지 버튼 작성하기 ( 플레이와 멈춤 )
+	</p>
+
+
+	<h3>모든 브라우저에서 같은 형태로 폰트가 나오도록 설정하는 방법과 이렇게 만드는 이유에
+	대하여 작성하기</h3>
+	<p>
+		@( 설정할때 사용하는 기호 )<br/>
+		@font-face( 소스파일 불러와서 설정하기 )<br/>
+		모든 브라우저에서 폰트가 동일하게 나올 수 있도록 제작!
+	</p>
+
+
+	<h3>반응형 작업시 가장 우선시 되는 것이 무엇인지 작성하기 (문서의 사용용도를 알려주는것)</h3>
+	<p> 가정먼저 작성되어야 하는 것은 viewport에 맞추는 작업을 하기 위한 meta태그 작성 </p>
+
+
+	<h3>화면 해상도와 브라우저 해상도는 같을까?</h3>
+	<p>
+		화면 해상도와 브라우저 해상도는 크기가 다르기 때문에<br/> 
+		브라우저에 맞추면서 작업해야 제대로 확인이 가능!
+	</p>
+
+
+	<h3>스마트폰 가로버전은 현재 어떤 버전부터 맞추는 추세일까?</h3>
+	<p>
+		태블릿PC부터 스마트폰 가로버전에 맞추는 작업을 하고 있음 
+	</p>
+	
+	
+	<h2>실습 문제</h2>
+	<h4>pc버전에서 여백을 빼줄때 사용했던 방법은?( css 영역에서 표현하기 )</h4>
+
+
+	<h4>모바일 버전이나 디바이스에서 여백을 빼줄때 사용했던 방법은? ( 시멘틱 태그가 없어도 css영역에서 표현 해주기)</h4>
+	<h4>구형 브라우저에서 인식률을 높이기 위하여 시멘틱 태그에 해줬던 기능 css영역에서 표현하기</h4>
+	
+	<h4>아래 p태그 만들고, 너비300픽셀, 높이 300픽셀  상자 만들기 마우스 올리면 동그랗게 변하면서 배경색상이 변경되도록 만들기( 부드럽게 바뀌도록 만들기 )</h4>
+	<p class="circles">circle</p>
+
+	<h4>아래 p태그 만들과 너비 400픽셀, 높이 400픽셀 상자 만들기 왼쪽에 숨어있다가 화면 오른쪽으로 나타나도록 애니메이션 만들기( 무한반복 설정하기 ) </h4>
+	<p class="box">animation</p>
+
+
+	<h4>반응형 페이지 작성시 min-width와 max-width중 어느 크기에 맞춰 놓고 작업하는게 좋은지 작성하기(서술형 문제 아래에 답 작성하기)</h4>
+	<p>
+		기본적으로 min-width에 맞게 설정하기<br/>
+		max-width에 맞추게 되면 x좌표로 스크롤이 생길수 있음<br/>
+		가장 중요한 부분은 모바일을 직접 보면서 작업하기!
+	</p>
+
+
+	<h4>아래 div태그 만들고 이름은 content라고 작성하기, 최대 1600부터 최서 320까지 버전을 4~5개 정도 나누고 화면을 줄일때 마다 content 영역의 배경색상이 다른 색상으로 바뀌도록 만들기 너비는 전체영역 다쓰고 높이는 150픽셀 지정하기</h4>
+	<div id="content"> mediaQuery </div>
+
+	<h4>위에 작성된 애니메이션과 마우스 올리면 동그랗게 효과가 들어간 객체들이 모바일 버전에서는 나오지 않도록 설정하기</h4>
+
+	<h2>jQuery Basic 테스트</h2>
+	<h4>jQuery라고 사용하는 이유는?( 대문자가 작성되는 이유와 같이 설명하기) </h4>
+	<p>
+		javascript + query 합성어 : 합성어 일 경우 처음에 오는 영문이 대문자로 변경!
+	</p>
+	<h4>jQuery는 브라우저에서 읽어들일 때 몇차로 읽어주는 영역인지 1차 부터 순서대로 작성하기</h4>
+	<p>
+		1) body <br/>
+		2) css <br/>
+		3) javascript <br/>
+		4) jQuery
+	</p>
+
+	<h4>기본문법이 3가지가 있었는데 아래 p태그 만들고 각각의 형태 작성하고 장, 단점 작성하기</h4>
+
+	<h4>css영역에서 h2태그에 가상요소를 설정하여 아래와 같이 표현하기<br/>
+		───── h2의 글 ─────
+	</h4>
+
+	<h4>제이쿼리의 첫번째 문법을 사용하여 h4태그들의 배경색상을 밝은 회색으로 변경하기
+	(대상. 이벤트, 이벤트 핸들러)</h4>
+	<script>
+		// 첫번째 문법 사용하기
+		// 제이쿼리의 문서가 준비가되면 기능을 구현해주세요.
+		
+		jQuery(document).ready(function(){
+			/*
+			  장점 :  php와 충돌이 발생할 확률이 없음, 안정성이 뛰어남!
+			  단점 :  문서가 준비되지 않으면, 화면에 아무것도 발생하지 않음, 무한루프
+			
+				문제 : h4태그들의 배경색상을 밝은 회색 적용하기
+					
+					+ 대상: h4
+					+ 이벤트: css
+					+ 이벤트 핸들러 : h4
+			 */
+
+			 jQuery("h4").css("backgroundColor","#ccc");
+
+			 // border로 테두리를 아주 예쁘게 만들기
+			 /*
+				대상: h5 ( id속성 h5도 있음)
+				이벤트: css
+				이벤트 핸들러: h5
+			 */
+				jQuery("h5").css("border","3px solid red");
+
+		});
+	</script>
+
+
+
+	<h4>제이쿼리의 3번째 문법을 사용하여 h2태그들의 글자 크기를 26픽셀로 변경하기</h4>
+	<script>
+		// 기능구현 해주세요
+		$(function(){
+			/*
+				장점: 기다림없이 기능을 구현하기 때문에 기능구현이 빠름!
+				단점: php와 선택자가 충돌이 생길수 있음, 준비 단계가 없기 때문에 기능이 깨질 우려가 있음
+			
+				대상: h2
+				이벤트: css
+				이벤트 핸들러: h2
+			*/
+			
+			$("h2").css("fontSize","26px");
+		});
+	</script>
+
+
+	<h4>제이쿼리의 두번째 문법을 사용하여 h3태그들의 글자들 들여쓰기</h4>
+	<script>
+		// 선택한 문서가 준비가 되면 기능 구현해주세요.
+		$(document).ready(function(){
+			/*
+				장점: 빠르고 안정성이 뛰어남
+				단점: php와 충돌의 우려가 있음, 준비가 되지 않으면 무한 루프현상에 빠짐
+			
+				대상: h3
+				이벤트: css
+				이벤트 핸들러: h3
+			*/
+
+			$("h3").css("textIndent","30px");
+
+		});
+	</script>
+
+	<h4>아래 h5태그 만들고 id이름은 h5작성하기 이미 작성된 첫번째 문법에서 border로 테두리를 아주 예쁘게 만들기</h4>
+	
+	<h5 id="h5">test h5</h5>
+ </body>
+</html>

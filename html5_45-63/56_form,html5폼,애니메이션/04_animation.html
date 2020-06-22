@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> animation </title>
+  <style>
+	h2{background-color:#ff0; text-indent:20px;}
+	.p0{width:150px; height:120px; background-color:lightblue;
+		animation:myani 5s infinite alternate;
+	}
+	/*
+		animation
+			1) 제목, 타이틀
+				영문으로 작업하기(숫자단독사용 금지)
+			2) 재생시간
+			3) 재생횟수
+				1==1번재생
+				2==2번재생
+				무한반복 == infinite
+			4) 키프레임 작성하기
+			+ 0%~100%까지 프레임 작성이 가능하다.
+			+ 0% 50% 100% ...필요한 수만큼 작성할 수 있다.
+
+			키프레임은 필요한 수만큼 제작할 수 있음!
+			0~100%
+
+			5) 문제점
+			infinite 다시 재생될 때 부드럽지 않음
+			0% ~50% ~100% ~ ?? ~0%뚝
+
+			6) 예전사용방법
+				-webkit-animation:myani 5s infinite alternate; == 사파리, 크롬
+				-moz-animation:myani 5s infinite alternate; == 파이어폭스
+				-ms-animation:myani 5s infinite alternate; == 익스플로러 9이상부터
+				-o-animation:myani 5s infinite alternate; == 익스플로러 9이상부터
+			
+			@-webkit-keyframes myani{
+			0%{width:150px; height:120px; background-color:lightblue;}
+			50%{width:300px; height:300px; background-color:gold; border-radius:150px;}
+			100%{width:400px; height:150px; background-color:red; transform:translate(100px, 300px);}
+			@-moz-keyframes myani{
+			0%{width:150px; height:120px; background-color:lightblue;}
+			50%{width:300px; height:300px; background-color:gold; border-radius:150px;}
+			100%{width:400px; height:150px; background-color:red; transform:translate(100px, 300px);}
+			@-ms-keyframes myani{
+			0%{width:150px; height:120px; background-color:lightblue;}
+			50%{width:300px; height:300px; background-color:gold; border-radius:150px;}
+			100%{width:400px; height:150px; background-color:red; transform:translate(100px, 300px);}
+			@-o-keyframes myani{
+			0%{width:150px; height:120px; background-color:lightblue;}
+			50%{width:300px; height:300px; background-color:gold; border-radius:150px;}
+			100%{width:400px; height:150px; background-color:red; transform:translate(100px, 300px);}
+
+			07) 응용문제
+			++++
+				1) p태그 하나더만들기
+				2) 완전한 동그라미가 되도록 만들기
+				3) 테두리만들기
+			++++
+				1) p태그 하나 더 만들기
+				2) 왼쪽에서 오른쪽으로 500픽셀 이동하도록 만들기
+				3) 완전한 동그라미가 되면서 배경색상이 변경되도록만들기
+		}
+
+				
+	*/
+	@keyframes myani{
+		0%{width:150px; height:120px; background-color:lightblue;}
+		50%{width:300px; height:300px; background-color:gold;}
+		100%{width:400px; height:150px; background-color:red;}
+	}
+
+	.p1{width:150px; height:120px; background-color:lightblue; animation:p1_ani 5s infinite alternate;}
+
+	@keyframes p1_ani{
+		0%{width:150px; height:120px; background-color:lightblue;}
+		50%{width:150px; height:120px; border-radius:75px; background-color:orange;}
+		50%{width:146px; height:146px; border-radius:75px; border:2px solid red; background-color:pink;}
+	}
+
+	.p2{width:150px; height:120px; background-color:lightblue; animation:p2_ani 5s infinite alternate;}
+
+	@keyframes p2_ani{
+		0%{width:150px; height:120px; background-color:lightblue;}
+		50%{width:150px; height:120px; border-radius:75px; transform:translatex(300px);}
+		50%{width:150px; height:150px; border-radius:75px;  background-color:violet;}
+	}
+  </style>
+ </head>
+ <body>
+	<h2>animation</h2>
+	<p class="p0">animation-keyframe</p>
+	<p class="p1">p1</p>
+	<p class="p2">p2</p>
+ </body>
+</html>
+<!--
+	transition VS animation
+
+		+ 공통점
+			html5에서만 가능하다.
+			부드럽게 움직인다.
+
+		+ 다른점
+			+ transition은 이벤트가 있어야만 작동한다.
+			 ex) 대상이 있고, 그 대상에 마우스를 올리는 것
+			+ animation 자동으로 작동함!
+
+		jQuery에서는 animate(핵심)
+-->

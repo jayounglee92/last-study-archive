@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> test </title>
+  <style>
+		.test1{ width:400px; height:200px; background-color:blue; text-indent:-9999px; 
+		box-shadow:5px 5px 10px rgba(0,0,0,0.5);}
+
+		.test2{ width:400px; height:200px; background-color:pink; transition:transform 1s;}
+		.test2:hover{ transform:scalex(0.5);}
+		/* transform 으로 만든 객체들은 중심축이 가운데 있음 */
+  </style>
+ </head>
+ <body>
+	<h3>시멘틱태그의 역할은?</h3>
+	<p>
+		약속된 역할에 맞춰서 약속된 기능을 구현함<br/>
+		header 영역에  로고, nav( 네비게이션 )<br/>
+		footer영역에 카피라이터, 주소<br/>
+		위와 같이 해당하는 영역에 해당하는 작업을 하기위해 시멘틱 태그 사용
+	</p>
+	<h3>header, section, container, footer중 시멘틱 태그가 아닌것은?</h3>
+	<p> container </p>
+
+	<h3>article 영역을 작성했을때 반드시 작성되어야 하는 태그는?</h3>
+	<p>
+		헤드라인 태그<br/>
+		시멘틱 태그들은 하나의 영역을 구성하기 때문에 헤드라인 태그를 고민해야 한다.
+	</p>
+	
+	<h3>시멘틱 태그들 중 인식률이 떨어지기 때문에 div 태그로 대체 할수 있는 것은?</h3>
+	<p>
+		적용이 되지 않았을때..<br/>
+		footer영역이 시멘틱 태그들 중에서 유일하게 인식률이 좋지 않을수 있기 때문에<br/>
+		div 태그로 변환해서 사용해야 한다.
+	</p>
+
+	<h3>box에 그림자를 주는 방법 작성하기</h3>
+	<p>
+		01) box 형태의 객체 인지 확인하기<br/>
+		02) x축 밀리는 정도<br/>
+		03) y축 밀리는 정도<br/>
+		04) 그림자가 퍼지는 정도(blur)<br/>
+		05) 그림자 색상
+	</p>
+
+	<h3>아래 div태그 만들고 박스에 그림자주기 / boxTest라고 작성하고 글씨만 화면에서 날리기</h3>
+	<div class="test1">boxTest</div>
+
+
+	<h3>어떤 객체에 회전을 줄때 사용하는 방법은?</h3>
+	<p>
+		rotate
+	</p>
+	<h3>아래 p태그에 마우스를 올리면 x 방향으로 줄어들도록 만들기</h3>
+	<p class="test2"></p>
+
+	<h3>어떤 객체에 마우스를 올리면 확대 축소가 가운데를 중심으로 진행되었다. 
+	이때 적용되었을것 같은 값은?</h3>
+	<p>중심축이 가운데를 중심으로 했기 때문에 transform이 적용되어 있고, 확대 축소가 되었기 때문에 scale이 적용된 것을 확인해 볼 수 있다.</p>
+	
+
+	<h3>모든 좌표는 어디를 기점으로 시작할까?</h3>
+	<p>0,0 / left, top / x, y</p>
+	<h3>지금까지 배운 초기값과 적용하는 이유 아래에 작성하기</h3>
+	<p>
+		*{margin:0; padding:0;} == 모든 영역에 여백값 빼기<br/>
+		li{list-style:none;} == 블릿기호 빼기<br/>
+		a:link, a:visited{ text-decoration:none; } == 링크 걸린 항목에 밑줄 없애기<br/>
+		img{border:none;} == 익스플로러에서 이미지에 테두리 생기는것 없애기
+	</p>
+
+	<h3>어떤 객체가 위로 따라 올라갈경우 의심이 될만한 값은?</h3>
+	<p>
+		float가 끊기지 않았는지 확인하기<br/>
+		position:absolute 때문에 하위객체가 따라 올라가지 않았는지 확인
+	</p>
+
+	<h3>html5와 xhtml의 차이점이 무엇인지 아는데로 작성하기</h3>
+	<p>
+		html5는 css의 버전이 css3로 바뀜( 동적인 요소들을 고려 할수 있음)<br/>
+		해당하는 영역마다 약속되어 있는 시멘틱 태그들을 사용할 수 있음
+	</p>
+
+	<h3>문서들중 엄격에 해당하는 문서는?</h3>
+	<p>strict.dtd</p>
+	
+	<h3>문서 따로 만들기 (실습문제 ) 아래 대로 풀기</h3>
+	<ol>
+		<li>구글에서 font 다운 받아서 font-face로 만들어서 적용하기</li>
+		<li>구글에서 font 링크 걸고 font-face 적용하기</li>
+	</ol>
+
+	<h3>실습문제 화면에 보이는것 만들기 / 로그인페이지제작, 서브페이지 만들기</h3>
+ </body>
+</html>

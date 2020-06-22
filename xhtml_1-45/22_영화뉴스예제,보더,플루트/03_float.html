@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> float </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		div{width:600px; background-color:#ff0;}
+		h1{background-color:red; float:left;}
+		/*
+			h1태그는 블록요소!
+				+ 너비설정 반드시 할 것!
+			+ 블록요소에 너비와 높이를 지정하지 않으면
+			float기능 적용시 담고 있는 내용만큼만 영역을 가지게 된다.
+		
+		*/
+
+		strong{background-color:blue; color:#fff; float:right;}
+		/*
+			인라인요소에도 적용이 가능하고, 해당하는 객체를 가장좌측 또는 가장 우측으로 붙일때
+			사용한다.
+		*/
+  </style>
+ </head>
+ <body>
+	<div>
+		<h1> float:left and float:right </h1>
+		<p>
+			01) float의 정의: 어떠한 요소를 가장 좌측이나 , 가장 우측으로 붙이는 작업<br/>
+			<em>float: 가로로 나열할 때 사용(블록요소를 옆으로 붙일때 사용)</em><br/>
+			02) 특징: 왼쪽이나 오른쪽으로 객체를 잡아당긴다.<br/>
+			03) 주로 블록요소를 가로로 배치할때 사용하나 인라인요소도 적용 가능!<br/>
+			04) float는 상위객체에 적용, 하위객체가 따라올라간다. <br/>
+			<em>단! 상위객체 옆에 공간이 있어야 하위객체가 따라올라 갈 수 있다!</em>
+		</p>
+		<p>
+			05) <strong>float 장점</strong>: 공간을 낭비하지 않고, 완전히 옆으로 잡아당길 수 있다.<br/>
+			06) 공간을 만들지 않기 때문에 크로스브라우징 ( 구형브라우저에 적용하는 방식 ) 작업시
+			쓸모없는 공간을 만들지 않는다.<br/>
+			07) 익스플로러 4버전 부터 사용할 수 있기 때문에 거의 모든 브라우저에서 적용이 가능함
+		</p>
+		
+	</div>
+ </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> animation </title>
+  <style>
+	h2{background-color:#ff0; text-indent:20px; text-transform:uppercase;}
+	p{width:150px; height:150px; background-color:lightblue; animation:myani 5s infinite alternate;}
+
+	/*
+		animation
+		1) 제목(숫자단독사용 금지)
+			만약 숫자를 사용하면 재생시간, 반복횟수로 인식할 수도 있음
+
+		2) 재생시간
+		3) 반복횟수
+			infinite
+		4) 기능
+			keyframes 작성하기!
+	*/
+	@keyframes myani{
+		0%{width:150px; height:150px; background-color:lightblue;}
+		15%{width:200px; height:300px; background-color:orange;}
+		100%{width:100px; height:100px; background-color:red;}
+	}
+  </style>
+ </head>
+ <body>
+	<h2>animation</h2>
+	<p>animation-keyframes</p>
+ </body>
+</html>

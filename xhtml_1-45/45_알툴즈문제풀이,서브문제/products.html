@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> altools_products </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <style type="text/css">
+	#wrap{width:1920px; margin:0 auto;}
+	/*#################### header #####################*/
+		#headerWrap{width:100%; height:88px; background-color:#24303E; position:relative;}/*공공기간이미지 높이 88*/
+			#header{width:960px; height:100%; margin:0 auto;}
+				#head{width:100%; position:relative;}
+					h1{position:absolute; left:10px; top:10px;}
+
+	/*################### mainInfo ####################*/
+		#mainInfo{width:100%; height:24px; text-align:right;}
+			#mainInfo li{display:inline; font-size:12px;}
+
+					#mainInfo a, #mainInfo span{color:#aaa;}
+					#mainInfo a{padding-right:10px;}
+					#mainInfo span.img{display:inline-block; width:20px; height:20px; overflow:hidden; position:relative;}
+
+					#mainInfo span.img .img1{position:absolute; left:9px; top:9px;}
+					#mainInfo span.img .img2{position:absolute; left:9px; top:-16px;}
+					#mainInfo span.img .img3{position:absolute; left:6px; bottom:-7px;}
+
+	/*################### gnb ####################*/	
+		#gnb{width:839px; height:64px; margin-left:121px; text-align:right; line-height:64px;}	
+			#gnb li{display:inline;}
+				#gnb li a{color:#fff; padding:0 10px 0 20px;}
+					#gnb li a img{vertical-align:middle;}
+
+	/*################### company ####################*/		
+		#company{position:absolute; right:0; top:0;}
+			#company a{display:block; width:100%; height:100%;}
+
+	/*################### subHeaderWrap +subHeaer  ####################*/
+		#subHeaderWrap{width:100%; background-color:#FAFAFA;}
+			#subHeader{width:960px; height:48px; margin:0 auto;}
+				#subHeader div{float:left; height:100%; line-height:48px; font-size:13px; font-weight:bold;}				
+
+					.subHeaderL{width:20%; height:100%;}
+						.subHeaderL ul{width:100%; height:100%;}
+							.subHeaderL ul li{display:inline;}
+								.subHeaderL ul li a{padding:0 2px; color:#333;}
+
+					.subHeaderR{width:80%; height:100%;}
+						.subHeaderR ul{width:100%; height:100%; text-align:right;}
+							.subHeaderR ul li{display:inline;}
+								.subHeaderR ul li a{padding:0 2px; color:#333;}
+									.subHeaderR ul li.orange a{color:orange;}
+					#subHeader .gray{color:#ccc;}
+
+
+	
+	/*################### setupAreaWrap ####################*/
+		#setupAreaWrap{width:100%; height:120px; background-color:#f7f7f7; padding:30px; 0}
+			#setupArea{width:960px; height:100%; margin:0 auto;}
+				#setupArea div{float:left;}
+
+				.imgArea{width:25%; height:100%; background-color:pink;}
+					.imgArea p{width:238px; height:118px;}
+						.imgArea p img{width:100%; border:1px solid #ccc;}
+
+				.nameArea{width:48%; height:100%; padding-left:2%;}
+					.nameArea h3{width:100%; height:40px; font-size:30px; bac}
+					.nameArea p{width:100%; height:30px; font-size:14px; color:#777; line-height:30px;}
+					.nameArea ul{width:100%; height:50px;}
+						.nameArea ul li{width:23px; height:23px; overflow:hidden; float:left; position:relative; margin-right:4px;}
+							.nameArea ul li a .twt{position:absolute; left:-24px;}
+
+				.btnArea{width:25%; height:100%;}
+					.btnArea a{display:block; float:left; margin-bottom:5px;}
+
+
+	/*################### contentWrap ####################*/
+		#contentWrap{width:100%;}
+			#content{width:960px; margin:0 auto;}
+
+				#productIntro{width:100%; height:500px; padding:40px 0;}
+					#productIntro h4{width:100%; height:40px; font-size:22px;}
+					#productIntro span{font-size:14px;}
+					#productIntro p{width:958px; height:417px; margin-top:20px;}
+						#productIntro p img{width:100%; border:1px solid #ccc;}
+				/* 117* 95 */
+				#productDesc{width:100%; height:800px;}
+					#productDesc h4{width:100%; height:40px; font-size:22px;}
+					#productDesc ul{width:100%;} /*반띵이 480*/
+						#productDesc ul li{width:480px; height:140px; overflow:hidden; float:left; border-top:1px solid #ccc;}/*모든 탑에 보더주기*/
+						#productDesc ul li.left{width:479px; border-right:1px solid #ccc;}/*왼쪽애들 보더주기*/
+						#productDesc ul li.bottom{height:139px; border-bottom:1px solid #ccc;}/*맨 아래 애들 보더주기*/
+
+							#productDesc ul li p{float:left;}
+								#productDesc ul li .img{width:144px; height:100%; text-align:center; padding-top:20px;}
+								#productDesc ul li .text{width:305px; height:100%; padding:0 20px 0 10px; padding-top:20px;}/*원래306인데 오른쪽 보더 때문에-1*/
+									#productDesc ul li .text a{font-size:12px; color:#333;}
+										#productDesc ul li .text a strong{font-size:14px;}
+										#productDesc ul li .text a .view{color:#777; font-size:11px;}
+
+
+				/*기능*/
+				#subHeader, #setupArea, #content a:hover{text-decoration:underline;}
+
+	/*################### footerWrap ####################*/
+			#footerWrap{width:100%; padding:20px 0;}
+				#footer{width:960px; overflow:hidden; margin:0 auto;}
+					#footer div{float:left;}
+					#footer #est{width:121px; padding-right:84px;}
+					#footer #footerText{width:755px;}
+						#footerLink p{width:705px; float:left; font-size:12px;}
+							#footerLink p a{color:#555;}
+							#footerLink p span{padding:0 2px 0 5px; color:#ccc;}
+						#footerLink #icons{width:50px;}
+							#footerLink #icons a{display:inline-block; width:22px; height:15px; overflow:hidden;}
+							#footerLink #icons a.jp img{margin-left:-26px;}
+
+	/*################### address ####################*/
+		#address address{font-style:normal; font-size:10px; padding:7px 0;}
+		#address a{color:#444; font-size:10px;}
+
+	/*################### familySite ####################*/
+		#familySite{width:100%;;}
+			#familySite a{padding:0 7px;}
+			#familySite a:first-child{padding-left:0;}
+			#familySite span{color:#ddd;}
+  </style>
+
+ </head>
+
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				<div id="head">
+					<h1>
+						<a href="http://www.altools.co.kr/Main/Default.aspx" title="알툴즈 메인 페이지로">
+							<img src="img/logo.png" alt="알툴즈로고"/>
+						</a>
+					</h1>
+					<ul id="mainInfo">
+						<li>
+							<a href="#" title="로그인">로그인</a><span>|</span>
+						</li>
+						<li>
+							<a href="#" title="회원가입">회원가입</a><span>|</span>
+						</li>
+						<li>
+							<span class="img"><img class="img1" src="img/spr_sns_gnb.png" alt="블로그 아이콘"/></span><a href="#" title="블로그">블로그</a><span>|</span>
+						</li>
+						<li>
+							<span class="img"><img class="img2" src="img/spr_sns_gnb.png" alt="페이스북 아이콘"/></span><a href="#" title="페이스북">페이스북</a><span>|</span>
+						</li>
+						<li>
+							<span class="img"><img class="img3" src="img/spr_sns_gnb.png" alt="트위터 아이콘"/></span><a href="#" title="트위터">트위터</a>
+						</li>
+					</ul>
+					<ul id="gnb">
+						<li>
+							<a href="#" title="다운로드">다운로드<img src="img/new.png" alt="new아이콘"/></a>
+						</li>
+						<li>
+							<a href="#" title="모바일">모바일</a>
+						</li>
+						<li>
+							<a href="#" title="알툴즈Lab">알툴즈Lab<img src="img/new.png" alt="new아이콘"/></a>
+						</li>
+						<li>
+							<a href="#" title="고객센터">고객센터</a>
+						</li>
+						<li>
+							<a href="#" title="구매"><img src="img/buy.png" alt="장바구니 아이콘"/>구매</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="company">
+				<a href="#" title="기업 공공기관 사이트 링크"><img src="img/company.gif" alt="기업 공공기관 사이트 이미지"/></a>
+			</div>
+		</div>
+		<div id="subHeaderWrap">
+			<div id="subHeader">
+				<div class="subHeaderL">
+					<ul>
+						<li><a href="#" title="홈">홈</a>&nbsp;<span class="gray">&gt;</span></li>
+						<li><a href="#" title="다운로드">다운로드</a><span class="gray">&nbsp&gt;</span></li>
+						<li>알툴즈통합팩</li>
+					</ul>
+				</div>
+				<div class="subHeaderR">
+					<ul>
+						<li class="orange"><a href="#" title="알툴즈 통합팩">알툴즈 통합팩</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="알집">알집</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="알씨">알씨</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="알송">알송</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="알툴바">알툴바</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="알PDF">알PDF</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="랜섬쉴드 PC">랜섬쉴드 PC</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="알약">알약</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="알캡처">알캡처</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="알드라이브">알드라이브</a><span class="gray">&nbsp;|</span></li>
+						<li><a href="#" title="알키퍼">알키퍼</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr/>
+		</div>
+		<div id="setupAreaWrap">
+			<div id="setupArea">
+				<div class="imgArea">
+					<p>
+						<img src="img/vimg.gif" alt="알툴즈 통합팩 이미지"/>
+					</p>
+				</div>
+				<div class="nameArea">
+					<h3>알툴즈 통합팩</h3>
+					<p>
+						운영체제 XP, Vista(32/64), 7(32/64), 8(32/64), 10(32/64)
+					</p>
+					<ul>
+						<li><a href="#" title="페이스북"><img class ="fb"src="img/facetwitter.gif" alt="페이스북"/></a></li>
+						<li><a href="#" title="트위터"><img class="twt" src="img/facetwitter.gif" alt="트위터"/></a></li>
+					<ul>
+				</div>
+				<div class="btnArea">
+					<a href="#" title="설치하기"><img src="img/vsetup.gif" alt="설치하기 버튼 이미지"/></a>
+					<a href="#" title="FAQ"><img src="img/vfaq.gif" alt="FAQ 버튼 이미지"/></a>
+					<a href="#" title="라이센스"><img src="img/vlicense.gif" alt="라이센스 버튼 이미지"/></a>
+				</div>
+			</div>
+		</div>
+		<div id="contentWrap">
+			<div id="content">
+				<div id="productIntro">
+					<h4>알툴즈 통합팩은?</h4>
+					<span>내 PC사용을 좀 더 간편하고 편리하게! 알툴즈 통합팩 한번의 설치로 내 PC에 필요한 모든 것이 준비됩니다.</span>
+					<p>
+						<img src="img/allpack.jpg" alt="알툴즈 종합팩 이미지"/>
+					</p>
+				</div>
+				<div id="productDesc">
+					<h4>제품 소개</h4>
+					<ul>
+						<li class="left">
+							<p class="img">
+								<img src="img/icon0.gif" alt="알집 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="알집 링크">
+									<strong>믿을 수 있는 압축 ‘알집’</strong><br/><br/>
+									모든 PC환경에 최적화되어 빠른 속도와 다양한 기능으로 쉽고 빠른 공유를 도와드립니다.
+								</a><br/><br/>
+								<a href="#" title="알집 자세히보기 링크">
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="img">
+								<img src="img/icon1.gif" alt="알씨 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="알씨 링크">
+									<strong>디카친구 ‘알씨’</strong><br/><br/>
+									편리한 사진보기! 편집도 쉽고 빠르게!<br/>간편 동영상 만들기와 실제 앨범으로 제작까지!
+								</a><br/><br/>
+								<a href="#" title="알씨 자세히보기 링크">								
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+						<li class="left">
+							<p class="img">
+								<img src="img/icon2.gif" alt="알송 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="알송 링크">
+									<strong>음악과 가사가 동시에 ‘알송’</strong><br/><br/>
+									가사와 함께 음악의 감동을 눈과 귀로 같이 즐겨보세요.
+								</a><br/><br/>
+								<a href="#" title="알송 자세히보기 링크">
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="img">
+								<img src="img/icon3.gif" alt="알툴바 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="알툴바 링크">
+									<strong>편리한 웹서핑 도우미 ‘알툴바’</strong><br/><br/>
+									웹 서핑에 꼭 필요한 기능만을 모아서 인터넷 생활을 업그레이드 시켜드려요.
+								</a><br/><br/>
+								<a href="#" title="알툴바 자세히보기 링크">
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+						<li class="left">
+							<p class="img">
+								<img src="img/icon4.gif" alt="알PDF 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="알PDF 링크">
+									<strong>통합 PDF 솔루션 ‘알PDF’</strong><br/><br/>
+									PDF문서 편집부터 다양한 문서형식으로 변환까지! 자유로운 문서작업으로 업무의 효율성을 높여보세요.
+								</a><br/><br/>
+								<a href="#" title="알PDF 자세히보기 링크">
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="img">
+								<img src="img/icon5.gif" alt="랜섬쉴드PC 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="랜섬쉴드PC 링크">
+									<strong>랜섬웨어 철통보안 ‘랜섬쉴드 PC’새로운 기능</strong><br/><br/>
+									주요 문서를 내 PC에 암호화 백업해두세요!<br/>랜섬웨어에 감염되어도 즉시 복구할 수 있습니다.
+								</a><br/><br/>
+								<a href="#" title="랜섬쉴드PC 자세히보기 링크">
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+						<li class="left">
+							<p class="img">
+								<img src="img/icon6.gif" alt="알약 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="알약 링크">
+									<strong>전국민 보안 업그레이드 ‘알약’</strong><br/><br/>
+									내 PC에서 내가 모르는 사이에 생기는 모든 일들을 안전하게 보호해 드려요.
+								</a><br/><br/>
+								<a href="#" title="알약 자세히보기 링크">
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+						<li>
+							<p class="img">
+								<img src="img/icon7.gif" alt="알캡처 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="알캡처 링크">
+									<strong>간편한 순간포착 ‘알캡처’새로운 기능’</strong><br/><br/>
+									웹 서핑과 문서 작성 중 필요한 화면을 쉽고 간편하게 캡처해 사용해 보세요.
+								</a><br/><br/>
+								<a href="#" title="알캡처 자세히보기 링크">
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+						<li class="left bottom">
+							<p class="img">
+								<img src="img/icon8.gif" alt="알드라이브 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="알드라이브 링크">
+									<strong>편리한 파일전송 ‘알드라이브’</strong><br/><br/>
+									FTP 접속과 다양한 프로토콜 파일 지원을 통해 한번에 쉽고 편리하게 서버에 접속하여 작업할 수 있어요.
+								</a><br/><br/>
+								<a href="#" title="알드라이브 자세히보기 링크">
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+						<li class="bottom">
+							<p class="img">
+								<img src="img/icon9.gif" alt="알키퍼 이미지"/>
+							</p>
+							<p class="text">
+								<a href="#" title="알키퍼 링크">
+									<strong>개인정보 철통보안 ‘알키퍼’</strong><br/><br/>
+									내 PC안의 개인정보 문서들을 손쉽게 검색하고, 안전하게 보호해 드려요.
+								</a><br/><br/>
+								<a href="#" title="알키퍼 자세히보기 링크">
+									<span class="view">자세히 보기</span>
+								</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="footerWrap">
+			<div id="footer">
+				<h2>꼬릿말 영역</h2>
+				<div id="est">
+					<a href="#" title="footerLogo">
+						<img src="img/footer_logo.gif" alt="로고"/>
+					</a>
+				</div>
+				<div id="footerText">
+					<div id="footerLink">
+						<p>
+							<a href="#" title="회사소개">회사소개</a><span>|</span>
+							<a href="#" title="제휴문의">제휴문의</a><span>|</span>
+							<a href="#" title="개인정보처리방침">개인정보처리방침</a><span>|</span>
+							<a href="#" title="contact Us">Contact Us</a><span>|</span>
+							<a href="#" title="사이트맵">사이트맵</a><span>|</span>
+						</p>
+						<p id="icons">
+							<a href="#" title="미국"><img src="img/icon.gif" alt="미국국기"/></a>
+							<a class="jp" href="#" title="일본"><img src="img/icon.gif" alt="일본국기"/></a>
+						</p>
+					</div>
+					<div id="address">
+						<address><!--풋터에서 전화번호, 사업자번호같은 중요한 정보에 사용하는 태그-->
+							<a href="#" title="이스트소프트">주)이스트소프트</a> 서울시 서초구 반포대로 3 이스트빌딩 (우)06711<br/>
+							대표이사:정상원 사업자등록번호 : 229-81-03214 통신판매업신고번호 : 2011-서울서초-1962 TEL.1544-8209 FAX.02-882-1155 E-mail. <a href="#" title="이스트소프트 이메일" style="color:orange;">altools@estsoft.com</a>
+						</address>
+					</div>
+					<div id="familySite">
+						<a href="#" title="패밀리 사이트 로고 링크1"><img src="img/f1.gif" alt="패밀리사이트 로고1"/></a><span>|</span>
+						<a href="#" title="패밀리 사이트 로고 링크2"><img src="img/f2.gif" alt="패밀리사이트 로고2"/></a><span>|</span>
+						<a href="#" title="패밀리 사이트 로고 링크3"><img src="img/f3.gif" alt="패밀리사이트 로고3"/></a><span>|</span>
+						<a href="#" title="패밀리 사이트 로고 링크4"><img src="img/f4.gif" alt="패밀리사이트 로고4"/></a><span>|</span>
+						<a href="#" title="패밀리 사이트 로고 링크5"><img src="img/f5.gif" alt="패밀리사이트 로고5"/></a><span>|</span>
+						<a href="#" title="패밀리 사이트 로고 링크6"><img src="img/f6.gif" alt="패밀리사이트 로고6"/></a><span>|</span>
+						<a href="#" title="패밀리 사이트 로고 링크7"><img src="img/f7.gif" alt="패밀리사이트 로고7"/></a><span>|</span>
+						<a href="#" title="패밀리 사이트 로고 링크8"><img src="img/f8.gif" alt="패밀리사이트 로고8"/></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

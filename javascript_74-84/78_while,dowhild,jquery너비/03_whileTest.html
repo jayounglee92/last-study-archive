@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> whileTest </title>
+  <script>
+	// 01) 응용문제: 3부터 5까지 출력받기
+	var num0=3;
+	while(num0<6){
+		document.write(num0+" ");
+		num0++;
+	}
+
+	document.write("<br/>");
+	// 02) 응용문제: 2,4,6,8 출력받기
+	var num1=2;
+	while(num1<8){
+		document.write(num1+" ");
+		num1=num+2;
+	}
+
+	document.write("<br/>");
+	// 03) 응용문제: 0부터 4까지 출력받기
+	var num2=0;
+	while(num2<5){
+		document.write(num2+" ");
+		num2=num2+1;
+	}
+
+
+	document.write("<br/>");
+	// 04) 응용문제: happy다섯번 출력받기
+	var num3=0;
+	while(num3<5){
+		document.write("happy ");
+		num3=num3+1;
+	}
+
+
+/*
+		05) while문 안에서 숫자입력받기
+		+ while(true){
+			숫자입력받기
+			만약에 입력한 숫자가 101보다 작다면 대입받은 숫자는 000입니다. 알림창 띄우기
+			그리고 반복문 멈추기
+
+			아니라면 범위밖에 숫자입니다. 다시 입력하세요. 알림창 띄우기
+		}
+*/	
+/*	
+	while(true){
+
+		if(numb<101){
+			var numb = parseInt(prompt("숫자를 입력하세요"));
+			alert("대입받은 숫자 "+numb+"입니다.");
+			
+				조건에 맞을 경우 수식멈추기
+					+ return false값을 사용하면 반복문 안에서 반복적으로 값을 거짓으로 돌려주게됨
+						:반복문이 기능을 하지 않음
+						==jQuery에서 stop과 같음
+						반복문 안에서 stop이나 return false가 하나라도 있으면 작동하지 않을 수 있으니 주의!
+
+					+ 멈추는 기능들: return false, break
+					+ break는 종료할 때 사용하는 의미가 아니라 수식이 전부 계산된 뒤에 수식 바깥으로 나갈 수 있도록 멈춰주는 기능
+					답:break;
+					+ i를 false로 돌려놓으면 비교하는 값이 true이기 때문에 break와 마찬가지로 사용이 가능하다.
+			
+			i=false;
+		}else if(isNaN(numb)){
+			// isNaN(대상): 어떤문자인지를 확인하는 것이 아니라, 대상안에 문자가 있는지 확인! 
+			alert("문자가 발견되었습니다. 숫자를 입력하세요.");
+		
+		}else{
+			alert(num+"은 범위 밖의 숫자입니다. 다시입력하세요.");
+		}
+	}
+	*/
+
+	/*
+		+ 추가문제
+			while문 안에서 작업하기
+			결제하시겠습니까? 입력창띄우기
+			y나 Y라면 결제가 완료되었습니다. 알림창 띄우고 반복중지
+			n이나 N이라면 결제취소가 맞습니까?
+			맞으면 확인 버튼 클릭, 확인한 값이 맞으면 취소하셨습니다. 알림창 띄우고 반복문중지
+			
+			아니라면 알림창으로 다시 결제하세요 띄우기
+			y,Y,n,N이 아니라면 y또는 n을 입력하세요. 알림창띄우기
+		}
+*/	
+	var i=true;
+	while(i){
+		var ans = prompt("결제하시겠습니까?");
+		if(ans=='y'||ans=='Y'){
+			alert("결제가 완료되었습니다.");
+			i=false //break;
+
+		}else if(ans=='n'||ans=='N'){
+			var ans2 = confirm("결제취소가 맞습니까? 맞으면 확인버튼 클릭");
+			if(ans2==true){
+				// alert(ans2);
+				// 확인버튼 클릭하면 true, 취소버튼 클릭하면 false
+				alert("취소하셨습니다.");
+				break;
+			}else{
+				alert("다시 결제하세요.");	
+			}
+
+		}else{
+			alert("Y/N을 입력하세요.");
+		}
+
+		
+	}
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

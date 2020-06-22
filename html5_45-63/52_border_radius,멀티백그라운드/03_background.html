@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>background</title>
+  <style>
+		*{margin:0; padding:0;}
+		h2{ padding:20px 0; text-align:center; text-transform:uppercase;}
+		h2:after{content:"-multi";}
+		div{ 
+			width:1000px; height:600px; border:2px solid #ccc; margin:50px auto 0;
+			
+			background-image:
+			url("img/image01.jpg"),
+			url("img/leaf.png"),
+			url("img/footer_bar.gif");
+			
+			background-repeat:
+			no-repeat,no-repeat, repeat-x;
+			
+			background-position:
+			50% 50%,
+			top center, 
+			left bottom;
+			
+			/*
+				축약형의 순서
+					font: 
+						bold italic 폰트사이즈/행간 글꼴
+						1		2			3				4			5
+						필수 font: 폰트사이즈와 글꼴 제외불가!
+			
+					margin:
+						0		0		0		20px
+						
+						중요: 축약형은 사용하면 해당하는 범위의 값이 있는지 없는지 읽기 때문에
+						브라우저에서 읽어줄때 느려질수 있다.
+
+
+				++ background 축약형 ++
+					background:gold url("img/image01.jpg") no-repeat 50% 50%
+					
+					+ background 축약형에 있는 값들은 구형브라우저에서 사용이 가능한
+					값들만 적용
+						1) background-color
+						2) background-image
+						3) background-repeat 와 background-position 은 순서 상관없음
+
+					+ 같이 사용하지 못하는 값들
+						background-size와 background-position은 수치값으로 적용되면
+						어떤 값을 호출하는지 알 수 없음
+
+						background-size는 구형브라우저에서 사용이 안됨
+						익스플로러 10버전 부터 사용이 가능함	
+
+				+ 멀티기능
+					transition: 속성1  시간  효과 시작되는시간, 속성2  시간  효과  시작되는시간, 속성3.....;
+
+					백그라운드 멀티기능
+						+ background-color는 멀티에서 사용할수 없음
+							: 축약형에서는 사용이 가능하지만 멀티로 연결할때는 사용을 못함
+						
+						+ background-size도 사용할수 없음
+							: 축약형에서도 불가능, 멀티에서도 불가능
+
+						+ background-color, background-size는 따로 호출해서 사용하면 가능!
+						+ background멀티기능으로 불러올때는 앞에 호출한 이미지가 가장 먼저 보인다.
+					
+				background:url("img/image01.jpg") no-repeat 50% 50%,url("img/leaf.png")no-repeat top center, url("img/footer_bar.gif") repeat-x left bottom;
+
+				속성, 속성, 속성 으로 (콤마)를 찍어서 다음다음 다음을 연결해서 사용가능!
+				
+				주의! enter를 사용하여 코드를 끊어서 사용하면 코드가 끊겨서 브라우저에 
+				출력되지 않을수 있음
+					
+					중요: 세미콜론(;)을 사용하여 끊기 전까지 화면에서 엔터를 쳐서 끊어가거나 
+					빈공백을 만들어서 처리하면 문제가 생길 수 있음
+				
+					해결:
+						코드를 끊어쓰기전에 브라우저에서 한번 인식시킨후 코드를 정리하면 
+						enter를 쳐서 정리해도 상관없음
+							:: 왠만해선 끊어쓰지 않도록 주의하기!
+
+				++++++++++ 멀티백그라운드 사용하기 ++++++++++
+					background-image:
+					url("img/image01.jpg"),
+					url("img/leaf.png"),
+					url("img/footer_bar.gif");
+					
+					background-repeat:
+					no-repeat,no-repeat, repeat-x;
+					
+					background-position:
+					50% 50%,
+					top center, 
+					left bottom;
+
+					위와 같은 멀티백그라운 형식은 다량의 이미지나 다량의 정보들을
+					다룰때 사용하는 방법
+						
+						1) 각각에 맞춰서 연결할때 콤마 찍고 연결하고 마지막에 세미콜론 작성하기
+						url("img/image01.jpg"), url("img/leaf.png"), url("img/footer_bar.gif");
+
+						2) no-repeat라는 작업을 할때 이미지 순서에 맞춰서 작성하기
+						첫번째 이미지에 no-repeat 인지, 두번째 이미지에 no-repeat 인지 정확히 작성
+
+						3) 위치 설정할때 이미지 순서에 맞춰서 작성하기
+							: 2번과 같은 설명
+						
+						위와 같은 방법으로 정리하면 정확하게 해당하는 값들을 호출하기 때문에
+						enter로 끊어서 표현해도 브라우저가 인식이 가능함!
+
+			*/
+		}
+  </style>
+ </head>
+ <body>
+	<h2>background</h2>
+	<ol>
+		<li>
+			background-color: 배경색상
+		</li>
+		<li>
+			background-image: 배경이미지 호출 ( 너비, 높이 )
+		</li>
+		<li>
+			background-repeat: 배경이미지 반복( repeat-x, repeat-y, no-repeat )
+		</li>
+		<li>
+			background-position: 배경이미지 위치지정( top, center, bottom, left, center, right, 수치적용 가능)
+		</li>
+		<li>
+			background-size: 배경이미지 사이즈 조절( 구형브라우저에서 적용이 안될수 있음 / 
+			익스플로러 10버전 이상)
+		</li>
+		<li>
+			background-attachment : 배경이미지를 해당 영역에 붙일때
+		</li>
+	</ol>
+	<div>
+	</div>
+ </body>
+</html>

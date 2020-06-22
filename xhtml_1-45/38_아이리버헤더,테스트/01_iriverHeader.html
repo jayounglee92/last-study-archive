@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> iriverHeader </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		/*########## 초기화 작업 ##########*/
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		a:link, a:visited{ text-decoration:none; color:#000;}
+		a:hover, a:focus{ color:#f30;}
+
+		#wrap{width:100%; height:82px; max-width:1920px; margin:0 auto;}
+
+		/*############### header ################*/
+		/* border가 끊겨 보일경우
+			1) headerWrap영역에 너비와 높이 지정 그리고 border값 적용하기
+			2) 실제 사용공간 header영역에도 너비와 높이 지정 border값 적용하기
+		*/
+		#headerWrap{width:100%; height:82px; border-bottom:1px solid #f30;  }
+			
+			#header{ width:1025px; height:82px; margin:0 auto; position:relative; border-bottom:1px solid #f30;}
+				/* 로고를 position을 사용할 것인지?( O ) float를 사용할 것인지? */
+			h1{ position:absolute; left:0; top:32px;}
+				
+		/*############## topMenu ############*/
+			/* 높이가 21.33 으로 확인, 수치를 낮추면 글씨가 안보일수 있으므로 조금더 크게 잡기 !*/
+			#topMenu{width:100%; overflow:hidden; height:22px; line-height:22px;}
+		
+		/*########### mainInfo ###########*/
+			#mainInfo{width:955px; float:left; text-align:right;}
+				#mainInfo li{display:inline; font-size:10px;}
+					#mainInfo li a{padding:0 3px; color:#999;}
+
+
+		/*########### allMenu ###########*/
+			/* 
+				처음설계 당시 버튼은 100px을 고려해서 만들었으나 
+				버튼이 너무 커져서 70픽셀 안에서 해결!
+			*/				
+			/* 전체 높이 22에서 부모공간에 패딩 높이값 3을 주고 나머지 19픽셀 고정! */
+			#allMenu{width:60px; padding-left:10px; font-size:10px;  float:right; text-align:center; padding-top:3px; height:19px;}
+				#allMenu a{display:block; width:58px; height:16px; line-height:16px; border:1px solid #ccc;
+					background-color:#fff;}
+					#allMenu a span{ color:#f30; font-weight:bold; padding-right:3px; }
+						
+		/*############## gnb ############*/
+			#gnb{margin-left:86px; height:60px; line-height:50px; font-family:"돋움"; overflow:hidden; }
+
+			/* 영역이 3개 
+				gnb_service,	gnb_shop,	search 
+				 + 로고 영역은 제외하고 영역나누기 
+					로고영역은 86픽셀 제외
+					1025-86 = 939px안에서 3개 나눠서 해결하기
+			*/
+		
+		/*############# gnb_service #############*/
+			#gnb_service{width:390px; float:left; text-align:center;}
+				#gnb_service li{display:inline;}
+					#gnb_service li a{ font-size:15px; font-weight:bold; padding:0 12px;}			
+
+		/*############# gnb_shop #############*/	
+			#gnb_shop{width:350px; float:left;}
+				#gnb_shop li{display:inline;}
+					#gnb_shop li a{font-size:13px; color:#777; font-weight:bold; padding:0 5px;}
+				
+				
+		/*############# search #############*/
+			/* 전체 높이 60픽셀 : input 의 높이 20픽셀 */
+			#gnb #search{width:199px; float:left; padding:15px 0 25px;}
+				#search form{background-color:#f00; width:100%; overflow:hidden;}
+					
+					/*
+						display:none은 해당하는 영역안에 정보들을 전부 화면에서 숨김
+						border:noen은 테두리만 없애기
+							fieldset는 테두리가 없어져야 하므로 border:none으로 해결
+					*/
+					#search fieldset{border:none;}
+					#search legend{display:none;}
+
+					#search p.input{width:152px; float:left;}
+
+						/*
+							input태그는 처음에 테두리를 가지고 있는데 이 테두리의 
+							값은 생각보다 큰 수치로 적용이 되어있다.
+								사용자가 직접 테두리를 설정하여 계산이 되도록
+								만드는것을 권장한다.
+						*/
+						#search p.input input{width:99%; height:18px; border:1px solid #ccc;}
+
+					/*search 이미지 크기가 47픽셀 */
+					#search p.btn{ width:47px; float:left;}
+			
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				<h1>
+					<a href="http://www.iriver.co.kr/" title="아이리버사이트">
+						<img src="img/logo.gif" alt="아이리버 로고"/>
+					</a>
+				</h1>
+				<div id="topMenu">
+					<ul id="mainInfo">
+						<li><a href="#" title="로그인">로그인</a></li>
+						<li><a href="#" title="회원가입">회원가입</a></li>
+						<li><a href="#" title="마이페이지">마이페이지</a></li>
+						<li><a href="#" title="공지사항">공지사항</a></li>
+					</ul>
+					<p id="allMenu">
+						<a href="#" title="전체보기"><span>+</span>전체보기</a>
+					</p>
+				</div>
+				<div id="gnb">
+					<ul id="gnb_service">
+						<li>
+							<a href="#" title="제품">제품</a>
+						</li>
+						<li>
+							<a href="#" title="콘텐츠">콘텐츠</a>
+						</li>
+						<li>
+							<a href="#" title="커뮤니티">커뮤니티</a>
+						</li>
+						<li>
+							<a href="#" title="고객지원">고객지원</a>
+						</li>
+					</ul>
+					<ul id="gnb_shop">
+						<li><a href="#" title="쇼핑몰">쇼핑몰</a></li>
+						<li><a href="#" title="아이리버블랭크">아이리버블랭크</a></li>
+						<li><a href="#" title="그루버스">그루버스</a></li>
+						<li><a href="#" title="아스텔앤컨">아스텔앤컨</a></li>
+					</ul>
+					<div id="search">
+						<form action="#" method="get">
+							<fieldset>
+								<legend>검색</legend>
+								<p class="input">
+									<input id="text" type="text" name="text"/>
+								</p>
+								<p class="btn">
+									<a href="#" title="검색버튼">
+										<img src="img/search.gif" alt="검색버튼이미지"/>
+									</a>
+								</p>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

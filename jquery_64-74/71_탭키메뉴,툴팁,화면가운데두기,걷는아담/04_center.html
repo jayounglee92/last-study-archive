@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> center </title>
+  <style>
+	*{margin:0; padding:0;}
+	h2{width:100%; padding:20px 0; text-align:center;}
+	div{width:1280px; height:600px; background-color:lightblue; margin:0 auto;}
+		#test1{overflow:hidden;}
+			#test1 h3{width:400px; height:200px; background-color:#00f; color:#fff; margin:200px auto; text-align:center; line-height:200px;}
+
+		#test2{position:relative;}
+			#test2 h3{width:400px; height:200px; background-color:#00f; color:#fff; text-align:center; line-height:200px; position:absolute; left:440px; top:200px;}
+
+		/* 부모요소의 크기를 알 수 없는 상황을 가정했을 때 */
+		#test3{width:1920px; height:600px; background-color:gold; margin:0 auto; position:relative;}
+		p{text-align:center;}
+			#test3 h3{width:400px; height:200px; background-color:red; color:#fff; text-align:center; line-height:200px; position:absolute; left:50%; top:50%; margin-left:-200px; margin-top:-100px;}
+			/* 객체의 크기 반씩만 다시 잡아당기기 : margin을 해결 */
+
+		#test4{width:1920px; height:600px; background-color:gold; margin:0 auto; position:relative;}
+		#test4 h3{width:400px; height:200px; background-color:red; color:#fff; text-align:center; line-height:200px; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);}
+		/*
+			margin값에 의존하지 않고 transform의 translate를 사용하여 위치 조절이 가능
+			이 때 -50%씩 잡아당길 때 좌표에 따른 숫자가 같아도 각각 지정하는 것이 좋다.
+			해당하는 좌표에 제대로 지정이 안될 수 있음
+		*/
+  </style>
+ </head>
+ <body>
+  <h2>01_margin값으로 가운데 두기</h2>
+  <div id="test1">
+	<h3>visual영역만들기</h3>
+  </div>
+
+  <h2>02_position값으로 가운데 두기</h2>
+  <div id="test2">
+	<h3>visual영역만들기</h3>
+  </div>
+
+  <h2>03_visual영역의 너비와 높이를 측정하기 힘들때1</h2>
+  <p>단! 헤드라인태그의 너비와 높이는 제공!</p>
+  <div id="test3">
+	<h3>visual영역만들기</h3>
+  </div>
+
+  <h2>04_visual영역의 너비와 높이를 측정하기 힘들때2</h2>
+  <div id="test4">
+	<h3>visual영역만들기</h3>
+  </div>
+ </body>
+</html>

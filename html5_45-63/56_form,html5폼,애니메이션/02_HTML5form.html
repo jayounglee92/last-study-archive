@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> HTML5 form </title>
+ </head>
+ <body>
+	<h3>HTML5 form</h3>
+	<p>회원가입을 위한 필수 입력 <span style="color:#f00;">(*)</span>항목을 입력해주세요.</p>
+	<form action="#" method="post">
+		<fieldset>
+			<legend>개인정보 입력 : (필수)</legend>
+			<p>
+				<label for="userid"><span style="color:#f00;">(*)</span>아이디 : </label>
+				<input id="userid" type="text" name="userid" required placeholder="최대 아이디 8자까지 입력" maxlength="8"/>
+			</p>
+			<p>
+				<label for="userpw"><span style="color:#f00;">(*)</span>비밀번호 : </label>
+				<input id="userpw" type="password" name="userpw" required placeholder="최대 비밀번호 10자까지 입력" maxlength="10"/>
+			</p>
+			<p>
+				<label for="userRepw"><span style="color:#f00;">(*)</span>비밀번호확인 : </label>
+				<input id="userRepw" type="password" name="userRepw" required placeholder="비밀번호 확인 10자까지 입력" maxlength="10"/>
+			</p>
+			<p>
+				<label for="email"><span style="color:#f00;">(*)</span>이메일 : </label>
+				<input id="email" type="email" name="email" required placeholder="아이디@google.com"/>
+			</p>
+			<p>
+				<label for="phone"><span style="color:#f00;">(*)</span>전화번호 : </label>
+				<input id="phone" type="tel" name="phone" required placeholder="-표시 넣고 입력하기"/>
+			</p>
+		</fieldset>
+		<fieldset>
+			<legend>개인정보 체크</legend>
+			<p>
+				<label for="userskin">피부만족도 : </label>
+				<input id="userskin" type="range" name="userskin" min="1" max="10" value="7"/>
+			</p>
+			<p>
+				<label for="userdiet">다이어트시도 횟수 : </label>
+				<input id="userdiet" type="number" name="userdiet" min="1" max="5" value="3"/>
+			</p>
+			<p>
+				<label for="userdate">최근 다이어트 날짜 : </label>
+				<input id="userdate" type="date" name="userdate"/>
+			</p>
+			<p>
+				<label for="usercolor">좋아하는 색상 : </label>
+				<input id="usercolor" type="color" name="usercolor"/>
+			</p>
+		</fieldset>
+		<fieldset>
+			<legend>추가정보 입력</legend>
+			<p>
+				<strong>피부타입</strong>
+				<input id="skin1" type="checkbox" name="skin1"/><label for="skin1">트러블/여드름</label>
+				<input id="skin2" type="checkbox" name="skin2"/><label for="skin2">민감성</label>
+				<input id="skin3" type="checkbox" name="skin3"/><label for="skin3">아토피</label>
+			</p>
+			<p>
+				<label for="skinproblem">피부고민단계</label><input id="skinproblem" type="text" name="skinproblem" placeholder="아래 항목 선택" list="selects"/>
+				<datalist id="selects">
+					<option value="피부당김">피부당김</option>
+					<option value="각질">각질</option>
+					<option value="칙칙함">칙칙함</option>
+					<option value="기미">기미</option>
+				</datalist>
+				<label for="skinstep">피부고민단계</label>
+				<select id="skinstep" name="skinstep">
+					<option selected="selected" value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</p>
+			<p>
+				<strong>메일 수신에 동의하십니까?</strong>
+				<input id="yes" type="radio" name="check" checked/><label for="yes">네, 동의합니다.</label>
+				<input id="no" type="radio" name="check"/><label for="no">아니오, 동의하지않습니다.</label>
+			</p>
+			<p>
+				<label for="file">파일첨부</label><input id="file" type="file" name="file"/>
+				<meter min="0" max="100" value="30"></meter>
+			</p>
+		</fieldset>
+		<p>
+			<input type="submit" value="회원가입"/>
+			<input type="reset" value="취소"/>
+		</p>
+	</form>
+ </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> DOMControl </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+	$(function(){
+		/* btn1을 클릭하면 .text의 글자 바꾸기 */
+		$("#btn1").click(function(){
+			$(".text").text("슬라이딩 윈도우");
+		});
+
+		/* append는 대상에 뒤에 연결해서 붙일때 사용 */
+		$(".append1").append(":: 현재 글을 대상에 뒤에 붙여주세요 ");
+		
+		/* prepend는 대상의 앞에 연결해서 붙일때 사용*/
+		$(".prepend1").prepend("03) 대상의 앞에 연결해서 붙일때 사용 ");
+		
+		/*
+			before, after, append, prepend의 차이??
+				
+				+ before, after는 가상의 객체 
+					+ 클릭받거나 어떤 대상의 이벤트를 적용하기 위해 사용하기 보다는
+					대상에 연결해서 붙일때 사용
+
+					: before	대상의 위에 생성
+					: after	대상의 아래에 생성
+
+				+ prepend와 append는 실제 기능을 할때 사용
+					: prepend		대상의 좌측에 생성
+					: append		대상의 우측에 생성
+		*/
+		
+		/*
+			대상안에 구조바꾸기 
+				주의할 점: 안에 담고 있는 내용이나 컨텐츠를 지워버릴수 있기 때문에
+				조심해서 사용해야 한다.
+
+				대상.html
+					대상안에 html구조 작성!
+						
+						대상.html을 사용해야 하는 기능이라면 주의 할점
+							: 담아주는 대상의 구조가 인라인 요소인지 블록 요소인지 확인하여
+							담아줄수 있는 형태일때 작업!
+		*/
+		$(".htmlEf").html("<p><a href='http://www.daum.net' title='다음'>다음</a></p>");
+	});
+  </script>
+  
+  <style>
+		.htmlEf p{width:200px; height:200px; background-color:#ccc; text-align:center;  line-height:200px; border-radius:20px; box-shadow:5px 5px 5px rgba(0,0,0,0.5);}
+		
+  </style>
+ </head>
+ <body>
+	<h1>DOMControl : 공간 선택자 (0,1,2,3,4 )</h1>
+	<p>
+		DOM : Document Object Model : 문서상에 존재하는 모든 객체들 컨트롤 가능
+	</p>
+
+	<h2> 공간선택자 </h2>
+	<ul id="DOM1">
+		<li>01) 공간의 번호는 0번 부터 시작</li>
+		<li>02) 홀수 인것만 선택 : li:odd </li>
+		<li>03) 짝수 인것만 선택 : li:even </li>
+		<li>04) p태그나 div태그, a태그 등등 나열되어 있는 태그들에서도 짝수, 홀수, eq등을 사용할수 있음</li>
+		<li>05) 04번의 주의할점: 독립적으로 사용가능한 태그들은 형제요소가 끊길수 있기 때문에 주의! </li>
+		<li>06) 첫번째 인것만 선택 :  li:first  or  li:eq(0) </li>
+		<li>07) 마지막 인것만 선택 : li:last  , 해당하는 태그의 총 갯수를 확인 할수 있음 </li>
+		<li>08) 3번째 이전요소 : li:lt(2) </li>
+		<li>09) 4번째 이후요소 : li:gt(3) </li>
+	</ul>
+
+	<h2> 탐색선택자 </h2>
+	<ul id="DOM2">
+		<li>10) DOM2에서 li요소중 2의 배수: li:nth-child(2n) : 1부터 세어줌</li>
+		<li>11) 10)번의 주의할점: 공간을 세는 개념이 아니라 숫자를 세는 개념(공간은 0 / 숫자는 1)</li>
+		<li>12) DOM2에서 li요소중 ["APPLE"] 의 값이 표현된 값 선택 : li:contains("APPLE")</li>
+		<li>13) DOM2에서 li요소중 span( 해당하는 )태그만 찾기 : li:has(span) </li>
+		<li>14) DOM2에서 li요소중 .filterTest 값만 골라내기 : 대상.filter(".filterTest")</li>
+		<li>15) DOM2에서 li요소중 하위요소에서 a태그 찾기 : 대상.find("a")</li>
+	</ul>
+
+	<h2>※ 속성값 바꾸기</h2>
+	<p>
+		<button id="btn1">버튼1</button>
+	</p>
+
+	<h3 class="text"> jQuery: slidingWindow</h3>
+	<ul id="DOM3">
+		<li class="htmlEf"> 01) htmlEffect ( html 효과주기 )</li>
+		<li class="append1">02) append</li>
+		<li class="prepend1">prepend</li>
+	</ul>
+ </body>
+</html>

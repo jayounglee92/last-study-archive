@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> event </title>
+ </head>
+ <body>
+	<h3>메서드와 함수</h3>
+	<p><input type="button" value="메서드" onclick="alert('메서드실행');"/></p>
+	<p><input type="button" value="함수1" id="btn1"/></p>
+	<p><input type="button" value="함수2" id="btn2"/></p>
+	<p><input type="button" value="함수3" id="btn3"/></p>
+
+	<script>
+		window.onload = function(){
+			//document.getElementById("btn1").onclick = function(){alert("btn1 클릭");}
+			//document.getElementById("btn2").onmouseover = function(){alert("btn2mouseover");}
+			/*
+				윈도우가 로드되면 기능구현하기
+				btn3을 위와 마찬가지로 클릭하면 btn3출력성공 알림창 띄우기
+					+ 1번 버튼, 2번버튼 작동되는지 확인하기
+
+			*/
+			//document.getElementById("btn3").onclick = function(){alert("btn3 클릭");}
+			/*
+				window.onload는 한 번만 구현가능함
+				윈도우는 ctrl+b를 눌러을 때 한번만 구현되기 때문에 
+				마지막에 열어주는 윈도우를 인식함
+			*/
+			
+		}
+	</script>
+
+
+	<h3>이벤트 방식</h3>
+	<p>표준브라우저: 크롬,파이어폭스,오페라,사파리,IE9이상</p>
+	<p>구형브라우저: IE8,7,6...</p>
+	<script>
+		if(window.addEventListener){ alert("표준 브라우저이기 때문에 업데이트가 필요없습니다.");}
+		else if(window.attachEvent){alert("구형브라우저이기 때문에 업데이트 필요합니다.");}
+	</script>
+ </body>
+</html>

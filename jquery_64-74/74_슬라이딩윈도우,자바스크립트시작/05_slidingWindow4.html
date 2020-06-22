@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> slidingWindow </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		html{ height:100%; }
+		body{ 
+			background-image:-webkit-linear-gradient(top, #000 0%, #111 80%, darkred 100%);
+			background-image:-moz-linear-gradient(top, #000 0%, #111 80%, darkred 100%);
+			background-image:-ms-linear-gradient(top, #000 0%, #111 80%, darkred 100%);
+			height:100%;
+		}
+
+		h1{ text-align:center; padding:80px 0 40px;}
+			h1 img{width:500px;}
+
+
+		#screen{width:800px; height:420px; margin:0 auto; border:5px solid #ccc; position:relative; overflow:hidden;}
+			#film{ width:3200px; }
+				.scene{ width:800px; float:left;}
+			#film:after{content:""; display:block; clear:both; }
+			
+			#btn p{ position:absolute; width:50px; height:100px; top:50%; margin-top:-50px; }
+				#btn p img{ width:100%; height:100%;}
+			
+			#btn .prevBtn{ left:0; }
+			#btn .nextBtn{ right:0; }
+  </style>
+  <script>
+	$(function(){
+		// 초기화 
+		// 마지막 장면 미리 대기시켜 놓기
+
+		$("#film").prepend( $(".scene:last") );
+		$("#film").css({"marginLeft":"-800px"});
+
+		
+		// 다음버튼 
+		$(".nextBtn").click(function(){
+			$("#film").stop().animate({"marginLeft":"-=800px"},800,"linear",function(){
+				$("#film").append( $(".scene:first") );
+				$("#film").css({"marginLeft":"-800px"});
+			});
+		});
+
+		// 이전버튼
+		$(".prevBtn").stop().click(function(){
+			$("#film").animate({"marginLeft":"+=800px"},800,"linear",function(){
+				/*
+					필름의 맨 앞으로 보내기 (.scene 마지막 요소 보내기 )
+
+					1: 문제발생
+					다음버튼 클릭하면 이어주는 다음이미지가 있음
+					이전버튼 클릭하면 이전 이미지가 없음 (빈공간이 들어옴)
+
+					2: 해결
+					클릭전에 마지막 이미지를 화면 바깥쪽에 미리 배치하기
+
+					3: 문제발생
+					클릭을 여러번하면 시간이 쌓여서 계속움직임
+
+					4: 해결
+					animate앞에 stop으로 해결하기
+				*/
+
+				$("#film").prepend( $(".scene:last") );
+				$("#film").css({"marginLeft":"-800px"});
+			});
+		});
+	
+	});
+  </script>
+ </head>
+ <body>
+	<h1><img src="img/logo.png" alt="logo"/></h1>
+	<div id="screen">
+		<ul id="film">
+			<li class="scene">
+				<img src="img/a00.jpg" alt="img0"/>
+			</li>
+			<li class="scene">
+				<img src="img/a01.jpg" alt="img1"/>
+			</li>
+			<li class="scene">
+				<img src="img/a02.jpg" alt="img2"/>
+			</li>
+			<li class="scene">
+				<img src="img/a03.jpg" alt="img3"/>
+			</li>
+		</ul>
+		<div id="btn">
+			<p class="nextBtn"><img src="img/next_shadow.png" alt="다음버튼" class="next"/></p>
+			<p class="prevBtn"><img src="img/prev_shadow.png" alt="이전버튼" class="prev"/></p>
+		</div>
+	</div>
+ </body>
+</html>

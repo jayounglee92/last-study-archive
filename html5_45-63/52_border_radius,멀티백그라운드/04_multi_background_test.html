@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>multi_background</title>
+	<style>
+		*{margin:0; padding:0;}
+		a:link, a:visited{text-decoration:none;}
+		body{background-color:#333;}
+			a.banner{
+				display:block; border:1px solid #fff; 
+				width:938px; height:344px; position:relative;
+				
+				background-image:
+				url("img/bed.png"),
+				url("img/coupon.png"), 
+				url("img/leaf.png"),
+				url("img/desc.png"),
+				url("img/Lotte.png"),
+				url("img/background.png");
+				
+				background-repeat:
+				no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+				
+				
+				background-position:
+				200% 70%, 
+				-100% 90%, 
+				120% -200%, 
+				-20px -380px, 
+				-40px -400px, 
+				0 0;
+
+				transition:all .3s ease-in .2s;
+			}
+
+			a.banner:hover, a.banner:focus{
+				background-position: 510px 0,25px 235px,415px 25px,25px 290px, 0 0, 0 0;
+			}
+
+
+			.logo{position:absolute; left:270px; top:20px; transition:all .4s ease-out .6s;}
+			a.banner:hover .logo, a.banner:focus .logo{left:25px;}
+
+
+			.banner_desc{
+				position:absolute;
+				left:60px;
+				top:200px;
+				font-size:22px;
+				color:#abcdef;
+				opacity:0;
+
+				transition:all .3s linear .4s;
+			}
+
+			.banner_desc strong{color:#f00;}
+			a.banner:hover .banner_desc, a.banner:focus .banner_desc{opacity:1;}
+			
+	</style>
+ </head>
+ <body>
+	<a class="banner" href="http://www.google.com" title="구글">
+		<img class="logo" src="img/park-sale.png" alt="브랜드특가전 로고" width="470" height="170"/>
+		<p class="banner_desc">
+			<strong>마감임박!</strong>지금 서두르세요.
+		</p>
+	</a>
+ </body>
+</html>
+<!--
+	html5에서만 가능한 방법
+		a태그안에 p태그를 담을수 있음, 
+		div도 담을 수 있음
+
+	+ 권장사항
+			a태그안에 인라인요소만 사용하는 것을 권장함!
+
+	a태그가 담지 못하는 태그
+		form, 시멘틱태그들 담지 못함, video...
+-->

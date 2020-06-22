@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> mediaQuery </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+  <style>
+		*{margin:0; padding:0;} /* pc버전만 초기화 */
+		body,header, footer, section,article, nav,div{margin:0; padding:0;}
+		/*
+			body에서 부터 "시멘틱 태그", "블록요소" 들의 여백값 
+			빼주기 디바이스 기기들에서 여백이 생기는 문제를 해결 할 수 있음
+				+ 정확하게 대상을 명시해주기!
+
+				중요!)
+					인라인태그들에도 margin:0; padding:0;을 작성하는 이유는
+					display:block으로 속성이 바뀔수 있기 때문..
+					문제가 발생하면 인라인 태그에서도 여백빼주기!
+		*/
+		
+		/*
+			브라우저와 디바이스에서 인식률을 높여줄 수 있을 뿐 아니라
+			크로스 브라우징 작업시에도 필요함!
+				+ 시멘틱 태그들은 기존에 있던 태그들이 아니기때문에
+				display:block을 적용해서 인지 시켜준다.
+		*/
+		header,section,footer, article, nav{ display:block; }
+
+		/*pc버전 해상도*/
+		@media all and (min-width:1025px) and (max-width:1920px){
+			header{ background-color:blue; text-align:center; color:#fff;}
+			section{ background-color:#333; color:#aaa; text-align:center; line-height:30px;}
+			footer{ background-color:#000; text-align:center; color:#ddd;}
+		}
+
+		/* 태블릿 pc: 아이패드, 갤럭시탭, 엘지 스마트폰 g3 이상.. */
+		@media all and (min-width:768px) and (max-width:1024px){
+			header{background-color:#333; color:#aaa; text-align:center;}
+			section{background-color:gold; text-align:center;}
+			footer{text-align:center;}
+		}
+
+		/* 스마트폰 가로버전 */
+		@media all and (min-width:481px) and (max-width:767px){
+			header{background-color:red; text-align:center;}
+			section{background-color:#ccc; text-align:center;}
+			footer{background-color:#333; text-align:center; color:#aaa;}
+		}
+
+		/* 스마트폰 세로버전 */
+		@media all and (min-width:320px) and (max-width:480px){
+			header{background-color:aqua; text-align:center;}
+		
+		}
+  </style>
+ </head>
+ <body>
+	<header>
+		<h1>mediaQuery</h1>
+		<nav id="gnb">
+			로그인, 게시판, 블로그, 카페, 지도, 쇼핑<br/>
+			부트스트랩에서는 header 영역안에 nav태그를 사용할수가 없다.<br/>
+			이유는?? a태그를 사용했는데도 불구하고 링크가 작동하지 않을 수 있음<br/>
+			무한로딩(루프) 현상에 빠질 수 있음 ( 예약어와 사용자가 지정한 언어가 충돌 났을때 )<br/>
+			기본적으로 header 영역 안에 사용하는 것이 nav 태그!
+		</nav>
+	</header>
+	<section>
+		<h2>h2~h6까지 사용이 가능함</h2>
+		<h3>비슷한 정보의 값들을 모아주는 영역</h3>
+		<h5>파편화 현상이 일어나기 때문에 모바일 기기에서 사용하기가 불편하다.</h5>
+		<article>
+			<h2>서로 이어지지 않아도 되는 배포가능한 독립영역</h2>
+			<p>
+				article, aside 의 시멘틱 태그들은 section 영역안에서 사용이 가능하나..<br/>
+				시멘틱 태그 안에 시멘틱 태그를 사용하면 부트스트랩에서는 인식이 안될수 있음<br/>
+				부트스트랩에서 div 태그 사용을 권장함
+			</p>
+		</article>
+	</section>
+	<section>
+		<h2>반응형 VS 절대형 VS 적응형</h2>
+		<ol>
+			<li>
+				<h3>반응형</h3>
+			</li>
+			<li> 모든 해상도를 고려하여 맞추는 작업 (px로 고정하고 나머지는 대부분 % 작업)</li>
+			<li>
+				<h3>절대형(적응형)</h3>
+			</li>
+			<li> 고정된 단위를 사용하여 작업 </li>
+			<li> px 단위를 사용하여 주로 작업한다.</li>
+			<li> 쇼핑몰의 제품이미지나 사람의 이미지가 늘어나거나 줄어들면 원본의 형태가
+			깨질수 있음! <br/>
+			구매 페이지나 원본이 유지되어야 하는 사이트에서는 비율을 중요시 작업!</li>
+			<li>
+				<h3>적응형</h3>
+			</li>
+			<li>
+				제일 많이 하는 작업?
+			</li>
+			<li>
+				반응형과 절대형을 섞어서 작업하기
+			</li>
+			<li>
+				비쥬얼 영역처럼 이미지가 큰 영역은 반응형으로 작업<br/>
+				상품이미지가 깨지거나 비율 유지가 되어야 하는 영역은
+				절대형으로 작업
+			</li>
+		</ol>
+	</section>
+	<hr/>
+	<footer>
+		<h2>푸터: 카피라이터, 개인정보 방침, 법률정보</h2>
+		<p> 시멘틱 태그들의 인식률이 떨어질 경우 id를 설정하여 이름 적용하기 (id="footer")</p>
+		<address>
+			회사주소, 사업자번호등이 있다면 적용해주는 태그
+		</address>
+	</footer>
+ </body>
+</html>

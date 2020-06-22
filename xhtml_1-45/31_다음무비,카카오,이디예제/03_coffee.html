@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> coffee </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		/*############ 초기화 #############*/
+			*{margin:0; padding:0;}
+			li{list-style-type:none;}
+			a:link, a:visited{text-decoration:none;}
+			a:hover, a:focus{text-decoration:underline;}
+		/*###############################*/
+			
+			#wrap{ width:1025px; margin:50px auto 0; font-size:12px;}
+				#brandWrap{width:600px; margin:0 auto;  font-family:'굴림',gulim,sans-serif;}
+					#brandWrap h2{text-align:center; padding:20px 0; color:#05c;}
+						#content{ width:100%; overflow:hidden;}
+		
+		/*########### leftWrap ##########*/
+				/* 이미지 너비가 214이기 때문에 214사이즈 사용 
+					이미지 높이가 161 인데 글씨도 들어가야되서 200사용
+				*/
+			#leftWrap{ width:214px; height:200px;  background-color:lightblue; float:left;}
+
+				/* 이미지 높이가 161 이기 때문에 전체 200중에 37 사용가능 그리고 border가 차지한 
+					값 만큼 빼주기
+				*/
+				#leftWrap p.textLink{ width:212px; height:37px; background-color:#fefefe; border:1px solid #efefef;
+					text-align:center; line-height:39px; 
+				}
+					#leftWrap p.textLink a{color:#777;}
+
+		/*########### rightWrap ##########*/
+			#rightWrap{ width:360px; padding-left:26px; float:left; }
+				#newsArea{ width:100%;}
+					#newsArea h3{text-decoration:underline; font-size:14px;}
+					#newsArea p{ padding:7px 0; border-bottom:1px solid #c5c5c5;}
+
+				#linkArea{width:100%; padding:7px 0; line-height:20px;}
+					#linkArea p span{padding-right:10px; color:#777;}
+					#linkArea p a{ padding-right:4px;}
+
+				#descArea{width:100%;}
+					#descArea ul{width:100%;overflow:hidden;}
+						#descArea ul li{width:100px; margin-right:18px; border:1px solid #efefef; float:left; text-align:center;}
+						
+							#descArea ul li p.desc{padding:7px 0;}
+								#descArea p.desc a{color:#000;}
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="brandWrap">
+			<h2>[ 이디야 ]</h2>
+			<div id="content">
+				<div id="leftWrap">
+					<p>
+						<a href="#" title="이디야 사이트">
+							<img src="img/main.jpg" alt="메인이미지"/>
+						</a>
+					</p>
+					<p class="textLink">
+						<a href="#" title="이디야 공식사이트">
+							카페이디야 공식사이트
+						</a>
+					</p>
+				</div>
+				<div id="rightWrap">
+					<div id="newsArea">
+						<h3>
+							<a href="#" title="이디야커피">
+								이디야커피
+							</a>
+						</h3>
+						<p>
+							Always beside you, EDIYA COFFEE<br/>
+							늘 고객님과 함께하는 이디야커피가 되겠습니다.
+						</p>
+					</div>
+					<div id="linkArea">
+						<p>
+							<span>이디야SNS</span><a href="#" title="블로그">블로그,</a><a href="#" title="페이스북">페이스북,</a><a href="#" title="인스타그램">인스타그램</a>
+						</p>
+						<p>
+							<span>대표전화</span><a href="#" title="02)543-6467">02) 543-6467</a>
+						</p>
+					</div>
+					<div id="descArea">
+						<ul>
+							<li>
+								<p>
+									<a href="#" title="창업안내">
+										<img src="img/sub0.jpg" alt="창업안내 아이콘"/>
+									</a>
+								</p>
+								<p class="desc">
+									<a href="#" title="창업안내">
+										창업안내
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="#" title="쇼핑몰">
+										<img src="img/sub1.jpg" alt="쇼핑몰 아이콘"/>
+									</a>
+								</p>
+								<p class="desc">
+									<a href="#" title="쇼핑몰">
+										쇼핑몰
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="#" title="매장찾기">
+										<img src="img/sub2.jpg" alt="매장찾기 아이콘"/>
+									</a>
+								</p>
+								<p class="desc">
+									<a href="#" title="매장찾기">
+										매장찾기
+									</a>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>
+<!--
+	같은 항목에서 링크가 2개라면 
+	각각의 사이트를 넘기는 분류가 다를수 있으며,
+	각각의 기능이 다르게 표현될수 있음
+-->

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> score </title>
+  <style>
+		*{margin:0; padding:0;}
+		#scoreForm{ width:300px; margin:20px;}
+		#scoreForm p{ padding:10px; border-bottom:1px solid #ccc;}
+		#scoreForm label{display:inline-block; width:100px; text-align:center;}
+  </style>
+  <script>
+	 function result(){
+		/* 01) 배열공간 만들기 : score : name, kor, eng, math, total, avg, pass, level */
+
+		var score = ["name", "kor","eng", "math", "total", "avg", "pass","level"];
+		var ans = ["이름을","국어점수를","영어점수를","수학점수를"];
+
+		/* 02) name 배열공간에 id 객체 만들어서 저장하기 */
+		/*
+			score[0] = document.getElementById("name");
+			score[1] = document.getElementById("kor");
+			score[2] = document.getElementById("eng");
+			score[3] = document.getElementById("math");
+			score[4] = document.getElementById("total");
+			score[5] = document.getElementById("avg");
+			score[6] = document.getElementById("pass");
+			score[7] = document.getElementById("level");
+		*/
+		
+		// for문으로 줄이기 
+		for(var i=0; i<score.length; i++){
+			score[ i ] = document.getElementById( score[ i ] );
+		//	배열공간 [ 0 ]											// 아이디 이름 0번 이름이 name 
+		//	배열공간 [ 1 ]											//	아이디 이름 1번 이름이 kor 
+		}
+		// console.log( score[5] );
+
+
+		// 이름, 국어, 영어, 수학 점수가 비어있으면 각각 알림창띄우기
+			for(var j=0; j<ans.length; j++){
+				if(score[ j ].value ==""){
+					alert(ans[ j ]+" 입력하세요");
+					score[ j ].focus();
+					return false;
+				}
+			}
+		
+		// 총합계 total = kor+eng+math
+		score[4].value = parseInt(score[1].value) + parseInt(score[2].value) + parseInt(score[3].value);
+
+		// 평균 avg = total/3
+		score[5].value = (score[4].value/3).toFixed(2);
+
+		// 합격여부 : 평균 70점 이상이면 합격 아니면 불합격
+		if(score[5].value >=70 ){
+			score[6].value ="합격";
+		}
+		else{ score[6].value ="불합격";}
+
+		/*
+			등급
+				평균이 95점 이상 A등급
+				85이상 95미만 B등급
+				75이상 85미만 C등급
+				65이상 75미만 D등급
+				아니라면 E등급
+		*/
+		if(score[5].value >=95 ){ score[7].value ="A등급"; }
+		else if(score[5].value >=85 && score[5].value < 95 ){score[7].value ="B등급"; }
+		else if(score[5].value >=75 && score[5].value < 85 ){score[7].value ="C등급"; }
+		else if(score[5].value >=65 && score[5].value < 75 ){score[7].value ="D등급"; }
+		else{score[7].value ="E등급"; }
+	 
+	 }
+  </script>
+ </head>
+ <body>
+	<form action="#" method="post" id="scoreForm">
+		<p>
+			<input id="btn" type="button" value="결과확인" title="확인" onclick="result();"/>
+		</p>
+		<p>
+			<label for="name">학생이름</label>
+			<input id="name" type="text" name="name"/>
+		</p>
+
+		<p>
+			<label for="kor">국어</label>
+			<input id="kor" type="text" name="kor"/>
+		</p>
+
+		<p>
+			<label for="eng">영어</label>
+			<input id="eng" type="text" name="eng"/>
+		</p>
+
+		<p>
+			<label for="math">수학</label>
+			<input id="math" type="text" name="math"/>
+		</p>
+
+
+		<p>
+			<label for="total">총점</label>
+			<input id="total" type="text" name="total"/>
+		</p>
+
+		<p>
+			<label for="avg">평균</label>
+			<input id="avg" type="text" name="avg"/>
+		</p>
+		
+		<p>
+			<label for="pass">합격여부</label>
+			<input id="pass" type="text" name="pass"/>
+		</p>
+
+		<p>
+			<label for="level">등급</label>
+			<input id="level" type="text" name="level"/>
+		</p>
+	</form>
+ </body>
+</html>

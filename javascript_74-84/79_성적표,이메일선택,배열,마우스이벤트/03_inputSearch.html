@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> inputSearch </title>
+  <script>
+		function searchBtn(){
+			/*
+				+ search 라는 input에 검색어를 작성하여 검색이 되도록 만들기 
+					만약에 naver를 입력하면 naver 사이트로 이동하기
+					만약에 dunkin을 입력하면 dunkin 사이트로 이동하기
+			*/
+		
+			var search = document.getElementById("search");
+			console.log( search );
+
+			if( search.value =="naver"){ 
+				// alert("검색할 페이지는 네이버 입니다.");
+				location.href="http://www.naver.com";
+			}
+			else if(search.value=="dunkin"){
+				location.href="01_dunkin.html";
+			}
+			else{ alert("요청한 페이지를 찾을 수 없습니다.");}
+		
+		}
+  </script>
+ </head>
+ <body>
+	<p>
+		<input id="search" type="text" title="검색" placeholder="search"/>
+	</p>
+	<input type="button" id="btn" value="검색" onclick="searchBtn();"/>
+ </body>
+</html>

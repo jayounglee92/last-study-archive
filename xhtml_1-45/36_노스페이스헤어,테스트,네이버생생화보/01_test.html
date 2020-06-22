@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> test </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		
+		ol{ width:500px; }
+			ol li{background-color:pink; list-style-position:inside;}
+
+		ul{ width:600px; }
+			ul li{ background-color:lightblue; list-style-image:url("img/ryan.png");}
+
+  </style>
+ </head>
+ <body>
+	<h3>position:relative의 기능에 대하여 작성하기</h3>
+	<p>
+		친구나 형제요소로 사용할때: 상대고정의 역할만 담당함, 상대는 고정시켜놓고 자신만 움직임<br/>
+		부모요소 사용할때: position:absolute의 기준이 되는 역할 + 상대고정역할
+	</p>
+	<h3>dl리스트는 주로 어떤 페이지를 제작할때 사용할까?</h3>
+	<p>
+		상세페이지에서 주로사용<br/>
+		제목이 반드시 제공되어야 하고 그에 따른 설명글을 써야 하는 페이지에서 주로사용
+	</p>
+
+	<h3>a태그를 이용하여 링크를 작성하였다. 그리고 점검후 감점이 되었다면 이유는?</h3>
+	<p>
+		a태그의 속성중에 title을 사용하지 않았을 가능성이 가장큼<br/>
+		title은 대체텍스트로 사용!
+	</p>
+
+	<h3>아래 버튼2개 만들기, 각각 버튼1, 버튼2 작성하기</h3>
+	<p><button>버튼1</button> <button>버튼2</button></p>
+	<p>
+		버튼태그의 주의 할점:<br/>
+		너비와 높이가 제대로 수정되지 않을수 있음, 익스플로러 구형 브라우저와의 
+		호환성에 문제가 생김<br/><br/>
+		이때는 다른 버튼을 사용하거나 이미지로 대체하기
+	</p>
+
+	<h3>form태그 작성시 반드시 작성되어야 하는 속성2가지 작성하고 각각의 역할 작성하기</h3>
+	<p>
+		action: 주소를 연결할때 사용! (사이트로도 연결가능, 큰 의미로는 데이터 베이스나 컨트롤 파트로 
+		연결 할때 사용)<br/><br/>
+		method:<br/>
+			+ post: 주소줄에 검색한 내용이나 어떠한 값들이 노출되지 않음( 회원가입, 로그인 )<br/>
+			+ get: 주소줄에 검색한 내용이나 어떠한 값들이 노출됨( 검색할때 사용, 10개를 검색하면 연관한 내용들이 많을경우 더 많은 값들이 같이 노출됨! )
+	</p>
+
+	<h3>input 태그 작성시 반드시 작성되어야 하는 값과 속성3가지 작성하고 각각의 역할 작성하기</h3>
+	<p>
+		+ label 값 꼭 사용하기( for 작성 input 의 id와 짝 맞추기 )
+		+ type: 용도에 따라서 사용( 암호 작업시나 어떠한 모양을 작성할때 사용)<br/>
+		+ id: 자바스크립트로 연결하거나 input공간의 유일한 이름으로 사용<br/>
+		+ name: 검색한 내용이나 어떠한 정보를 데이터베이스로 넘겨줄때 사용
+	</p>
+
+
+	<h3>form에서 어떤영역을 그룹으로 묶을때 사용하는 태그는?</h3>
+	<p>fieldset 비슷한 그룹끼리 묶을때 사용</p>
+
+	<h3>위의 그룹으로 묶은 영역에 제목을 작성하는 태그는?</h3>
+	<p>legend</p>
+
+	<h3>위에 제목을 위해 작성한 태그는 인라인일까? 블록일까?</h3>
+	<p>블록요소</p>
+	
+	<form action="#" method="post">
+		<fieldset>
+			<legend>간편로그인</legend>
+			<p>
+				<label for="userid"> 아이디: </label><input id="userid" type="text" name="userid"/>
+				<input id="check" type="checkbox" name="check"/><label for="check">로그인상태유지</label>
+			</p>
+			<p>
+				<label for="userpass">비밀번호: </label><input id="userpass" type="password" name="userpass"/>
+			</p>
+			<p>
+				<button>버튼태그 로그인</button><br/>
+				<input id="btn" type="button" name="btn" value="input 버튼"/><label for="btn">input 태그 버튼</label>
+			</p>
+		</fieldset>
+	</form>
+
+
+	<h3>background-image가 화면에 나타나지 않을때 대체하는 값은?</h3>
+	<p>배경색상으로 대체하기( 배경이미지와 비슷한 색상으로 대체 )</p>
+
+	<h3>동영상이 화면에 나타나지 않았을때 대체하는 값은?</h3>
+	<p>
+		스크립트에서 현재 브라우저가 구형인지 표준인지 확인하기<br/>
+		background-image나 img태그로 이미지 대체하기<br/>
+		배경색상으로 대체하기<br/>
+		문제점이 적힌 주석글! 작성해두기
+	</p>
+	
+	
+	<h3>select태그에서 짝으로 맞춰서 작업하는 태그는?</h3>
+	<p> option에서도 value값 중요! <p>
+
+	<h3>웹에서 페르소나란? 개인이 생각한대로 작성하기</h3>
+	<p>
+		가상의 인물을 선택하여 그 가상의 인물이 자신의 사이트에서 편리하게 이용할수 있는지, 유효하게
+		기능을 확인해볼수 있는지 기타등등 가상의 인물이 내 사이트에서 불편하지 않게 이용할수 있도록
+		만드는 것( 가상의 인물에게 자신의 사이트를 최적화 시킴 )
+	</p>
+
+	<h3>list의 블릿기호들은 기본적으로 어디에 위치할까?</h3>
+	<p>
+		outside ( 바깥쪽에 위치 )
+	</p>
+	
+	<h3>아래 순서대로 만들기</h3>
+	<ol>
+		<li>실습문제에 초기값 작성 없어도 됨!</li>
+		<li>현재 ol태그에 너비 500픽셀 작성하기</li>
+		<li>현재 ol태그에 배경색상 핑크색 작성하기</li>
+		<li>현재 ol태그의 블릿기호들 영역의 안쪽으로 배치되도록 만들기</li>
+	</ol>
+
+	<h3>아래 순서대로 만들기</h3>
+	<ul>
+		<li>현재 ul태그에 너비 600픽셀 작성하기</li>
+		<li>배경색상은 알아서 작성하기</li>
+		<li>li태그들의 블릿기호 아래 값으로 바꾸기</li>
+		<li>아이콘 찾아서 배치하기</li>
+	</ul>
+
+	<h3>html5에서는 a태그 사이에 p와 div태그를 사용할수 있다고 한다. 그렇다면 ul, ol, dl도 사용이 가능할까?	사용이 불가능하다면 이유는?</h3>
+	<p>
+		ul, ol, dl도 사용이 가능하다. 단! 모바일 기기에서 적용이 안될수 있음<br/>
+		그리고 현재 우리나라는 문법에 맞추는 작업을 주로 함!
+	</p>
+
+
+	<h3>위와 같은 이유로 봤을때 a태그 사이에 form영역은 사용이 가능할까?</h3>
+	<p>
+		a태그 사이에 form은 담을수 없음!<br/>
+		이유는? a태그 보다 form에서 하는 역할이 훨씬 큼, 특히 action 부분에서
+		넘겨주는 주소가 데이터베이스나 사이트이기 때문에 a태그가 하지 못하는
+		역할들을 담당함
+	</p>
+
+
+	<h3>각각의 영역에 id값을 사용하는 이유는?</h3>
+	<p>
+		중복되지 않는 값을 만들기 위해 사용<br/>
+		스킵네비게이션으로 해당영역까지 건너뛸수 있음<br/>
+		약속된 언어를 사용하여 다른 나라 사람들이 봐도<br/> 
+		해당영역에서 무엇을 할지 알수 있어야 함
+	</p>
+
+	<h3>헤더 영역을 작성하였을때 중요한 부분의 네비게이션 명칭은?</h3>
+	<p>gnb</p>
+
+	<h3>%를 사용하려고 한다. 제일 먼저 고려해야 하는 값은?</h3>
+	<p>해당하는 영역이나 부모에 픽셀고정! </p>
+
+	<h3>화면 보고 제작해서 제출하기 : 02_headerTest.html</h3>
+ </body>
+</html>

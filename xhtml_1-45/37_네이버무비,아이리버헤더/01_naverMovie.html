@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> naverMovie </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+  /*############# 초기화 #############*/
+	*{margin:0; padding:0;}
+	li{list-style-type:none;}
+	a:link, a:focus{text-decoration:none; color:#333;}
+	a:hover, a:focus{text-decoration:underline;}
+	
+	/*############## wrap ################*/
+	#wrap{width:800px; margin:30px auto 0;}
+	
+	/*############## header ################*/
+		#header{width:700px; margin:0 auto; border-top:2px solid #999;}
+		/*
+			display:none의 값은 화면에서 완전히 숨겨줄 때 사용
+				어떠한 기능이나 읽어들이는 값에서 확실하게 읽어줄 수 없음!
+
+			버리는 영역만들기
+				+position:absolute 사용
+					:: 비어있는 영역을 만들지 않음
+					+ 블록일 때 너비와 높이를 아주 작게 만든다.
+					+ 인라인일 때 폰트크기와 간격을 촘촘하고 작게 만든다.
+					+ 그래도 넘칠 경우 넘치는 값을 숨겨준다.
+		*/
+		h2{position:absolute; left:-9999px; width:1px; height:1px; font-size:1px; line-height:0; overflow:hidden;}
+
+		#nav{border-bottom:1px solid #ccc;}
+			#nav li{display:inline-block; font-size:15px; }
+				#nav li a{padding:7px 12px; display:block;}
+
+				#nav li:hover{background:#777;}
+				#nav li:hover a{color:#fff;}
+
+				.story{width:100%; border-bottom:1px solid #ccc;}
+				.story h3{padding:20px 0 10px;}
+				.story button{padding:10px 7px; margin:20px 0; background-color:#fff; border:1px solid #aaa; color:#555;}
+				.story button:hover{background-color:#aca; color:#fff; cursor:pointer;}
+				.colors{color:#f24}
+
+	/*############## visual ################*/
+		#visual{width:700px; margin:0 auto; border-bottom:1px solid #ccc; overflow:hidden; padding:20px 0 30px;}
+			#visual strong{font-size:18px;}
+			#visual .title{padding-bottom:10px;}
+				#visual .title button{padding:2px 7px; background-color:#fff; border:1px solid #aaa; color:#555;}
+				#visual .title button:hover{background-color:#aca; color:#fff; cursor:pointer;}
+
+				#visual li{width:116px; height:210px; float:left;}
+					#visual li p.imgs{width:100%; height:145px; overflow:hidden;}
+						#visual li p.imgs img{width:100%;}
+
+					#visual li p.names{ font-size:16px; width:100%; height:22px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; line-height:22px; color:#004cc9;}
+						#visual li p.names a{color:#05c; font-weight:400;}
+
+					#visual li p.char{font-size:13px;}
+						#visual li p.char i{font-style:normal; padding:0 5px; color:#ccc;}
+
+	/*############## content ################*/
+	#content{width:700px; margin:0 auto; padding-top:20px;}
+		#photoArea{width:100%; overflow:hidden;}
+			#photoArea div{width:350px; height:24px; float:left;}
+				#photoArea div button{padding:4px 9px; border:1px solid #aaa; font-weight:bold; color:#555; background-color:#fff}
+
+		#photoArea h3{display:inline;}
+		#photoArea strong{font-size:12px;}
+			#photoArea strong span{font-weight:400;}
+
+		#photoArea #button{text-align:right;}
+
+		#photoArea #gallery{width:100%; height:312px; background-color:#f7f7f7; margin-top:10px; padding-top:28px; text-align:center;}
+
+		#photoArea button:hover{background-color:#aca; color:#fff; cursor:pointer;}
+			
+
+  </style>
+
+ </head>
+
+ <body>
+	<div id="wrap">
+		<div id="header">
+			<h2>네비게이션 및 스토리영역</h2>
+			<ul id="nav">
+				<li><a href="#" title="주요정보">주요정보</a></li>
+				<li><a href="#" title="포토">포토</a></li>
+				<li><a href="#" title="동영상">동영상</a></li>
+				<li><a href="#" title="평점">평점</a></li>
+				<li><a href="#" title="리뷰">리뷰</a></li>
+				<li><a href="#" title="시간표">상영시간표</a></li>
+				<li><a href="#" title="명대사/연관영화">명대사/연관영화</a></li>
+			</ul>
+			<div class="story">
+				<h3>줄거리</h3>
+				<p>
+					<strong>이성은 지배하고, 감정은 배제하라!<br/>
+					가장 완벽한 살인요원의 탄생</strong><br/>
+					참혹한 무차별 총격 테러로 약혼자를 잃은 ‘미치’(딜런 오브라이언). <br/>
+					 이후 그는 하루하루 자신을 단련하며 복수를 다짐한다. <br/>
+					 테러리스트에 가까이 다가가던 그 때, <br/>
+					 타고난 재능을 눈여겨본 CIA는 그를 신입 요원으로 발탁한다. <br/><br/>
+					  
+					 완벽한 요원이 되기 위해 ‘미치’는 <br/>
+					 최고의 트레이너 ‘스탠 헐리’(마이클 키튼)의 혹독한 훈련을 견뎌내고 <br/>
+					 드디어 전세계를 위협하는 1급 테러리스트 ‘고스트’(테일러 키취)를 제거하는 작전에 투입되는데… <br/><br/>
+					  
+					 예측할 수도, 통제할 수도, 멈출 수도 없는 <br/>
+					 그의 첫 번째 미션이 시작된다!<br/><br/>
+
+					 <button>제작노트보기<span class="colors">▶</span></button>
+				</p>
+			</div>
+		</div>
+		<div id="visual">
+			<h2>영화배우 소개</h2>
+			<div class="title">
+				<strong>배우/제작진</strong>
+				<button>더보기<span class="colors">▶</span></button>
+			</div>
+			<ul class="actor">
+				<li>
+					<p class="imgs">
+						<a href="#" title="감독정보">
+							<img src="img/0.jpg" alt="감독이미지"/>
+						</a>
+					</p>
+					<p class="names">
+						<a href="#" title="감독정보">
+							마이클 쿠에스타
+						</a>
+					</p>
+					<p class="char">
+						<span class="colors">감독</span>
+					</p>
+				</li>
+				<li>
+					<p class="imgs">
+						<a href="#" title="딜런 오브라이언">
+							<img src="img/1.jpg" alt="딜런 오브라이언 이미지"/>
+						</a>
+					</p>
+					<p class="names">
+						<a href="#" title="딜런 오브라이언">
+							딜런 오브라이언
+						</a>
+					</p>
+					<p class="char">
+						<span class="colors">주연</span><i>|</i>미치 랩 역
+					</p>
+				</li>
+				<li>
+					<p class="imgs">
+						<a href="#" title="마이클 키튼">
+							<img src="img/2.jpg" alt="마이클 키 이미지"/>
+						</a>
+					</p>
+					<p class="names">
+						<a href="#" title="마이클 키튼">
+							마이클 키튼
+						</a>
+					</p>
+					<p class="char">
+						<span class="colors">주연</span><i>|</i>스탠 헐리 역
+					</p>
+				</li>
+				<li>
+					<p class="imgs">
+						<a href="#" title="산나 라단">
+							<img src="img/3.jpg" alt="산나 라단 이미지"/>
+						</a>
+					</p>
+					<p class="names">
+						<a href="#" title="산나 라단">
+							산나 라단
+						</a>
+					</p>
+					<p class="char">
+						<span class="colors">주연</span><i>|</i>아이린 케네디 역
+					</p>
+				</li>
+				<li>
+					<p class="imgs">
+						<a href="#" title="테일러 키취">
+							<img src="img/4.jpg" alt="테일러 키취 이미지"/>
+						</a>
+					</p>
+					<p class="names">
+						<a href="#" title="테일러 키취">
+							테일러 키취
+						</a>
+					</p>
+					<p class="char">
+						<span class="colors">주연</span><i>|</i>고스트 역
+					</p>
+				</li>
+				<li>
+					<p class="imgs">
+						<a href="#" title="시바 네가르">
+							<img src="img/5.jpg" alt="시바 네가르 이미지"/>
+						</a>
+					</p>
+					<p class="names">
+						<a href="#" title="시바 네가르">
+							시바 네가르
+						</a>
+					</p>
+					<p class="char">
+						<span class="colors">주연</span><i>|</i>아니카 역
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div id="content">
+			<h2>포토소개</h2>
+			<div id="photoArea">
+				<div>
+					<h3>포토</h3>
+					<strong>1<span> / 34건</span></strong> <button>더보기</button>
+				</div>
+				<div id="button">
+					<button class="prev">&lt;</button>
+					<button class="next">&gt;</button>
+				</div>
+				<div id="gallery">
+					<img src="img/main.jpg" alt="메인이미지"/>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>
+<!--
+	http://movie.naver.com/movie/bi/mi/basic.nhn?code=100205
+	
+	+참고: 
+		슬라이딩 윈도우를 구현할 때 사용해야 할 태그
+			ul li a : 탭키로 접근해서 엔터를 눌러도 작동이 되도록 만들 때 사용
+			ul li : 형제요소를 위해서 작성
+-->

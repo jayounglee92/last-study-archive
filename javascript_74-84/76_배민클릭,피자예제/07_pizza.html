@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> pizza </title>
+  <style>
+		*{margin:0; padding:0;}
+		#wrap{width:600px; margin:30px; border:1px dashed #f30; border-bottom-right-radius:150px; }
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<h3>PIZZA</h3>
+		<p class="img">
+			<img src="img/pizza.gif" alt="이미지"/>
+		</p>
+		<div id="priceArea">
+			<p>
+				<label for="price">판매가</label><input id="price" type="text" value="28800" readonly/>원
+			</p>
+			<p>
+				<label for="menuSelect">상품</label>
+				<select id="menuSelect">
+					<option value="typeSelect">----- 피자선택 -----</option>
+					<option value="divide">============</option>
+					<option value="select1">콤비네이션피자</option>
+					<option value="select2">페페로니피자</option>
+					<option value="select3">하와이안피자</option>
+					<option value="select4">불고기피자</option>
+					<option value="select5">포테이토피자</option>
+					<option value="select6">고구마피자</option>
+				</select>
+			</p>
+			<p>
+				<label for="num">갯수: </label><input id="num" type="number" min="1"/>
+			</p>
+			<p>
+				<input id="button" type="button" title="합계" value="합계" onclick="total();"/>
+				<input id="result" type="text" title="총합계" readonly/>원
+			</p>
+		</div>
+	</div>
+ </body>
+</html>

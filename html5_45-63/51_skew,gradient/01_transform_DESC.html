@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>transform_DESC</title>
+  <style>
+		body{ overflow-x:hidden; overflow-y:scroll; }
+		/*
+			pc버전에서는 적용이 잘됨 그리고 pc버전에서 사용하는 기능!
+			모바일 기기에서는 옆으로 넘치는 게 보이게 됨!
+			최종버전에서 사용!
+				+ 처음부터 사용하면 옆으로 넘치는 것을 확인할 수가 없음
+		*/
+
+		h2{text-align:center; padding:20px 0;}
+		p{width:150px; height:150px; background-color:aqua; transition:transform 0.5s ease-in 0.2s;}
+		
+		/*############ translate 이동 #############*/
+		.translate1{transform:translate(0,0);}
+		/* 현재 자신이 있던 위치가 초기값에 해당하는 위치! */
+		.translate1:hover{transform:translate(200px, 50px);}
+
+		.translate2{transform:translatex(0);}
+		.translate2:hover{transform:translatex(200px);}
+
+		.translate3{transform:translatey(0);}
+		.translate3:hover{transform:translatey(100px);}
+
+		/*############ scale 크기변화 #############*/
+		.scale1{transform:scale(1,1);}
+		.scale1:hover{transform:scale(0.5,0.5);}
+
+		.scale2{transform:scalex(1);}
+		.scale2:hover{transform:scalex(0.3);}
+
+		.scale3{transform:scaley(1);}
+		.scale3:hover{transform:scaley(0.25);}
+
+		/*############ rotate 회전 #############*/
+		.rotate1{transform:rotate(0deg);}
+		.rotate1:hover{transform:rotate(45deg);}
+
+		.rotate2{transform:rotatex(0deg);}
+		.rotate2:hover{transform:rotatex(-120deg);}
+
+		.rotate3{transform:rotatey(0deg);}
+		.rotate3:hover{transform:rotatey(60deg);}
+
+		.rotate4{transform:rotate3d(0,0,0,0);}
+		.rotate4:hover{transform:rotate3d(1,1,0,150deg);}
+
+
+		/*############ skew 기울이기 #############*/
+		.skew1{transform:skew(0,0);}
+		.skew1:hover{transform:skew(10deg,10deg);}
+
+		.skew2{transform:skewx(0);}
+		.skew2:hover{transform:skewx(20deg);}
+
+		.skew3{transform:skewy(0);}
+		.skew3:hover{transform:skewy(-30deg);}
+
+  </style>
+ </head>
+ <body>
+	<h2>transform:객체를 변형하기 위하여 사용</h2>
+	<h3>transform으로 만들어진 객체들은 축이 가운데를 중심으로 함</h3>
+	<hr/>
+	<p class="translate1">이동 x, y: transform:translate(x축, y축)</p>
+	<p class="translate2">이동 x : transform:translatex(x축으로만 이동)</p>
+	<p class="translate3">이동 y : transform:translatey(y축으로만 이동)</p>
+	<!--
+		01) translate1에 마우스를 올리면 200, 50 만큼 움직이도록 만들기
+		02) translate2에 마우스를 올리면 x축으로만 200만큼 움직이도록 만들기
+		03) translate3에 마우스를 올리면 y축으로만 100만큼 움직이도록 만들기
+	-->
+	<hr/>
+	<p class="scale1">크기변화 x, y: transform:scale(x축, y축)</p>
+	<p class="scale2">크기변화 x : transform:scalex(x축으로만 크기변화)</p>
+	<p class="scale3">크기변화 y : transform:scaley(y축으로만 크기변화)</p>
+	<!--
+		01) scale1에 마우스를 올리면 50%로 축소 되도록 만들기
+		02) scale2에 마우스를 올리면 x축으로만 30% 축소 되도록 만들기
+		03) scale3에 마우스를 올리면 y축으로만 25% 축소 되도록 만들기
+	-->
+	<hr/>
+	<p class="rotate1">회전 x, y: transform:rotate(45deg)</p>
+	<p class="rotate2">회전 x: transform:rotatex(45deg)</p>
+	<p class="rotate3">회전 y: transform:rotatey(45deg)</p>
+	<p class="rotate4">회전 3d(x,y,z,각도): transform:rotate3d(1,1,0,45deg)</p>
+	<em>
+		rotate3d의 경우 해당하는 좌표에 숫자 1보다 큰 수치가 적용되면 사용하겠다는 뜻 <br/>
+		0이라면 사용하지 않겠다는 뜻 <br/>
+		-1, 왼쪽 위쪽과 반대방향으로 사용하겠다는 뜻 , x축 -1 == 오른쪽...
+	</em>
+	<!--
+		01) rotate1에 마우스를 올리면 45도 회전되도록 만들기
+		02) rotate2에 마우스를 올리면 x축으로만 -120도 회전되도록 만들기
+		03) rotate3에 마우스를 올리면 y축으로만 60도 회전되도록 만들기
+		04) rotate4에 마우스를 올리면 x와 y축만 사용하고 150도 회전되도록 만들기
+	-->
+	<hr/>
+	<p class="skew1">기울이기: transform:skew(x축 각도( deg), y축 각도(deg))</p>
+	<p class="skew2">기울이기: transform:skewx(x축 각도( deg))</p>
+	<p class="skew3">기울이기: transform:skewy(y축 각도( deg))</p>
+	<!--
+		01) skew1에 마우스를 올리면 x와 y축 방향이 각각 10도씩 움직이도록 만들기
+		02) skew2에 마우스를 올리면 x축 방향으로만 20도 움직이도록 만들기
+		03) skew3에 마우스를 올리면 y축 방향으로만 30도 위로 올라가도록 만들기
+	-->
+	<hr/>
+	<h3>section과 article을 사용했을때 오류가 발견되었다 이때 확인해봐야 하는 것은?</h3>
+	<p>
+		h2~h6까지의 헤드라인 태그를 요구함, h5~h6( 파편화 현상으로 잘 사용하지 않음 )
+	</p>
+	<h3>video 태그를 사용하였는데 컨트롤이 나오지 않았다면 무슨 설정이 필요한지 작성하기</h3>
+	<p>
+		controls 설정되어 있지 않음<br/>
+		controls의 경우 브라우저 마다 다르게 나타날수 있기 때문에 웹 접근성에서 문제가 될수 있음<br/>
+		이유는... 브라우저마다 재생이나 멈춤이 같은 위치에 없을 수 있음
+	</p>
+
+	<h3>video 태그에 px단위를 사용하여 태그에 직접 작성하였을때 에러가 발생하는 이유는?</h3>
+	<p>
+		브라우저 마다 기본으로 픽셀 설정이 되어 있기 때문에 단위를 설정하면 pxpx로 읽거나
+		%px로 읽을수 있음
+	</p>
+
+	<h3>위와 같은 상황에서는 어떤 방법으로 사용하는 것이 안전한지 작성하기</h3>
+	<p>
+		css영역에서 작업하는것이 가장 안전함
+	</p>
+	<h3>video는 익스플로러 몇버전 부터 사용이 가능한지 작성하기</h3>
+	<p>
+		9버전 이상부터, 안전하게 사용하려면 10버전 사용<br/>
+		익스플로러는 11버전을 사용하면 보안상의 문제도 어느정도 해결이 가능함
+	</p>
+
+	<h3>video가 재생되지 않았을때 무엇으로 대체 하는지 작성하기</h3>
+	<p>
+		poster로 대체 / background-image / background-color
+	</p>
+
+	<h3>모든 브라우저에서 사용가능한 video 확장자명은?</h3>
+	<p>
+		mp4로 설정하면 모든 브라우저에서 사용이 가능함
+	</p>
+
+	<h3>브라우저에서 내용이 넘쳤을때 해결하는 방법은?</h3>
+	<p>
+		body에 overflow-x와 overflow-y설정
+	</p>
+ </body>
+</html>

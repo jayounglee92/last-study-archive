@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title>altools</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+	/*################### 초 기 화 ####################*/
+	*{margin:0; padding:0;}
+	li{list-style-type:none;}
+	a:link, a:visited{text-decoration:none; color:#333;}
+	a:hover, a:focus{text-decoration:none;}
+
+	#wrap{width:1920px; max-width:1920px; margin:0 auto;}
+
+	/*################### headerWrap + header####################*/
+	#headerWrap{width:100%; height:88px; margin:0 auto; background-color:#24303E;}
+		#header{width:960px; height:100%; margin:0 auto; position:relative;}
+			/*로고 111*69*//*전체높이88-로고높이69==19위에서 10만큼 내려서 위치시키기*/
+			h1{width:111px; height:69px; position:absolute; left:0; top:10px;}
+				h1 a img{width:100%;}
+			#infoMenu{width:420px;  height:28px; font-size:12px; color:#9FA6AD;  line-height:28px; padding-left:540px; }
+				#infoMenu li{width:84px; height:28px; float:left;}
+					#infoMenu li a{display:block; color:#9FA6AD; float:left; overflow:hidden; text-align:right;}
+					#infoMenu li span.bar{display:block; text-align:center;}
+						#infoMenu li a span{display:block;}
+						#infoMenu li a span.icon{width:16px; height:16px; float:left;}
+						#infoMenu li a span.text{float:left; padding:0 2px;}
+						
+							#infoMenu li.blog span.icon{position:relative; top:8px; left:4px;}
+							#infoMenu li.facebook span.icon{position:relative; bottom:16px; left:4px;}
+							#infoMenu li.twitter span.icon{position:relative; bottom:44px;}
+
+			#gnb{width:100%; height:60px; text-align:right;}
+				#gnb li{display:inline; margin-right:20px; }
+					#gnb li a{color:#E3E4E7; padding:4px 10px;}
+						#gnb li a img.newIcon{position:relative; top:3px; left:4px;}
+						#gnb li a img.buyIcon{position:relative; top:8px; right:4px;}
+
+		/*################### container + visualArea####################*/
+		#container{width:100%; margin:0 auto; }	
+			#visualArea{width:100%; margin:0 auto; background-color:#EBECE7;}
+				#visual{width:1350px; height:349px; margin:0 auto;}
+					/*비쥬얼 이미지1350*349*/
+					#visual p{width:1350px; height:349px;}
+						#visual img{width:100%;}
+			/*################### container + setupArea####################*/
+			#setupArea{width:100%; height:60px; margin:0 auto; border-bottom:1px solid #EBECE7;}
+				#setup{width:960px; height:60px; margin:0 auto; text-align:center; line-height:60px;}
+					#setup span.orange{color:#FFAA2C;}
+					/*통합설치아이콘 139*86*/
+					#setup p{width:139px; height:37px; overflow:hidden; display:inline-block; background-color:red; vertical-align:middle;}
+						#setup p img{width:100%;}
+			
+			/*################### container + serviceArea####################*/
+			#serviceArea{width:100%; height:110px; margin:0 auto;}
+				#service{width:960px; height:110px; margin:10px auto; overflow:hidden;}
+					#service li{width:86px; height:110px; text-align:center; float:left; padding-right:10px;}
+						#service li a{display:block;}
+						#service li span.img{display:block; width:100%; height:80px; overflow:hidden;}
+						#service li span.text{display:block; width:100%; height:30px; font-size:13px; }
+							/*114씩 올리기*/
+							#service li.al1 span.img img{position:relative; bottom:114px;}
+							#service li.al2 span.img img{position:relative; bottom:228px;}
+							#service li.al3 span.img img{position:relative; bottom:342px;}
+							#service li.al4 span.img img{position:relative; bottom:456px;}
+							#service li.al5 span.img img{position:relative; bottom:570px;}
+							#service li.al6 span.img img{position:relative; bottom:684px;}
+							#service li.al7 span.img img{position:relative; bottom:798px;}
+							#service li.al8 span.img img{position:relative; bottom:912px;}
+							#service li.al9 span.img img{position:relative; bottom:1026px;}
+
+			/*################### container + visual2####################*/
+			/*비쥬얼이미지 1329*144*/
+			#adArea{width:100%; height:144px; background-color:#E3EAF2;}
+				#ad{width:1329px; height:100%; margin:0 auto;}
+
+			/*################### container + mobile####################*/
+			#mobileArea{width:100%; height:200px;}
+				#mobile{width:960px; margin:0 auto; padding:20px 0;}
+					#mobile h2{width:100%; height:60px; line-height:60px; color:#777; font-size:20px;}
+					#mobile ul{width:960px; overflow:hidden;}
+						#mobile li{width:320px; height:88px; float:left; overflow:hidden;}
+
+			/*################### container + mobile####################*/
+			#newsArea{width:100%;}
+				#news{width:960px; height:250px; margin:0 auto; font-size:13px;}
+					#news div.newsLeft{width:47%; height:100%; float:left; padding-right:3%;}
+						#news div.newsLeft div{width:100%; height:50%; border-right:1px solid #ccc;}
+						#news div.newsLeft h2{width:100%; height:30%;color:#777; font-size:20px; }
+							#news div.newsLeft div ul{width:100%; height:70%;}
+								#news div.newsLeft div ul li{width:100%; height:20%; overflow:hidden; margin-bottom:2%;}
+									#news div.newsLeft div ul li a{display:block;width:80%; height:100%;float:left; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+									#news div.newsLeft div ul li span.date{display:block; width:20%; text-align:left; float:left;}
+					#news div.newsRight{width:47%; height:100%; background-color:orange; float:left; padding-left:3%;}
+						#news div.newsRight h2{width:100%; height:30%; background-color:red;}
+						#news div.newsRight div.altoolsFocus ul{width:100%; height:70%; background-color:green;}
+							#news div.newsRight div ul li{width:100%; height:50%; float:left;}
+								#news div.newsRight div ul li p{float:left;}
+								#news div.newsRight div ul li p.img{float:left;}
+
+
+  </style>
+
+ </head>
+
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				<h1>
+					<a href="#" title="">
+						<img src="img/logo.png" alt="알툴즈로고"/>
+					</a>
+				</h1>
+				<ul id="infoMenu">
+					<li>
+						<a href="#" title="로그인">
+							<span class="text">로그인</span>
+						</a>
+						<span class="bar">|</span>
+					</li>
+					<li>
+						<a href="#" title="회원가입">
+							<span class="text">회원가입</span>
+						</a>
+						<span class="bar">|</span>
+					</li>
+					<li class="blog">
+						<a href="#" title="블로그">
+							<span class="icon"><img src="img/spr_sns_gnb.png" alt="블로그 아이콘"/></span>
+							<span class="text">블로그</span>
+						</a>
+						<span class="bar">|</span>
+					</li>
+					<li class="facebook">
+						<a href="#" title="페이스북">
+							<span class="icon"><img src="img/spr_sns_gnb.png" alt="페이스북 아이콘"/></span>
+							<span class="text">페이스북</span>
+						</a>
+						<span class="bar">|</span>
+					</li>
+					<li class="twitter">
+						<a href="#" title="트위터">
+							
+							<span class="icon"><img src="img/spr_sns_gnb.png" alt="트위터 아이콘"/></span>
+							<span class="text">트위터</span>
+						</a>
+					</li>
+				</ul>
+				<ul id="gnb">
+					<li>
+						<a href="#" title="다운로드">다운로드<img class="newIcon" src="img/new.png" alt="뉴 아이콘"/></a>
+					</li>
+					<li>
+						<a href="#" title="모바일">모바일</a>
+					</li>
+					<li>
+						<a href="#" title="알툴즈Lab">알툴즈Lab<img class="newIcon" src="img/new.png" alt="뉴 아이콘"/></a>
+					</li>
+					<li>
+						<a href="#" title="고객센터">고객센터</a>
+					</li>
+					<li>
+						<a href="#" title="구매"><img class="buyIcon" src="img/buy.png" alt="쇼핑 아이콘"/>구매</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="container">
+			<div id="visualArea">	
+				<div id="visual">
+					<p>
+						<img src="img/visual.png" alt="비쥬얼 이미지"/>
+					</p>
+				</div>
+			</div>
+			<div id="setupArea">
+				<div id="setup">
+					<strong><span class="orange">한 번에 OK!</span> 알툴즈 통합설치</strong>
+					<p>
+						<a href="#" title="통합설치하기"><img src="img/button.gif" alt="통합설치하기 이미지"/></a>
+					</p>
+				</div>
+			</div>
+			<div id="serviceArea">
+				<div id="service">
+					<ul>
+						<li class="al0">
+							<a href="#" title="알집 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알집"/></span>
+								<span class="text">알집</span>
+							</a>
+						</li>
+						<li class="al1">
+							<a href="#" title="알씨 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알씨"/></span>
+								<span class="text">알씨</span>
+							</a>
+						</li>
+						<li class="al2">
+							<a href="#" title="알약 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알약"/></span>
+								<span class="text">알약</span>
+							</a>
+						</li>
+						<li class="al3">
+							<a href="#" title="알약쉴드 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알약쉴드"/></span>
+								<span class="text">알약쉴드</span>
+							</a>
+						</li>
+						<li class="al4">
+							<a href="#" title="알툴바 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알툴바"/></span>
+								<span class="text">알툴바</span>
+							</a>
+						</li>
+						<li class="al5">
+							<a href="#" title="알송 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알송"/></span>
+								<span class="text">알송</span>
+							</a>
+						</li>
+						<li class="al6">
+							<a href="#" title="알마인드 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알마인드"/></span>
+								<span class="text">알마인드</span>
+							</a>
+						</li>
+						<li class="al7">
+							<a href="#" title="알캡쳐 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알캡쳐"/></span>
+								<span class="text">알캡쳐</span>
+							</a>
+						</li>
+						<li class="al8">
+							<a href="#" title="알키퍼 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알키퍼"/></span>
+								<span class="text">알키퍼</span>
+							</a>
+						</li>
+						<li class="al9">
+							<a href="#" title="알드라이브 다운로드">
+								<span class="img"><img src="img/icon.png" alt="알드라이브"/></span>
+								<span class="text">알드라이브</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="adArea">
+				<div id="ad">
+					<img src="img/visual2.png" alt="광고 이미지"/>
+				</div>
+			</div>
+			<div id="mobileArea">
+				<div id="mobile">
+					<h2>알툴즈 모바일 소식</h2>
+					<ul>
+						<li><img src="img/news0.png" alt="알툴즈 모바일 소식 이미지1"/></li>
+						<li><img src="img/news1.png" alt="알툴즈 모바일 소식 이미지2"/></li>
+						<li><img src="img/news2.png" alt="알툴즈 모바일 소식 이미지3"/></li>
+					</ul>
+				</div>
+			</div>
+			<div id="newsArea">
+				<div id="news">
+					<div class="newsLeft">
+						<div class="altoolsNews">
+							<h2>알툴즈 소식</h2>
+							<ul>
+								<li>
+									<a href="#" title="알툴즈 소식1">
+										알툴즈/알툴바 서비스 점검 안내 -1/9(화)- 
+									</a>
+									<span class="date">2018.01.05</span>
+								</li>
+								<li>
+									<a href="#" title="알툴즈 소식2">
+										개인정보 침해사고(도용) 관련 알툴즈 고객 대처방법 안내
+									</a>
+									<span class="date">2017.09.09</span>
+								</li>
+								<li>
+									<a href="#" title="알툴즈 소식3">
+										개인정보 침해사고(도용) 관련 자주 묻는 질문(FAQ)
+									</a>
+									<span class="date">2017.09.06</span>
+								</li>
+							</ul>
+						</div>
+						<div class="altoolsPress">
+							<h2>언론기사</h2>
+							<ul>
+								<li>
+									<a href="#" title="알툴즈 언론기사1">
+										'탈핵' 정책 비판 문서에 악성 파일 은닉 '주의요망'
+									</a>
+									<span class="date">2017.08.31</span>
+								</li>
+								<li>
+									<a href="#" title="알툴즈 언론기사2">
+										파괴형 악성코드 해외서 등장...데이터 복원 불가능
+									</a>
+									<span class="date">2017.08.02</span>
+								</li>
+								<li>
+									<a href="#" title="알툴즈 언론기사3">
+										이스트시큐리티, 백업 솔루션 '랜섬쉴드 클라우드' GS인증 1등...
+									</a>
+									<span class="date">2017.07.27</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="newsRight">
+						<div class="altoolsFocus">
+							<h2>알툴즈 포커스</h2>
+							<ul>
+								<li>
+									<p class="img">
+										<img src="img/img_focus_1.jpg" alt="알 PDF로 편리한 편집하기 이미지"/>
+									</p>
+									</p class="text">
+										<a href="#" title="알 PDF로 편리한 편집하기">
+											<strong>알 PDF로 편리한 편집하기</strong><br/>
+											누구나 사용하기 편리한 알 PDF!<br/>
+											PDF 문서 편집을 마스터 해보세요!<br/>
+											<span class="detail">자세히 보기</span>
+										</a>
+									</p>
+								</li>
+								<li>
+									<p class="img">
+										<img src="img/img_focus_2.jpg" alt="알 PDF로 편리한 편집하기 이미지"/>
+									</p>
+									</p class="text">
+										<a href="#" title="더 강력해진 알약 안드로이드!">
+											<strong>더 강력해진 알약 안드로이드!</strong><br/>
+											실시간 클라우드 검사 업데이트!<br/>
+											신종 악성앱에 더 신속하게 대응!<br/>
+											<span class="detail">자세히 보기</span>
+										</a>
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>		
+				</div>
+			</div>
+			<div id="blogArea">
+				<div id="blog">
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+		</div>
+	</div>
+ </body>
+</html>
+<!--
+	http://www.altools.co.kr/Main/Default.aspx
+	0)참고이미지를 기본으로 작업하기
+	1) 알툴즈 먼저 실행
+	2) 알툴즐 사이트보고 글씨부분은 가져다 쓰기
+	3) 링크부분 잘 확인하고, 참고 이미지 보면서 아이콘 부분 적용하기
+-->

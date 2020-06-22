@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> payment_form </title>
+  <style>
+	*{margin:0; padding:0;}
+	li{list-style:none;}
+
+	#payWrap{width:500px; height:800px; margin:20px 0 0 20px;}
+		#payWrap h2{width:100%; height:50px; line-height:50px;}
+		#payWrap form{width:100%; height:750px; background-color:#9CBC2C; border-radius:5px;}
+			#payWrap form fieldset{width:450px; margin:0 auto; border:none;}
+				#payWrap form fieldset legend{width:100%; height:50px; line-height:50px; font-weight:bold;}
+				#payWrap form fieldset ul{width:100%; font-size:14px;}
+					#payWrap form fieldset ul li{width:440px; height:20px; background-color:#B9D06A; border:2px solid #E3ECC3; border-radius:5px; margin-bottom:2px; padding:5px 0 5px 6px;}
+						#payWrap form fieldset ul li input{width:200px; float:right; margin-right:100px;}
+
+					/* 주소부분만 높이 바꾸기*/
+					#payWrap form fieldset.step2 li.address{height:100px;}
+						#payWrap form fieldset.step2 li.address input#address{height:90px;}
+					
+
+					/* 스텝3부분 */
+					#payWrap form fieldset.step3 li.cardSelect{height:50px;}
+						#payWrap form fieldset.step3 li.cardSelect em{font-style:normal;}
+						#payWrap form fieldset.step3 li.cardSelect span{float:left; margin-right:20px;}
+							#payWrap form fieldset.step3 li.cardSelect span label{vertical-align:top; margin:0 5px;}
+							#payWrap form fieldset.step3 li.cardSelect span input{width:13px; margin-right:0; margin-top:5px;}
+						
+
+			/* 버튼부분 */
+			#payWrap form p.btnArea{width:100%; margin-top:10px;text-align:center; }
+				#payWrap form p input#buyBtn{width:100px; height:30px; background-color:#384313; border-radius:20px; border:none; color:#fff; cursor:pointer;}
+						
+						
+  </style>
+ </head>
+ <body>
+	<div id="payWrap">
+		<h2>Payment form</h2>
+		<form action="#" method="post">
+			<fieldset class="step1">
+				<legend>STEP : Your details</legend>
+				<ul>
+					<li>
+						<label for="name">name:</label><input id="name" type="text" name="name" placeholder="First and last name" autofocus required/>
+					</li>
+					<li>
+						<label for="email">email:</label><input id="email" type="email" name="email" placeholder="example@domain.com" autocomplete="off" required/>
+					</li>
+					<li>
+						<label for="phone">phone:</label><input id="phone" type="tel" name="phone" placeholder="010-456-7890" pattern="\d{3}-\d{3,4}-\d{4}" autocomplete="off" required/>
+					</li>
+					<li>
+						<label for="subSelect">datalist:</label><input id="subSelect" type="text" name="subSelect" placeholder="아래 항목에서 선택하세요" list="sublist"/>
+						<datalist id="sublist">
+							<option value="선택1">선택1</option>
+							<option value="선택2">선택2</option>
+							<option value="선택3">선택3</option>
+						</datalist>
+					</li>
+				</ul>				
+			</fieldset>
+			<fieldset class="step2">
+				<legend>STEP : Delivery Address</legend>
+				<ul>
+					<li class="address">
+						<label for="address">address</label><input id="address" type="text" name="address" autocomplete="off" required/>
+					</li>
+					<li>
+						<label for="postcode">postcode:</label><input id="postcode" type="text" name="postcode" placeholder="숫자만 입력" autocomplete="off" required/>
+					</li>
+					<li>
+						<label for="country">country</label><input id="country" type="text" name="country" required/>
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset class="step3">
+				<legend>STEP : card details</legend>
+				<ul>
+					<li class="cardSelect">
+						<em>Stepcard type</em><br/>
+						<span><img src="img/visa.gif" alt="비자카드 아이콘"/><label for="visa">visa</label><input id="visa" type="checkbox" name="visa"/></span>
+						<span><img src="img/amex.gif" alt="아맥스카드 아이콘"/><label for="amex">amex</label><input id="amex" type="checkbox" name="amex"/></span>
+						<span><img src="img/mastercard.gif" alt="마스터카드 아이콘"/><label for="mastercard">marstercard</label><input id="mastercard" type="checkbox" name="mastercard"/></span>
+					</li>
+					<li>
+						<label for="cardnumber">cardnumber:</label><input id="cardnumber" type="text" name="cardnumber" placeholder="'-'을 넣고 입력" autocomplete="off" required/>
+					</li>
+					<li>
+						<label for="company">company</label><input id="company" type="text" name="company" value="apple" readonly/>
+					</li>
+					<li>
+						<label for="securityCode">security code</label><input id="securityCode" type="text" name="securityCode" placeholder="숫자만 입력" autocomplete="off" required/>
+					</li>
+					<li>
+						<label for="nameonCard">Name on card</label><input id="nameonCard" type="text" name="nameonCard" placeholder="Exact name as on the card"/>
+					</li>
+				</ul>
+			</fieldset>
+			<p class="btnArea"><input id="buyBtn" type="button" value="BUY IT!"/></p>
+		</form>
+	</div>
+ </body>
+</html>

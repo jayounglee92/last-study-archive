@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> inline </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		p{ width:400px; height:300px; background-color:lightblue; padding:20px 0; display:inline;}
+		span{ width:400px; height:300px; background-color:lightblue; padding:20px 0; display:block;}
+  </style>
+ </head>
+
+ <body>
+	<p>p태그는 블록요소중에서 가장 작은 단위 박스요소: 너비와 높이 설정이 가능함</p>
+	<span>아무특징이 없는 인라인요소: 너비와 높이값이 적용되지 않는다.</span>
+ </body>
+</html>
+
+<!--
+	주의!
+		+ 부모가 인라인 요소라면 자녀는 스타일 영역에서 display 속성을 block으로 사용하는 것을 금지한다.
+			ex)	<strong><span>아무특징이 없는 인라인요소</span></strong>
+					
+					+ 위와 같은 상황에서 span만 display:block으로 바뀐다면 strong 부모요소가
+					인라인이기 때문에 담아주질 못한다.
+
+					+ strong도 display:block, span도 display:block 이라면 부모요소가 block성질을
+					가지기 때문에 담아줄수 있다!
+			
+			+ 부모가 블록요소라면 자녀가 스타일 영역에서 display 속성을 block으로 사용해도
+			상관없다.
+				 ex) 가장 좋은 예
+					<p>
+						<span>인라인요소</span>
+					</p>
+
+					: 인라인요소를 사용할때는 부모요소가 블록으로 설정되는것이 
+					가장 안전함!
+-->

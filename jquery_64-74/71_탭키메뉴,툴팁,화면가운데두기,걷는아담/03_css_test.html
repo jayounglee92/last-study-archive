@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> css_test </title>
+  <style>
+	*{margin:0; padding:0;}
+
+	div{width:1280px; height:600px; background-color:#ccc; margin:0 auto 20px; overflow:hidden;}
+		h2{width:400px; height:200px; background-color:pink;}
+
+	.visualArea0 h2{margin:200px auto 0;}
+
+	.visualArea1{position:relative;}
+	.visualArea1 h2{position:absolute; left:440px; top:200px;}
+
+  </style>
+ </head>
+ <body>
+  <div class="visualArea0">
+	<h2>visual영역</h2>
+  </div>
+  <div class="visualArea1">
+	<h2>visual영역</h2>
+  </div>
+ </body>
+</html>
+<!--
+	01) 화면가운데로 배치하기
+		+ div태그만들기
+		+ 헤드라인태그 작업하기
+			visual영역 작성하기
+	02) 1번의 값 2개 만들기
+		+ div의 1280*600으로 배경색상 알아서 만들기
+		+ 헤드라인 태그도 visual영역 가운데 두기
+			+ 헤드라인 태그 400*200 배경색상은 알아서 만들기
+
+	03) 처음의 div태그의 헤드라인을 영역 가운데 둘 때 margin사용하기
+	04) 두번쩨 div태그의 헤드라인을 영역 가운데 둘 때 position사용하기
+	05) div태그는 화면 가운데 헤드라인 영역의 가운데 둘 수 있도록 완료 후
+	제출하기
+-->

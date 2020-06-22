@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> test </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		body{ background-image:url("img/bg_grid.gif"); }
+		h3{ line-height:50px;}
+		h2{ padding:15px 0;}
+		
+		.test0{ width:300px; height:300px; background-color:blue; color:#fff; text-align:center; margin:50px auto; background-image:url("img/main.jpg"); background-size:100%;}
+
+		.test1{ width:300px; height:200px; background-color:pink; font-size:24px; text-align:center; margin:50px auto;}
+
+		.test2{width:300px; height:200px; background-color:red; font-size:24px; text-align:center; margin:50px auto; line-height:200px; }
+
+		/*
+			text-align은 가로방향으로 글자를 가운데다가 둘때 사용
+			line-height는 세로 방향으로 글자를 가운데다가 둘때 사용
+			단!!) 글씨가 여러줄이면 화면 가운데다가 맞추기 어렵다.
+
+			글씨가 한줄로 표현될때 영역에 가운데다가 두기가 편하고
+			높이값은 도형의 높이값 만큼 설정하면 가운데다가 둘수 있다.
+		*/
+
+		.test3{width:220px; height:220px; background-color:#ff0; color:#00f; padding:40px; overflow:auto; margin:50px auto;}
+
+  </style>
+ </head>
+ <body>
+	<h3>문서의 종류 3가지 작성하기</h3>
+	<p>
+		transitional.dtd : 구형브라우저 + 표준브라우저의 호환성이 뛰어나다.<br/>
+		strict.dtd : 표준법에만 맞춤( 소문자에만 맞춤 ), 표준브라우저와 다름<br/>
+		frameset.dtd : 화면분할, 특수한 환경에서 사용
+	</p>
+	<h3>문자열에 관련한 장비를 가져다 쓸때 어떤 태그를 사용할까?</h3>
+	<p>
+		meta태그, ( 문서가 어떤 용도로 쓰이는지 확인 시켜줌 )
+	</p>
+
+	<h3>charset에 euckr로 입력되어있다면 인코딩은 무엇으로 할까?</h3>
+	<p>
+		ANSI
+	</p>
+
+	<h3>문서의 제목을 뜻하는 태그는?</h3>
+	<p>
+		title<br/>
+		headline태그는 영역의 제목을 표현할때 사용
+	</p>
+
+
+	<h3>현재페이지에 전체적으로 grid 나오도록 설정하기</h3>
+	<div class="test0">현재 div태그에 너비 300픽셀 높이 300픽셀 적용하기, 파란색 상자 만들기,글자색상은 하얀색적용하기, 글자 가운데 정렬하기, 바깥쪽 여백 위아래는 50픽셀 좌우는 자동으로 설정하기</div>
+
+	<h3>바로 위에 적용된 박스에 이미지 가져오기 ( 이쁜 이미지 찾아서 가져오기 ) , 100% 로 설정하기</h3>
+	<div class="test1">
+		현재 div태그에 너비 300픽셀 높이 200픽셀 적용하기, 배경색상은 알아서 적용, 화면 가운데 배치하기
+		글자 크기 24픽셀, 글자 가운데 정렬
+	</div>
+	<div class="test2">
+		divBox
+	</div>
+
+	<h2 style="text-decoration:underline;">현재 h2태그에 밑줄 긋기( 인라인 적용방식으로 )</h2>
+	<h3>표준 브라우저와 구형 브라우저의 종류를 각각 분류하여 작성하기</h3>
+	<p>
+		익스플로어 구형: 8버전을 포함한 이전 버전들...<br/>
+		표준브라우저: 크롬, 사파리( 애플기기에서 작업해야 정확함 ), 오페라, 파이어폭스, 
+		엣지익스플로어 (12버전), 익스플로어(11 ,10, 9 )
+	</p>
+
+	<h3>여백 초기화를 해주지 않으면 생기는 문제 작성하기</h3>
+	<p>
+		브라우저들이 가지고 있는 셋팅값을 따라가게 됨<br/>
+		익스플로어 구형 브라우저의 경우에는 여백이 2번 3번 이상
+		만들어져서 객체가 그 자리에 위치하지 못할 수 있음
+	</p>
+
+	<h3>html5가 웹표준으로 승인 받은 연도는?</h3>
+	<p>
+		2014년 10월 28일
+	</p>
+
+	<h3 class="test3">현재 h3태그에 너비 300픽셀 높이가 300픽셀 배경색상은 16진법으로 노란색 만들기, 글자는 파란색 적용, 안쪽 여백 40픽셀 적용, 만약! 글자가 안보이면 글자가 보일수있도록 설정하기, 전체크기가 변화되지 않도록 설정하고, 현재 박스 가운데 배치하기</h3>
+	
+
+
+	<h3>리스트의 종류 3가지 작성하기</h3>
+	<p>
+		ul( 순서가 없는 리스트 )<br/>
+		ol( 순서가 있는 리스트 )<br/>
+		dl( 사용자가 정의 리스트) : 제목이 반드시 있고 제목에 맞는 설명글이
+		작성되어야 하는 상세페이지 만들때 사용
+	</p>
+
+	<h3>dl리스트에 사용하는 태그중 필수로 사용하는 태그 2가지 작성하기</h3>
+	<p>
+		dt( 인라인요소 ), dd( 블록요소 )
+	</p>
+
+	<h3>dl리스트에서 인라인에 해당하는 태그는?</h3>
+	<p> dt( 사용자가 직접 정의 내린 제목 )</p>
+
+	<h3>background-image 설정시 화면에 나타나지 않았을때 문제점은?</h3>
+	<p>
+		1) 비어있는 태그인지 확인( 숫자1 담고 있거나 문자를 담고 있으면 해당하는 만큼 표현가능)<br/>
+		2) 너비와 높이가 있는지 확인<br/>
+		3) 기본적으로 깨져있는 이미지가 아닌지 확인
+	</p>
+	<h3>%, em, px중 가장 먼저 작성되어야 하는 단위와 이유는?</h3>
+	<p>
+		px을 가장 먼저 사용!<br/>
+		고정시킨 너비가 있어야 다양한 화면에서 화면이 깨지지 않고 작업이 가능
+	</p>
+
+	<h3>익스플로어 4버전에서 사용하능한 background 기능 나열하기</h3>
+	<p>
+		background-image<br/>
+		background-repeat<br/>
+		background-position<br/>
+		background-color
+	</p>
+
+
+	<h3>익스플로어는 몇버전 부터 표준 브라우저일까?</h3>
+	<p>9버전 부터 표준에 해당</p>
+	<h3>객체가 넘치면 숨겨주는 기능은?</h3>
+	<p> overflow:hidden </p>
+	<h3>객체가 넘치면 보여주는 기능은? 보여주는 기능을 사용하는 이유는?</h3>
+	<p> overflow:visible 사용하는 overflow:hidden, auto, scroll 해제 가능!</p>
+	<h3>참고사이트 만들어서 제출하기( ol li태그로 만들기 )</h3>
+	<p>
+		1) 03_ol_li_test.html로 저장하기<br/>
+		2) ol li태그로 만들기<br/>
+		3) 숫자가 바깥쪽에 표현되도 상관없으니 그냥 풀기
+		4) 화면에 보이는데 까지 만들어 보기
+	</p>
+
+ </body>
+</html>

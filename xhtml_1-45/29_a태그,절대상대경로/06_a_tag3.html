@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> a_tag2 </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		li{list-style-type:none;}
+			#content{color:#00a;}
+
+			/*
+				가장 기본적인 셋팅방법
+					a태그에 링크가 걸려있을때와 
+					사이트에 방문하고 왔을때에 대하여 같이 사용
+			*/
+			a:link,a:visited{text-decoration:none; color:orange;}
+	
+
+			/*
+				hover와 focus 처음에 셋팅하는 값이 아니라 
+				나중에 a태그가 준비가 되면 사용하는 기능
+
+					hover와 focus는 따로 다른 작업을 하는것이 
+					아니라 같은 작업이 이루어져야 한다.
+					+ 장애가 있는 분들이나 그렇지 않은 사람은
+					같은 기능을 같이 사용해야 한다.
+
+			*/
+
+			a:hover,a:focus{text-decoration:underline; color:#00f;}
+		
+
+	
+  </style>
+ </head>
+
+ <body>
+	<div id="content">
+		<h3>절대경로, 상대경로</h3>
+		<ul>
+			<li>
+				<a href="http://www.naver.com" title="네이버주소">네이버(절대경로)</a>
+			</li>
+			<li>
+				<a href="http://www.daum.net" title="다음주소">다음(절대경로)</a>
+			</li>
+			<li>
+				<a href="http://www.google.com" title="구글주소">구글(절대경로)</a>
+			</li>
+			<li>
+				<a href="sub1/01_food.html" title="food페이지">food.html(상대경로)</a>
+			</li>
+			<li>
+				<a href="sub1/sub2/subpage2.html" title="subpage2페이지">subpage2 링크걸기(상대경로)</a>
+			</li>
+		</ul>
+	</div>
+ </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>gradientTV</title>
+  <style>
+		*{margin:0; padding:0;}
+		#box{
+			width:670px; height:360px; background-color:#333;
+			border-radius:10px;
+			background-image:-webkit-linear-gradient(top, #222, #555);
+			background-image:-ms-linear-gradient(top, #222, #555);
+			box-shadow:10px 10px 7px rgba(0,0,0,0.25);
+			overflow:hidden;
+			/*
+				ver-1
+					box-shadow
+						+ x축 밀리는 정도
+						+ y축 밀리는 정도
+						+ 그림자의 흐림효과
+						+ 그림자 색상
+				
+				ver-2 : 멀티형태로 사용가능
+					box-shadow:10px 10px 7px rgba(0,0,0,0.25), x축	 y축 그림자흐림효과	그림자색상, .....
+					(콤마 찍고 계속 연결가능) 마지막에 세미콜론 작성
+
+				ver-3 : 그림자가 퍼지는 범위를 더크게 설정가능
+					x축	y축	그림자흐림효과	 그림자의 범위	그림자색상
+					: box-shadow:10px 10px 7px  10px  rgba(0,0,0,0.25)
+					: ver-3번의 경우에도 멀티형태로 사용가능!
+			*/
+		}
+
+		#screen{ width:640px; height:320px; background-color:#333; border-radius:10px; margin:20px auto;
+			background-image:-webkit-radial-gradient(top,#fff, #000);
+			background-image:-ms-radial-gradient(top,#fff, #000);
+			border-top:4px solid #000;
+			border-left:3px solid #000;
+			position:relative;
+		}
+
+		#screen p{width:80px; height:30px; background-color:#ccc; 
+		border-radius:5px; position:absolute; 
+		left:0; bottom:0; text-align:center; line-height:30px; 
+		background-image:-webkit-linear-gradient(top, #fff, #aaa);
+		background-image:-ms-linear-gradient(top, #fff, #aaa);
+		transition:all .5s ease-in .2s;
+		cursor:pointer;
+		}
+
+		#screen .image2{left:85px;}
+		#screen .image3{left:170px;}
+
+		/*
+			position:absolute는 겹쳐있는 부분 왼쪽 상단이 기본 좌표이기
+			때문에 움직일때 처음 겹쳐있는 좌표에서부터 계산한다.
+				두번째 버튼이 85 라면
+				세번째 버튼은 85*2
+				네번째 버튼은 85*3
+		
+			기능: image1 버튼에 마우스를 이미지로 변화되면서 화면에 나타나도록 만들기
+				: p태그가 스크린 크기만큼 변화되도록 만들기
+		*/
+
+		#screen p:hover{width:100%; height:100%; left:0; /*text-indent:-9999px;*/}
+		#screen p:hover span{display:none;}
+			
+			/* 중요! 처음에는 버튼 모양! 마우스올리면 각각의 이미지로 변환되면서 바뀌도록 만들기 
+				+ 글씨없애기! 
+					+ text-indent에 -9999px을 적용하면 0~ -9999px 이라는 변하는 과정이 있기 때문에
+					transition의 영향을 받아서 화면 바깥으로 글씨가 날라가는게 눈에 보임
+
+					+ transition에 영향을 받지 않는 display:none으로 사라지게 만들기!
+			*/
+			#screen .image1:hover{background-image:url("img/01.jpg");}
+			#screen .image2:hover{background-image:url("img/02.jpg");}
+			#screen .image3:hover{background-image:url("img/03.jpg");}
+			/*
+				translate VS position
+					
+					+translate는 기본적으로 처음 만들어질때 자유롭게 이동하기 위하여 만들어짐
+						transform에 해당하는 기능으로 좌표값이 기본적으로 이동하고 변화가 일어난다.
+							( 어느 위치로든 계속 움직임! )
+					
+					+position 어떤객체를 해당하는 위치에 배치하는 기술
+						어느위치에 배치하고 끝나는 기술 ( 선반에 객체를 올리면 그걸로 끝! )
+			
+			
+			*/
+
+  </style>
+ </head>
+ <body>
+	<div id="box">
+		<div id="screen">
+			<p class="image1"><span>image1</span></p>
+			<p class="image2"><span>image2</span></p>
+			<p class="image3"><span>image3</span></p>
+		</div>
+	</div>
+ </body>
+</html>

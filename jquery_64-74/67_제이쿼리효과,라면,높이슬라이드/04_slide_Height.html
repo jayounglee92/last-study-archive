@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> slide_Height </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	li{list-style:none;}
+
+	#wrap{width:1025px; margin:0 auto;}
+		ul{width:300px; height:600px; background-color:#333; margin:0 auto;}
+			ul li{width:100%; height:30px; background-color:pink; text-align:center; line-height:30px; box-shadow:0 3px 3px rgba(0,0,0,0.5); cursor:pointer; color:#fff; transition:all 1s;}
+			
+			.test1{background-color:#700;}
+			.test2{background-color:#520;}
+			.test3{background-color:#750;}
+			.test4{background-color:#730;}
+
+  </style>
+  <script>
+	$(document).ready(function(){
+	/*
+		li태그를 클릭하면 높이가 늘어나게 만들기
+			예) test1을 클릭하면 test1 늘어나도록 만들기
+				대상:li
+				이벤트:클릭
+				이벤트 핸들러: 선택한 li
+				(현재 클릭한 li태그가 늘어나도록 만들기, 글자 가운데정렬, 빛나게 만들기)
+	*/
+		$("li").click(function(){
+		
+			$(this).css({"height":"510px","fontSize":"24px","lineHeight":"510px","textShadow","0 0 10px #ff0"});
+			$("li").css({"height":"30px","fontSize":"16px","lineHeight":"30px","textShadow","0 0 0 #000"});
+			/*
+				문제점 : 원래상태로 돌아가지 않고, 변경된 모양으로 값이 계속 쌓이게 됨
+				중요! 처음에 만들어진 값으로 돌려놓는 순석 매우 중요함!
+			*/
+		});
+	});
+  </script>
+ </head>
+ <body>
+  <div id="wrap">
+	<ul>
+		<li class="test1"><span>test1</span></li>
+		<li class="test2"><span>test2</span></li>
+		<li class="test3"><span>test3</span></li>
+		<li class="test4"><span>test4</span></li>
+	</ul>
+  </div>
+ </body>
+</html>

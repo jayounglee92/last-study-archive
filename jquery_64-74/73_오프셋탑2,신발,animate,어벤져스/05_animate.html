@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> animate VS animation </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery.color.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	h1{border-left:10px solid blue; margin:20px; text-indent:10px;}
+	#box{width:150px; height:150px; background-color:#ada; text-align:center; line-height:150px; position:absolute; left:0; top:200px;}
+	#box2{width:100px; height:100px; background-color:#ada; text-align:center; line-height:150px; position:absolute; left:0; top:400px;}
+  </style>
+  <script>
+	$(function(){
+		/*
+			01) box의 너비가 300픽셀로 넓어지고, 왼쪽에서 100픽셀 움직이게 만들기, 단 1초 동안 움직이도록 만들기
+
+				대상:#box
+				이벤트: 이벤트클래스?X animation?X animate?O
+					+ 걷기 애니메이션의 경우 제이쿼리를 사용하여 컨트롤이 가능했기때문에 애니메이션이라기 보단 애니메이트에 속한다고 볼 수 있다.
+				+ animation:애니메이션제목 duration 반복횟수 alternate easing효과 delay;
+				+ jQuery의 기본 : 대상.이벤트.이벤트핸들러
+					+ $("대상").animate({"변경될 값":"적용 값"},duration(재생시간),easing,function(){});
+
+					대상:box
+					이벤트:animate(300픽셀만큼 넓어지면서, 왼쪽에서 100픽셀 움직이기)
+						1초동안 움직이고 기능은 알림창 띄우기
+					이벤트핸들러:알림창 띄우기
+		*/
+/*
+		$("#box").animate({"width":"300px","left":"100px"},1000,"linear",function(){
+			alert("애니메이트 성공!");
+		});
+*/
+		/*
+			박스와 같은 박스2만들기
+				박스2에 아래값 적용하기(애니메이트로 만들기)_1
+					+ 너비:200, 높이:200
+					+ 왼쪽에서 부터 500픽셀 이동
+					+ 투명도 50% 적용하기
+					+ 백경색상은 변경되도록 만들기
+					+ 2초동안일반적 속도로 움직이게 하기
+					+ function에는 에니메이트 이동! 알림창 띄우기
+		*/
+		$("#box2").animate({"width":"200px","height":"200px","left":"500px","backgroundColor":"aqua","opacity":"0.5"},2000,"linear",function(){
+			alert("박스2 에니메이트 이동!");
+		});
+		/*
+				박스2에 아래의 값 적용하기(애니메이션 만들기)_2
+					+ 너비100, 높이 :100
+					+ 왼쪽으로 0픽셀 이동하기
+					+ 투명도는 100%
+					+ 배경색상은 또 다른색상으로 변경되도록 만들기
+					+ 2초동안 일반적인 속도로 움직이게 만들기
+					+ function은 애니메이트 다시 이동! 알림창띄우기
+		*/
+
+		$("#box2").animate({"width":"100px","height":"100px","left":"0","opacity":"1","backgroundColor":"orange"},2000,"linear",function(){
+			alert("박스2 에니메이트 다시 이동!");
+		});
+
+
+		/*
+			응용문제
+				+ 새페이지 만들기
+					animate_box3으로 저장하기
+						
+						박스는 현재와 동일하게 만들기
+							+ 오른쪽으로 누르면 오른쪽으로 움직이기
+							+ 왼쪽 버튼을 누르면 왼쪽으로 움직이기
+		*/
+		
+	});
+  </script>
+ </head>
+ <body>
+	<h1>animate VS animation</h1>
+	<p>
+	  animation의 경우 재생버튼이나 멈춤버튼 등을 사용하여 작동되는 방식이 아니라 자동으로 재생되는 가능<br/>
+	  animate의 경우 직접 컨트롤 파트를 만들어서 제작이 가능한 애니메이션<br/>
+	  자동재생 물론, 컨트롤하여 사용이 가능한 기능(애니메이트)<br/>
+	 </p>
+	 <div id="box">
+		박스1
+	 </div>
+	 <div id="box2">
+		박스2
+	 </div>
+ </body>
+</html>

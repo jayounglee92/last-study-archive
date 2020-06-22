@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> media </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+  <style>
+		*{margin:0; padding:0;}
+		body{margin:0; padding:0; font-family:sans-serif;}
+		li{list-style:none;}
+		/*
+			작업순서: 공통범위 / 스마트폰 세로버전 / 스마트폰 가로버전 / 태블릿 PC버전
+		*/
+		#wrap{ max-width:1920px; width:100%; margin:0 auto;}
+		#headerWrap{ width:100%; background-color:#00e;}
+			#header{ width:100%; height:80px; background-color:#00e; color:#fff;  text-align:center; line-height:80px;}
+
+			#container{width:100%;}
+				/*
+					비쥬얼 영역의 너비는 줄어들고, 높이는 고정시켜 놓기
+						이때 이미지는 양쪽이 잘려도 이상하지 않은 자료 사용하기!
+				*/
+				#visual{ width:100%; height:600px; background-color:#000; overflow:hidden; position:relative;}
+					#visual img{ position:absolute; left:0; top:-80px;}
+
+			#section1{ width:100%; height:300px; background-color:#aaa; color:#fff; overflow:hidden; }
+				#section1 ul{ width:1280px; height:200px; margin:50px auto; 
+				text-align:center; line-height:200px;}
+					#section1 li{width:420px; height:200px; float:left; background-color:#abcdef; margin-left:10px;}
+					#section1 li:first-child{margin-left:0;}
+
+
+			#section2{ width:100%; height:300px; background-color:#777; overflow:hidden;}
+				#section2 ul{width:1600px; height:220px; margin:40px auto; text-align:center; line-height:220px;}
+					#section2 li{ width:310px; height:220px; float:left; background-color:#444; margin-left:12px; color:#aaa;}
+					#section2 li:first-child{margin-left:0;}
+
+			#section3{ width:100%; height:300px; background-color:#003; text-align:center; line-height:300px; color:#aaa;}
+
+
+			#footer{background-color:#333; text-align:center; width:100%; height:100px; line-height:100px; color:#fff;}
+
+			/*##########  버리는 영역 ##########*/
+			h2{position:absolute; left:-9999px; width:1px; height:1px; font-size:1px; line-height:0; overflow:hidden;}
+
+			/* 추가작업1 : section2번의 값이 브라우저를 줄일 때 화면바깥으로 숨겨지는 문제발생 */
+			@media all and (min-width:1281px) and (max-width:1615px){
+				#header{background-color:red;}
+					#visual{height:540px;}
+
+				#section1{ width:100%; height:300px; background-color:#aaa; color:#fff; overflow:hidden; }
+				#section1 ul{ width:1025px; height:180px; margin:50px auto; 
+				text-align:center; line-height:180px;}
+					#section1 li{width:335px; height:180px; float:left; background-color:#abcdef; margin-left:10px;}
+					#section1 li:first-child{margin-left:0;}
+
+				#section2{ width:100%; height:260px; background-color:#777; overflow:hidden;}
+				#section2 ul{width:1600px; height:180px; margin:40px auto; text-align:center; line-height:180px;}
+					#section2 li{ width:240px; height:180px; float:left; background-color:#444; margin-left:15px; color:#aaa;}
+					#section2 li:first-child{margin-left:0;}
+			}
+
+			/* 추가작업2 : section2번의 값이 브라우저를 줄일 때 화면바깥으로 숨겨지는 문제발생 */
+			@media all and (min-width:1025px) and (max-width:1280px){
+				#header{background-color:orange;}
+					#visual{height:540px;}
+
+				#section1{ width:100%; height:300px; background-color:#aaa; color:#fff; overflow:hidden; }
+				#section1 ul{ width:1025px; height:180px; margin:50px auto; 
+				text-align:center; line-height:180px;}
+					#section1 li{width:335px; height:180px; float:left; background-color:#abcdef; margin-left:15px;}
+					#section1 li:first-child{margin-left:0;}
+
+				#section2{ width:100%; height:260px; background-color:#777; overflow:hidden;}
+				#section2 ul{width:10250px; height:160px; margin:40px auto; text-align:center; line-height:180px;}
+					#section2 li{ width:200px; height:160px; float:left; background-color:#444; margin-left:5px; color:#aaa;}
+					#section2 li:first-child{margin-left:0;}
+			}
+			
+
+			/* 작업순서3: 태블릿PC 버전  == 스마트폰 가로버전 */
+			@media all and (min-width:768px) and (max-width:1024px){
+				#header{ width:768px; margin:0 auto; }
+				#visual{ width:100%; height:340px; margin:0 auto;}
+					#visual img{width:1024px; top:-20px;}
+
+				#section1{  height:310px; overflow:visible; padding-top:10px;}
+					#section1 ul{ width:481px; height:310px; margin:0 auto; line-height:140px; }
+						#section1 li{width:230px; height:140px;  margin-left:10px;}
+						#section1 li:first-child{margin-left:0;}
+						#section1 li:last-child{margin:10px 25%;}
+				
+				#section2{ width:100%; height:210px; background-color:#777; overflow:hidden;}
+				#section2 ul{width:481px; height:130px; margin:40px auto; line-height:140px; overflow:hidden;}
+					#section2 li{ width:30%; height:130px; float:left;  margin-left:4%; }
+					#section2 li:first-child{margin-left:0;}
+
+				#section3{width:767px; height:160px; line-height:160px; color:#aaa; margin:0 auto;}
+				#footer{width:100%; height:50px; line-height:50px;}
+			}	
+
+
+
+
+			
+			/* 작업순서2: 스마트폰 가로버전 */
+			@media all and (min-width:481px) and (max-width:767px){
+				#header{ width:481px; margin:0 auto;}
+				#visual{ width:100%; height:280px; margin:0 auto;}
+					#visual img{width:767px; top:-20px;}
+
+				#section1{  height:310px; overflow:visible; padding-top:10px;}
+					#section1 ul{ width:481px; height:310px; margin:0 auto; line-height:140px; }
+						#section1 li{width:230px; height:140px;  margin-left:10px;}
+						#section1 li:first-child{margin-left:0;}
+						#section1 li:last-child{margin:10px 25%;}
+				
+				#section2{ width:100%; height:210px; background-color:#777; overflow:hidden;}
+				#section2 ul{width:481px; height:130px; margin:40px auto; line-height:140px; overflow:hidden;}
+					#section2 li{ width:30%; height:130px; float:left;  margin-left:4%; }
+					#section2 li:first-child{margin-left:0;}
+
+				#section3{width:481px; height:160px; line-height:160px; color:#aaa; margin:0 auto;}
+				#footer{width:100%; height:50px; line-height:50px;}
+			}	
+
+
+
+			/* 작업순서1: 스마트폰 세로버전 */
+			@media all and (min-width:320px) and (max-width:480px){
+				#header{ width:300px; margin:0 auto; }
+				/*
+					header만 있으면 사용하는 px이 눈에 보이기 때문에 뒤에 headerWrap
+					이라는 공간을 만들어서 어색함을 없애줄수 있다.
+
+						+ 스크롤 너비가 20정도 차지하기 때문에 가운데로 오는게 안보일수 있음
+						최소 너비값에서 -20 해준 값 사용하기
+							320-20 == 300
+				*/
+				#visual{ width:100%; height:200px; margin:0 auto;}
+					#visual img{width:480px; top:-10px;}
+					/*
+						이미지를 최대 크기에 맞추는 이유는 최소 크기에 맞췄을때
+						양옆에 여백이 보일수 있는데 이미지는 색상으로 대체하기가
+						불가능하기 때문에 현재 해상도의 최대크기에 맞춘다.
+					*/
+
+				#section1{  height:440px; overflow:visible; padding-top:10px;}
+					#section1 ul{ width:300px; height:440px; margin:0 auto; 
+					 line-height:140px;}
+						#section1 li{width:260px; height:140px; float:none; margin:0 auto 5px;}
+						#section1 li:first-child{margin:0 auto 5px;}
+				
+				#section2{ width:100%; height:220px; background-color:#777; overflow:hidden;}
+				#section2 ul{width:300px; height:140px; margin:40px auto; line-height:140px; overflow:hidden;}
+					#section2 li{ width:48%; height:140px; float:left;  margin-left:3%; }
+					#section2 li:first-child{margin-left:0;}
+
+				/*
+					headerWrap 영역처럼 담아주는 공간이 있으면 
+					양쪽에 보이는 여백 처리가 가능함!
+						+ 버려지는 공간 
+						+ 실제로 사용하는 공간 만들기!
+				*/
+				#section3{width:320px; height:160px; line-height:160px; color:#aaa; margin:0 auto;}
+				#footer{width:100%; height:50px; line-height:50px;}
+			}	
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="headerWrap">
+			<div id="header">
+				header
+			</div>
+		</div>
+		<div id="container">
+			<div id="visual">
+				<img src="img/imgs.jpg" alt="배경이미지"/>
+			</div>
+			<div id="section1">
+				<h2>컨텐츠영역</h2>
+				<ul>
+					<li>content1</li>
+					<li>content2</li>
+					<li>content3</li>
+				</ul>
+			</div>
+			<div id="section2">
+				<h2>뉴스영역</h2>
+				<ul>
+					<li>news1</li>
+					<li>news2</li>
+					<li>news3</li>
+					<li>news4</li>
+					<li>news5</li>
+				</ul>
+			</div>
+			<div id="section3">
+				<h3>section3</h3>
+			</div>
+		</div>
+		<div id="footer">
+			footer
+		</div>
+	</div>
+ </body>
+</html>

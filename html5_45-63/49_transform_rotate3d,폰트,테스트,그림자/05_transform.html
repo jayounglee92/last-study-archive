@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> transform </title>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		h2{padding:20px; }
+		p{width:150px; height:150px; background-color:lightblue;}
+		.translate{ transform:translate(200px, 50px);}
+		/*
+			position:relative와 비슷한 기능
+				+ 자신이 있던 영역을 기점으로 움직임
+				+ 공중에 뜨기 때문에 상대와 겹칠수 있음
+				
+				position:relative와 translate의 다른점
+					+ translate는 position:absolute의 부모역할을 하지 않음
+					+ translate는 현재 선택된 객체를 움직일때 사용
+		*/
+
+		.scale{ background-color:gold; transform:scale(1, 0.5); }
+
+		/*
+			크기변화하기!
+				x축 50%  == 0.5
+				y축 100% == 1 (원본유지)
+				25% == 0.25	
+		*/
+
+		/*
+			회전하기!
+				45deg는 시계방향으로 회전
+				-45deg는 시계반대방향으로 회전
+		*/
+		.rotate{ transform:rotate(-45deg);}
+
+		.rotatex{ transform:rotatex(60deg); }
+		/* x축을 중심으로 객체가 뒤로 넘어가는 형태 (철봉) */
+
+
+		.rotatey{ transform:rotatey(60deg); }
+		/* y축을 중심으로 객체가 옆으로 돌아가는 형태 (회전문) */
+  </style>
+ </head>
+ <body>
+	<h2>transform : 객체 또는 오브젝트의 변형</h2>
+	<hr/>
+	<p class="translate">transform(이동) == transform:translate(x축, y축)</p>
+	<hr/>
+	<p class="scale">transform(크기변화) == transform:scale(x축, y축)</p>
+	<hr/>
+	<p class="rotate">transform(회전) == transform:rotate(45deg)</p>
+	<hr/>
+	<p class="rotatex">transform(x축 회전) == transform:rotatex(60deg)</p>
+	<hr/>
+	<p class="rotatey">transform(y축 회전) == transform:rotatey(60deg)</p>
+ </body>
+</html>

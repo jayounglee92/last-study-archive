@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> kakao_page</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		/*######## 초기화 ########*/
+			*{margin:0; padding:0;}
+			li{list-style-type:none;}
+			a:link, a:visited{text-decoration:none; color:#555;}
+				ul{width:1025px; height:350px; margin:50px  auto 0; }
+
+					/* 너비 320은 이미지크기랑 동일하게 맞춤! 
+						높이 350은 이미지 높이 + 글씨 공간 확보를 위해 100정도 크게 잡음
+					*/
+					ul li{ width:320px; height:350px;  float:left; margin-left:16px; 
+					border:1px solid #ccc;}
+
+					ul li:hover{ background-color:#eaeaea; border:1px dashed #f00; }
+					
+					/*
+						hover사용시 주의사항
+							기존 대상에서 변하는 값만 작성하면 됨!
+							변하지 않는 값은 제외!
+
+							+ 마우스를 올렸을때 공간이 뒤틀리거나 움직이는 현상이 생기면
+							반드시 수정해서 맞춰야 한다.
+							
+							+ 효과나 기능때문에 기본 공간에 영향을 받는다면
+							기본공간을 유지하면서 맞추도록 노력해야 함!
+					*/
+
+						ul li a{ display:block; width:100%;}
+							
+							/*
+								이미지 높이가 250이고 전체높이가 350이기 때문에
+								100 정도 여유공간 확보
+							
+							*/
+							ul li a span{
+								display:block;
+								width:100%;
+								height:60px;
+								text-align:center;
+								line-height:28px;
+
+								padding:10px 0 30px;
+							}
+
+							ul li a strong{ font-size:20px;}
+
+			/* 
+				ul li a:hover, ul li a:focus{border:1px solid red;} 
+					주의!
+						자녀요소인 a태그에 마우스를 올리거나 탭을 하면
+						border:1px이 추가가 되면서 부모요소의 li와 border
+						가 동시에 2개가 생기게 된다.
+
+						이는 구형브라우저인 익스플로러 7, 6, 5 버전에서
+						더블  마진 더블 패딩 처럼 더블 border 테두리를
+						만들게 된다!
+
+						중요!) 익스플로러 구형 브라우저일 경우 항상 
+							border와 여백이 생김!
+			*/
+
+  </style>
+ </head>
+ <body>
+	<ul>
+		<li>
+			<a href="#" title="카카오스토리광고의 특징">
+				<span>
+					상품 알아보기<br/>
+					<strong>카카오스토리광고의 특징</strong>
+				</span>
+				<img src="img/source0.png" alt="카카오스토리광고의 특징 이미지"/>
+			</a>
+		</li>
+		<li>
+			<a href="#" title="상품에 대한 자세한 정보">
+				<span>
+					상품소개서 <br/>
+					<strong>상품에 대한 자세한 정보</strong>
+				</span>
+				<img src="img/source1.png" alt="상품에 대한 자세한 정보 이미지"/>
+			</a>
+		</li>
+		<li>
+			<a href="#" title="성공적인 비즈니스 사례">
+				<span>
+					상품 알아보기<br/>
+					<strong>성공적인 비즈니스 사례</strong>
+				</span>
+				<img src="img/source2.png" alt="성공적인 비즈니스 사례 이미지"/>
+			</a>
+		</li>
+	</ul>
+ </body>
+</html>

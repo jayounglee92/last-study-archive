@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> email </title>
+  <script>
+		function resultEmail(){
+			/*
+				1) 이메일을 보여주는 공간
+				2) select 되서 이메일을 넘겨주는 공간
+					: 태그에서 가져와야 함
+					: id로 만들기!
+			*/
+			var email = document.getElementById("email");
+			var emailSelect = document.getElementById("emailSelect");
+
+			// console.log(emailSelect);
+			switch(emailSelect.value){
+				case "google.com" : 
+				case "naver.com" : 
+				case "daum.net" : location.hash="url"; email.value = emailSelect.value; break;
+				case "directs" : location.hash="email";   email.value="";  break;	
+			}
+
+			/*
+				브라우저에서 대상.focus를 사용할 경우 다시 셀렉트 영역을
+				클릭할때 깜박 이거나 제대로 작동하지 못하는 경우들이 생김
+					
+					이벤트 2개의 충돌!
+					마지막에 적용된 focus에 의해 클릭기능이 제대로 작동하지 못함
+
+					+ focus대신에 location.hash를 적용하여 처리
+					+ location.hash="커서가 가야할 대상"을 작성
+					+ location.hash="daum"	등등 기본값을 지정해주지 않으면 커서가 이동하는
+					대상의 값이 변경되지 않아 움직이지 않는다.
+			*/
+		
+		}
+  </script>
+ </head>
+ <body>
+	<form action="#" method="get">
+		<input id="userid" type="text" name="userid" placeholder="아이디 입력"/> @ 
+		<input id="email" type="text" name="email"/>
+		<select id="emailSelect" onclick="resultEmail();">
+			<option value="emailMenu" selected="selected"> 이메일 선택 </option>
+			<option value="google.com">google.com</option>
+			<option value="naver.com">naver.com</option>
+			<option value="daum.net">daum.net</option>
+			<option value="directs">직접입력</option>
+		</select>
+	</form>
+ </body>
+</html>

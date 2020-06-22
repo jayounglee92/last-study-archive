@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> linkBox </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+	/*############### 초기화 ###############*/
+	*{margin:0; padding:0;}
+	li{list-style:none;}
+	a:link, a:visited{text-decoration:none; color:#fff; display:block; height:40px; width:100%; text-align:center; line-height:40px; border-bottom:1px solid #fff;}
+	/*
+		a태그는 인라인 속성들 중에서 display:block을 가장 많이 사용하게 된다!
+		이유는 a태그가 가지는 크기만큼 링크를 걸수있기 때문
+			+ 제이쿼리에서 여백에 문제가 생겼을 경우
+			대상을  a를 잡고 display:block으로 해결하는 경우도 있음!
+	*/
+
+	a:hover, a:focus{text-decoration:underline; color:red; font-weight:bold;}
+	/*
+		마우스를 올리거나 탭키를 이용해서 효과를 줄때 글씨가 두꺼워지거나
+		처음에 설정된 크기보다 커지게 되면 나열된 옆에 객체들을 밀어서 옆으로
+		떨어질 수 있다.
+	*/
+
+	ul{width:960px; height:180px; margin:50px auto 0; } 
+		 ul li{
+				width:180px; height:180px; background-color:#00f; 
+				/*display:inline-block;*/
+				float:left;
+				margin-right:12px;
+			}
+			/* 원래 크기 192픽셀 
+				180픽셀 사용하고 나머지 12 픽셀 정도는 margin 간격처리!
+			*/
+
+
+			/*
+				display:inline( 블록속성을 인라인속성으로 바꿀때 사용 )
+					+ 너비와 높이 설정을 할 수 없음!
+				
+				display:block ( 인라인 속성을 블록속성으로 바꿀때 사용 )
+					+ 너비와 높이값을 사용할 수 있음( 여백을 가지게 됨! )
+
+				display:inline-block ( 인라인 속성과 블록속성을 동시에 가지게 됨 )
+					+ 인라인의 옆으로 나열되는 특징과 블록속성의 너비와 
+					높이를 같이 쓸수 있게 됨!
+
+					+ 장점
+						블록요소를 쉽게 나열할 수 있음( 하위객체가 따라올라 오는 문제나
+						 부모요소가 표현되지 않는 문제를 생각하지 않아도 됨)
+
+					+ 단점
+						구조상 5픽셀의 간격이 생김( 구형브라우저의 경우 더블마진, 더블패딩 현상이 생길수 있음)
+							+ 구형브라우저 + 구형디바이스에서 문제가 발생함
+			*/
+
+		ul li:hover{ background-color:rgba(0,0,255,0.5); }
+		/*
+			대상:hover는 a태그에서만 가능한게 아니라 다른 대상에도 가능함!
+			단! :focus는 a태그에서만 가능함!
+		
+			+ 색상표현하기
+				+ 16진법
+					01) # 호출하기
+					02) 0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f
+						f에 가까울수록 완전한 밝은색상( 흰색으로 )
+						0에 가까울수록 어두워짐 ( 검정색으로 )
+		
+				+ rgb
+					r(빨간색)
+					g(초록색)
+					b(파란색)
+						0~255까지 사용가능
+						16진법 보다 더 세밀한 작업이 가능함
+						0에 가까울수록 어두워짐
+						255에 가까울수록 밝아짐
+
+				+ rgba
+					+ 사용방법은 rgb와 같음
+						+ alpha값(투명도)
+						100% == 1
+						50% == 0.5
+						25% == 0.25
+						17% == 0.17
+						
+						1%, 2%, 3% , 0~100% 까지 표현이 가능함
+		*/
+
+
+  </style>
+ </head>
+ <body>
+	<ul>
+		<li>
+			<a href="http://www.naver.com" title="네이버 주소">네이버</a>
+		</li>
+		<li>
+			<a href="http://www.daum.net" title="다음 주소">다음</a>
+		</li>
+		<li>
+			<a href="http://www.samsung.com" title="삼성 주소">삼성</a>
+		</li>
+		<li>
+			<a href="http://www.apple.com" title="애플 주소">애플</a>
+		</li>
+		<li>
+			<a href="http://www.google.com" title="구글 주소">구글</a>
+		</li>
+	</ul>
+ </body>
+</html>

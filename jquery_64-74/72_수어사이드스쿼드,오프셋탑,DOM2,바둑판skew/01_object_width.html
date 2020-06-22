@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> object_width </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	body{background-color:#555;}
+	h2{text-align:center; line-height:100px; color:#08a;}
+	/* 이미지 405*600 */
+	ul{width:1620px; height:600px; outline:1px solid darkblue; margin:0 auto; position:relative;}
+	li{list-style-type:none; width:405px; height:600px; position:absolute; left:0; top:0; transition:all 1s;}
+	.boomClass{animation:boom 1s;}
+
+	@keyframes boom{
+		100%{opacity:0; transform:scale(1.1);}
+	};
+
+  </style>
+  <script>
+	jQuery(document).ready(function(){
+		$("li").mouseover(function(){
+			$(this).prev().css({"left":$(this).offset().left+254+"px"});
+		});
+		
+		$("li:first").css({"backgroundImage":"url('img/m0.jpg')"});
+		$("li:first").mouseover(function(){
+			$(this).children().addClass("boomClass");
+		});
+
+	});
+  </script>
+ </head>
+ <body>
+  <div>
+	<h2>object:width</h2>
+	<ul>
+		<li><img src="img/m0.jpg" alt="이미지1"/></li>
+		<li><img src="img/m1.jpg" alt="이미지2"/></li>
+		<li><img src="img/m2.jpg" alt="이미지3"/></li>
+		<li><img src="img/m3.jpg" alt="이미지4"/></li>
+	</ul>
+  </div>
+ </body>
+</html>

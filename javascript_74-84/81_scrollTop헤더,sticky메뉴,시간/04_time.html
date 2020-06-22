@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> time </title>
+  <script>
+	document.write("<h2>시간설정</h2>");
+	/* newArray(): 새로운배열 */
+	/* new연산자를 쓸 수 있는 값은 Math(수학함수)*/
+
+	var today = new Date();
+	
+	var year = today.getFullYear();
+	document.write("연도: "+year+"<br/>");
+
+	var month = today.getMonth(); // 0월부터 시작
+	month = month+1;
+	document.write("월: "+month+"<br/>");
+
+	var date = today.getDate(); 
+	document.write("일: "+date+"<br/>");
+
+	var hours= today.getHours();
+	document.write("시: "+hours+"<br/>");
+
+	var minutes= today.getMinutes();
+	document.write("분: "+minutes+"<br/>");
+
+	var seconds=today.getSeconds();
+	document.write("시: "+seconds+"<br/>");
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> sticky </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	#wrap{width:1280px; margin:20px auto 0; text-align:center;}
+		header{width:100%; height:50px; line-height:50px; background-color:#ccc;}
+		#container h2{width:100%;}
+
+			#s1{width:100%; height:500px; background-color:#abcdef;}
+			#s2{width:100%; height:600px; background-color:#9b5ded; background-image:url("img/c01.jpg"); background-size:100% 100%; position:relative;}
+				.circle{width:200px; height:200px; border-radius:100px; background-color:red; position:absolute; left:0; top:0; /*animation:circleMove 1s 3;*/}
+			
+			.subNav{width:1280px; height:50px; background-color:yellowgreen; color:#fff; text-align:center; line-height:50px;}
+			
+			#s3{width:100%; height:900px; background-color:gold;}
+			#s4{width:100%; height:600px; background-color:pink;}
+
+			/*####################   이벤트클래스   #################*/ 
+			.fixed{position:fixed; top:0; width:1280px; background-color:rgba(200,0,100,0.5);}
+
+			/*#################### 원움직이는 애니메이션 이벤트클래스################*/
+			.circleMove{animation:circleMove 2s 3;}
+			@keyframes circleMove{
+				0%{left:0;}
+				50%{left:500px; top:200px;}
+				70%{left:0; top:100px;}
+				100%{left:0;}
+			}
+
+			/*#################### 원움직이는 애니메이션 이벤트클래스################*/
+
+  </style>
+
+  <script>
+	$(function(){
+		// 변수지정방법: var header, $header, header
+		header = $("header");
+
+		// header의 높이값
+		// wrap의 margin-top의 값 + header의 높이값
+		/*
+		wrapMarginT = $("#wrap").css("marginTop");
+		console.log(wrapMarginT);
+
+		해결: 단위를 제거하고, 정수표현으로 바꾸기
+
+		*/
+		wrapMarginT = parseInt($("#wrap").css("marginTop"));
+		// 20px인지 20인지 확인 == 20px이네! px없애려고 위에 parseInt해줌 그러면 20으로 확인!
+		//console.log(wrapMarginT);
+
+		headerH = $("header").height();
+		
+		// 50px인지 50인지 확인 == 50이네! parseInt할 필요가 없음
+		//console.log(headerH);
+
+		// 헤더의 총 높이값 더하기: wrapMarginT + headerH
+		headH = wrapMarginT + headerH;
+		// 20+50 =  70으로 확인!
+		//console.log(headH);
+
+		
+		section1H = $("#s1").height();
+		//console.log(section1H); 500확인
+		circle = $(".circle");
+		
+		/*####################  스크롤의 위치값  ####################*/
+		$(window).scroll(function(){
+			/*
+				+ headH의 높이값보다 스크롤의 위치가 크거나 같으면 header영역에 이벤트클래스 적용하기
+			*/
+			// scroll의 위치 알아내기
+			// 스크롤을 아래로 내리면 하나씩 내릴때마다 100씩 계산됨
+			var nowScroll = $(document).scrollTop();
+			//console.log(nowScroll);
+
+			if(nowScroll >= headH){
+				header.addClass("fixed");
+			}else{
+				header.removeClass("fixed");
+			}
+
+			/* section2번에 이벤트 클래스 애니메이션 만들어서 작동하도록 만들기 */
+			// 1) header의 높이값 + section1 높이값을 더하면 section2의 위치값이 나옴
+			// 2) nowscroll의 위치가 header의 총 높이값 + section1의 높이값보다 크거나 같으면 작동하게
+
+			toSection2 = headH + section1H;
+			//console.log(toSection2); 570확인
+			if(nowScroll >= toSection2){
+				circle.addClass("circleMove");
+			}else{
+				circle.removeClass("circleMove");
+			}
+		});
+	});
+  </script>
+
+ </head>
+ <body>
+  <div id="wrap">
+	<header>
+		<nav>네비게이션</nav>
+	</header>
+	<div id="container">
+		<section id="s1">
+			<h2>SECTION1</h2>
+		</section>
+		<section id="s2">
+			<h2>SECTION2</h2>
+			<p class="circle"></p>
+		</section>
+		<div class="subNav">
+			subNav
+		</div>
+		<section id="s3">
+			<h2>SECTION4</h2>
+		</section>
+		<section id="s4">
+			<h2>SECTION4</h2>
+		</section>
+	</div>
+  </div>
+ </body>
+</html>

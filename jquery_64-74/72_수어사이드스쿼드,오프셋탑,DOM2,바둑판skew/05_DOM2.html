@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> DOM </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+	$(function(){
+		/*################## DOM1 #################*/
+		/* odd, even, li, gt 살려보기*/
+		$("#DOM1 li:odd").css({"backgroundColor":"green"});
+		$("#DOM1 li:even").css({"height":"30px"});
+		$("#DOM1 li:lt(2)").css({"border":"2px solid red"});
+		$("#DOM1 li:gt(3)").css({"backgroundColor":"#ff0"});
+
+		/*################## DOM2 #################*/
+		// DOM2에서 li요소 중 2의 배수인 것 찾아서 배경 오렌지색 적용하기
+		/*
+			공간의 세어주는 개념은 0,1,2,3,... (0부터 시작)
+			갯수를 세어주는 개념은 1,2,3,4,... (1부터 시작)
+		*/
+		$("#DOM2 li:nth-child(2n)").css({"backgroundColor":"orange"});
+		
+		//btn을 클릭하면 APPLE을 포함하는 값에 배경색상 아쿠아 적용, 글자색상 빨간색, 글자 굵게 만들기
+		$(".btn").click(function(){
+			$("#DOM2 li:contains(APPLE)").css({"backgroundColor":"aqua","color":"red","fontWeight":"bold"});
+		});
+
+		//DOM2에서 span태그가 있을 경우 fadeTo기능 적용하기
+		$("#DOM2 li:has(span)").fadeTo(500,"0.3")
+
+		//DOM2에서 filterTest만 골라서 slideup 시키기
+		$("#DOM2 li").filter(".filterTest").slideUp(2000);
+
+		//DOM2에서 하위요소중에 a값을 찾아서 효과적용
+		$("#DOM2").find("a").css({"textDecoration":"overline","fontSize":"30px"});
+		//childeren과 같은가?
+
+		//btn을 클릭하면 h1에 효과주기
+		$(".btn").click(function(){
+			$("h1").text("그린");
+		});
+	});
+  </script>
+ </head>
+ <body>
+  <h1>DOMControl:공간생성시 선택자(0,1,2,3...), 탐색선택자</h1>
+  <p>
+	DOM : Document Object Model : 문서 존재하는 모든 객체들(태그, id, class, 공란)
+  </p>
+  <h2>공간 선택자: 필수로 사용하는 선택자</h2>
+  <ul id="DOM1">
+	<li>0) 공간의 번호는 0부터 시작</li>
+	<li>1) 홀수인 것 선택: li:odd</li>
+	<li>2) 짝수인 것 선택: li:even</li>
+	<li>3) 첫번째인 것 선택: li:first AND li:eq(0)</li>
+	<li>4) 마지막인 것 선택: li:last</li>
+	<li>5) 3번째 이전요소: li:lt(2)</li>
+	<li>6) 2번째 이후요소: li:gt(1)</li>
+  </ul>
+
+  <h2>탐색 선택자: 권장 사용하는 선택자</h2>
+  <button class="btn">테스트 버튼</button>
+  <ul id="DOM2">
+	<li>7) DOM2에서 li요소 중 2의 배수</li>
+	<li>8) DOM2에서 li요소 중 ["APPLE"]값이 포함된 값 선택</li>
+	<li>
+		<span>9) DOM2에서 li요소 중 [span]</span>
+	</li>
+	<li class="filterTest">
+		10) DOM2에서 li요소 중 filterTest걸러내기
+	</li>
+	<li>
+		<a href="#" title="">
+			11) DOM2에서 li요소 중 [span]이 포함된 값 선택
+		</a>
+	</li>
+  </ul>
+ </body>
+</html>

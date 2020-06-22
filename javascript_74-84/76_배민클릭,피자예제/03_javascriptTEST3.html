@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> javascriptTEST3 </title>
+  <style>
+	*{margin:0; padding:0;}
+	div{width:200px; height:200px; margin:0 auto; cursor:pointer;}
+	img{margin:0 auto;}
+  </style>
+  <script>
+
+	// 01) 클릭전 알람띄우기
+	alert("안녕하세요.\n음식배달입니다.\n로고를 클릭하세요.");
+	
+	// 02) 로고를 클릭하면 이름 입력창 띄우기 : 함수 만들기
+	function logoClick(){
+		// 03) 이름 입력받기(입력창), 님을 위한 맞춤상품입니다.(알림창), 알림창띄우기
+		var name=prompt("고객님 이름을 입력해주세요.");
+		alert(name+"님을 위한 맞춤 상품입니다.");
+		
+		// 04)로고 이미지, 음식이미지로 교체하기
+		var food=document.getElementById("logo");
+		console.log(food);
+		food.src="img/2.gif";
+
+		//document.getElementById("logo").src="img/2.gif"
+
+	}
+  </script>
+ </head>
+ <body>
+	<div>
+		<img id="logo" src="img/logo.jpg" alt="배민브라더스 로고" onclick="logoClick();"/>
+	</div>
+ </body>
+</html>
+<!--
+	11) 알림창 띄우기
+		1) 안녕하세요.
+		음식배달입니다.
+		로고를 클릭하세요.
+
+		2) 로고클릭
+		3) 로고를 클릭하면 입력창띄우기
+		4) 알림창으로 000님을 위한 맞춤 상품입니다.
+		5) 로고가 맞춤음식으로 변환
+-->

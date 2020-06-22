@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> email </title>
+  <script>
+		function resultEmail(){
+			/*
+				1) 이메일을 보여주는 공간
+				2) select 되서 이메일을 넘겨주는 공간
+					: 태그에서 가져와야 함
+					: id로 만들기!
+
+				3) 이메일을 선택하면 지워지지 않게 만들기 
+			*/
+			var email = document.getElementById("email");
+			var emailSelect = document.getElementById("emailSelect");
+
+			switch(emailSelect.value){
+				case "google.com" : 
+				case "naver.com" : 
+				case "daum.net" :email.value = emailSelect.value; email.readOnly=true;   break;
+				case "directs" : email.focus(); email.value="";  break;	
+			}
+
+		}
+  </script>
+ </head>
+ <body>
+	<form action="#" method="get">
+		<input id="userid" type="text" name="userid" placeholder="아이디 입력"/> @ 
+		<input id="email" type="text" name="email"/>
+		<select id="emailSelect" onchange="resultEmail();">
+			<option value="emailMenu" selected="selected"> 이메일 선택 </option>
+			<option value="google.com">google.com</option>
+			<option value="naver.com">naver.com</option>
+			<option value="daum.net">daum.net</option>
+			<option value="directs">직접입력</option>
+		</select>
+	</form>
+ </body>
+</html>
+<!--
+	onchange는 해당하는 값이 실시간으로 변동될때 사용
+		카드 선택? 언어 선택? 이메일 선택등 자주 바뀌는 메뉴에서 사용!
+-->

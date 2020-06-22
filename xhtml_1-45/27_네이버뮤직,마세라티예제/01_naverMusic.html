@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> new document </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type='text/css'>
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		body{background-color:#eee;}
+			#wrap{width:1025px; margin:0 auto;}
+		
+		/*############### header ################*/
+			#header{width:100%; }
+				#header h2{padding:10px 0; text-indent:20px;}
+					#header h2 span.gray{color:#bababa; font-weight:400; padding:0 10px;}
+					#header h2 span.blue{color:#0c68d7;}
+
+				#header #nav{border-top:2px solid #333; border-bottom:1px solid #bababa; height:30px;}
+					#header #nav li{width:120px; height:30px; float:left; text-align:center; line-height:30px; border-right:1px solid #bababa;}
+					#header #nav li.blue{background-color:#0c68d7; color:#eee;}
+
+		/*############### content ################*/
+			#content{width:100%; }
+				#content h4{padding:20px 0; text-indent:20px;}
+					#content h4 span.blue{color:#0c68d7;}
+					
+				#content ul{width:100%; overflow:hidden; }
+					#content ul li{width:205px; float:left; }
+					#content ul li p.img{background-color:gold; text-align:center;}
+					#content ul li p.text{padding-left:17px; width:188px; background-color:red;}
+		/*
+			전체너비가 1025 
+			content 부분의 li 태그 5개 
+			1025 / 5 == 205 : li 태그의 크기는 205픽셀
+			
+			이미지크기는 너비가 170
+			205-170 = 35 (  text-align: center로 맞추고 보니 양쪽에 얼마가 남았는지 알수가 없어서
+			공간에서 이미지 크기를 뺀 결과)
+			35/2 == 17.5 
+				소수점 보다는 17이나 18 픽셀 사용하기 
+				그래서 text 부분이 padding-left:17로 설정!
+		*/
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="header">
+			<h2>
+				국내음악<span class="gray">|</span><span class="blue">댄스</span>
+			</h2>
+			<ul id="nav">
+				<li class="blue">댄스 홈</li>
+				<li>최신앨범</li>
+				<li>최신 곡</li>
+				<li>TOP</li>
+				<li>인기아티스트</li>
+			</ul>
+		</div>
+		<div id="content">
+			<h4><span class="blue">최신</span>앨범</h4>
+			<ul>
+				<li>
+					<p class="img">
+						<img src="img/ms0.jpg" alt="앨범이미지0"/>
+					</p>
+					<p class="text">
+						<strong>YESTERDAY</strong><br/>
+						블락비(Block B)<br/>
+						<span>2017.02.06</span>
+					</p>
+				</li>
+				<li>
+					<p class="img">
+						<img src="img/ms1.jpg" alt="앨범이미지1"/>
+					</p>
+					<p class="text">
+						<strong>SF9 First Mini Album 'Burning Sensation'</strong><br/>
+						에스에프나인(SF)<br/>
+						<span>2017.02.06</span>
+					</p>
+				</li>
+				<li>
+					<p class="img">
+						<img src="img/ms2.jpg" alt="앨범이미지2"/>
+					</p>
+					<p class="text">
+						<strong>복면가왕 97회</strong><br/>
+						Various Artists<br/>
+						<span>2017.02.05</span>
+					</p>
+				</li>
+				<li>
+					<p class="img">
+						<img src="img/ms3.jpg" alt="앨범이미지3"/>
+					</p>
+					<p class="text">
+						<strong>Tina (티나)</strong><br/>
+						마스크(MASC)<br/>
+						<span>2017.02.04</span>
+					</p>
+				</li>
+				<li>
+					<p class="img">
+						<img src="img/ms4.jpg" alt="앨범이미지4"/>
+					</p>
+					<p class="text">
+						<strong>Black mind</strong><br/>
+						크로스진(Cross Gene)<br/>
+						<span>2017.02.03</span>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+ </body>
+</html>

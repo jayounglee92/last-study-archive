@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> border-radius </title>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		h2{text-align:center; padding:20px 0; text-transform:uppercase;}
+		ul{ width:900px; margin:0 auto; }
+			ul li{width:200px; height:200px; background-color:green; float:left; margin-left:20px; margin-bottom:20px;}
+			
+			.test1{border-radius:30px;}
+			/*
+				gradient 적용이 안되었을때..
+					벤더프리픽스 적용
+						브라우저의 엔진명
+							: 벤더프리픽스를 사용하는 이유는
+							다양한 브라우저에서 같은 기능으로 보여주기 위해 사용
+							+ 각각의 브라우저마다 다르게 적용되면 안됨
+
+						-wekbit-border-radius
+						-ms-border-radius
+						-moz-border-radius
+						-o-border-radius
+			*/
+
+			.test2{border-radius:20px 40px 60px 80px;}
+			.test3{border-radius:100px;}
+			.test4{height:100px; border-radius:100px 100px 0 0; }
+			.test5{border-radius:200px 0 0 0;}
+
+			.test6{
+				border-top-left-radius:50px;
+				border-bottom-right-radius:50px;
+			}
+			/*
+				border-radius 작업시
+					: border-radius: 50px 0 50px 0
+					크로스된 지점이 반복되었을때는 축약해서 사용이 가능함
+					: border-radius:50px 0;
+					
+					+ 문제점
+						크로스 축약형 표현은 인식률이 떨어져서 적용되지 않는 경우가 생김
+					
+					+ 해결
+						border-radius: 50px 0 50px 0 : 축약형으로 사용하지 않고 전부 다 작성하기
+			*/
+
+			.test7{border-radius:100px; color:#fff; text-align:center; line-height:200px;}
+			.test8{border:5px solid gold; background-color:#000; color:#fff; text-align:center; line-height:200px;
+				border-radius:100px; width:190px; height:190px; text-transform:uppercase;}
+
+			
+
+		ul:after{content:""; display:block; clear:both;}
+
+  </style>
+ </head>
+ <body>
+	<h2>border-radius</h2>
+	<ul>
+		<li class="test1">1</li>
+		<li class="test2">2</li>
+		<li class="test3">3</li>
+		<li class="test4">4</li>
+		<li class="test5">5</li>
+		<li class="test6">6</li>
+		<li class="test7">7</li>
+		<li class="test8">border-radius</li>
+	</ul>
+ </body>
+</html>

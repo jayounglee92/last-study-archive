@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> jQuery_select </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+	$(document).ready(function(){
+		/*
+			01) class가 title인 값을 찾아서 왼쪽선 5픽셀,파란색 실선 적용
+			class가 title, css, class가 title
+		*/
+		$(".title").css("borderLeft","5px solid blue");
+		/*
+			02) class가 title인 값을 찾아서 아래쪽 1픽셀, 파란색 실선 적용
+			class가 title, css, class가 title
+		*/
+		$(".title").css("borderBottom","1px solid blue");
+		/*
+			03) class가 title인 값을 찾아서 글자 들여쓰기 10픽셀
+			class가 title, css, class가 title
+		*/
+		$(".title").css("textIndent","10px");
+		/*
+			class가 title인 값을 찾아서 글자 색상 빨간색 변경
+			class가 title, css, class가 title
+		*/
+		$(".title").css("color","red");
+		/*
+			dd를 선택하고, 배경색상 lightblue적용
+			dd, css, dd
+		*/
+		$("dd").css("backgroundColor","lightblue");
+		/*
+			dd의 글자 가운데 정렬
+			dd, css, dd
+		*/
+		$("dd").css("textAlign","center");
+		/*
+			dd의 글자 높이 간격 35픽셀 적용
+			dd, css, dd
+		*/
+		$("dd").css("lineHeight","35px");
+		/*
+			dd의 아래쪽선 2픽셀 실선 어두운 파란색 적용
+			dd, css, dd
+		*/
+		$("dd").css("borderBottom","2px solid darkblue");
+		/*
+			ol태그를 선택하고, 배경색상 아쿠아색상 적용
+			ol, css, ol
+		*/
+		$("ol").css("backgroundColor","aqua");
+		/*
+			ol태그를 선택하고, 글자크기 12픽셀 적용
+			ol, css, ol
+		*/
+		$("ol").css("fontSize","12px");
+		/*
+			11) ulParent의 자녀요소(딸)선택하여 글자색상 파란색 적용하기
+			대상: ulParnet의 자녀요소(딸)
+			이벤트: css
+			이벤트핸들러: ulParent의 자녀요소(딸)
+		*/
+		jQuery(".ulParent li").css("color","blue");
+		jQuery(".ulParent>li").css("color","brown");
+		/*
+			ul li태그로 선택하면 아들 요소뿐만 아니라 손자요소까지도 전부 선택된다.
+				ul>li아들까지만 선택가능
+					대상>대상, 처음오는 대상까지만 선택할 때 사용
+				중요! 단독으로 효과를 적용하면 적용되지가 않음(ul > li)
+
+					올바른 표현방법
+					01) jQuery(".ulParent li").css("color","blue"); ==전체적으로 기능적용!
+					02) jQuery(".ulParent>li").css("color","brown"); ==해당하는 아들요소까지만 다시 적용!
+		*/
+		/*
+			12) 자녀요소 테스트중이니다.
+				::부모요소를 기준으로 theSon을 호출하여 배경색상 노란색 적용하기
+					증요: 대상은 기준을 되있는 값을 찾는다.
+						기준이 없으면 어떠한 작업도 이루어지지 않는다.
+				대상: 부모요소
+				이벤트: css
+				이벤트핸들러: 부모요소의 자녀인 theSon
+		*/
+		jQuery(".ulParent").children(".theSon").css("backgroundColor","#ff0");
+		/*
+			13) theSon을 기준으로 부모요소를 선택하여 border 2픽셀 실선 레드색상 적용
+				대상: theSon
+				이벤트:css
+				이벤트핸들러: theSon의 부모요소
+
+				+ 형제 요소들은 많기때문에 정확하게 이름을 작성하지만
+				부모요소는 하나이기때문에 정확하게 일믕르 지정하지 않아도 적용이 가능하다.
+				+ 할머니 할아버지가 기준이 되면 부모요소들이 자녀요소가 되기때문에 부모요소에 일므을 지정하는 것이 좋다.
+		*/
+		jQuery(".theSon").parent().css("border","2px solid red");
+
+		/*
+			14) basicWrap을 기준으로 h2를 선택하고, 글자크기 25픽셀 적용
+			대상: basicWrap
+			이벤트: css
+			이벤트핸들러: h2
+
+			+ 부모자녀로 고정되어 있는 값이라면 children이란 값을 적용해도 상관없지만
+			자주바뀌거나 변형이 가능한 것들은 속해있는 형태도 잡아도 상관없음
+			ex) ul li부모자녀가 정확하기때문에 ul에 li 중에 theSon 자녀가 정확할 때는 children사용
+		*/
+		//jQuery("#basicWrap h2").css("fontSize","25px");
+		/*jQuery("#basicWrap").children("h2").css("fontSize","25px");*/
+
+		/*
+			15) basicWrap을 기준으로 h2를 선택하고, 배경색상 핑크색상 적용
+			대상: basicWrap
+			이벤트: css
+			이벤트핸들러: h2
+		*/
+		jQuery("#basicWrap h2").css("backgroundColor","pink").css("fontSize","25px");//method chain 대상은 같고 기능이 다를 때 :: 대상.기능1.기능2....
+
+		/*
+		 16) div에 속해있는 ul에 접근하여 배경색상 ccc, 글자 밑줄 만들기
+			+ 메서드 체인 연결하기
+			대상: div
+			이벤트:css배경색상, css글자 밑줄만들기
+			이벤트 핸들러: ul
+		*/
+		jQuery("div ul").css("backgroundColor","#ccc").css("textDecoration","underline");
+
+		/*
+			17) no2을 기준으로 다음요소를 선택하여 글자크기 24픽셀, 글자색상 darkred적용하기
+			다음(next)
+			대상: no2
+			이벤트: css글자크기, 글자색상
+			이벤트핸들러: no2의 다음요소,셋째
+		*/
+		jQuery(".no2").next().css("fontSize","24px").css("color","darkRed");
+
+		/*
+			18) no5를 기준으로 이전요소를 선택하여 글자 가운데정렬, 글자 굵게 만들기, 글자색상 파란색 적용하기
+			이전(prev)
+			대상: no5
+			이벤트: css 글자정렬, 굵기, 색상
+			이벤트핸들러: no5의 이전요소
+		*/
+		jQuery(".no5").prev().css("textAlign","center").css("fontWeight","bold").css("color","blue");
+
+		/*
+			19) 형제4를 기준으로 형제요소들 선택
+				+ 부모요소: parent()
+				+ 자녀요소: children()
+				+ 다음요소: next()
+				+ 이전요소: prev()
+
+			+ lis의 형제요소들에 오른쪽정렬 테두리적용, 글자색상그린 적용
+
+			대상: lis
+			이벤트: css 글자정렬, 테두리, 글자색상
+			이벤트핸들러: lis의 형제요소들
+		*/
+		jQuery(".lis").siblings().css("textAlign","right").css("border","2px solid red").css("color","green");
+	});
+  </script>
+ </head>
+ <body>
+	<dl>
+		<dt class="title">jQuery 기본(요소) 선택자</dt>
+		<dd>
+			01) class가 title인 값을 찾아서 왼쪽선 5픽셀,파란색 실선 적용<br/>
+			02) class가 title인 값을 찾아서 아래쪽 1픽셀, 파란색 실선 적용<br/>
+			03) class가 title인 값을 찾아서 글자 들여쓰기 10픽셀
+		</dd>
+		<dt class="title">아래 테스트 문제 풀기</dt>
+		<dd>
+			<ol>
+				<li>class가 title인 값을 찾아서 글자 색상 빨간색 변경</li>
+				<li>dd를 선택하고, 배경색상 lightblue적용</li>
+				<li>dd의 글자 가운데 정렬</li>
+				<li>dd의 글자 높이 간격 35픽셀 적용</li>
+				<li>dd의 아래쪽선 2픽셀 시런 어두운 파란색 적용</li>
+				<li>ol태그를 선택하고, 배경색상 아쿠아색상 적용</li>
+				<li>ol태그를 선택하고, 글자크기 12픽셀 적용</li>
+			</ol>
+		</dd>
+	</dl>
+	<hr/>
+	<hr/>
+	<div id="basicWrap">
+		<h2>부모 자녀요소 선택자</h2>
+		<ul class="ulParent">
+			<li>
+				11) ulParent의 자녀요소중 li요소
+				<ul>
+					<li>NO_0</li>
+					<li>NO_1</li>
+					<li>NO_2</li>
+					<li>NO_3</li>
+					<li>NO_4</li>
+				</ul>
+			</li>
+			<li class="theSon">12) 자녀요소 테스트 중입니다.</li>
+			<li>13)선택한 요소들을 기준으로 자녀요소들 선택</li>
+			<li>14)선택한 요소들을 기준으로 부모요소 선택</li>
+			<li>15)태그명의 하위요소중 h3요소 선택</li>
+		</ul>
+		
+		<h3><em>★</em> 15) 형 동생 선택자</h3>
+		<ul>
+			<li>첫째</li>
+			<li class="no2">17) 현재 선택요소를 기준으로 형제요소 중 다음요소 선택</li>
+			<li>셋째</li>
+			<li>넷째</li>
+			<li class="no5">18) 현재 선택요소를 기준으로 형제요소 중 이전요소 선택</li>
+		</ul>
+
+		<h3>자신을 제외하고 형제들 선택</h3>
+		<ul>
+			<li>형제1</li>
+			<li>형제2</li>
+			<li>형제3</li>
+			<li class="lis">형제4 : 선택한 요소들 기준으로 형제들 선택</li>
+			<li>형제5</li>
+		</ul>
+	</div>
+ </body>
+</html>

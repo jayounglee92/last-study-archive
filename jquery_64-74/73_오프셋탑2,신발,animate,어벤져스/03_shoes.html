@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> shoes </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	#container{ width:600px; margin:0 auto; position:relative; }
+		#container img{ width:100%; outline:1px solid #aaa; box-shadow:5px 5px 5px rgba(0,0,0,0.5);}
+		#container dd{ width:250px; height:150px; position:absolute; right:0; bottom:0; font-size:12px; padding:10px; line-height:1.8em}
+			dd strong{ display:block; width:260px; text-align:center; font-size:14px; cursor:pointer;}
+			dd strong:hover{color:#a00;}
+			/* 
+				인라인태그들은 간혹 이벤트가 제대로 적용되지 않음
+					+ 글자 하나하나가 객체가 되기때문에 제대로 된 클릭을 받지 못함
+					+ 해결: 속성을 block나 inline-block속성으로 바꿔주기
+			*/
+			.shoes{width:200px; height:225px; position:absolute; left:0; top:0;}
+			
+  </style>
+  <script>
+	$(function(){
+		/*
+			설명글과 작은신발은 화면에서 숨기기
+			단! 처음부터 작은신발 이미지가 화면에서 숨겨지면 위치 이동을 확인할 수 없음
+		*/
+		$(".desc").hide();
+		$(".shoes").hide();
+		/*
+			1) strong에 마우스 올리면 부드럽게 아래로 떨어지도록 만들기
+				:css(transition) or jQuery(slideDown)
+				:jQuery의 slideDown값 사용하기
+
+			2) 작은 신발의 위치가 strong옆으로 오도록 만들기
+		*/
+		$("dd strong").mouseover(function(){
+			$(".desc").stop().slideDown(300);
+			$(".shoes").fadeIn(500).css({"left":$(this).offset().left+$(this).width()+20+"px","top":$(this).offset().top-50+"px"});
+		}).mouseout(function(){
+			$(".desc").stop().slideUp(300);
+			$(".shoes").fadeOut(500);
+		});
+		/*
+			offset을 제대로 사용하려면 대상의 객체가 0,0의 위치에서부터
+			시작해야 제대로된 좌표를 사용할 수 있다.
+			+ 시작하는 위치가 중요!
+			주의! 담고 있는 부모가 margin0 auto의 값으로 이미 이미지여백을 만들어놨다면 auto에 대한 너비를 자녀가 가지고 계산되기때문에 생각한 거리 값보다 훨씬 멀어질 수 있음
+		*/
+	
+	});
+  </script>
+ </head>
+ <body>
+  <div id="container">
+	<dl>
+		<dt><img src="img/shoesMain.jpg" alt="신발이미지"/></dt>
+		<dd>
+			<strong>민첩성과 통기성 그리고 안정성까지</strong>
+			<span class="desc">
+				FKFQ40 [판지오] 아라크네 니트 슈즈는 100% 니트소재 및 파이론 중창으로 제작되었습니다. 아라크네 니트 슈즈를 통해 가벼운 민첩성, 시원한 통기성, 발과 무릎의 안정성 그리고 스포츠와 캐주얼에서의 뛰어난 패션성까지 느낄 수 있습니다.
+			</span>
+		</dd>
+	</dl>
+  </div>
+  <p class="shoes"><img src="img/shoes.png" alt="신발이미지"/></p>
+ </body>
+</html>

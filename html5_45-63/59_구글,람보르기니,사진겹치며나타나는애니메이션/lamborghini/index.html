@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> lambor </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- 사용자가 확대축소를 하지 못하게 함 -->
+  <style>
+	*{margin:0; padding:0;}
+	body{margin:0; padding:0; background-color:#000;}
+	/*
+		body영역에서 여백값을 빼주면 디바이스 기기들에서 여백값이 빠진다.
+		하지만 여백값이 빠지지 않았을 경우
+			+ 시멘틱 내그잡아서 여백값빼기
+			+ 블록요소들 잡아서 여백값빼기
+	*/
+	a:link, a:visited{text-decoration:none; color:#777; font-weight:bold; font-size:18px;}
+	a:hover, a:focus{color:#fff;}
+
+
+	#wrap{max-width:1920px; width:100%; margin:0 auto;}
+
+		#header{width:90%; height:80px; margin:0 auto; position:relative;}
+			h1{width:10%; height:70px; text-align:center; position:absolute; right:0; top:5px;}
+
+			#mainInfo{width:100%; height:40px;}
+				#mainInfo div{display:inline-block;}
+					#mainInfo .home{font-size:12px; color:#fff;}
+					#mainInfo select{background-color:#000; color:#777; border:1px solid #333;}
+						#searchText{background-color:#000; border:1px solid #333; font-size:12px; color:#fff; text-align:center;}
+						#searchImg{vertical-align:middle;}
+
+			#gnb{width:100%; height:40px; }
+				#gnb li{display:inline;}
+					#gnb li a{padding:0 1%;}
+					#gnb li:first-child a{padding-left:0;}
+
+		#visual{width:100%;}
+			#visual p{width:100%;}
+				#visual p img{width:100%; animation:myani 3s 1; position:relative; }
+
+		#footerNav{width:90%; margin:0 auto;}
+			#footerNav li{display:inline;}
+				#footerNav li a{padding:0 1%;}
+
+		#footerCopy{width:90%; margin:0 auto; color:#777; font-size:13px; text-indent:1%;}
+
+		@media all and (min-width:1025px){
+			#header{background-color:pink;}
+			@keyframes myani{
+				0%{top:-1000px;}
+				99%{top:100px;}
+				100%{top:0;}
+			}
+		}
+
+		@media all and (min-width:768px) and (max-width:1024px){
+			#header{background-color:green;}
+			@keyframes myani{
+				0%{left:200px;}
+				99%{left:1000px;}
+				100%{left:0;}
+			}
+		}
+
+		@media all and (min-width:481px) and (max-width:767px){
+			#header{width:100%;}
+			h1{right:5%;}
+			#visual p{border-top:1px solid #ccc;  border-bottom:1px solid #ccc;}
+			#gnb li a{padding:0 1%; font-size:0.7em;}
+			#footerNav li a{font-size:0.7em;}
+		}
+
+		@media all and (min-width:320px) and (max-width:480px){
+			#header{height:130px;}
+			h1{width:20%; height:70px; left:10%;}
+				h1 img{width:45px; margin-top:10px;}
+
+			#mainInfo{height:70px;}
+				#mainInfo div{display:block; width:60%; padding-left:40%;}
+					#mainInfo .home{font-size:12px; color:#fff;}
+
+			#gnb{height:40px; padding:5px 0;}
+				#gnb li a{font-size:14px;}
+
+			#visual p{border-top:1px solid #ccc;  border-bottom:1px solid #ccc;}
+			#footerNav li a{font-size:14px;}
+
+		}
+  </style>
+ </head>
+ <body>
+	<div id="wrapper">
+		<div id="header">
+			<h1>
+				<a href="#none" title="로고">
+					<img src="img/logo2.png" alt="로고"/>
+				</a>
+			</h1>
+			<div id="mainInfo">
+				<div class="home">
+					<a href="#none" title="home">
+						<span>HOME</span>
+					</a>
+				</div>
+				<div class="select">
+					<select id="lang" name="select" title="언어선택">
+						<option value="language">language</option>
+						<option value="ITALIAN">ITALIAN</option>
+						<option value="ENGLISH">ENGLISH</option>
+						<option value="KOREAN">KOREAN</option>
+						<option value="JAPANESE">JAPANESE</option>
+						<option value="CHINESE">CHINESE</option>
+					</select>
+				</div>
+				<div id="search">
+					<form action="#none" method="post">
+						<input id="searchText" type="text" name="query" placeholder="SEARCH" title="검색"/>
+						<input id="searchImg" type="image" name="searchImg" src="img/magnifier.png" alt="돋보기이미지" title="돋보기이미지"/>
+						<!-- 체크항목을 name으로 넘겨주려고 -->
+					</form>
+				</div>
+			</div>
+			<div id="gnb">
+				<ul>
+					<li><a href="#none" title="MODELS">MODELS</a></li>
+					<li><a href="#none" title="HERITAGE">HERITAGE</a></li>
+					<li><a href="#none" title="DEALERS &amp; SERVICE">DEALERS &amp; SERVICE</a></li>
+					<li><a href="#none" title="SQUADRA CORSE">SQUADRA CORSE</a></li>
+					<li><a href="#none" title="STORE">STORE</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="visual">
+			<p><img src="img/asterion_ov3_1920x1080.jpg" alt="메인 이미지"/></p>
+		</div>
+		<div id="footerNav">
+			<ul>
+				<li><a href="#none" title="COMPANY">COMPANY</a></li>
+				<li><a href="#none" title="MEDIA">MEDIA</a></li>
+				<li><a href="#none" title="CONTACT US">CONTACT US</a></li>
+				<li><a href="#none" title="CAREERS">CAREERS</a></li>
+				<li><a href="#none" title="MUSEUM">MUSEUM</a></li>
+				<li><a href="#none" title="PRIVACY &amp; LEGAL">PRIVACY &amp; LEGAL</a></li>
+				<li><a href="#none" title="SITEMAP">SITEMAP</a></li>
+			</ul>
+		</div>
+		<div id="footerCopy">
+			copyright &copy; 2018 Automobili Lamborghini S.p.A. a sole shareholder company part of Audi Group. All rights reserved. VAT no. IT 00591801204
+		</div>
+	</div>
+ </body>
+</html>

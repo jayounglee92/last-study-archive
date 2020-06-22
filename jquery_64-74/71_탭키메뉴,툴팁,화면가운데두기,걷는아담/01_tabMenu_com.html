@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<title>tabMenu</title>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		body{color:#000; font-size:0.9em; font-family:sans-serif; line-height:1.2em;}
+		a:link, a:visited{color:#000; text-decoration:none;}
+		a:hover, a:focus{color:#f00; text-decoration:underline; outline:none;}
+	
+			#tabBasic{ width:800px; margin:0 auto; }
+				.tabs{ width:765px; border:1px solid #ccc; }
+					.tabs li{width:100%; height:100%; position:relative; overflow:hidden;
+					/*
+						현재 li태그들은 부모가 하나만 존재함
+							+ 부모에서 float을 끊어도 제대로 속성이 끊어지지 않을 수 있음
+						좋은 방법
+							+ 각각의 부모가 존재하면 끊어줄 때 문제가 없음
+						현재 부분에서 해결
+							+ 부모를 다시 설계한 것이 아니라 각각의 li태그들 마다 overflow:hidden으로 영역을 정확하게 지정!
+								+ 부모가 할일을 자신들이 스스로 해결
+									+ %단위를 사용하면 생길 수 있는 문제일 수 있음
+									+ px단위를 사용하면 고정값이 되기때문에 해결이 가능함
+									+ 위의 방법으로 안되면 overflow:hidden으로 영역값 만들기
+					*/
+					}
+
+					.tabs li.linkTab{ width:255px; height:150px; background-color:gold; float:left; text-align:center; }
+						.tabs li.linkTab a{display:block; width:100%; height:100%; position:relative; color:#333;}
+							.tabs li.linkTab img{ width:100%;}
+							.tabs li.linkTab span, .tabs li.linkTab strong{ position:absolute; left:0; top:73px; display:block; width:100%; font-size:0.8em;}
+							.tabs li.linkTab strong{ top:100px;}
+
+					.panel{ width:100%; height:405px; overflow:hidden; 
+					border-top:10px solid #ccc;}
+						.panel .left, .panel .right{ width:40%; padding:5%; float:left;}
+
+					.button a{display:block; background-color:#777; width:200px; text-align:center; line-height:24px; margin:10px; color:#fff; border-radius:5px; box-shadow:5px 5px 5px rgba(0,0,0,0.2); }
+
+					/*####### 이벤트 클래스 #######*/
+					.selected{ color:#0ca; }
+	</style>
+	<script>
+		$(function(){
+			/*
+				+ linkTab클릭하면 a태그에 연결된 주소의 값만 보이게 만들기
+					+ href에 연결된 값 보여주기(속성접근:attr)
+
+					+ 대상:
+						주의할 점:
+							$(".linkTab").children("a").click(function(){});
+
+							대상에 children과 click값이 연결되어 있는 상황
+							이 때는 대상이 2개가 된 것인지 이벤트가 2개가된 것인지 ㅇ복잡한 상황이라 제대로 된 값이 적용되지 않을 수 있음
+								+ 대상은 가볍게 하나로 잡고 이벤트발생!
+									$(".linkTab a")와 같은 형식으로 잡으면 대상이 가벼워지고 이벤트가 작동되기 원활함
+
+				+ 제일 먼저 할일
+					: .panel중에서 첫번째 내용만 남기고 나머지는 숨기게 만들기
+
+				+ 두번째 할일
+					.linkTab a에서 클릭을 하기전에 첫번째 내용만 남기고 숨기기
+						span, strong숨기기
+
+				+ 세번째 할일(이벤트발생 후)
+					클릭을 받으면 해당하는 linkTab의 span과 strong만 남기고 나머지는 숨겨지게 만들기
+
+					연결되어있는 해당하는 내용들 나오게 만들고 나머지는 숨기기
+					
+			*/
+
+			$(".panel").hide();
+			$(".panel:eq(0)").show();
+			$(".tabs li a").children("span, strong").hide();
+			$(".linkTab a:eq(0)").children("span, strong").show();
+
+			$(".tabs li a").on("click focusin",function(){
+				/*
+					대상이 a까지 접근하고 있기 때문에
+						탭키로 접근할 때 focus로 접근해도 안에 있는 내용을 보여줄 수 있다.
+						원래 연결되어있는 내용을 보여줄 때는 focusin으로 접근
+						a태그에서는 기본적으로 안에 내용을 보여줄 수 있기 때문에 focus로 해결가능
+
+						주의!
+							대상이 a태그가 아닌경우에는 focusin으로 접근해야 안에있는 내용들을 확인할 수 있음!
+				*/
+				/* 
+					현재 클릭한 tab의 span,strong보여주기
+					현재 클릭한 값만 보이게 만들고, 다른 요소들의 span과 strong은 숨기기
+					주의!! 순서확인하기(사라지는 값들 먼저 만들고, 보여지는 값들 만들기)
+				*/
+				$(".tabs li a").children("span, strong").hide();
+				$(this).children("span, strong").show();
+
+				/*
+					+ 현재 대상에 연결되어 있는 주소의 값 보여지게 만들기
+					+ 현재 값을 제외한 나머지 내용들은 사라지도록 만들기
+					
+						+ 순서주의!
+				*/
+				$(".panel").hide();
+				$($(this).attr("href")).show();
+				// 대상에서 문제 발생:
+				// 현재 값의 href에 접근해서 보여주세요이기 때문에 대상이 가볍게 표현되어야함 
+
+				/*
+					문제 해결하기:
+					tab이 마지막 값에서 벗어나면 처음에 값들을 나타나도록 만들기
+						
+						+ 대상 .tabs li:eq(2)
+								.tabs li:last사용하기
+								tabs의 li가 몇 개가 늘어나고 몇개가 줄어들지 모르기때문에 eq로 접근하면 방번호를 세어줄 때 문제가 발생할 수 있음
+								특히 마지막 값의 경우에는 eq(2)보다 많아지면 eq(2)는 처음의 값이나 중간의 값이 되어버릴 수 있기 때문에 주의해서 사용해야한다.
+						+ 이벤트 : blur
+						+ 이벤트핸들러: 탭의 첫번째, panel의 첫번째 대상들이 나올 수 있도록 만들기
+				*/
+			});
+
+			$(".tabs li:last a").blur(function(){
+				$(".panel:eq(0)").show();
+				$(".linkTab a:eq(0)").children("span, strong").show();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="tabBasic">
+		<h3>TAB TEST</h3>
+		<ul class="tabs">
+			<li class="linkTab">
+				<a class="tablink" href="#tab0" title="tab1">
+					<img src="img/img_tlj.gif" alt="뚜레쥬르"/>
+					<span>재료부터 다른 건강한 베이커리</span>
+					<strong>뚜레쥬르</strong>
+				</a>
+			</li>
+			<li class="linkTab">
+				<a class="tablink" href="#tab1" title="tab2">
+					<img src="img/img_vips.gif" alt="빕스"/>
+					<span>My No.1 스테이크 하우스</span>
+					<strong>빕스</strong>
+				</a>
+			</li>
+			<li class="linkTab">
+				<a class="tablink" href="#tab2" title="tab3">
+					<img src="img/img_bibigo.gif" alt="비비고"/>
+					<span>Healthy &amp; Fresh Korean Kitchen</span>
+					<strong>비비고</strong>
+				</a>
+			</li>
+			<li>
+				<div class="panel" id="tab0">
+					<div class="left">
+						<h4>재료부터 다른 건강한 베이커리</h4>
+						<p>뚜레쥬르는 빵마다 고유의 맛을 살려주는 맞춤 밀가루, 빵에 1% 들어 가는 소금까지도 신안 천일염을 사용하는 재료부터 다른 건강한 베이커리입니다.</p>
+						<p>프랑스어로 ’매일매일(Everyday)’이라는 뜻을 가진 뚜레쥬르는 매장에서 직접 구운 신선한 빵을 제공하는 국내 최초의 오븐 베이커리로, 꾸미지 않은 재료 그대로의 풍미를 담아 맛있고, 좋은 재료로 건강하며, 어머니의 정성을 담아 신선하고 정직한 빵과 케이크를 만듭니다.</p>
+						<p class="button"><a href="#" title="뚜레쥬르 바로가기">뚜레쥬르 홈페이지 바로가기</a></p>
+					</div>
+					<p class="right">
+						<img src="img/img_brand01.jpg" alt="뚜레쥬르 이미지"/>
+					</p>
+				</div>
+			</li>
+			<li>
+				<div class="panel" id="tab1">
+					<div class="left">
+						<h4>My No.1 스테이크하우스</h4>
+						<p>해외에 로열티를 지불하지 않는 국내 토종 브랜드 빕스는 고급 스테이크 하우스에서 맛볼 수 있던 정통 프리미엄 스테이크와 계절별로 다양하고 신선하게 준비된 샐러드 바를 제공하여 다양한 연령대에서 사랑 받고 있는 브랜드입니다.</p>
+						<p>빕스(VIPS)는 브랜드 이름(Very Important Person’s Society)처럼 ‘고객 한 분 한 분을 귀한 손님으로 소중하게 모시겠다’ 는 마음가짐으로 최상의 서비스와 최고의 맛을 제공하기 위해 노력하고 있습니다.</p>
+						<p class="button"><a href="#" title="빕스 바로가기">빕스 홈페이지 바로가기</a></p>
+					</div>
+					<p class="right">
+						<img src="img/img_brand02.gif" alt="빕스 이미지"/>
+					</p>
+				</div>
+			</li>
+			<li>
+				<div class="panel" id="tab2">
+					<div class="left">
+						<h4>Healthy &amp; Fresh Korean Kitchen</h4>
+						<p>건강하고 신선한 한식을 재해석하다. 비비고는 정갈한 정통한식의 현대적인 해석을 통해, 건강하고 신선한 한 끼 식사를 선사하는 글로벌 대표 한식 브랜드 입니다.</p>
+						<p>비비고라는 이름은, 한식의 철학 ‘비빔’과 편리함을 상징하는 ‘투 고(to-go)’의 합성어로 영양소가 고루 담긴 정갈하고 편리한 식사로 현대인의 바쁜 하루에 활기를 더하는 상차림을 뜻합니다. 현재 비비고는 한국·미국·영국·중국·싱가포르 등 전세계 7개국 21개점에서 한국의 맛과 멋을 널리 알리고 있습니다.</p>
+						<p class="button"><a href="#" title="비비고 바로가기">비비고 홈페이지 바로가기</a></p>
+					</div>
+					<p class="right">
+						<img src="img/img_brand03.gif" alt="비비고 이미지"/>
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

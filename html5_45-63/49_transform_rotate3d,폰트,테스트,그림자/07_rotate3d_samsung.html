@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> rotate3d </title>
+  <style>
+		*{margin:0; padding:0;}
+		p{width:400px; height:200px; background-color:lightblue; color:#fff; text-transform:uppercase; text-align:center; line-height:200px; margin:100px auto 0; font-size:18px;
+			
+				text-shadow:2px 2px 4px rgba(0,0,0,0.3);
+			
+				transform:rotate3d(0,1,1,140deg);
+				transition:all 1s;
+			}
+			/*
+				box-shadow는 box형태의 객체에 적용
+				text-shadow는 글자에 적용
+					+ x축 밀리는 정도
+					+ y축 밀리는 정도
+					+ 퍼지는 정도 (blur)
+					+ 그림자색상
+			*/
+		p:after{content:"card";}
+		p:hover{transform:rotate3d(0,0,0,0);}
+  </style>
+ </head>
+ <body>
+	<p>samsung</p>
+ </body>	
+</html>

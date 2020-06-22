@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> frontend </title>
+  <style>
+	*{margin:0; padding:0;}
+
+	ul{width:800px; height:400px; background-color:#ccc; margin:100px auto 0; overflow:hidden; overflow:hidden; position:relative;}
+		li{list-style:none; width:100px; height:50px; /*float:left;*/text-align:center; line-height:50px; font-size:30px; position:absolute; left:0; top:0;}
+		/* position기능을 사용하면 float성질이 무시됨 */
+
+		.f{left:0; animation:aniText 1s 1;}
+		.r{left:100px; animation:aniText 1.5s 1;}
+		.o{left:200px; animation:aniText 2s 1;}
+		.n1{left:300px; animation:aniText 2.5s 1;}
+		.t{left:400px; animation:aniText 3s 1;}
+		.e{left:500px; animation:aniText 3.5s 1;}
+		.n2{left:600px; animation:aniText 4s 1;}
+		.d{left:700px; animation:aniText 4.5s 1;}
+		
+		/* 기본위치는 0에 있음 */
+		@keyframes aniText{
+			0%{top:-50px;}
+			70%{top:50px; text-transform:uppercase;}
+			100%{top:0;}
+		}
+  </style>
+ </head>
+ <body>
+	<ul>
+		<li class="f"><span>f</span></li>
+		<li class="r"><span>r</span></li>
+		<li class="o"><span>o</span></li>
+		<li class="n1"><span>n</span></li>
+		<li class="t"><span>t</span></li>
+		<li class="e"><span>e</span></li>
+		<li class="n2"><span>n</span></li>
+		<li class="d"><span>d</span></li>
+
+	</ul>
+  
+ </body>
+</html>

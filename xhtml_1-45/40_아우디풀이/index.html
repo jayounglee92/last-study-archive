@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> audi </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <!--[if IE 9]>
+		<link rel="stylesheet" type="text/css" href="css/ie9.css"/>
+  <![endif]-->
+  <!--
+	css (external 적용방식)
+	rel은 문서의 종류작성 / type 해당하는 문서의 타입 / href 주소연결하기
+  -->
+  <style type="text/css">
+		
+		#wrap{width:1025px; margin:0 auto;}
+		
+		/*################# header + gnb ###################*/
+		#header{width:960px; height:100px; margin:0 auto; position:relative;}
+			h1{width:260px; height:70px; position:absolute; right:0; top:0;}
+
+			/* line-height 70을 주면 화면 가운데 글씨들이 오지만 위치가 로고랑 맞지 않기 
+			때문에 line-height 90 적용! */
+			#gnb{width:700px; height:70px; line-height:90px;}
+				#gnb li{display:inline;  font-size:13px;}
+					#gnb li a{padding:3px 10px 3px 20px;}
+		
+		/*################# header + nav ###################*/
+			/* 
+				nav영역에 너비와 높이를 주었는데도 하위객체가 따라 올라온 이유는
+				wrap 영역이 크게 잡혀있어서 비어있는 공간만큼 하위객체가 
+				올라온것임!
+			*/
+			#nav{ background-color:#eee; width:960px; height:30px; overflow:hidden;}
+				#nav div{float:left;}
+				#snb{width:800px; height:30px; line-height:30px;}
+					#snb li{display:inline; font-size:13px;}
+						#snb li a{padding:0 20px;}
+
+				#searchArea{ width:160px; height:30px; }
+					#searchArea fieldset{border:none;}
+					#searchArea legend{display:none;}
+						/*
+							전체높이 30 - border 2픽셀 + 높이 24픽셀 = 4픽셀
+						
+							1) 돋보기중에 클릭과 탭키가 닿으려면 img와 a태그 필수 사용
+							2) 돋보기중에 클릭이 되지 않고 화면에만 보여줄때 사용하는 방법
+						
+						*/
+						#searchArea input{ border:1px solid #aaa; width:158px; height:24px; margin:2px 0;
+							background-image:url("img/btn_search.jpg");
+							background-repeat:no-repeat;
+							background-position:right;
+						}
+		
+		/*################# visual ###################
+			이미지 사이즈의 경우 background-size로 작업했을때 크로스브라우징이
+			전혀 되지 않기 때문에 원본이미지를 화면에 맞춰서 제작해서 사용해야함!
+				+ 크로스브라우징이 안되면 원본사이즈에 맞춰서 이미지가 커지거나
+				작아짐! 
+					
+					+ 해결1: img태그를 이용하여 너비값 사용하기 width:100% 
+					+ 해결2: background-size를 이용할경우, 원본크기를 제작해서 사용하기
+		*/
+			#visual{width:960px; height:460px; background-color:#000; margin:10px auto 0;
+				background-image:url("img/main2.jpg");
+			}
+
+		/*################# section ###################*/
+			#section{width:960px; height:140px; margin:0 auto; /*overflow:hidden;*/}
+				/* border값을 적용하기때문에 너비와 높이값에 주의! */
+
+				#section li{width:239px; height:139px; float:left; border-left:1px solid #ccc; 
+				border-bottom:1px solid #ccc; text-align:center;}
+					
+					#section h3{ font-size:12px; text-align:left; text-indent:15px; padding:7px 0 3px;}
+
+					/*
+						padding-left로 인해서 왼쪽전부 배치될수 있는 문제가 생길수 있음
+						margin-left를 사용하면 떨어져있는 부분을 제외하고 배치가 가능하다.
+					*/
+					#section a.textLink{ display:block; width:230px; margin-left:10px; 
+					padding:5px 0; font-size:10px; text-align:left;}
+						#section span{color:#f00;}
+
+				#section li.news{ height:69px; border-right:1px solid #ccc; width:238px;}
+
+		/*################# content ###################
+			fiedset의 테두리는 2픽셀씩 적용!
+		*/
+			#content{background-color:#aaa; width:956px; margin:10px auto 0; font-size:12px; line-height:25px;}
+				#content a{ padding:0 5px 0 10px;}
+
+		/*################# footer ###################*/
+			#footer{width:960px;  margin:10px auto 0;  font-size:10px; overflow:hidden;}
+				#footer p{float:left;}
+				#footer p.footerArea{width:700px;}
+					#footer p a{padding:0 5px 0 10px;}
+				#footer p.copy{width:260px; text-align:right;}
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="header">
+			<h1>
+				<a href="#" title="아우디사이트">
+					<img src="img/logo.gif" alt="아우디 로고"/>
+				</a>
+			</h1>
+			<ul id="gnb">
+				<li><a href="#" title="A3">A3</a></li>
+				<li><a href="#" title="A4">A4</a></li>
+				<li><a href="#" title="A5">A5</a></li>
+				<li><a href="#" title="A6">A6</a></li>
+				<li><a href="#" title="A7">A7</a></li>
+				<li><a href="#" title="A8">A8</a></li>
+				<li><a href="#" title="Q3">Q3</a></li>
+				<li><a href="#" title="Q5">Q5</a></li>
+				<li><a href="#" title="A7">Q7</a></li>
+				<li><a href="#" title="TT">TT</a></li>
+				<li><a href="#" title="R8">R8</a></li>
+			</ul>
+			<div id="nav">
+				<h2>네비게이션 영역 and 검색영역</h2>
+				<div id="snb">
+					<h2>서브페이지 연결영역</h2>
+					<ul>
+						<li><a href="#" title="Home">Home</a></li>
+						<li><a href="#" title="Models">Models</a></li>
+						<li><a href="#" title="Gallery">Gallery</a></li>
+						<li><a href="#" title="Q&amp;A">Q&amp;A</a></li>
+						<li><a href="#" title="Multimedia">Multimedia</a></li>
+						<li><a href="#" title="Company">Company</a></li>
+					</ul>
+				</div>
+				<div id="searchArea">
+					<h2>검색영역</h2>
+					<form action="#" method="get">
+						<fieldset>
+							<legend>검색</legend>
+							<input id="search" type="text" name="search" title="검색영역"/>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="visual">
+			<h2>광고영역</h2>
+			<!--
+				visual 영역에서 슬라이딩 에니메이션의 기능을 사용 할 것이라면
+				ul li 또는 ul li a는 꼭 사용하기!
+					현재 visual 영역은 크로스브라우징 TEST를 목적으로 하기 때문에
+					background-image를 사용하나 기본적으로 background-image보다는
+					img태그를 사용하는 것을 권장한다.
+			-->
+		</div>
+		<div id="section">
+			<h2>정보제공영역</h2>
+			<ul>
+				<li class="desc">
+					<h3>아우디코리아 고객 안내</h3>
+					<p>
+						<a href="#" title="아우디코리아 고객 안내">
+							<img src="img/140423_banner_01.jpg" alt="아우디코리아 고객 안내 이미지"/>
+						</a>
+					</p>
+					<a class="textLink" href="#" title="아우디코리아 고객 안내"><span>▶</span>타입 EA 189  디젤 엔진 관련 안내 드립니다.</a>
+				</li>
+				<li class="desc">
+					<h3>We Care Campaign</h3>
+					<p>
+						<a href="#" title="We Care Campaign">
+							<img src="img/140213_magazine.jpg" alt="We Care Campaign 이미지"/>
+						</a>
+					</p>
+					<a class="textLink" href="#" title="We Care Campaign"><span>▶</span>아우디 고객님께 드리는 "We Care Campaign" 고객 안내문</a>
+				</li>
+				<li class="desc">
+					<h3>Audi Financial Services</h3>
+					<p>
+						<a href="#" title="Audi Financial Services ">
+							<img src="img/audi_financial_service.jpg" alt="Audi Financial Services 이미지"/>
+						</a>
+					</p>
+					<a class="textLink" href="#" title="Audi Financial Services"><span>▶</span>Audi Financial Services의 스페셜 금융 프로그램을 만나보실 수 있습니다.</a>
+				</li>
+				<li class="news">
+					<h3>Audi News</h3>
+					<a class="textLink" href="#" title="Audi News"><span>▶</span>아우디 코리아, '아이디 서비스 인천' 확장 이전 오픈</a>
+				</li>
+				<li class="news">
+					<h3>Dealer Network</h3>
+					<a class="textLink" href="#" title="Dealer Network"><span>▶</span>아우디 전시장과 서비스센터를 안내해 드립니다.</a>
+				</li>
+			</ul>
+		</div>
+		<fieldset id="content">
+			<h2>카테고리 및 뉴스영역</h2>
+			<!--
+				현재 영역은 fieldset으로 만들지 않음, 주로 div 태그로 
+				ul li로 만드는게 정석! 
+					현재 영역은 TEST 목적으로만 만들어짐!
+					주의! fieldset 영역은 독릭접으로 사용하기 보다 form
+					영역 안에서 그룹 나눌때 사용!
+			-->
+			<a href="#" title="개인정보 취급방침">개인정보 취급방침</a>
+			<a href="#" title="e-뉴스레터신청">e-뉴스레터신청</a>
+			<a href="#" title="e-카탈로그신청">e-카탈로그신청</a>
+			<a href="#" title="시승신청">시승신청</a>
+			<a href="#" title="부정제보">부정제보</a>
+		</fieldset>
+		<div id="footer">
+			<p class="footerArea">
+				<a href="#" title="Audi Financial Services">Audi Financial Services</a>
+				<a href="#" title="quattro Cup">quattro Cup</a>
+				<a href="#" title="Configurator">Configurator</a>
+				<a href="#" title="Sitemap">Sitemap</a>
+			<p>	
+			<p class="copy">
+				&copy; 2018. Audi Korea. all rights reserved
+			</p>
+		</div>
+	</div>
+ </body>
+</html>
+<!--
+	index 라는 이름은 서버에서 읽어줄때 인식속도가 가장 좋음
+	예약어 처럼 정해져있기 때문에 주소줄에 적어주지 않아도 읽어들임
+
+	+ 크로스브라우징_test 페이지
+		화면을 X자로 그었을때 가운데를 기점으로 누락되는 내용이나 영역이 바깥으로
+		벗어나는지 확인하여 화면 가운데를 중심으로 맞추는 작업
+			( 모든 브라우저의 1px을 고려하는 작업이 아니라 내용전달에 문제가 없는지 확인하는 작업 )
+-->

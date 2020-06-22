@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> rotateCard </title>
+  <style>
+		*{margin:0; padding:0;}
+		p{ width:200px; height:300px; position:relative; margin:100px auto 0;}
+			p img{width:99%; height:99%; position:absolute; left:0; top:0; border:1px solid #ccc;
+				backface-visibility:hidden;
+				transition:all .3s;
+			}
+			
+			/* 
+				뒷면을 미리 뒤집어 놓고, 마우스를 올리면 정방향으로 보이도록 만들기
+				
+				backface-visibility:
+					이미지가 2장이 겹져쳐 있을때 사용하는 기능
+						
+						+ 앞에 보여지는 이미지를 숨겨주고 뒤에 깔려있는 이미지를 보여주려면
+						hidden 적용
+						
+						+ 숨겨졌던 이미지를 다시 보여주려면 visible
+			*/
+			img.back{transform:rotatex(-180deg);}
+			
+			p:hover img.front{transform:rotatex(-180deg);}
+			p:hover img.back{transform:rotatex(0deg); backface-visibility:visible;}
+  </style>
+ </head>
+ <body>
+	<p>
+		<img class="front" src="img/front.png" alt="카드앞면"/>
+		<img class="back" src="img/back.png" alt="카드뒷면"/>
+	</p>
+ </body>
+</html>

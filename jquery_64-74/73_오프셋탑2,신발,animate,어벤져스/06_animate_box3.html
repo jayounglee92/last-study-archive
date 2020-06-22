@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> animate VS animation </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery.color.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	h1{border-left:10px solid blue; margin:20px; text-indent:10px;}
+	#wrap{margin:20px;}
+		#box3{width:150px; height:150px; background-color:aqua; text-align:center; line-height:150px; position:absolute; left:0; top:180px; }
+		
+		.btnArea{ padding:30px 0; }
+	
+
+  </style>
+  <script>
+	$(function(){
+		/*
+			+ 오른쪽버튼을 클릭하면 box3이 오른쪽으로 150픽셀만큼 움직이도록 만들기
+			+ 왼쪽버튼을 클릭하면 box3이 왼쪽으로 150픽셀만큼 움직이도록 만들기
+		*/
+		$("#right").click(function(){
+			/*
+				box3이 animate되면서 오른쪽으로 150픽셀 움직이도록 만들기
+
+					+ css에서 position:absolute적용중
+					+ left, right 사용할 수 있음
+						
+						+ function 제외 가능!
+						+ easing효과도 제외가능!
+
+					+ 추가 기능 적용
+						: 오른쪽버튼을 클릭할 때마다 150픽셀 씩 움직이도록 만들기!
+
+						left에 초기 값:0
+						left에 클릭:150
+
+						어떤 객체가 거리값을 가지고 있는지 확인
+							left의 처음 위치는0, 클릭한 다음에 left는 150을 저장
+
+							left = left
+						처음	 0   =   0
+						클릭1 150   =   0 + 150
+						클릭2 300   =   0 + 150 + 150
+						클릭3 450   =   0 + 150 + 150 + 150
+
+							: 클릭할 때마다 left값에 150씩 같은 배정해주는데 이러한 값을 배정연산자
+
+						left = left+150
+						left = 0+150
+						left = 0+150+150
+
+						문제점: 클릭을 여러번 하면 자동으로 움직이는 문제발생
+							+ 시간이 쌓여서 소모될 때까지 움직임
+
+							+ 왼쪽부분 해결하기
+			*/
+			$("#box3").stop().animate({"left":"+=150px"},300,"linear");
+		});
+		
+		$("#left").click(function(){
+			$("#box3").stop().animate({"left":"-=150px"},300,"linear");
+			/*
+				문제점:left에 -150px을 사용하면 화면 바깥으로 사라짐
+				이유는 모든 값에 제자리는 0에 있음
+			*/
+		});
+	});
+  </script>
+ </head>
+ <body>
+	<h1>animate 사용</h1>
+
+	<div id="wrap">
+		<h3>box3 Control</h3>
+		<div id="box3">
+			박스
+		</div>
+		<p class="btnArea">
+			<input type="button" id="left" title="왼쪽버튼" value="왼쪽버튼"/>
+			<input type="button" id="right" title="오른쪽버튼" value="오른쪽버튼"/>
+		</p>
+		
+	</div>
+ </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> a_tag2 </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		li{list-style-type:none;}
+			#content{color:#00a;}
+			/*
+				2번 설명
+				a{color:green;}
+					글자색상은 바뀌지만!
+						문제는 a태그가 가지고 있는 모든 속성을
+						하나로만 사용하게 됨!
+			
+			*/
+
+			/*
+				1번 설명
+				a태그를 기준으로 인라인요소에는 
+				직접 선택하지 않으면 글자색상은 물론
+				기능이 제대로 구현되지 않는 것들이 있다.
+				이때는 해당하는 인라인태그를 대상으로
+				잡아주면 대부분 해결이 가능하다.
+			*/
+			
+			a:link{text-decoration:none;}
+			/*
+				a태그에 링크가 걸려있을때 : 가장 일반적인 기본형태
+					2번 설명에서 a를 통째로 잡으면 다른기능을 구사할수가 없음
+			*/
+
+			a:visited{ color:orange; }
+			/*
+				a태그를 클릭하고, 해당하는 사이트나 페이지를 방문하고 왔을때
+			*/
+
+			a:hover{text-decoration:underline; color:#00f;}
+			/*
+				a태그에 마우스를 올렸을때, 그리고 내렸을때 기능을 한꺼번에 보여줌
+					: 올렸을때는 바뀐 효과를 보여주고, 
+					: 내렸을때는 기본상태로 돌려 줌
+			*/
+
+			a:focus{color:brown; text-decoration:underline;}
+			/*
+				키보드의 탭키로 초점이 맞았을때 사용하는 기능
+				탭키는 장애가 있는 분들이 접근하기 위하여 맞추는 작업
+			*/
+
+  </style>
+ </head>
+
+ <body>
+	<div id="content">
+		<h3>절대경로, 상대경로</h3>
+		<ul>
+			<li>
+				<a href="http://www.naver.com" title="네이버주소">네이버(절대경로)</a>
+			</li>
+			<li>
+				<a href="http://www.daum.net" title="다음주소">다음(절대경로)</a>
+			</li>
+			<li>
+				<a href="http://www.google.com" title="구글주소">구글(절대경로)</a>
+			</li>
+			<li>
+				<a href="sub1/01_food.html" title="food페이지">food.html(상대경로)</a>
+			</li>
+			<li>
+				<a href="sub1/sub2/subpage2.html" title="subpage2페이지">subpage2 링크걸기(상대경로)</a>
+			</li>
+		</ul>
+	</div>
+ </body>
+</html>

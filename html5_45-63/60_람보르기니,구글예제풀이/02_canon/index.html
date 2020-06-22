@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> canon </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+  <style>
+		*{margin:0; padding:0;}
+		body, dl, div, dd{ margin:0; padding:0;}
+		a:link,a:visited{ text-decoration:none; color:#000;}
+		a:hover, a:focus{text-decoration:underline; color:#bc2424; outline:none;}
+
+		#wrapper{width:100%; max-width:1152px; margin:0 auto;}
+				dl{width:100%;}
+					dt{display:block; width:100%; padding:40px 0 20px; border-bottom:1px solid #ccc; position:relative;}
+					dt .canon{position:absolute; top:35px; right:0; }
+
+				#nav{ width:100%; }
+					#nav p{width:20%; background-color:#ccc; float:left; text-align:center; line-height:30px; 
+					outline:1px solid #fff;}
+				#nav:after{content:""; display:block; clear:both;}
+
+				h2{ font-size:36px; font-weight:400; font-family:dotum; padding-top:40px;}
+				.official{ font-size:110%; padding-bottom:20px; }
+
+				dd{width:48%; float:left; text-align:center; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; padding:20px 0; }
+				#textArea{ width:100%; text-align:left;}
+				
+				dd img{width:100%;}
+
+				#sum2, #sum4, #sum6{ margin-left:4%;}
+				#sum5, #footer{clear:both;}
+
+				#sum6{ height:210px;}
+				#sum6 iframe{ border:none; width:100%; height:100%;}
+
+				#footer{background-color:#000; color:#fff; width:100%; text-align:center;}
+
+
+				/*pc버전에서 태블릿pc버전까지는▼ span태그 없애기 */
+				@media all and (min-width:768px){ #nav span{display:none;} }
+
+				@media all and (min-width:481px) and (max-width:767px){
+					#nav span{ display:block; width:30px; height:30px; background-color:#bbb;}
+					#nav p{width:100%;  height:0; font-size:0; float:none; text-align:center; }
+					#nav:hover p{height:30px; background-color:#ccc; font-size:14px;}
+					#sum6{height:160px;}					
+				}
+
+
+				@media all and (min-width:320px) and (max-width:480px){
+					dt{ text-align:center;}
+					dt .canon{position:static;  }
+
+					h2{ font-size:20px; padding-top:20px; text-align:center; font-weight:bold;}
+					.official{ display:none;}
+
+					#nav span{ display:block; width:30px; height:30px; background-color:#bbb;}
+					#nav p{width:100%;  height:0; font-size:0; float:none; text-align:center; }
+					#nav:hover p{height:30px; background-color:#ccc; font-size:14px;}
+
+					dd{width:100%; float:none;}
+					#sum2, #sum4, #sum6{ margin-left:0;}
+							
+				}
+  </style>
+ </head>
+ <body>	
+	<div id="wrapper">
+		<dl>
+			<dt>
+				<a href="http://www.canon.co.kr/" title="canon"><img src="img/hd-logo.png" alt="canon"/></a><img  class="canon" src="img/hd-korea.png" alt="canon in korea"/> 
+			</dt>
+			<dd id="nav">
+				<span>▼</span>
+				<p><a href="#none" title="login">LOGIN</a></p>
+				<p><a href="#none" title="phone">PHOTO</a></p>
+				<p><a href="#none" title="gallery">GALLERY</a></p>
+				<p><a href="#none" title="qna">Q&amp;A</a></p>
+				<p><a href="#none" title="board">BOARD</a></p>
+			</dd>
+			<dd id="textArea">
+				<h2>캐논의 한국 오피셜 웹 사이트</h2>
+				<p class="official">Official Website of Canon in Korea</p>
+			</dd>
+			<dd id="sum1">
+				<a href="#none" title="sum1">
+					<img src="img/pic-ckci.jpg" alt="이미지1"/><br/>
+					<strong>CANON KOREA CONSUMER IMAGING INC.</strong><br/>
+					<span class="sm1">캐논코리아 컨슈머 이미징</span><br/>
+					<span class="sm2">디지털카메라/렌즈/컴팩트 카메라/영상장비/캠코더/포토 프린터/쌍안경/액세서리</span>
+				</a>
+			</dd>
+			<dd id="sum2">
+				<a href="#none" title="sum2">
+					<img src="img/pic-ckbs.jpg" alt="이미지2"/><br/>
+					<strong>CANON KOREA BUSINESS SOLUTIONS INC.</strong><br/>
+					<span class="sm1">캐논코리아 비즈니스 솔루션</span><br/>
+					<span class="sm2">복합기/프린터/디지털인쇄기/팩시밀리/스캐너/솔루션/의료기기/OCE제품</span>
+				</a>
+			</dd>
+			<dd id="sum3">
+				<a href="#none" title="sum3">
+					<img src="img/pic-csek.jpg" alt="이미지3"/><br/>
+					<strong>CANON SEMICONDUCTOR ENGINEERING KOREA INC.</strong><br/>
+					<span class="sm1">반도체 노광장치</span>
+				</a>
+			</dd>
+			<dd id="sum4">
+				<a href="#none" title="sum4">
+					<img src="img/pic-jepex.jpg" alt="이미지4"/><br/>
+					<span class="sm1">TV카메라에 대해서는 CKCI의 페이지를 봐 주세요</span>
+				</a>
+			</dd>
+			<dd id="sum5">
+				<a href="#none" title="sum5">
+					<img src="img/pic-csek.jpg" alt="이미지5"/><br/>
+					<strong>Official Social Media Account List</strong><br/>
+					<span class="sm1">공식 SNS 계정 리스트</span>
+				</a>
+			</dd>
+			<dd id="sum6">
+				<iframe src="https://www.youtube.com/embed/cNNq-aaAM-0?ecver=1"></iframe>
+			</dd>
+		</dl>
+	</div>
+	<div id="footer">
+		Copyright &copy; Canon Inc. All Rights Reserved.
+	</div>
+ </body>
+</html>

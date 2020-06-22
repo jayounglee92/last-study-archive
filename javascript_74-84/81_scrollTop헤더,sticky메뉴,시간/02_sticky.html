@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>sticky</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	#wrap{ width:1280px; margin:20px auto 0; text-align:center; }
+		header{ width:100%; height:50px; line-height:50px; background-color:#ccc; }
+		#container h2{ width:100%; }
+			
+			#s1{ width:100%; height:500px; background-color:gold;}
+			#s2{ width:100%; height:600px; background-color:lightblue;
+				background-image:url("img/c01.jpg");
+				background-size:100% 100%;
+			}
+
+			.subNav{ width:1280px; height:50px; background-color:aqua; color:#fff; text-align:center; line-height:50px;}
+
+		#s3{ width:100%; height:900px; background-color:purple;}
+		#s4{ width:100%; height:600px; background-color:pink;}
+
+
+		/*############## 이벤트 클래스 ##############*/
+		.fixed{position:fixed; top:0; width:1280px; background-color:rgba(200,0,100,0.5);}
+		
+		.s2Ani{ animation:s2ani 3s infinite alternate; }
+		@keyframes s2ani{
+			0%{background-image:url("img/c01.jpg"); }
+			50%{background-image:url("img/c02.jpg");}
+			100%{background-image:url("img/c03.jpg");}
+		}
+  
+  
+  
+  </style>
+  <script>
+	$(function(){
+		
+		/*###### 01) 적용할 대상 #######*/
+		header = $("header");
+		section2 = $("#s2");
+		subNav = $(".subNav");
+
+
+		/*###### 02) 영역의 높이 계산 ######*/
+	
+		// 1) wrap의 margin 처리
+		wrapMarginT = parseInt($("#wrap").css("marginTop"));
+		
+		// 2) header의 높이값
+		headerH = $("header").height();
+		
+		// 3) header의 총 높이값 계산
+		headH = wrapMarginT+ headerH;
+
+
+		// 4) header의 총 높이값 + section1의 높이값
+		s1H = $("#s1").height();
+		section2H = headH+s1H;
+		// console.log( section2H);
+
+		// 5) subNav위치값 만들기
+		s2H = $("#s2").height();
+		subNavH = section2H + s2H;
+		
+
+		
+		/*########### 스크롤의 위치값 ############*/
+		$(window).scroll(function(){
+
+			var nowScroll = $(document).scrollTop();
+			
+			// nav 고정시키기
+			if( nowScroll >= headH ){
+				header.addClass("fixed");
+			}
+			else{
+				header.removeClass("fixed");
+			}
+
+			// section2에 애니메이션 적용
+			if(nowScroll >= section2H ){
+				section2.addClass("s2Ani");
+			}
+			else{
+				section2.removeClass("s2Ani");
+			}
+
+			// subNav고정시키기
+			if(nowScroll >= subNavH ){
+				subNav.css({"position":"fixed","top":"0"});
+			}
+			else{
+				subNav.css({"position":"static"});
+			}
+		
+		});
+
+
+	});
+  </script>
+ </head>
+ <body>
+	<div id="wrap">
+		<header>
+			<nav>네비게이션</nav>
+		</header>
+		<div id="container">
+			<section id="s1">
+				<h2>SECTION1</h2>
+			</section>
+			<section id="s2">
+				<h2>SECTION2</h2>
+			</section>
+			<div class="subNav">
+				subNav
+			</div>
+			<section id="s3">
+				<h2>SECTION3</h2>
+			</section>
+			<section id="s4">
+				<h2>SECTION4</h2>
+			</section>
+		</div>
+	</div>
+ </body>
+</html>

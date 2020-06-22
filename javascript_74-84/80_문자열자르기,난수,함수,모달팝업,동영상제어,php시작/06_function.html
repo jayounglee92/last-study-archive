@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> function </title>
+  <script>
+		// 일반적함수:  명시적 함수 (이름이 있음) function test(){ alert(1); }
+		// 이벤트 ( 자극을 주거나 클릭하는 행위 ) 가 없기 때문에 출력받기가 어렵다.
+
+		/*
+			function nums(){ return 3+4; }
+			alert( nums() );
+				
+				함수 호출의 2가지 방법 
+
+					+ nums
+						: 함수 안의 구조를 확인 할 수 있음
+					
+					+ nums()
+						: 담고 있는 기능을 표현해 주세요.
+		*/
+
+		/*
+			var test1 = function(){ return 1; }
+			alert( test1() );
+
+			
+			익명적 함수
+				익명적 함수는 스스로의 이름이 없음
+					호출이 어려움
+						: 이름이 없기 때문에 변수에 담아서 사용
+
+						+ test1
+							: 함수안의 구조를 파악할때 사용
+
+						+ test1()
+							: 기능을 확인할때 사용
+		*/
+
+		/*
+			명시적 함수: 이름이 정확하게 있는 함수 
+				function test1(){ }
+				
+			익명적 함수: 이름이 정확하지 않아서 변수에 담아서 사용하는 함수 
+				var test1 = function(){}
+
+				+ 기능을 확인할때 이벤트가 없기 때문에 alert 같은 자기 스스로의 
+				기능을 가진 메서드에 담아서 표현
+					ex) alert( test1() );
+		*/
+
+
+		// 자기 호출 함수!
+		(function test(){ alert("자기 호출함수! "); })();
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>

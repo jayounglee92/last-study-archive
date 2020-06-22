@@ -1,0 +1,13 @@
+1) https://hpneo.github.io/gmaps/
+:: 구글맵 선택하여 사용가능
+:: 크롬( download 버튼 ) 오른쪽 마우스 눌러서 ( 다른이름으로 링크저장 선택)
+:: gmap.js 파일 다운
+
+2) 구글맵API
+<script src="http://maps.google.com/maps/api/js"></script>
+
+
+3)구글에서 위도경도
+http://www.iegate.net/maps/rgeogoogle.php
+기준이 되는 위도경도 ( 강남구 역삼동 )
+37.4999072,127.0373932

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>payment</title>
+  <style>
+		*{margin:0; padding:0;}
+		body{ color:#111; font-family:Georgia, "Times News Roman";}
+		#wrap{padding:20px;}
+			h1{font-size:28px; margin-bottom:28px;}
+			#payment{
+				background-color:#9cbc2c;
+				border-radius:5px;
+				width:400px;
+				padding:20px;
+			}
+
+				#payment fieldset{border:none; margin-bottom:10px;}
+				#payment fieldset:last-child{margin-bottom:0;}
+					
+					#payment fieldset fieldset legend{
+							color:#111;
+							font-size:13px;
+					}
+
+
+				#payment li{
+					list-style:none;
+					background-color:#b9cf6a;
+					background-color:rgba(255,255,255,0.3);
+
+					border-width:2px;
+					border-style:solid;
+					border-color:#e3ebc3;
+					border-radius:5px;
+					line-height:30px;
+
+					padding:5px 10px;
+					margin-bottom:2px;
+				}
+
+		#payment ol li ol li{ border:none; background:none; float:left;}
+		#payment label{display:block; width:110px; float:left;}
+		#payment input{width:205px; border-radius:3px;}
+			#payment input[type="radio"]{width:20px; float:left; margin-right:5px; margin-top:5px;}
+			#payment fieldset fieldset label{ width:auto; line-height:20px; padding-left:30px;
+				background:no-repeat left;
+			}
+			/*
+				width:auto
+					form, table등 감싸고 있는 블록영역이나 셀의 값이 있을때 너비를 알아서 
+					자동으로 맞춰주는 개념!
+						적용이 제대로 안될수도 있으며, 정교하게 작업할때는 px이나 %를 사용한다.
+			*/
+			
+			#payment label[for="visa"]{background-image:url("img/visa.gif");}
+			#payment label[for="amex"]{background-image:url("img/amex.gif");}
+			#payment label[for="mastercard"]{background-image:url("img/mastercard.gif");}
+
+			#payment textarea{ width:210px; border-radius:5px;}
+			/*
+				인라인요소들 중에서 기본적으로 너비와 높이를 가지고 있는 객체들이
+				존재함
+					+ input, img, textarea
+						이러한 요소들은 display:block으로 바꾸지 않아도
+						width와 height 설정이 가능하다!
+			*/
+
+			#payment button{background-color:#384313; border:none; padding:7px 25px; border-radius:20px; margin:0 auto; display:block; color:#fff;}
+
+			/*
+				button인라인 요소
+					너비와 높이를 가지고 있기 때문에 너비와 높이 설정은 가능하나
+					성질은 인라인 요소
+						+ margin:0 auto가 적용되지 않음!
+
+					해결?
+						+ 부모공간을 호출하여 text-align:center ??
+						+ 인라인요소를 block 성질로 바꿔서 적용??
+			*/
+
+			#payment button:hover{ background-color:green; cursor:pointer;}
+			#payment fieldset legend:before{ content:"STEP: ";}
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<h1>Payment form</h1>
+		<form id="payment" action="#none" method="post">
+			<fieldset>
+				<legend>Your detalis</legend>
+				<ol>
+					<li>
+						<label for="username">name: </label><input id="username" type="text" name="username" placeholder="First and last name" autofocus maxlength="8" title="8자까지 입력" required="required"/>
+					</li>
+					<li>
+						<label for="email">emali: </label><input id="email" type="email" name="email" required placeholder="example@domain.com" autocomplete="off"/>
+					</li>
+					<li>
+						<label for="phone">phone: </label><input id="phone" type="tel" name="phone" placeholder="010-123-4567" autocomplete="off" title=" '-' 을 넣고 입력"
+						pattern="\d{3}-\d{3,4}-\d{4}" required/>
+					</li>
+					<li>
+						<label for="list">datalist: </label><input id="list" type="text" name="list" placeholder="option select..." list="selects" required/>
+						<datalist id="selects">
+							<option value="book">book</option>
+							<option value="game">game</option>
+							<option value="music">music</option>
+						</datalist>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset>
+				<legend>Delivery Address</legend>
+				<ol>
+					<li>
+						<label for="address">address: </label>
+						<textarea id="address" name="address" autocomplete="off" required rows="5"></textarea>
+					</li>
+					<li>
+						<label for="postcode">post code: </label><input id="postcode" type="text" name="postcode" placeholder="숫자만 입력" autocomplete="off" required/>
+					</li>
+					<li>
+						<label for="country">country: </label><input id="country" type="text" name="country" required/>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset>
+				<legend>card detalis</legend>
+				<ol>
+					<li>
+						<fieldset>
+							<legend>card type</legend>
+							<ol>
+								<li>
+									<label for="visa">visa</label>
+									<input id="visa" type="radio" name="cardchk"/>
+								</li>
+								<li>
+									<label for="amex">amex</label>
+									<input id="amex" type="radio" name="cardchk"/>
+								</li>
+								<li>
+									<label for="mastercard">mastercard</label>
+									<input id="mastercard" type="radio" name="cardchk"/>
+									<!--
+										checkbox VS radio
+											+ checkbox 의 경우에는 중복해서 선택이 가능한 부분에 사용
+												ex) 과목선택, 취미....
+
+											+ radio 의 경우에는 중복해서 사용X , 선택된 것들 중에 
+											하나를 사용할때 사용
+												ex) 성별
+
+											+ name의 이름이 다르면 
+												name="a"
+												name="b"
+												name="c"
+													a, b, c 라는 존재가 전부 만들어짐
+											
+											+ name의 이름이 같으면
+												name="a"
+												name="a"
+														나열되어있는 것들중에 하나만 선택!
+									-->
+								</li>
+							</ol>
+						</fieldset>
+					</li>
+					<li>
+						<label for="cardnumber">cardnumber</label>
+						<input id="cardnumber" type="text" name="cardnumber" placeholder=" '-'을 넣고 입력"  required autocomplete="off"/>
+					</li>
+					<li>
+						<label for="company">company</label>
+						<input id="company" type="text" name="company" value="APPLE" readonly/>
+					</li>
+					<li>
+						<label for="security">security code</label>
+						<input id="security" type="text" name="security" placeholder="숫자만 입력" required autocomplete="off"/>
+					</li>
+					<li>
+						<label for="namecard">Name on card</label>
+						<input id="namecard" type="text" name="namecard" placeholder="Exact name as on the card" required autocomplete="off"/>
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset>
+				<button type="submit">Buy it!</button>
+			</fieldset>
+		</form>
+	</div>
+ </body>
+</html>

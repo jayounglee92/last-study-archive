@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> skewani </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	body{background-color:#555;}
+	#wrap{width:600px; height:600px; background-image:url("img/woodbackground.png"); background-repeat:no-repeat; background-size:100% 100%; margin:100px auto 0; transform:skewx(-30deg);}
+		li{list-style:none; width:150px; height:150px; background-color:rgba(60,60,60,1); float:left; margin-right:10px; margin-bottom:10px; text-align:center; transition:all 1s;}
+			li img{height:100%;}
+  </style>
+  <script>
+	jQuery(document).ready(function(){
+		$("li").mouseover(function(){
+			$(this).css({"backgroundColor":"rgba(60,60,60,0)","transform":"skewx(30deg)"});
+		});
+	});
+  </script>
+ </head>
+ <body>
+  <div id="wrap">
+	<ul>
+		<li><img src="img/skew0.png" alt="반다비"/></li>
+		<li></li>
+		<li></li>
+
+		<li></li>
+		<li><img src="img/skew1.png" alt="리락쿠마"/></li>
+		<li></li>
+
+		<li></li>
+		<li></li>
+		<li><img src="img/skew2.png" alt="수호랑"/></li>
+
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+  </div>
+ </body>
+</html>

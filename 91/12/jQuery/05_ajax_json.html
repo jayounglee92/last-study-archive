@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8">
+  <title>ajax_xml</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	h2{ border-left:10px solid blue; border-bottom:1px solid blue; text-indent:10px;}
+	#result{ border:4px solid #ccc; width:720px; height:480px; overflow:hidden;}
+  </style>
+  <script>
+	$(function(){
+		$("#jsonBtn").click(function(){
+			$.ajax({
+				url:"data/e_json.json",
+				type:"get",
+				dataType:"json",
+				success:function( json ){
+					// 01) json 문서에 담겨있는 내용 추출하기
+					//		중요!) json 방식은 연관배열처럼 호출
+					//					연관배열 = box.a, box.b
+					var model = json.smartphone.apple.model;
+					var os = json.smartphone.apple.os;
+					var display = json.smartphone.apple.display;
+
+					// 02) 추출한 데이터 태그에 담아주기 
+					var ol = $("<ol>");
+					var li1 = $("<li>").html( model );
+					var li2 = $("<li>").html( os );
+					var li3 = $("<li>").html( display );
+
+					// 03) ol태그에 li태그들 연결하기
+					ol.append(li1).append(li2).append(li3);
+
+					// 04) 나열된 값들 결과창에 출력하기
+						$("#result").append( ol );
+
+				},error:function(){
+						alert("에러!");
+				}
+			});
+		});
+	});
+  </script>
+ </head>
+ <body>
+	<h2> ajax를 활용한 json 파일 요청하기 </h2>
+	<p>
+		<input type="button" value="json파일 요청하기" id="jsonBtn"/>
+	</p>
+	<div id="result">
+	</div>
+ </body>
+</html>
+

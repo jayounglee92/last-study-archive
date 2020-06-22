@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> array </title>
+  <script>
+	/*
+		1) 변수
+			+ myColor 변수만들기, red 담아주기
+			+ myNum 변수만들기, 한 자리 숫자 담아주기
+			+ mySubject 변수 만들기, 현재 배우는 과목 담아주기
+
+			각각의 문서에 출력받기
+				내가 좋아하는 색상은??
+				내가 좋아하는 숫자는??
+				내가 좋아하는 과목은??
+	*/
+		document.write("<h2>[STEP01]_변수공간에 대입받기</h2>");
+		var myColor ="red";
+		var myNum=7;
+		var mySubject="javascript";
+
+		document.write("내가 좋아하는 것은 ? "+myNum+"<br/>");
+		/*
+			: 정확하게 출력받을때는 아래처럼 각각 출력을 받을수 밖에 없음
+			document.write("내가 좋아하는 색상은 "+myColor+"<br/>");
+			document.write("내가 좋아하는 숫자는 "+myNum+"<br/>");
+			document.write("내가 좋아하는 과목은 "+mySubject+"<br/>");
+
+
+
+
+			array(배열)
+			 + 많은 수의 정보들을 하나하나 변수공간에 대입받지 않고, 
+			 배열공간(정렬되는 공간)에 한번에 묶어서 사용하는 방식
+
+			 + 여름 : 여름관련되어 있는 정보들을 묶어서 사용
+			 + 겨울 : 스키장, 겨울코딩, 눈싸움, 집에있음, 미끄러짐 
+		*/
+
+		document.write("<h2>[STEP02]_순차배열 : 0,1,2,3 ( 공간을 순차적으로 배열)</h2>");
+		var myLike = ["red",7,"javascript","mp3"]; 
+		var summer=["반바지","반팔","수영복","오리튜브","물안경"];
+		
+
+		document.write("내가 좋아하는 것은 : "+myLike[2]+"<br/>");
+		document.write("여름 박스에서 수영복 꺼내기 : "+summer[2]+"<br/>");
+
+		/*
+			응용문제
+				myLike2 배열공간 만들기 
+					노트북, 음악, 커피, 책			보관하기
+
+					내가 좋아하는 것 출력받기
+		*/
+
+		document.write("<h2>[STEP03]_순차배열 응용문제 </h2>");
+
+		var myLike2 = ["노트북","음악","커피","책"];
+
+		myLike2[2] = "모카";
+		document.write("내가 좋아하는 커피는 "+myLike2[2]+" 입니다. <br/>");
+		/*
+			myLike2
+				c드라이브, d드라이브
+					"노트북","음악","커피","책"		전부 폴더명 처럼사용
+						노트북 = "맥북"					폴더안에 파일 넣기 처럼 사용!
+				
+				: 폴더에 담은 내용이 없으면 폴더명으로 호출
+				: 폴더안에 담은 내용이 있으면 담고 있는 내용으로 보임
+		
+		
+			+ 응용문제
+				폴더명으로만 사용하기 ( 대입받지 말기 )	
+					내가 좋아하는 색상, 숫자, 과목, 동물, 음식, 과일 
+
+					각각 문서에 출력받기 
+						내가 좋아하는 색상은 :
+						내가 좋아하는 숫자는 :
+						....
+					
+						내가 좋아하는 과일은:
+		*/
+
+		document.write("<h2>[STEP04]_순차배열 응용문제 </h2>");
+
+		var my = ["pink","0.7","역사","악어","껌","포도"];
+		
+		document.write("내가 좋아 하는 것은 : "+my[0]+"<br/>");
+		document.write("내가 좋아 하는 것은 : "+my[1]+"<br/>");
+		document.write("내가 좋아 하는 것은 : "+my[2]+"<br/>");
+		document.write("내가 좋아 하는 것은 : "+my[3]+"<br/>");
+		document.write("내가 좋아 하는 것은 : "+my[4]+"<br/>");
+		document.write("내가 좋아 하는 것은 : "+my[5]+"<br/>");
+
+
+		document.write("<h2>[STEP05]_순차배열과 반복문 </h2>");
+		for(var i=0; i<6; i++){
+			document.write("내가 좋아 하는 것은 : "+my[ i ]+"<br/>");
+		}
+
+
+		document.write("<h2>[STEP06]_연관배열 : 삼성스마트폰:갤럭시, 애플:아이폰</h2>");
+
+		var text = {"color":"pink","b":"banana","c":"coconut"};
+
+		document.write(text.b);
+		/*
+			순차배열 : 0 , 1, 2, 3, 4, 5 하나씩 순차적으로 읽어주는 배열
+			연관배열: 이순신 거북선, 세종대왕 한글... 연상시키는 배열
+
+				응용문제
+					
+					연관배열 사용하기
+						a에 100작성, b에 100작성
+					
+					순차배열 사용하기
+						plus공간 만들기, minus 공간 만들기
+
+					+ plus공간에 a+b 대입받기 (주의 (배열)박스 이름에 따라 호출방식 확인하기 )
+					+ minus공간에 a-b 대입받기 
+					
+					각각 출력받기 
+					플러스 : 000
+					마이너스 : 000
+		*/
+
+		document.write("<h2> 순차배열, 연관배열을 사용한 응용예제 </h2>");
+
+		var score ={"a":100, "b":100};
+		var total = ["plus" ,"minus"];
+
+
+		total[0] = score.a+score.b;
+		total[1] = score.a-score.b;
+
+		document.write("플러스: "+total[0]+"<br/>");
+		document.write("마이너스: "+total[1]);
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>

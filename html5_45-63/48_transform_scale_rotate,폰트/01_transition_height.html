@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>transition_height</title>
+  <style>
+		*{margin:0; padding:0;}
+		h4{position:absolute; left:-9999px; width:1px; height:1px; font-size:1px; line-height:0; overflow:hidden;}
+			
+			/*
+				+ 부모요소를 정리하지 않았기 때문에 빈 여백에서 작동이 되어버림!
+				section{border:1px solid blue;}
+				h3{width:400px; height:50px; background-color:pink; text-align:center; line-height:50px;} 
+					img{width:400px; display:none;}
+				section:hover img{display:block;}
+		
+					+ 기능
+					h3는 화면에 두고 그 아래 이미지가 높이방향으로 늘어나도록 만들기
+
+					+ 중요
+						display:none과 block은 변하는 과정이 없음!( 보여주거나 없애거나 둘중에 하나만! )
+							transition은 변하는 과정이 있는 값에만 적용이 가능함!
+								+ 명칭으로 적용된 값이 아니라 수치가 있는 값에만 적용이 가능함!
+			*/
+		
+		section{ width:400px; }
+			h3{width:100%; height:50px; background-color:lightblue; text-align:center; line-height:50px;}
+			article{width:100%;  height:0; transition:height 0.5s ease-in; }
+
+			/*
+				중요
+					img에 width(너비) 설정만 중요한 것이아니라 
+					기능 파트에서는 높이에 대한 설정값으로 변화가 
+					일어날수 있기 때문에 부모요소를 따라 다닐수 있도록
+					height(높이)에 대한 설정이 필요하다!
+						
+						+ 자녀요소인 img에 px 단위를 사용하면 고정이 되기
+						때문에 환경에 따른 변화가 어렵다.
+						그래서 환경에 따라 변할수 있는  %  단위를 사용
+						이때 고려 해야 하는 상황은 부모요소가 고정픽셀을
+						유지하는지 확인하기
+			*/
+				article img{width:100%; height:100%; }
+
+		section:hover article{height:240px;}
+  </style>
+ </head>
+ <body>
+	<section>
+		<h3>button1</h3>
+		<article>
+			<h4>test1</h4>
+			<img src="img/chire.jpg" alt="의자이미지"/>
+		</article>
+	</section>
+	<section>
+		<h3>button2</h3>
+		<article>
+			<h4>test2</h4>
+			<img src="img/color-case.jpg" alt="mp3이미지"/>
+		</article>
+	</section>
+	<section>
+		<h3>button3</h3>
+		<article>
+			<h4>test3</h4>
+			<img src="img/honda_car.jpg" alt="자동차 이미지"/>
+		</article>
+	</section>
+ </body>
+</html>

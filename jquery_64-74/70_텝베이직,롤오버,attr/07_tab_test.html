@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> tab_test </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	*{margin:0; padding:0;}
+	li{list-style-type:none;}
+	a:link, a:focus{text-decoration:none; color:#333;}
+
+	#content{width:762px; margin:100px auto 0; border:1px solid #ccc;}
+		.tab{width:100%; height:155px; border-bottom:10px solid #ccc;}
+		.tab:after{content:""; display:block; clear:both;}
+			.tab li{width:254px; height:154px; float:left;}
+				.tab li a{display:block; width:100%; height:100%; font-size:14px; position:relative; overflow:hidden;}
+					.tab li a img{width:100%;}
+					.tab li a strong{display:block; width:100%; height:45%;position:absolute; left:0; bottom:0; text-align:center; color:aqua;}
+
+		.panel{width:100%; height:380px; position:relative;}
+			.panel li{width:100%; height:380px; position:absolute; top:0; left:0;}
+				.panel li div{width:341px; height:340px; padding:20px;}
+
+				.panelL a{display:block; width:220px; height:30px; background-color:#555; color:#fff; text-align:center; line-height:30px; border-radius:10px; box-shadow:2px 2px 5px rgba(20,20,20,0.4); margin-top:10px;}
+
+
+  </style>
+  <script>
+	jQuery(document).ready(function(){
+		// 처음값들
+		$(".panel li:not(:first)").hide(); //처음에 판넬 뒤에 두개는 안보이게
+		$(".tab li strong").hide(); //탭 글씨숨기기
+		$(".selected strong").show();
+
+
+		$(".tab li:eq(0) a").bind("mouseover focusin",function(){
+			$(this).children("img").attr("src","img/img_tlj.gif");
+			$(this).children("strong").show();
+			
+			$(".panel li").hide();
+			$(".panel li:eq(0)").show();
+		}).bind("mouseout focusout",function(){
+			$(this).children("img").attr("src","img/img_tlj_.gif");
+			$(this).children("strong").hide();
+		});
+
+
+
+		$(".tab li:eq(1) a").bind("mouseover focusin",function(){
+			$(this).children("img").attr("src","img/img_vips.gif");
+			$(this).children("strong").show();
+
+			$(".panel li").hide();
+			$(".panel li:eq(1)").show();
+		}).bind("mouseout focusout",function(){
+			$(this).children("img").attr("src","img/img_vips_.gif");
+			$(this).children("strong").hide();
+		});
+
+
+
+		$(".tab li:eq(2) a").bind("mouseover focusin",function(){
+			$(this).children("img").attr("src","img/img_bibigo.gif");
+			$(this).children("strong").show();
+
+			$(".panel li").hide();
+			$(".panel li:eq(2)").show();
+		}).bind("mouseout focusout",function(){
+			$(this).children("img").attr("src","img/img_bibigo_.gif");
+			$(this).children("strong").hide();
+		});
+
+	});
+  </script>
+ </head>
+ <body>
+  <div id="content">
+	<ul class="tab">
+		<li class="selected">
+			<a href="#none" title="뚜레쥬르">
+				<img src="img/img_tlj.gif" alt="뚜레쥬르 로고 탭"/>
+				<strong>
+					재료부터 다른 건강한 베이커리<br/>
+					뚜레쥬르
+				</strong>
+			</a>
+		</li>
+		<li>
+			<a href="#none" title="빕스">
+				<img src="img/img_vips_.gif" alt="빕스 로고 탭"/>
+				<strong>			
+					My No.1 스테이크하우스<br/>
+					빕스
+				</strong>
+			</a>
+		</li>
+		<li>
+			<a href="#none" title="비비고">
+				<img src="img/img_bibigo_.gif" alt="비비고 로고 탭"/>
+				<strong>
+					Healthy & Fresh Korean Kitchen<br/>
+					비비고
+				</strong>
+			</a>
+		</li>
+	</ul>
+	<ul class="panel">
+		<li>
+			<div class="panelL">
+				<h4>재료부터 다른 건강한 베이커리</h4>
+				<p>
+					뚜레쥬르는 빵마다 고유의 맛을 살려주는 맞춤 밀가루, 빵에 1% 들어 가는 소금까지도 신안 천일염을 사용하는 재료부터 다른 건강한 베이커리입니다.<br/>프랑스어로 ’매일매일(Everyday)’이라는 뜻을 가진 뚜레쥬르는 매장에서 직접 구운 신선한 빵을 제공하는 국내 최초의 오븐 베이커리로, 꾸미지 않은 재료 그대로의 풍미를 담아 맛있고, 좋은 재료로 건강하며, 어머니의 정성을 담아 신선하고 정직한 빵과 케이크를 만듭니다.
+				</p>
+				<a href="#none" title="뚜레쥬르 홈페이지 바로가기">뚜레쥬르 홈페이지 바로가기</a>
+			</div>
+			<div class="panelR">
+				<p><img src="img/img_brand01.jpg" alt="뚜레쥬르 이미지"/></p>
+			</div>
+		</li>
+		<li>
+			<div class="panelL">
+				<h4>My No.1 스테이크하우스</h4>
+				<p>
+					해외에 로열티를 지불하지 않는 국내 토종 브랜드 빕스는 고급 스테이크 하우스에서 맛볼 수 있던 정통 프리미엄 스테이크와 계절별로 다양하고 신선하게 준비된 샐러드 바를 제공하여 다양한 연령대에서 사랑 받고 있는 브랜드입니다. 빕스(VIPS)는 브랜드 이름(Very Important Person’s Society)처럼 ‘고객 한 분 한 분을 귀한 손님으로 소중하게 모시겠다’ 는 마음가짐으로 최상의 서비스와 최고의 맛을 제공하기 위해 노력하고 있습니다
+				</p>
+				<a href="#none" title="빕스 홈페이지 바로가기">빕스홈페이지 바로가기</a>
+			</div>
+			<div class="panelR">
+				<p><img src="img/img_brand02.gif" alt="빕스 이미지"/></p>
+			</div>
+		</li>
+		<li>
+			<div class="panelL">
+				<h4>Healthy & Fresh Korean Kitchen</h4>
+				<p>
+					건강하고 신선한 한식을 재해석하다. 비비고는 정갈한 정통한식의 현대적인 해석을 통해, 건강하고 신선한 한 끼 식사를 선사하는 글로벌 대표 한식 브랜드 입니다. 비비고라는 이름은, 한식의 철학 ‘비빔’과 편리함을 상징하는 ‘투 고(to-go)’의 합성어로 영양소가 고루 담긴 정갈하고 편리한 식사로 현대인의 바쁜 하루에 활기를 더하는 상차림을 뜻합니다. 현재 비비고는 한국·미국·영국·중국·싱가포르 등 전세계 7개국 21개점에서 한국의 맛과 멋을 널리 알리고 있습니다.
+				</p>
+				<a href="#none" title="비비고 홈페이지 바로가기">비비고 바로가기</a>
+			</div>
+			<div class="panelR">
+				<img src="img/img_brand03.gif" alt="비비고 이미지"/></p>
+			</div>
+		</li>
+	</ul>
+  </div>
+ </body>
+</html>

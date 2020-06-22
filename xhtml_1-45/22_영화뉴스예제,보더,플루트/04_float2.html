@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> new document </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		h3{background-color:#ccc; font-size:26px; text-align:center;}
+			#container{width:600px;  background-color:pink; overflow:hidden;}
+				.red{background-color:red; width:150px; height:150px; float:left;} 
+				.green{background-color:green; width:150px; height:150px; float:left;}
+				.blue{background-color:blue; width:150px; height:150px; float:left;}
+
+			#footer{background-color:#000; color:#fff; text-align:center; clear:both;}
+
+			/*
+				float의 특징
+					+ float:left적용이 되거나 float:right를 적용하게 되면 해당하는 좌표로
+					완전히 밀착되어 움직이게 된다. 
+					
+					+ float는 하위객체를 잡아당기는게 기본
+						+ 하위객체에 너비가 없을때...
+							무조건따라 올라감
+								+ 흐르는 물과 같아서 왼쪽이나 오른쪽으로 길이 생기면 그쪽으로 따라 다닐수 있다.
+						
+						+ 하위객체에 너비가 있을때...
+							흐르는 물을 컵에 담고 있는 상태가 되기 때문에 
+							사용자가 왼쪽이나 오른쪽으로 둘 수있는 선택사항이 생긴다.
+								+ 현재 하위객체에 float:left를 적용하면 왼쪽으로 배치할수 있음
+								+ 현재 하위객체에 float:right를 적용하면 오른쪽으로 배치할 수 있음
+				
+				+	float를 끊는 방법
+						+ float가 적용된 상위객체의 바로 아래 하위객체에 (너비값) 적용하기
+						+ 하위객체 ( 너비와 높이 지정 ) : 크로스 브라우징 작업시 권장사항
+							+ 담고 있는 객체에 너비와 높이를 지정해주는 것이 좋다.
+							+ header, footer, container( section 부분들에 너비높이 지정)
+						
+						+ clear:both 는 너비와 높이값을 적용하지 않고, 상위객체를 따라 올라가지
+						않아도 될때 float의 성질을 끊을때 사용하는 기능
+
+
+				+ container영역( 부모요소 ) 표현되지 않을때...
+					+ 자녀요소들이 한쪽으로 서로 잡아당기거나 양쪽으로 서로 잡아당길때 부모요소가
+					표현되지 않을수 있음
+						+ 배경색상, 배경이미지가 표현되지 않을 수 있음( background-image )
+
+					+해결: 부모요소에 역할지정하기
+						+ 영역만들기 ( 자녀들을 담아주는 영역 )
+							== 너비와 높이만들기( 너비만 있을땐 높이가 없어서 자녀요소를 담아주지 못함 )
+						
+						+ 자녀요소들에 의해서 부모요소가 표현되지 않을때 반드시 부모요소에서 해결하기
+							float의 기능이 적용되어 있는 자녀의 부모요소에서 해결하기
+
+						+ overflow:hidden을 사용하면 스스로 너비와 높이값을 생성하기 때문에
+						높이값을 지정하지 않아도 너비와 높이값이 자동으로 만들어진다.
+						( 내용이 넘치면 숨겨줘야 하기 때문에 스스로 영역값을 가지게 된다. )
+			*/
+
+  </style>
+ </head>
+ <body>
+	<h3>float에 대한 이해</h3>
+	<div id="container">
+		<p class="red">red</p>
+		<p class="green">green</p>
+		<p class="blue">blue</p>
+	</div>
+	<div id="footer">
+		footer영역
+	</div>
+ </body>
+</html>

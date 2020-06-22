@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> gradient_skew </title>
+  <style>
+		*{margin:0; padding:0;}
+		html{height:100%;}
+		body{ 
+			font-family:arial, sans-serif;
+			background-color:#333;
+			background-image:-webkit-linear-gradient(top, rgba(0,105,175,1) 0%, rgba(0,80,130,0.75) 35%, rgba(0,70,130,0.9) 35%, rgba(0,80,130,0) 100% );
+			/*
+				배경색상에 따라서 화면이 다르게 보임!
+					그라디언트와 투명도를 섞어서 사용!
+			*/
+			background-image:-moz-linear-gradient(top, rgba(0,105,175,1) 0%, rgba(0,80,130,0.75) 35%, rgba(0,70,130,0.9) 35%, rgba(0,80,130,0) 100% );
+			background-image:-ms-linear-gradient(top, rgba(0,105,175,1) 0%, rgba(0,80,130,0.75) 35%, rgba(0,70,130,0.9) 35%, rgba(0,80,130,0) 100% );
+
+			height:100%;
+		}
+		/*
+			문제점발생:
+				그라디언트가 끝까지 표현되지 않고, 격자형태로 나옴
+
+				1) body에 설정하기 height:100%
+				2) html에 설정하기 height:100%
+		*/
+
+		#wrapper{ width:960px; margin:0 auto;}
+			section{width:100%; height:360px; padding-top:10px;}
+				.front{width:355px; height:200px; background-color:#000; position:relative; transform:skewy(20deg); 
+				left:220px; top:132px;}
+					.front iframe{width:100%; height:100%; border:none;}
+				
+				.side{ width:130px; height:200px; background-color:#333; transform:skewy(-30deg); position:relative; left:575px; top:-42px;
+					background-image:-webkit-linear-gradient(left,#333, #555);
+					background-image:-ms-linear-gradient(left,#333, #555);
+					}
+				
+					.side p{ font-size:12px; color:#aaa; padding:10px; }
+					/* 너비를 잡지 않고 padding값을 적용하면 알아서 계산이 되서 안쪽에 자리한다.
+						+  정교한 작업을 진행할때는 사용금지!
+							float를 붙이거나 position을 이동하거나 할때 공간값을 알수가 없음
+					*/
+					.side p strong{ color:#ff0; font-size:14px;}
+
+				.top{ width:355px; height:75px; background-color:#333; transform:skewy(20deg); position:relative;
+					left:220px; top:-343px;
+				}
+					.top h3{ font-size:18px; color:#ccc; text-transform:lowercase;  padding:25px;}
+				
+				.frontRe{width:355px; height:200px; transform:skewy(20deg); 
+				background-image:-webkit-linear-gradient(top, rgba(182,182,182,0.5) 0%, rgba(182, 182, 182, 0) 100%);
+				background-image:-ms-linear-gradient(top, rgba(182,182,182,0.5) 0%, rgba(182, 182, 182, 0) 100%);
+				position:relative; left:220px; top:-147px;}
+
+				.sideRe{ width:130px; height:200px; transform:skewy(-30deg); 
+					background-image:-webkit-linear-gradient(top, rgba(120,120,120,0.5) 0%, rgba(120,120,120, 0) 100%);
+					background-image:-ms-linear-gradient(top, rgba(120,120,120,0.5) 0%, rgba(120,120,120, 0) 100%);
+					position:relative; left:575px; top:-315px;
+				}
+
+				/*
+					rgba VS opacity
+						
+						+ rgba: (255,255,255,0.5)
+								255,255,255로 만들어진 색상에 투명도 관여
+								+ 만들어진 색상의 투명도에만 관여!
+
+						+ opacity: 모든 객체의 투명도에 관여한다.
+						글작, 박스, 인라인요소, 블록요소 등등 모든 요소에 투명도를 적용한다.
+							: 불투명도
+
+							+ display:none과 block으로는 transition이 적용되지 않음
+							none~ block 까지 변하는 과정 자체가 없음!
+
+							+ opacity는 0~100% 까지 변하는 과정이 있기 때문에
+							transition 설정이 가능함!
+
+							100% == 1
+							50% == 0.5
+							25% == 0.25
+				*/
+  </style>
+ </head>
+ <body>
+	<div id="wrapper">
+		<section>
+			<h2>movie영역</h2>
+			<div class="front">
+				<iframe src="https://www.youtube.com/embed/zq-YYNETIlE?ecver=1"></iframe>
+			</div>
+			<div class="side">
+				<p>
+					<strong>APPLE CF</strong> : transform:skew,2018
+				</p>
+			</div>
+			<div class="top">
+				<h3>APPLE_MOVIE</h3>
+			</div>
+			<div class="frontRe">
+			</div>
+			<div class="sideRe">
+			</div>
+		</section>
+	</div>
+ </body>
+</html>
+<!--
+	유튜브에서 연결하고 싶은 동영상에서 오른쪽 마우스 클릭
+		소스 코드 복사 하기!
+			확인: iframe 태그 인지 확인하기
+
+		+ 장점: 소스를 보관하지 않아도 상관없음
+		+ 단점:	 서버에서 연결되기 때문에 느려질수 있음
+		자료가 삭제될수 있음
+-->

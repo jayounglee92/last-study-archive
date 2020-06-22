@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> background-image1 </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		body{background-image:url("img/bg_grid.gif");}
+		/*
+			body{margin:50px; padding:50px; width:100px; height:100px;}
+				+ body는 전체 브라우저의 객체에 접근할 수 있기 때문에 여백값을 적용하는
+				경우는 거의 없다.
+					+ 더블마진, 더블패딩을 스스로 만드는 행위
+
+				+ margin, padding, width, height 값들을 적용하는 것은 문제를 발생시킬수 있음
+				
+				+ body에는 전체브라우저에 적용하는 이미지나 색상등을 작업할때 사용한다.
+					+ body영역을 자르거나 공간값을 만드는 행위는 하지 않는다.
+		*/
+
+		#container{width:1280px; margin:0 auto;}
+			#container h2{width:100%; background-color:brown; text-align:center; font-size:30px;  color:#fff; }
+			#container p{ width:480px; height:320px; background-color:#ccc; margin:50px auto 0;
+				background-image:url('img/imgs.jpg');
+				background-size:90% 90%;
+				background-repeat:no-repeat;
+				background-position:center center;
+			}
+
+			/*
+				이미지를 대체하는 배경색상을 적용할때 
+					+ 이미지와 비슷한 색상으로 대체 한다.
+					+ 이미지에 파란색이 많을 경우 파란색 계열로 대체한다.
+
+				+ background-image나 img태그 작성시 주의사항
+					+ 이미지를 출력하지 못 할 경우 
+						
+						1) 이미지가 표현되지 못하는 경우
+							+ pc에서는 main.jpg, main.JPG 대문자 소문자 표현을 main.jpg로 적용해도 표현이 가능
+							+ 서버에서는 main.JPG가 있다면 코드 작성시 main.jpg로 작성했을때 이미지가 표현되지
+							않는다.
+							+ 문서상에 파일명.jpg로 적용되어 있다면 서버에 이미지 파일을 올릴때도 확장자가
+							소문자인지 대문자인지 꼭 확인해주어야 한다.
+							+ jpg, JPG == Jpg, jPg...
+							
+						2) 확장자 정확한데 이미지를 불러오지 못할 경우
+							원래 확장자는 jpg인데...사용자가 파일명.bmp, 파일명.gif로
+							바꾼경우.
+								+ 해결( 포토샵이나 일러스트, pickpick 에서 파일 불러오기 )
+									:: 포토샵이나 일러스트, pickpick 에서 불러오지 못하면 깨진파일!!
+
+								+ 해결: 해당하는 이미지를 캡쳐해서 다시 저장해서 사용하면
+								원하는 이미지 사용가능!
+			*/
+
+  </style>
+ </head>
+
+ <body>
+	<div id="container">
+		<h2>background_image_test1</h2>
+		<p></p>
+	</div>
+ </body>
+</html>
+<!--
+		test1번 문제 
+		01) 외부문서에 div태그 만들고 p태그 작성하기 
+		02) background-image를 이용하여 배경이미지 가져오기
+		03) 300* 200 작성하기
+		04) 배경사이즈는 90% 90% 적용하고 그리고 화면 가운데 배치하기
+		05) 화면 보고 전체적으로 비슷하게 만들기
+-->

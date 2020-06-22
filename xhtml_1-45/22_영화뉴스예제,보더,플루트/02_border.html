@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> border </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		div{ width:390px; /*400px;*/ height:300px; background-color:lightblue; margin:50px auto 0;
+				border:5px solid #333;
+			}
+			/*
+				border는 축약형 표현방법
+					+ 선의 두께
+					+ 선의 모양
+					+ 선의 색상
+
+					+ margin: top, right, bottom, left
+					+ padding: top, right, bottom, left
+					
+					border의 경우에는 사용자가 지정한 방향으로 설정가능
+						+ border-left, border-bottom, border-right, border-top
+						사용자가 원하는 방향으로 얼마든지 지정가능!
+
+						+ border에 방향을 지정하지 않았을 경우!
+							4방향 전부 사용!
+
+						+ border 사용시 주의사항
+							border는 해당하는 값에 테두리를 설정하면서 영역을 차지한다
+
+							ex)
+								400px + border-left:5px	+ border-right:5px == 410px 로 바뀜
+								== 390px + 양쪽 border 10px == 400px 원본크기로 사용!
+			*/
+  </style>
+ </head>
+
+ <body>
+	<div>
+		border 생성하기
+	</div>
+ </body>
+</html>
+<!--
+	hr 구분선은 div와 div 또는 p와 p태그처럼 영역을 구분할때
+	사용하는 태그!
+		+ hr구분선은 태그로 사용이 가능하고, 확실하게 화면에서 구분지을때 사용
+		+ class와 id를 작성할수 있다.( 태그여서 가능 )
+		class="test" hr
+
+	border는 style영역에서 해결하며 class나 id명을 작성할 수 없다.
+		+ css속성이기 때문에 class와id를 작성 할 수 없음
+
+
+-->

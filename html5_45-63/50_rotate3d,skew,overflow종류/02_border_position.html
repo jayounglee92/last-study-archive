@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>border_position</title>
+  <style>
+		*{margin:0; padding:0;}
+		div{ width:200px; height:400px; 
+			background-color:rgba(180,180,180,0.1);
+			margin:50px auto 0;
+			position:relative;
+		}
+
+		div span{display:block; width:1px; height:1px; background-color:red; position:absolute;
+			transition:all 0.7s ease-in-out;
+		}
+		/*
+			+ 어떤 객체를 늘리거나 줄일때 최소값이 0보다 커야한다.
+			0의 수치는 기능에서 시작을 못함, 적어도 숫자 1은 작성되어야함.
+			0.1도 가능함! 0만 아니면 시작이 가능함!
+		*/
+
+		.leftTopH, .leftTopW{left:0; top:0;}
+		.rightBottomH, .rightBottomW{right:0; bottom:0;}
+
+		div:hover .leftTopH{height:100%;}
+		div:hover .leftTopW{width:100%;}
+
+		div:hover .rightBottomH{height:100%;}
+		div:hover .rightBottomW{width:100%;}
+		/*
+			position의 처음 위치가 어디냐에 따라서 같은 값을 적용해도 
+			다른 형태의 작업이 나타난다.
+				
+				중요!) position은 처음 좌표값이 중요함!
+		*/
+  </style>
+ </head>
+ <body>
+	<div>
+		<span class="leftTopH"></span>
+		<span class="rightBottomH"></span>
+		<span class="leftTopW"></span>
+		<span class="rightBottomW"></span>
+	</div>
+ </body>
+</html>

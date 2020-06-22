@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> background </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		/* 여백값 초기화 */
+		*{margin:0; padding:0;}
+		p{
+			width:250px;
+			height:250px;
+			background-color:pink;
+			margin-left:20px;
+			margin-top:20px;
+			background-image:url("img/smile1.png");
+			/*
+				중요!
+					+ 동영상이 나오지 않을경우에는 이미지로 대체
+					+ 이미지가 적용되지 않을때는 색상으로 대체
+				
+				1) 이미지 가져오기 (너비와 높이가 형성되어 있는지 확인)
+				+ 무조건 반복현상이 생긴다.
+				( 바둑판식 배열 : 왼쪽 상단에서 부터 패턴식으로 적용 )
+					
+					* 문제점 : 반복이 일어남( 컨텐츠가 잘려서 보임 )
+					* 해결 : 반복제어( 이미지를 반복시키지 않게 만들기, 예쁘게 반복시키기 )
+
+				2) 반복제어하기 
+					+ no-repeat: 반복제어( 반복없음 )
+					+ repeat-x: x축으로 반복되도록 만들기 ( 가로방향으로 반복 )
+					+ repeat-y: y축으로 반복되도록 만들기 ( 세로방향으로 반복 )
+
+					* 문제점: 왼쪽상단에 이미지가 위치함
+						가운데 배치하려는데... img태그 아니기 때문에 text-align으로 처리가 되지 않는다.
+					
+					* 해결: background-image를 움직여 줄수 있는 값으로 해결
+
+				3) 위치적용
+					x축(너비) : 왼쪽에서 오른쪽으로 배치
+					y축(높이) : 상단에서 하단으로 배치
+						
+						+ x축: left, center, right
+						+ y축: top, center, bottom
+
+					+ 숫자표현으로 위치값 적용이 가능
+						+ px, %, em 단위설정이 자유로움
+						+ em단위는 글자에 적용하는게 일반적 주로 px과 %적용
+
+					+ x와 y축의 값이 같을때 한번만 적용이가능!
+						+ center center == center
+						+ 100px 100px == 100px
+						+ 50% 50% == 50%
+
+						+ 주의!) 익스플로어 구형 브라우저에서 적용이 안될 수 있음
+						적용이 안되면 x축 y축 둘다 사용하기!
+			*/
+			background-repeat:repeat-y;
+			background-position:0 0;
+			background-size:25% 25%;
+
+			/*
+				4) background-image는 width로 조절  X
+					background-size로 사이즈 조절하기
+
+					+ img태그는 사이즈를 조절할때
+						+ width, height 설정하여 얼마든지 변형이 가능
+						+ 위치조절
+							text-align: center, left, right
+							margin, padding, position
+					
+					+ background-image는 background-size로 만 조절가능!
+						+ px과 %등 단위설정이 자유로움
+						+ %사용시에는 100% 를 기준으로 맞추기
+						+ px 사용시에는 상자의 너비와 높이 고려
+
+
+						참고사이트: w3school
+
+						+ background-image
+						+ background-repeat
+						+ background-position
+							위에 나열된 값들은 인터넷 익스플로어 4.0 부터 적용이 가능함
+							( 구형브라우저에서 사용이 가능함! )
+
+						+ background-size만 구형 브라우저에서 적용불가
+							+ 9.0 부터 사용가능
+							+ 표준브라우저들에서 사용가능
+						
+						+ background-size 가 구형브라우저에서 적용되지 못할때
+							+ 원본 크기로 변경됨
+							+ 1280영역에 이미지 원본크기가 600px이라면 600px로 변경됨
+							+ background-size에 의존하지 않고 이미지를 영역에 맞춰서 직접
+							제작하여 사용하는것이 가장 좋다.
+			*/
+		}
+  </style>
+ </head>
+ <body>
+	<p> background-image </p>
+ </body>
+</html>

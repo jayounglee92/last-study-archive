@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> float_test </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		/*########### 초기화 ###########*/
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		body{font:15px gulim, batang, sans-serif;}
+
+		/*####### test1 : 전체 너비를 400으로 #######
+			로고가 되는 너비 영역은 100픽셀
+			search가 되는 너비 영역은 100픽셀
+		*/
+		#test1{width:400px; background-color:#0c9; margin:20px auto;}
+			#test1 h1{width:100px; height:60px; background-color:#fff;
+								background-image:url('img/logo.png');
+								background-size:100% 80%;
+								background-repeat:no-repeat;
+								background-position:center;
+								float:left;
+							}
+
+			#test1 .p1_1{background-color:#f00;  width:100px; float:right;}
+			#test1 .p1_2{background-color:gold; width:100%; clear:both; text-align:center;}
+			/*
+				+ 너비값만으로 해결되지 않을때
+					너비를 100%로 작업 또는 400px로 작업해도 float 성질을 하위객체가 
+					따라 갈때는 부모요소에서 해결하거나 영향을 받고 있는 하위요소에서
+					따라가지 않도록 속성을 끊어주어야 한다.
+
+					+ 부모요소에서 해결할 수 있는지 확인
+					+ 하위객체에서만 해결할수 있는 값인지 확인
+
+					중요!) float:left와 float:right의 성질이 한꺼번에 적용되어 있으면 
+					어떤 속성을 끊어야 할지 몰라서 너비와 높이값이 지정되어 있어도
+					float 성질에 영향을 받을수 있다. 이때는 clear:both를 사용하여 따라가지
+					않도록 설정하기!
+			*/
+
+
+			/*####### test2 : 전체 너비를 500으로 #######
+			영역제목, 로그인, 갤러리 부분은 너비 100픽셀
+			float는 전체 다 쓰기*/
+
+			#test2{width:500px; background-color:#333; margin:0 auto;}
+				#test2 h2{width:100px; background-color:#ccc; float:left;}
+				#test2 .p2_1{width:100px; background-color:#aaa; margin:0 5px; float:left;}
+				#test2 .p2_2{width:100px; background-color:#777; float:left;}
+				#test2 .p2_3{width:100%; background-color:#f00; clear:both; font-size:20px; text-align:right; color:#fff;}
+
+			/*
+				test1번 문제에서는 float:left와 float:right 성질이 한꺼번에 적용되어 있었고
+				현재 test2번 문제에서는 float:left 만 적용이 되었는데도 너비값만으로 해결되지 않음
+				이때는 clear:both를 사용하여 해결하기!
+					해결방법
+							+ 1) 너비 또는 높이가 적용되었는지 확인
+							+ 2) 첫번째 방법으로 해결되지 않으면 clear:both 사용하기
+			*/
+
+
+			/*####### test3 : 전체 너비를 500으로 #######
+			h3 너비 150설정, 1과 2의 글이있는 부분 150으로 설정
+			3과 4가 있는 글씨 영역은 전부 다 사용하기
+			*/
+
+			#test3{width:500px;  background-color:#3cf; margin:20px auto; color:#fff;}
+				#test3 h3{width:130px; padding:10px; background-color:#36f; float:left;}
+				#test3 .p3_1{width:130px; padding:10px; background-color:#096; float:right; margin-bottom:50px;}
+				#test3 .p3_2{background-color:#636; padding:10px; clear:both;}
+
+				/*
+					float의 성질은 화면위로 띄우면서 하위객체를 잡아당김
+					그래서 하위객체가 아래에 배치되게 된다.
+						+ 설정이 잘못되면 영역이 겹쳐있을수 있음
+
+						+ 부모요소는 형제들을 담아주는 값
+						+ 서로 밀고 당기는건 형제 요소에서 해결하기
+						+ 첫째는 둘째요소를 둘째는 셋째요소에 접근하기가 편리함
+				*/
+
+			/*####### test4 : 전체 너비를 500으로 #######
+				h3 너비 60픽셀 왼쪽과 상단은 20픽셀 패딩
+				right 는 60픽셀 오른쪽 상단은 20픽셀 패딩
+			*/
+
+			#test4{width:500px; height:100px; background-color:#f06; margin:0 auto;}
+				#test4 h3{width:60px; padding-left:20px; padding-top:20px; background-color:#ccc; float:left;}
+				#test4 .center{width:280px; margin:0 30px; background-color:#ddd; float:left; }
+				#test4 .right{width:60px; padding-right:20px; padding-top:20px;  background-color:#eee; float:right;}
+
+			/*
+				1번~3번까지는 형제들 중에 끊어주는 자녀가 있어서 부모가 할일이 없었으나
+				4번 에는 서로 나열되기만 하기 때문에 부모가 할 역할이 생긴다.
+					+ 1) 부모에서 너비와 높이 지정하기
+					+ 2) 자녀요소에 맞혀서 높이를 설정할때는 overflow:hidden 사용
+			*/
+
+			#test5{ width:300px; background-color:#ccc; margin:20px auto; overflow:hidden;}
+				#test5 li{width:100px; height:100px; background-color:gold; float:left; color:#fff; text-align:center;
+								line-height:100px;
+							}
+
+				#test5 .no0{background-color:#f90;}
+				#test5 .no1{background-color:#f87;}
+				#test5 .no2{background-color:#f66;}
+				#test5 .no3{background-color:#f70;}
+				#test5 .no4{background-color:#f3f;}
+				#test5 .no5{background-color:#b87;}
+				#test5 .no6{background-color:#c0f;}
+				#test5 .no7{background-color:#b05;}
+				#test5 .no8{background-color:#778;}
+		
+		/*
+			margin 값이 적용되지 않을때
+				test6 번의 경우 위에 보면 test5에서 margin:20px auto 로 적용되어 있으나
+				아래쪽으로 margin 값을 적용받지 못하는 것을 볼 수 있다.
+
+				이때는 상위객체에서 float 성질이 끊어지지 않아서 생길수 있는 흔한 문제들
+				중에 하나이기 때문에 상위객체의 부모요소에서 border나 배경색상이 
+				잘 적용되는지 확인후 float 성질을 끊어주면 해결된다!
+
+				중요!) float 속성이 있을때 margin 값이 있으면 적용이 잘 되지 않을수 있으니
+				css가 적용이 잘 안되면 확인해보기!
+		*/
+
+		#test6{width:300px; height:300px; background-color:blue; margin:0 auto;}
+			#test6 li{width:100px; height:100px; float:left; color:#aaa;}
+			#test6 li.color{background-color:yellow;}
+  </style>
+ </head>
+ <body>
+	<div id="test1">
+		<h1></h1>
+		<p class="p1_1">search</p>
+		<p class="p1_2">네비게이션</p>
+	</div>
+
+	<div id="test2">
+		<h2>영역제목</h2>
+		<p class="p2_1">로그인</p>
+		<p class="p2_2">갤러리</p>
+		<p class="p2_3">float</p>
+	</div>
+
+	<div id="test3">
+		<h3>레이아웃 연습1</h3>
+		<p class="p3_1">1.size(width/height) | 2.float(배치)</p>
+		<p class="p3_2">3.margin(바깥쪽여백) | 4.padding(안쪽여백)</p>
+	</div>
+
+
+	<div id="test4">
+		<h3>레이아웃 연습2</h3>
+		<p class="center">size있을때 | overflow:hidden</p>
+		<p class="right">clear:both 사용하지 않아도 될때...</p>
+	</div>
+
+	<ul id="test5">
+		<li class="no0">0</li>
+		<li class="no1">1</li>
+		<li class="no2">2</li>
+		<li class="no3">3</li>
+		<li class="no4">4</li>
+		<li class="no5">5</li>
+		<li class="no6">6</li>
+		<li class="no7">7</li>
+		<li class="no8">8</li>
+	</ul>
+
+	<ul id="test6">
+		<li>0</li>
+		<li class="color">1</li>
+		<li>2</li>
+		<li class="color">3</li>
+		<li>4</li>
+		<li class="color">5</li>
+		<li>6</li>
+		<li class="color">7</li>
+		<li>8</li>
+	</ul>
+ </body>
+</html>
+<!--
+	class명 사용할때 숫자 단독사용금지!
+		class="1" (x)
+		class="1no" ( 숫자가 제일먼저 오면 공간번호로 인식할수 있어서 주의!)
+		class="no1" (0)  == 영문하고 섞어쓰기
+
+
+-->

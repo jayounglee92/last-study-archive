@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> class속성 이어받기 </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+	h2{background-color:#ff0;}
+	.test{width:150px; height:150px; background-color:pink; animation:myani 5s 1;}
+	@keyframes myani{
+		0%{width:150px; height:150px; background-color:pink;}
+		50%{width:200px; height:100px; background-color:blue;}
+		100%{width:180px; height:180px; background-color:gold; border-radius:90px;}
+	}
+  </style>
+  <script>
+	$(function(){
+		/*
+			div를 클릭하면 p태그가 속성을 이어받아서 같은 기능 구현되도록 만들기
+
+				대상:div
+				이벤트:click
+				이벤트핸들러:p태그가 속성을 이어받아서 같은 기능 구현되도록 만들기
+		*/
+
+		$("div").click(function(){
+			//이벤트핸들러:p태그가 속성을 이어받아서 같은 기능 구현되도록 만들기
+			/*
+				대상:p태그
+				이벤트:속성이어받기
+				이벤트핸들러:p태그
+			*/
+			$("p").addClass("test")
+
+		});
+	});
+  </script>
+ </head>
+ <body>
+  <h2>class속성 이어주기</h2>
+  <div class="test">class속성 주는 객체</div>
+  <p>class속성 이어받는 객체</p>
+ </body>
+</html>

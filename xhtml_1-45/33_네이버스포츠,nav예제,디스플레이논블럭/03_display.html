@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> display </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		ul li{ width:180px; height:60px; background-color:blue; color:#fff;  line-height:60px; text-align:center;}
+			/*
+				문제점 발생!
+					부모요소의 높이값이 겹치거나 제대로 표현되지 않는 문제 발생
+				해결:
+					line-height는 해당영역의 기둥역을 해준다. 높이값만큼 적용하면 해결가능!
+			*/
+			ul li ul{ display:none; }
+				ul li:hover ul{display:block;}
+  </style>
+ </head>
+
+ <body>
+	<ul>
+		<li>
+			display1
+			<ul>
+				<li>display2</li>
+			</ul>
+		</li>
+	</ul>
+ </body>
+</html>
+<!--
+	브라우저에서 읽어주는 순서! 
+		ctrl+b를 누르면 브라우저 활성화가 되고 그때 읽어주는 순서
+		
+		01) body ( id속성을 가장 먼저 읽음, tag나 class를 읽어들임 )
+			id를 먼저 읽어주는 이유는 중복되는 이름이 없기때문!
+		
+		02) css( body를 읽고나서 css영역 읽어들임 )
+		
+		03) javascript
+
+		04) jQuery 
+		( javascript + query의 합성어 : 자바스크립트가 준비가 되어야 jQuery가 사용가능 )
+
+	
+	+ 여러가지 display 속성들중 에러발생 상황! +
+		
+		<a href="http://www.naver.com" title="네이버">
+			<p>네이버!</p>
+		</a>
+
+		css
+			a태가 display:block로 바뀌면 p태그 담아줘도 이상할것 없지않나?
+			
+			+ css영역은 2차과정이고 태그는 1차과정때 먼저 읽기 때문에 
+			이미 태그를 사용한 시점에서 위의 구문은 에러가 발생한다.
+
+	+ display기능은 css영역에서만 사용가능 ( css영역 어디든 사용가능! )
+		+ inline( 인라인 적용방식으로 설정해도 2차로 읽어들임 ) 
+			inline-style 영역에서 display:사용가능!
+		
+		+ internal-style( display: 사용가능! )
+		+ external-style( display: 사용가능)
+
+	+ display:block속성이 사용가능한 태그들?
+		span, a, strong, em, b, i ( 인라인요소들에서 사용가능 )
+
+	+ display:inline속성이 사용가능한 태그들?
+		div, p, ul li, dl dt는 인라인이기때문에 빼고 dd...블록속성들에서 사용가능
+			
+	+ 인라인과 블록성질을 같이 사용하는 display는?
+		display:inline-block
+			인라인속성과 블록속성의 각각의 특징을 살려 사용할수 있음
+				+ 인라인 요소라면 블록속성을 가지면서 인라인의 특징을 유지함
+				+ 블록속성이라면 인라인속성을 가지면서 블록속성의 특징을 유지함
+
+		중요: 스스로 가지는 여백이 있기 때문에 더블마진, 더블패딩 현상을 가질수 있다.
+
+
+	+ display:none
+		+ 화면에서 숨겨줄때 사용
+		+ 스크린리더기가 읽을수가 없음( 화면에서 존재가 사라짐 )
+			읽어주는 태그에서 사용금지
+				h1~h6 목차가 사라짐
+				strong, em 에서 스크린리더기가 접근이 불가능함
+	
+	+ display:block
+		+ 인라인객체들을 블록으로 바꿀때 사용
+		+ display:none으로 되어 있는 객체들을 화면에 등장시킬때 사용!
+
+-->

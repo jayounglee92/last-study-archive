@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> lamborghini </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+
+  <style>
+  /*####################### 초기화 ###########################*/
+	*{margin:0; padding:0;}
+	body,header,nav,section,video,form{margin:0; padding:0;}
+	header,nav,video,section,footer{display:block;}
+	li{list-style:none;}
+	a:link, a:visited{text-decoration:none; color:#ccc;}
+	a:hover, a:focus{color:red;}
+	body{background-color:#020202;}
+  /*#########################################################*/
+
+
+
+  /*####################### header ###########################*/
+	#wrap{width:100%; max-width:1920px; margin:0 auto;}
+		#header{width:100%; height:80px; position:relative;}
+			h1{width:100px; height:80px;position:absolute; right:100px; top:10px;}
+				h1 img{width:100%;}
+
+		#selectMenu{width:90%; height:30px; float:left;}
+		#selectMenu:after{content:""; display:block; clear:both;}
+			#selectMenu p{float:left; margin-top:5px; margin-left:40px;}
+			.home{padding-top:2px;}
+			.home a{color:#fff;}
+			.language select{width:100px; height:20px; line-height:20px; border:1px solid #ccc; background-color:#333; color:#ccc;}
+			.search input{width:200px; height:20px; line-height:20px; border:1px solid #ccc; background-color:#333; color:#ccc; text-align:center; }
+				.search i img{vertical-align:middle;}
+
+
+		#gnb{width:90%; height:50px;float:left;}
+		#gnb:after{content:""; display:block; clear:both;}
+			#gnb ul{width:100%; height:100%;}
+				#gnb ul li{height:50px; line-height:50px; float:left; margin-left:40px;}
+					#gnb ul li a{font-size:20px;}
+
+
+
+  /*####################### container ###########################*/
+	#container{width:100%; height:780px;}
+		#container .bg{width:100%; height:100%; overflow:hidden; position:relative;}
+			.bg img{width:100%; position:absolute; top:-280px; animation:cardrop 2s;}
+	
+		@keyframes cardrop{
+			0%{top:-1280px;}
+			100%{top:-280px;}
+		}
+	
+  /*####################### footer ###########################*/
+	#footer{width:100%;}
+		.companyInfo{width:100%;}
+		.companyInfo:after{content:""; display:block; clear:both;}
+			.companyInfo ul{width:100%; height:30px;}
+				.companyInfo ul li{height:30px; line-height:30px; float:left; margin-left:40px;}
+
+		.copyright{color:#ccc; font-size:12px;padding:0 40px;}
+
+
+  /*####################### 테블릿버전 : 초록###########################*/
+	@media all and (min-width:768px) and (max-width:1024px){
+		#header{/*background-color:green;*/}
+			h1{right:0;}
+			#selectMenu p{margin-left:16px;}
+			#gnb ul li{margin-left:16px;}
+		#container{height:600px;}
+			.bg img{top:0;}
+		#footer li{margin-left:20px;}
+			.copyright{padding:0 20px;}
+	}
+
+  /*####################### 스마트폰 가로 버전 : 파랑###########################*/
+	@media all and (min-width:481px) and (max-width:767px){
+		#header{height:110px; /*background-color:blue;*/}
+			h1{right:-15px;}
+			#selectMenu p{margin-left:16px;}
+			#gnb ul li{height:40px; line-height:40px; margin-left:16px;}
+				#gnb ul li a{font-size:20px;}
+		#container{height:520px; border-bottom:1px solid #ccc; border-top:1px solid #ccc;}
+			.bg img{top:40px;}
+		#footer li{margin-left:16px;}
+			#footer li a{font-size:14px;}
+			.copyright{padding:0 14px;}
+	}
+
+  /*####################### 테블릿 세로 버전 : 보라###########################*/
+	@media all and (min-width:320px) and (max-width:480px){
+		#header{height:160px; /*background-color:purple;*/}
+			h1{left:-20px;}
+			#selectMenu{height:90px; float:right;}
+			#selectMenu p{width:100%; margin-left:30px;}
+			#gnb{height:60px; float:left;}
+			#gnb ul li{height:20px; line-height:40px; margin-left:10px;}
+				#gnb ul li a{font-size:16px;}
+		#container{height:360px; border-bottom:1px solid #ccc; border-top:1px solid #ccc;}
+			.bg img{top:40px;}
+		#footer li{margin-left:10px;}
+			#footer li a{font-size:14px;}
+			.copyright{padding:0 10px;}
+
+	}
+
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<header id="header">
+			<h1>
+				<a href="https://www.lamborghini.com/en-en/" title="람보르기니 홈으로">
+					<img src="img/Lamborghini-logo.png" alt="람보르기니 로고"/>
+				</a>		
+			</h1>
+			<nav id="selectMenu">
+				<p class="home">
+					<a href="https://www.lamborghini.com/en-en/" title="람보르기니 홈으로">HOME</a>
+				</p>
+				<p class="language">
+					<select id="lang" name="lang">
+						<option value="language">language</option>
+						<option value="ITALIAN">ITALIAN</option>
+						<option value="ENGLISH">ENGLISH</option>
+						<option value="KOREAN">KOREAN</option>
+						<option value="JAPANESE">JAPANESE</option>
+						<option value="CHINESE">CHINESE</option>
+					</select>
+				</p>
+				<p class="search">
+					<input id="search" type="search" name="search" value="SEARCH"/>
+					<i><a href="#none" title="검색"><img src="img/search_icon.png" alt="검색 이미지"/></i>
+				</p>			
+			</nav>
+			<nav id="gnb">
+				<ul>
+					<li>
+						<a href="#none" title="MODELS">MODELS</a>
+					</li>
+					<li>
+						<a href="#none" title="HERITAGE">HERITAGE</a>
+					</li>
+					<li>
+						<a href="#none" title="DEALERS &amp; SERVICE">DEALERS &amp; SERVICE</a>
+					</li>
+					<li>
+						<a href="#none" title="SQUADRA CORSE">SQUADRA CORSE</a>
+					</li>
+					<li>
+						<a href="#none" title="STORE">STORE</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div id="container">
+			<div class="bg">
+				<img src="img/car.jpg" alt="비쥬얼 이미지"/>
+			</div>
+		</div>
+		<footer id="footer">
+			<div class="companyInfo">
+				<ul>
+					<li>
+						<a href="#none" title="COMPANY">COMPANY</a>
+					</li>
+					<li>
+						<a href="#none" title="MEDIA">MEDIA</a>
+					</li>
+					<li>
+						<a href="#none" title="CONTACT US">CONTACT US</a>
+					</li>
+					<li>
+						<a href="#none" title="CAREERS">CAREERS</a>
+					</li>
+					<li>
+						<a href="#none" title="MUSEUM">MUSEUM</a>
+					</li>
+					<li>
+						<a href="#none" title="PRIVACY &amp; LEGAL">PRIVACY &amp; LEGAL</a>
+					</li>
+					<li>
+						<a href="#none" title="SITEMAP">SITEMAP</a>
+					</li>
+				</ul>
+			</div>
+			<div class="copyright">
+				copyright &copy; 2017 Automobili Lamborghini S.p.A. a sole shareholder company part of Audi Group. All rights reserved. VAT no. IT 00591801204
+			</div>
+		</footer>
+	</div>
+  
+ </body>
+</html>

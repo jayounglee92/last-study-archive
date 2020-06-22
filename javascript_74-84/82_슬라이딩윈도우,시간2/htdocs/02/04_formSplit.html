@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> formSplit </title>
+ </head>
+ <body>
+	<form action="result.php" method="get">
+		<label for="search">검색: </label>
+		<input id="search" type="text" name="query"/>
+		<input type="submit" value="전송"/>
+	</form>
+ </body>
+</html>
+<!--
+	M : module ( 데이터베이스 사용)
+		+ 아이디, 이름, 주소, 비밀번호 등등 저장하는 공간
+		+ 비밀번호 변경, 회원가입 탈퇴, 회원가입 등등 데이터 베이스에 저장된 
+		값을 비교하여 여러가지 기능을 구현 할 수 있음.
+
+	V : view (보여지는 파트)
+		+ 회원가입 양식, 로그인, 화면에서 보여지는 부분 
+	
+	C : control
+		+ 아이디가 있는지 없는지 확인하여 아이디 중복체크,
+		비밀번호와 비밀번호 확인이 같은 값인지 확인할때 사용
+		: 입력해서 넘겨준 값을 컨트롤할때 사용 
+-->

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> rotate3d_coin </title>
+  <style>	
+		*{margin:0; padding:0;}
+		div{width:600px; height:500px; margin:100px auto 0; position:relative;}
+			div p{width:304px; height:300px; position:absolute; left:140px; top:70px; transition:all 2s;}
+				/* 위에 있는 동전 옆으로 움직여 주기!  */
+				.won2:hover{ transform:translate(200px,0);}
+				.won1:hover{z-index:1; transform:rotate3d(1,-1,0,360deg);}
+				/*
+					해당하는 축을 사용할때
+						숫자 1이상 적용
+							왼쪽이나 위쪽
+
+						숫자가 -1이라면
+							오른쪽이나 아래쪽
+
+					해당하는 축을 사용하지 않을때
+						숫자 0 적용
+				*/
+  </style>
+ </head>
+ <body>
+	<div>
+		<p class="won1">
+			<img src="img/won1.png" alt="동전이미지1"/>
+		</p>
+		<p class="won2">
+			<img src="img/won2.png" alt="동전이미지2"/>
+		</p>
+	</div>
+ </body>
+</html>

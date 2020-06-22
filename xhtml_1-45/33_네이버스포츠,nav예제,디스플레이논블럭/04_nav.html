@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title> nav </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		a:link, a:visited{text-decoration:none; color:#fff;}
+		a:hover, a:focus{text-decoration:underline;}
+			
+			ul{ width:540px;}
+			ul li{width:179px; height:39px; background-color:blue; float:left; 
+			text-align:center; line-height:40px; border-right:1px solid #fff; border-top:1px solid #fff;}
+				/*
+					margin-right:1px 그리고 margin-top:1px 을 사용하면 간격이 
+					생기지만 실제로 마우스가 margin 1px 공간에 닿으면 기능이 사라짐!
+					margin은 연결된 영역이 아니라 비워진 영역!
+						
+					border는 실선이나 선을 만들어주는 역할로 영역을 채우는 개념!
+						margin값으로 형태를 만들어서 기능이 사라지거나 제대로 표현되지 
+						못할때 border를 사용하여 해결하기!
+				*/
+				ul li ul{display:none;}
+				ul li:hover ul{display:block;}
+
+					ul li ul li:hover{background-color:#f00;}
+					ul li#news ul li:hover{background-color:#333;}
+					ul li#board ul li:hover{background-color:brown;}
+
+				/*
+					영역에 id를 사용하는 이유?
+						ul li ul li로 절차대로 호출하다가 보면 다른 영역의 li태그를
+						불러올수가 없음
+							이때 class명을 사용하여 영역을 지정하면 같은 이름으로
+							사용할경우 문제가 발생!
+
+							id를 사용하면 유일하게 해당하는 영역의 이름을 호출할수
+							있고 중복되는 이름을 사용하지 않기 때문에 해당하는 영역을
+							안전하게 호출할 수 있음
+				*/
+				
+				/*
+					ul li a:hover{ color:#ff0; }
+
+					위와 같은 방법으로 적용할경우 부모의 ul li a와 자녀의 ul li a도 적용이 가능하기
+					때문에 사용자가 목표한게 맞는지 확인후 적용하기
+
+						+ 현재 원하는 값은
+								자녀의 a에 마우스를 올리면 글자색상 노란색 나오도록 만들기!
+				*/
+			
+			ul li ul li a:hover{ color:#ff0; }
+			/*
+				ul li ul li a:hover  VS   ul li ul li:hover a 차이점
+					
+					+ ul li ul li a:hover  는 자녀요소인 a에 직접 마우스를 올려야지만 반응하는 값!
+					( 부모와 관련없음 : 자녀요소 직접 선택) 
+
+
+					+ ul li ul li:hover a  는 자녀요소인 a의 부모 li에 마우스를 올리면 a가 같이 반응하는 값!
+					( 부모에만 접근해도 자녀요소가 반응 )
+
+
+				문제점 : 부모요소에서 float성질 끊기
+					+ overflow:hidden 값을 적용하여 float를 끊으려 했으나 넘치는 값을 숨겨주기 
+					때문에 불가능
+					+ 높이값을 설정하면 자녀요소가 넘치는 높이만큼 영역을 포함할수가 없음!
+						
+						float를 끊는 방법
+							1) 하위 객체에 너비 설정하기
+							2) 하위 객체에 너비와 높이 설정하기
+							3) 하위객체에 clear:both 설정하기
+							4) 부모요소에 너비 높이 또는 overflow:hidden 설정하기
+
+							5) ??? 
+			*/
+  </style>
+ </head>
+
+ <body>
+	<ul>
+		<li>
+			<a href="#" title="로그인">로그인</a>
+			<ul>
+				<li><a href="#" title="비회원">비회원</a></li>
+				<li><a href="#" title="정회원">정회원</a></li>
+			</ul>
+		</li>
+		<li id="news">
+			<a href="#" title="뉴스">뉴스</a>
+			<ul>
+				<li><a href="#" title="정치">정치</a></li>
+				<li><a href="#" title="스포츠">스포츠</a></li>
+				<li><a href="#" title="경제">경제</a></li>
+				<li><a href="#" title="날씨">날씨</a></li>
+				<li><a href="#" title="증권">증권</a></li>
+			</ul>
+		</li>
+		<li id="board">
+			<a href="#" title="게시판">게시판</a>
+			<ul>
+				<li><a href="#" title="비회원게시판">비회원게시판</a></li>
+				<li><a href="#" title="정회원게시판">정회원게시판</a></li>
+			</ul>
+		</li>
+	</ul>
+ </body>
+</html>

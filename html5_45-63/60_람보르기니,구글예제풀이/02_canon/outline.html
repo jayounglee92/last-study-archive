@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> border vs outline </title>
+  <style>
+		*{margin:0; padding:0;}
+		p{ width:200px; height:200px;  background-color:pink; margin:50px auto;}
+
+		.border{ border:1px solid blue; border-radius:100px; }
+		.outline{ outline:1px solid blue; border-radius:100px; }
+		/*
+			border VS outline
+				border는 너비로 인식함
+				너비 + border 두께 
+					border는 도형의 모양대로 테두리를 만듬
+
+				outline 너비로 인식하지 못함
+					outline은 도형의 모양대로 만들지 못하고 무조건 사각형으로 표현!
+		*/
+
+  </style>
+ </head>
+ <body>
+	<p class="border">border</p>
+	<p class="outline">outline</p>
+ </body>
+</html>

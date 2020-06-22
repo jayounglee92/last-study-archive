@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> objectWidth </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <style>
+		*{margin:0; padding:0;}
+		li{ list-style-type:none; }
+		body{ background-color:#333; }
+			h2{ text-align:center; padding:50px 0; text-transform:uppercase; font-size:26px; color:#4a909c;}
+			div{ width:1200px; height:450px; margin:50px auto 0; outline:5px solid #1a1d43; overflow:hidden;}
+				ul{ width:100%; position:relative;}
+					
+					ul li{width:300px; height:450px; background-color:rgb(220,0,0); background-size:100% 100%; /*float:left;*/ position:absolute; left:0; top:0; outline:1px solid #1a1d43; 
+					transition:all 1s ease .3s;}
+					
+					/* position 속성이 적용되면 float기능은 무시당한다.
+							+ position 기능이 있으면 float 지워도 상관없음 */
+						
+						.w0{ background-image:url("img/joker.jpg"); z-index:3; }
+						.w1{background-image:url("img/harleyQuinn.jpg"); z-index:2; }
+						.w2{background-image:url("img/deadshot.jpg"); z-index:1; }
+						.w3 img{width:100%; height:100%; transition:all 1s ease .3s;}
+
+						/*
+							중요!
+							기능에서 맨처음 대상 아래로 나오게 할것인지
+							위로 나오게 할것인지에 따라서 순서 확인!
+						*/
+  </style>	
+  <script>
+		$(function(){
+			/*
+				1: 해당하는 이미지에 마우스를 올리면 각각의 이미지가 그 옆에 배치되도록 만들기
+				2: 맨 마지막의 이미지는 터지듯이 나타나도록 만들기 (단! 이미지는 그대로 있어야 함 )
+			*/
+
+			/*
+				1번 먼저 작성
+					: eq사용? 클래스명 사용?(0)
+					: 대상.offset().left  /  대상.offset().top
+						: 높이값은 동일하게 맞기 때문에 top에 해당하는 값은 필요없음
+			
+				
+				처음 화면에 있는 것은 .w0에 해당하는 이미지
+					: .w0에 마우스를 올리면 .w1이 .w0 옆으로 나타나도록 만들기 
+			*/
+			
+			$(".w0").mouseover(function(){
+				// 이벤트 핸들러? 누가 움직임? 
+				// .w1이 옆으로 나오도록 만들기 
+				$(".w1").css({"left":$(this).width() });
+
+				/*
+					문제점
+						대상의 간격만큼 떨어 뜨리려 했으나...원하는 값만큼 떨어지지 않음
+							$(this).offset().left
+						
+						이유:
+							margin:0 auto가 만든 너비 + border가 차지하는 너비 까지 
+							계산을 해서 간격을 만들어야 해결이 가능!
+
+						해결:
+							+ 대상.offset().left는 불가능
+							+ 상대가 가진 너비를 이용하여 해결
+				*/
+
+				$(".w1").mouseover(function(){
+					$(".w2").css({"left":$(this).width()*2});
+					/*
+						대상.width()는 해당하는 대상의 너비만큼의 값을 가질수 있음
+						
+						대상.width()*2를 해준 이유는....
+							이벤트 핸들러의 처음 위치가 어디에 있는지에 따라서
+							거리가 달라짐
+					*/
+				});
+			
+				$(".w2").mouseover(function(){
+					$(".w3").css({"left":$(this).width()*3});
+				});
+				
+				/*
+					+ .w3의 이미지에 마우스를 올리면 이미지가 커지면서 
+					사라지도록 만들기 
+						+ 이미지를 중심으로 커지기 때문에 기능은 scale 사용
+
+						+ 문제점 발생
+							overflow:hidden 때문에 이미지가 바깥으로 나오지 못함
+
+							+ 해결:
+							div의 overflow:hidden 해제하기
+
+							순서 확인
+								해제를 먼저해야 이미지가 커지는데 무리가 없음
+
+					+ 문제점 발생
+						터지면서 이미지가 사라짐
+
+						+ 해결:
+							현재 자기자신은 날라감 (opacity의 영향으로 사라짐 )
+								+ 자기자신에게 이미지를 다시 가져와도 나오지 않음
+								+ 자기 자신이 아닌 부모를 이용하여 해결
+				
+				*/
+
+				$(".w3 img").mouseover(function(){
+					$("div").css({"overflow":"visible"});
+					$(this).css({"transform":"scale(1.5)","opacity":"0"});
+					$(this).parent().css({"backgroundImage":"url('img/diablo.jpg')"});
+				});
+				
+			
+			});
+		});
+  </script>
+ </head>
+ <body>
+	<h2>object:width</h2>
+	<div>
+		<ul>
+			<li class="w0"></li>
+			<li class="w1"></li>
+			<li class="w2"></li>
+			<li class="w3">
+				<img src="img/diablo.jpg" alt="디아블로이미지"/>
+			</li>
+		</ul>
+	</div>
+ </body>
+</html>

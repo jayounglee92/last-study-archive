@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> dunkin </title>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		#wrap{ width:870px; margin:0 auto; }
+		h1{ color:#f2cb61; text-align:center;  padding:30px 0;}
+		ul { width:780px; border:1px solid #f2cb61; margin:0 auto;}
+			ul li{ width:140px; display:inline-block; margin-left:10px;}
+			ul li img{width:100%;}
+			 #content, .button{ margin:20px 0 10px 45px;}
+			input[type="button"]{cursor:pointer; padding:0 10px;}
+  </style>
+  <script>
+		 function menuSelect(){
+
+			 /*
+				01) 메뉴에 적혀있는 번호만 받게 만들기 
+				02) 다른 번호를 넘겨 받았다면 반복시키기
+			*/
+			
+			do{
+				var selects = parseInt(prompt("메뉴에 적혀있는 번호로 입력해 주세요.","예) 숫자만 입력 1~5까지 "));
+			}while( !(selects >0 &&  selects <6) );
+			
+			// console.log( typeof(selects) );
+
+			switch( selects ){
+				case 1: alert("던킨 글레이즈드 도넛을 선택하였습니다. "); 
+				document.getElementById("logoImg").src="img/best1.jpg";  break;
+
+				case 2: alert("크림치즈 베이글을 선택하였습니다. "); 
+				document.getElementById("logoImg").src="img/best2.jpg";  break;
+
+				case 3: alert("잉글리쉬 머핀을 선택하였습니다. "); 
+				document.getElementById("logoImg").src="img/best3.jpg";  break;
+
+				case 4: alert("아메리카노를 선택하였습니다. "); 
+				document.getElementById("logoImg").src="img/best4.png";  break;
+
+				case 5: alert("핫초코를 선택하였습니다. "); 
+				document.getElementById("logoImg").src="img/best5.png";  break;
+			}
+			/*
+				03) 음료를 추가 주문하시겠습니까?
+					y나 n이 아닐경우 무한반복시키기
+			*/
+			
+			do{
+				var addSel = prompt("음료를 추가주문 하시겠습니까?","예) Y,N");
+			}while( !(addSel =="Y" || addSel=="y" || addSel =="N" || addSel =="n") );
+			
+			/*
+				y나 n만 받을 수 있음
+					y일 경우 
+						1) 어떤 메뉴가 있는지 알림창 띄우기
+						2) 추가주문 관련 입력창 띄우기 
+						3) 입력받은 값이 input 창에 나올수 있도록 만들기
+
+					n일 경우
+						4) 주문을 취소하셨습니다. 알림창 띄우기
+
+
+					++
+						반복문이 있기 때문에 Y, y , N, n 이외의 값은 넘겨받을수 없음
+			*/
+
+			if(addSel =="Y" || addSel=="y"){
+				alert("+++++++음료메뉴+++++++\n아메리카노\n카페모카\n핫초코\n카페라떼\n카푸치노");
+				var coffee = prompt("메뉴에 있는 음료중 입력받기");
+
+				// result input 공간에 입력한 음료 보여주기
+				document.getElementById("result").value ="추가주문 음료: "+coffee;
+			}
+			else{
+				alert("추가 주문을 취소하였습니다.");
+			}
+
+
+		 
+		 }
+
+  </script>
+ </head>
+ <body>
+	<div id="wrap">
+		<h1> 던킨TOP_메뉴판 </h1>
+		<ul>
+			<li><img src="img/best1.jpg" alt="이미지1"/></li>
+			<li><img src="img/best2.jpg" alt="이미지2"/></li>
+			<li><img src="img/best3.jpg" alt="이미지3"/></li>
+			<li><img src="img/best4.png" alt="이미지4"/></li>
+			<li><img src="img/best5.png" alt="이미지5"/></li>
+		</ul>
+		<p class="button">
+			<input id="menu" type="button" value="주문버튼" onclick="menuSelect();"/>
+		</p>
+		<div id="content">
+			<p><img id="logoImg" src="img/order.png" alt="로고"/></p>
+			<p><input id="result" type="text" name="result" readonly/></p>
+		</div>
+	</div>
+ </body>
+</html>

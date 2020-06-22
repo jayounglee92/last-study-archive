@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title>translateTEST</title>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		a:link, a:visited{text-decoration:none;}
+
+		h1{width:100%; text-align:center; padding:20px 0; text-transform:uppercase;}
+		ul{width:1280px; margin:0 auto;}
+
+			/* transform은 축약해서 사용이 가능하지만 
+					문제가 생겼을 경우엔 태그마다 하나씩 적용해서 해결한다.
+			*/
+			ul li{width:400px; height:300px; margin-left:10px; float:left; transform:scale(0.85); 
+			transition:all .5s ease-in .2s; position:relative;}
+				ul li img{width:100%; height:100%; transition:all .5s ease-in .2s;}
+
+
+			ul li:hover img{transform:scale(1.3); border:5px solid #fff; box-shadow:10px 10px 10px rgba(0,0,0,0.5);}
+
+			li.img1:hover{transform:translate(400px, 150px); z-index:6;}
+			li.img2:hover{transform:translatey(150px); z-index:5;}
+			li.img3:hover{transform:translate(-400px, 150px); z-index:4;}
+
+			li.img4:hover{transform:translate(400px, -150px); z-index:3;}
+			li.img5:hover{transform:translatey(-150px); z-index:2;}
+			li.img6:hover{transform:translate(-400px, -150px);}
+
+			
+  </style>
+ </head>
+ <body>
+	<h1>translate: imageMove</h1>
+	<ul>
+		<li class="img1">
+			<a href="#none" title="이미지링크1">
+				<img src="img/01.jpg" alt="이미지1"/>
+			</a>
+		</li>
+		<li class="img2">
+			<a href="#none" title="이미지링크2">
+				<img src="img/02.jpg" alt="이미지2"/>
+			</a>
+		</li>
+		<li class="img3">
+			<a href="#none" title="이미지링크3">
+				<img src="img/03.jpg" alt="이미지3"/>
+			</a>
+		</li>
+		<li class="img4">
+			<a href="#none" title="이미지링크4">
+				<img src="img/04.jpg" alt="이미지4"/>
+			</a>
+		</li>
+		<li class="img5">
+			<a href="#none" title="이미지링크5">
+				<img src="img/05.jpg" alt="이미지5"/>
+			</a>
+		</li>
+		<li class="img6">
+			<a href="#none" title="이미지링크6">
+				<img src="img/06.jpg" alt="이미지6"/>
+			</a>
+		</li>
+	</ul>
+ </body>
+</html>

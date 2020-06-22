@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> border-radius </title>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		body{background-color:#333;}
+		a:link, a:visited{text-decoration:none;}
+
+		.gallery{
+			width:500px;
+			height:400px;
+			background-color:#fff;
+			margin:50px auto 0;
+			background-image:url("img/tooptip-sample02-before.png");
+			background-repeat:no-repeat;
+		}
+
+		/*############# gallery_nav #############*/
+		.gallery_nav{ padding-top:130px; padding-left:210px;}
+			.gallery_nav li{ margin-bottom:5px;}
+				.gallery_nav li a.tooltip{
+					display:block; width:122px; height:122px; background-color:#fff;
+					border:5px solid #333;
+					border-radius:66px;
+					transition:all .3s ease-in .2s;
+					position:relative;
+				}
+			.gallery_nav li a.tooltip:hover, .gallery_nav li a.tooltip:focus{ border-color:#fff; }
+
+		/*############# tooltip_box #############*/
+		a.tooltip .tooltip_box{ width:120px; height:120px; background-color:#600; border-radius:60px; position:absolute; left:120%; top:0; opacity:0; transition:all .3s ease-in .1s;}
+		
+
+		a.tooltip .tooltip_box:before{
+			content:"";
+			display:block;
+			border-right:20px solid #600;
+			border-top:20px solid transparent;
+			border-bottom:20px solid transparent;
+			position:absolute;
+			left:-14%; bottom:40px;
+		}
+
+
+		a.tooltip .tooltip_desc{ font-size:20px; text-align:center; color:gold; line-height:120px;}
+		a.tooltip:hover .tooltip_box, a.tooltip:focus .tooltip_box{opacity:1;}
+
+		/*############# photo1 + photo2 ##############*/
+		a.photo1{
+				background-image:url("img/nose.png");
+				background-size:cover;
+			
+			/*
+				background 축약형 표현
+					background-color
+					background-image
+					background-repeat
+					background-position
+						위에 값들은 크로스브라우징이 가능함!
+						
+					background-size는 background-position과 값이 
+					겹치기 때문에 사용불가
+						+ 크로스 브라우징에도 문제가 생김!
+
+					background-size는 표준브라우저에서만 사용가능
+					사파리, 크롬, 파이어폭스, 오페라, 익스플로러 9 이상, 엣지익스플로러
+
+					background-size는 따로 사용하기 때문에 background-position 처럼 
+					명칭이 만들어짐!
+						
+						+ cover : 가로사이즈에 이미지를 맞출때 사용
+						+ contain : 세로사이즈에 이미지를 맞출때 사용
+			*/
+		}
+
+		a.photo2{
+			background-image:url("img/line.jpg");
+			background-size:cover;
+			background-position:0 -5px;
+		}
+
+  </style>
+ </head>
+ <body>
+	<div class="gallery">
+		<ul class="gallery_nav">
+			<li>
+				<a class="tooltip photo1" href="#none" title="tools">
+					<div class="tooltip_box">
+						<p class="tooltip_desc">20만원</p>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a class="tooltip photo2" href="#none" title="tools">
+					<div class="tooltip_box">
+						<p class="tooltip_desc">40만원</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+ </body>
+</html>

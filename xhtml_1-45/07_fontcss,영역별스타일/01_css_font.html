@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+  <title>css font</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+			h2{ font-weight:100;}
+			#test0{ background-color:gray;}
+			#test1{ color:#fcf; font-size:26px; font-weight:700;}
+			#test2{ text-align:center; }
+			#test3 strong{background-color:#ff0; font-style:italic;}
+			#textAB{text-transform:uppercase;}
+			#TEXTab{text-transform:lowercase;}
+			#cap{text-transform:capitalize;}
+
+			#test4 em{background-color:lightblue; 
+			font-style:normal;/* italic은 기울임, normal은 기울이지 않게 만들기*/
+			font-size:26px;
+			text-decoration:line-through;
+			color:#a00;
+			}
+
+			#test5{ letter-spacing:10px;}
+			/* 
+				id명이 발음은 textab로 같이 읽을수 있음 하지만 대소문자로 구분이 되기 때문에
+				발음이 같아도 사용하는데 문제가 없다!
+			*/
+			
+			/*
+				보통의 크기 폰트사이즈 16px
+
+				얇은 서체의 폰트는: + light 100
+					100, 200, 300	
+
+				보통두께의 폰트는: + normal 400
+					400, 500, 600
+				
+				두꺼운 서체의 폰트는: + bold 700
+					700, 800, 900
+
+				+ 서체에 두께 작업시 확인!
+					+ 기본적으로 가지고 있는 굵은 값과 얇은 값에는 더 굵어지거나 얇아지는데
+					한계가 있음!
+
+
+				+ 16진법 사용하기
+					0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f
+					+ 1) # 호출의 의미로 사용
+					+ 2) #000000 6자리에 맞춰서 숫자 + 알파벳 조합
+					+ 3) #00 : red, 00: green, 00:blue
+
+					+ #ff0000
+						f~0사이의 범위는 밝기에 해당!
+						+ f에 가까울수록 해당하는 범위 색상을 100% 사용하겠다
+						+ 0에 가까울수록 해당하는 범위 색상을 0% 사용하겠다.
+
+					#fff	: 해당하는 범위의 값이 같으면 축약사용 가능
+						f에 가까울수록 최대한 밝아지면서 하얀색의 빛을 낸다.
+						0에 가까울수록 최대한 어두워지면서 어두워 진다.
+			*/
+  </style>
+ </head>
+ <body>
+	<h2>css 문제는 internal방식으로 풀기, 실습과 이론문제</h2>
+	<p id="test0">현재 p태그 배경색상 회색 적용하기</p>
+	<p id="test1">현재 p태그에 글자크기 26픽셀, 굵게표현하기, 글자색상 빨간색 적용</p>
+	<p>
+		인라인 태그중 아무효과도 적용하지 않았지만 글씨를 담아줄때 사용하는 태그는?
+	</p>
+	<p>
+		답: span (span 태그는 기능을 하지 않는다면 용량을 줄이기 위해서 경량화하기 위해 가장 먼저 지우는 요소중에 하나다!)
+	</p>
+
+	<p>
+		아래에 네이버, 다음, 구글, 또는 다른 사이트여도 로고 이미지 가져와서 적용하기
+	</p>
+	<h3>
+		<img src="img/logo.png" alt="다음로고"/>	
+	</h3>
+
+	<p id="test2">
+		글자가운데 정렬하기
+	</p>
+	<h3>아래 p태그 안의 strong태그에 배경색상 노란색 적용하기, 글자 기울이기</h3>
+	<p id="test3">
+		웹을 설계할때 고려해야 할 상황은 영역을 지정해야 하는 것은 물론, <strong>인라인 태그와 블록요소의 배치도 매우 중요하다.</strong> 
+	</p>
+
+	<h3>아래 나열된 값들 대문자로 변경하기</h3>
+	<p id="textAB">
+		apple, banana, melon, coconut, daum, naver
+	</p>
+
+	<h3>아래 나열된 값들 소문자로 변경하기</h3>
+	<p id="TEXTab">
+		NOTE, SAMSUNG, APPLE, GOOGLE
+	</p>
+
+	<h3>아래 나열된 값들 앞글자만 대문자로 변경하기</h3>
+	<p id="cap">
+		front, web, photoshop, html5, javascript
+		<!--
+			,(콤마)도 구분의 역할을 하기 때문에 아래처럼 붙여써도 앞글자가 대문자로 변경된다.
+			ex) front,web,photoshop,html5,javascript
+
+			한칸띄어쓰기도 구분의 역할을 하기 때문에 아래처럼 떨어뜨리면 앞글자가 대문자로 변경된다.
+			ex) front web photoshop html5 javascript
+		-->
+	</p>
+
+	<h3>브라우저에서 읽어주는 순서는? </h3>
+	<p>
+		body, css(style), javascript, jQuery
+	</p>
+	
+	<h3>아래 나열된 값들 중 em 태그에 속해있는 글씨들 기울이지 않도록 만들고, 가운데 줄 긋기, 배경색상은 lightblue적용, 글자는 브라운색상 적용하기</h3>
+	<p id="test4">
+		<strong>웹을 설계할때는 기획단계를 거쳐, 웹표준, 웹접근성</strong>을 고려하는 작업을 선행하며, <em>html5 단계에서는 앞에 만들어진 템플릿을 기준으로 반응형, 절대형, 적응형 페이지를 제작할 수 있다.</em> 더불어 javascript, jQuery를 사용하여 기능적인 요소를 추가할 수 있으며, 이를 통해 웹접근성과 웹표준을 보다 강력하게 구현 할 수 있다.
+	</p>
+	<h3>id와 tag중 먼저 읽어주는 값은?</h3>
+	<p>
+		body영역을 가장 먼저 읽어주는데 body에서도 읽어주는 순서가 있다.<br/>
+		읽어주는 것은 태그를 먼저 읽어주지만 반응은 id가 제일 빠르다!( 중복되지 않고 영역에만 사용하기 때문)
+		<br/>
+		태그와 클래스가 사용한 빈도에 따라서 반응하는 순서가 정해진다.
+	</p>
+	<p id="test5"> 현재 p태그에 자간 10픽셀로 간격조정하기 </p>
+	<h3> em단위는 주로 어디에 사용하면 2em의 뜻은? </h3>
+	<p>
+		글자에 사용하는것을 기본으로 함:em<br/>
+		2em: 2배 크기를 말함
+	</p>
+ </body>
+</html>

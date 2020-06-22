@@ -1,0 +1,65 @@
+<!DOCTYh4E html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> transform연습 </title>
+  <style tyh4e="text/css">
+	*{margin:0; padding:0;}
+	body{background-color:#333;}
+
+	#wrap{width:1280px; margin:0 auto;}
+
+		#header{width:100%; height:100px; line-height:100px; text-align:center; color:#fff;}
+
+		#container{width:100%;}
+			#container section{width:900px; height:900px; margin:0 auto;}
+				#container section h3 {width:100%; height:100px;text-align:center; color:#fff; font-weight:400;}
+				#container section article{width:300px; height:300px; background-color:pink; text-align:center; float:left;}
+					#container h4{width:100%; height:50px; background-color:green; text-align:center; line-height:50px;}
+
+				.t1{transform:scale(0.5, 0.5);}
+				.t2{transform:scale(1.2, 1.2);}
+				.t3{transform:scale(0.25, 0.25);}
+				.t4{transform:scalex(0.5);}
+				.t5{transform:scale(1, 0.5);}
+
+				.t3:hover{transform:scale(0.75, 0.75);}
+  </style>
+ </head>
+ <body>
+	<article id="wrah4">
+		<header id="header">
+			<h2>TRANSFORM:SCALE</h2>
+		</header>
+		<div id="container">
+			<section>
+				<h3>transform 연습을 해봅시다 :)</h3>
+					<article class="t0">
+						<h4>BASIC:TEST</h4>
+						<p><img src="img/coffee.jpg" title="커피사진 원본"/></p>
+					</article>
+					<article class="t1">
+						<h4>BASIC:TEST</h4>
+						<p><img src="img/coffee.jpg" title="커피사진50%작게"/></p>
+					</article>
+					<article class="t2">
+						<h4>BASIC:TEST</h4>
+						<p><img src="img/coffee.jpg" title="커피사진120%크게"/></p>
+					</article>
+					<article class="t3">
+						<h4>BASIC:TEST</h4>
+						<p><img src="img/coffee.jpg" title="커피사진 25%작게 만들고 마우스올리면 75%로 커지게"/></p>
+					</article>
+					<article class="t4">
+						<h4>BASIC:TEST</h4>
+						<p><img src="img/coffee.jpg" title="커피사진 x축으로 50%작게"/></p>
+					</article>
+					<article class="t5">
+						<h4>BASIC:TEST</h4>
+						<p><img src="img/coffee.jpg" title="커피사진 y축으로 50%작게"/></p>
+					</article>
+			</section>
+		</div>
+	</article>
+ </body>
+</html>

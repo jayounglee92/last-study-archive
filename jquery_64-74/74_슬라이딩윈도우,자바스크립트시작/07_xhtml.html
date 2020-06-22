@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="ko"  xml:lang="ko">
+ <head>
+  <meta http-equiv="Content-type"  content="text/html; charset=utf-8"/>
+  <title> xhtml javascript </title>
+  <script type="text/javascript">
+	//<![CDATA[
+
+	/*
+		1: type이 없어서 에러가 발생
+			type="text/javascript"
+
+		2: br태그를 사용하여 에러 발생
+			CDATA로 해결
+
+		3: CDATA란?
+			character data ( CDATA영역의 값들은 태그도 문자로 인식이 가능하게 함 )
+			태그에 꺽쇠 모양이 있기때문에 특수한 형태의 기호나 형식으로 인식하기때문에 문자로 인식시킬 필요가 있음
+	 */
+	document.write("자바스크립트 시작<br/>");
+	document.write("자바스크립트는 웹표준, 웹접근성이 가능<br/>");
+	document.write("자바스크립트, javascraipt<br/>");
+	document.write("자바스크립트는 태그사용에 문제가 없음!");
+
+	//]]>
+  </script>
+ </head>
+ <body>
+ </body>
+</html>
+<!--
+	01) script영역만들기
+	02) 문서에 글작성하기
+		+ 자바스크립트 시작<br/>
+		+ 자바스크립트는 웹표준, 웹접근성이 가능<br/>
+		+ 자바스크립트, javascript
+	03) 06번 문서와 현재 07번 문서 validator 확인해보기!
+-->

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> form_check </title>
+ </head>
+ <body>
+	<form action="#none" method="post">
+		<fieldset>
+			<legend>유효성검사: </legend>
+			<p>
+				+ 빈칸넘기지 않기, 문법에 맞는지 확인하기( 문자, 숫자 (정교한 작업 (스크립트), html5) )<br/>
+				+ 문자(한글, 영문(대문자, 소문자) ), 입력받아야 하는 값이 무엇인지 알려주기! <br/>
+				+ 빈칸이거나 잘못된 정보를 입력하면 알림창이나 경고창으로 알려주기!
+			</p>
+			<ul>
+				<li>
+					<label for="name">name: </label><input id="name" type="text" name="name"/>
+				</li>
+				<li>
+					<label for="userid">id: </label><input id="userid" type="text" name="userid"/>
+				</li>
+				<li>
+					<label for="userpw">password: </label><input id="userpw" type="password" name="userpw"/>
+				</li>
+				<li>
+					<label for="tel">phone: </label><input id="tel" type="tel" name="tel" />
+				</li>
+				<li>
+					<label for="email">email: </label><input id="email" type="email" name="email" />
+				</li>
+			</ul>
+			<p><input type="submit" value="전송"/></p>
+		</fieldset>
+		<fieldset>
+			<legend>예시문 힌트주기: placeholder="예시문"</legend>
+			<ul>
+				<li>
+					<label for="phone">phone: </label><input id="phone" type="tel" name="phone" placeholder="010-1234-5678" />
+					<!--
+						placeholder와 required는 중복사용이 가능함!
+						기능이 다르기 때문에 한 태그 안에서 서로 충돌날 염려가 없음!
+							+ html5 전 : 
+									xhtml + script
+					-->
+				</li>
+				<li>
+					<label for="search">검색: </label><input id="search" type="search" name="search" placeholder="search"/>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>자동완성기능: autocomplete: 기본상태 on</legend>
+			<p>아래 문제 풀기: type/ 필수정보?/ 예시문? </p>
+			<p>전송이 한번 되고 나면 정보가 브라우저에 쌓여있음, 기본적으로 자동완성기능이
+			활성화 됨</p>
+			<ul>
+				<li>
+					<label for="userid">id: </label><input id="userid" type="text" name="userid"  autocomplete="off"/>
+				</li>
+				<li>
+					<label for="tel">phone: </label><input id="tel" type="tel" name="tel" placeholder="010-1234-4567"
+					autocomplete="off"/>
+				</li>
+				<li>
+					<label for="email">email: </label><input id="email" type="email" name="email" 
+					autocomplete="off"/>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>포커스이동: autofocus="autofocus"</legend>
+			<p>
+				가장먼저 입력을 받아되거나, 회원가입 양식서 가장 윗부분에 
+				포커스를 가져다 놓을때 사용!<br/><br/>
+				중요!) 입력받아야하는 정보들이 있는 전 부분에 focus작동이 어렵기 때문에
+				한군데다가 특징적으로 사용!
+			</p>
+			<ul>
+				<li>
+					<label for="name">name: </label><input id="name" type="text" name="name" autofocus="autofocus"/>
+				</li>
+				<li>
+					<label for="userid">id: </label><input id="userid" type="text" name="userid"/>
+				</li>
+				<li>
+					<label for="userpw">password: </label><input id="userpw" type="password" name="userpw"/>
+				</li>
+				<li>
+					<label for="tel">phone: </label><input id="tel" type="tel" name="tel" />
+				</li>
+				<li>
+					<label for="email">email: </label><input id="email" type="email" name="email" />
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>읽기만 가능한게 만들기: readonly="readonly"</legend>
+			<p>
+				<label for="price">판매가격: </label><input id="price" type="text" name="price" value="12000원" readonly="readonly"/>
+			</p>
+			<!--
+				실제로 계산이 되거나 인식되어야 하는 값들은 value로 작성
+				판매가격이 지워지면 스크립트에서 계산시에 엉뚱한 값과 계산이 될 수 있기 때문에
+				주의해야 한다.
+			-->
+			<p>
+				<label for="company">회사이름: </label><input id="company" type="text" name="company" value="apple" readonly="readonly"/>
+			</p>
+		</fieldset>
+		<fieldset>
+			<div>
+				<label for="selectMenu">과목선택: </label>
+				<select id="selectMenu" name="selectMenu">
+					<option value="kor">국어</option>
+					<option value="eng">영어</option>
+					<option value="math">수학</option>
+				</select>
+			</div>
+			<p>
+				select 태그는 선택할때 사용하는 태그, 기본적으로 어떤 것을 선택하는 것인지
+				label이나 title로 대체 설명글이 필요함!<br/>
+				select 태그에는 컨트롤이 가능하도록  id가 적용되고, 데이터베이스에 정보를
+				넘겨주기 위해 name이 적용됨<br/>
+				select 태그를 form안에서 작성했을 경우에만 name이 필요함!
+			</p>
+		</fieldset>
+		<fieldset>
+			<legend>datalist: </legend>
+			<label for="subSelect">과목선택: </label><input id="subSelect" type="text" name="subSelect" list="sublist"/>
+			<datalist id="sublist">
+				<option value="html5">html5</option>
+				<option value="xhtml">xhtml</option>
+				<option value="jQuery">jQuery</option>
+				<option value="javascript">javascript</option>
+			</datalist>
+			<p>
+				select Vs datalist<br/>
+				select 태그의 경우 id만 호출해서 다른 영역에서 사용하는 개념이 아니라<br/>
+				필요할때마다 select태그를 만들어서 작업해야 함<br/><br/>
+				datalist의 경우 한군데다가 만들어 놓고 id명을 input에 호출하여<br/>
+				사용하는 것이 가능함!<br/><br/>
+				datalist의 경우 input 태그에 value값이 한번 인식이 되버리면 그다음 항목들을<br/>
+				선택할수가 없다.<br/>
+				select의 경우엔 얼마든지 하위요소들의 값들을 변경해서 선택가능!
+			</p>
+		</fieldset>
+		<fieldset>
+			<legend>pattern</legend>
+			<p>
+				<label for="tel">전화번호: </label><input id="tel" type="tel" name="tel" pattern="\d{3}-\d{3,4}-\d{4}"/>
+			</p>
+			<p>
+				<label for="email">이메일: </label><input id="email" type="email" name="email" multiple="multiple"/>
+			</p>
+			<p>
+				multiple로 email을 설정할 경우 
+					아이디@naver.com, 아이디1@daum.net 과 같이 연결해서 사용이가능함
+					단! ,(콤마) 작성을하고 뒤로 연결할 값이 없으면 비어있지 않게 적용하라는
+					메시지가 뜨게됨!
+						하나만 사용해도 되나 끝날때는 (콤마) 지우기!
+				
+				multiple이 없는 email인 경우
+					(콤마)찍어서 연결하는게 불가능!
+			</p>
+			<p>
+				<label for="file">파일첨부: </label><input id="file" type="file" name="file"/>
+			</p>
+			<p><input type="submit" value="전송"/></p>
+		</fieldset>
+	</form>
+ </body>
+</html>

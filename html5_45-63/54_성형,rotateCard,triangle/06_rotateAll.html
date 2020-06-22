@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> transform </title>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		a:link, a:visited{text-decoration:none;}
+
+
+		ul{ width:800px; margin:50px auto 0;}
+			ul li{width:150px; height:150px; float:left; border-radius:75px; margin-right:80px;} 
+				
+				ul li a{ display:block; width:100%; height:100%; background-color:#fff; border-radius:75px; text-align:center; line-height:150px; box-shadow:0 0 20px rgba(0,0,0,0.5); color:#fff; 
+				text-shadow:0 0 5px rgba(0,0,0,0.7);
+					transition:all .4s ease-in-out .3s;
+				}
+
+
+				.rotate1 a:hover, .rotate1 a:focus{
+					background-image:url("img/image01.jpg");
+					background-position:center;
+
+					transform:translate(240px, 360px) rotatex(360deg) scale(1.5);
+				}
+
+				.rotate2 a:hover, .rotate2 a:focus{
+					background-image:url("img/image02.jpg");
+					background-position:bottom;
+
+					transform:translatey(360px) rotatey(360deg) scale(1.5);
+				}
+
+				.rotate3 a:hover, .rotate3 a:focus{
+					background-image:url("img/image03.jpg");
+					background-position:bottom;
+
+					transform:rotate(360deg) translate(-240px, 360px)  scale(1.5);
+				}
+				
+				/*
+					transform 축약형은 순서에 따라서 다른 형태의 작업물이 만들어 질 수 있다.
+				*/
+		ul:after{ content:""; display:block; clear:both; }
+  </style>
+ </head>
+ <body>
+	<ul>
+		<li class="rotate1"><a href="#none" title="rotate1">rotate1</a></li>
+		<li class="rotate2"><a href="#none" title="rotate2">rotate2</a></li>
+		<li class="rotate3"><a href="#none" title="rotate3">rotate3</a></li>
+	</ul>
+ </body>
+</html>
+<!--
+	transform:	
+		이동 translate
+		회전 rotate
+		크기변화 scale
+-->

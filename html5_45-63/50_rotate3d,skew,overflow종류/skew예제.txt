@@ -1,0 +1,2 @@
+position을 사용해야 하면
+relative로 작업하기

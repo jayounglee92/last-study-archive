@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> xiaomi </title>
+  <style>
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		a:link, a:visited{text-decoration:none; color:#b0b0b0;}
+		a:hover, a:focus{color:#ff6709;}
+
+		body{font-family:arial, sans-serif;}
+		#wrap{width:1920px; margin:0 auto;}
+
+		/*############## headerArea + infoHeader ###############*/
+			#headerWrap{width:100%; position:absolute; left:0; top:0; z-index:1;}
+				#headerArea{width:100%; background-color:#212121;}
+					#infoHeader{width:1280px; height:40px; line-height:40px; margin:0 auto;}
+						#infoHeader div{width:50%; float:left; font-size:11px; text-transform:uppercase;}
+							#infoHeader li{display:inline;}
+								#infoHeader li span{color:#444; padding:0 12px 0 16px;}
+
+								/* select 태그는 a태그와 마찬가지로 직접 선택하지 않으면 적용되지 않는
+								값들이 존재함! */
+								#infoHeader li select{text-transform:uppercase; font-size:11px; border:none; background-color:#212121; color:#b0b0b0;}
+
+						#rightHeader{text-align:right;}
+
+		/*############## header + logo + gnb ###############*/
+		#navWrap{ width:100%; }
+			#nav{width:1280px; height:88px; margin:0 auto;}
+			
+			#logo{width:56px; height:56px; padding:16px 0; float:left;}
+				#logo a{display:block; width:100%; height:100%; overflow:hidden;}
+				/* 장면 전환 요소를 사용할때는 어떤 대상을 움직였는지 확인하기! */
+					#logo a img{margin-left:-56px; transition:margin-left 0.5s ease-out;}
+				#logo a:hover img{margin-left:0;}
+
+			#gnb{width:1224px; height:88px; line-height:88px;  font-size:14px; float:left; text-align:right;}
+				#gnb li{display:inline;}
+					#gnb li a{padding-left:20px; font-weight:bold; color:#555;}
+
+	/*############## container +descBox  ###############*/
+		#container{width:100%; font-family:gulim, sans-serif;}
+			#visual{ width:100%; position:relative;}
+				#visual li{width:100%; height:770px; background-image:url("img/main0.jpg");}
+				
+				#visual .descBox{ width:560px; position:absolute; left:250px; top:240px;}
+					#visual .descBox dt{ font-size:40px; font-weight:400;}
+					#visual .descBox dt.dtTitle{ font-size:30px; }
+
+					#visual .descBox .desc{ padding:30px 0 60px; color:#555;}
+					#visual .descBox .learnMore{width:218px; height:38px;  border:1px solid #333; text-align:center; line-height:38px;}
+						#visual .descBox .learnMore a{color:#333;}
+
+	/*############## container + section  ###############*/
+		#section{width:1280px; margin:0 auto;}
+			#section h2{ width:100%; color:#616161; font-size:30px; text-align:center; font-weight:400; padding:60px 0 40px;}
+				#section h2:before{ content:"─────────────"; color:#e1e1e1; margin-right:30px;}
+				#section h2:after{ content:"─────────────"; color:#e1e1e1; margin-left:30px;}
+
+			#section ul{width:900px; margin:0 auto; overflow:hidden;}
+				#section ul li{width:295px; height:235px; float:left; margin-right:7px;}
+				#section ul li:last-child{margin-right:0;}
+					#section ul li img{width:100%;}
+
+	/*############## subVisual  ###############*/
+	#subVisual{ 
+		width:100%; 
+		height:400px; 
+		background-color:#000; 
+		margin-top:80px;
+		background-image:url("img/subVisual2.jpg");
+		background-attachment:fixed;
+
+			/*
+				이미지크기가 설정한 크기보다 300정도 크게
+				잡아져 있어야 제대로 볼 수 있음
+
+				+ 스크롤이 내려가야 제대로 확인할 수 있기 때문에
+				하단에 배치하거나 중간 아래쪽에 배치하는 경우가
+				많음!
+			*/
+	
+	}
+
+	/*############## footer  ###############*/
+	#footerWrap{width:100%; background-color:#212121; border-top:1px solid #333;}
+		#footerArea{ width:1280px; overflow:hidden; margin:0 auto;  border-bottom:1px solid #333; 
+		padding:50px 0;}
+			#footerArea dl{width:256px; float:left;}
+				#footerArea dt{font-size:14px; height:40px; color:#b0b0b0;}
+				#footerArea dd{font-size:13px; height:30px; }
+			
+		.copy{width:1280px; margin:0 auto; padding:20px 0; font-size:13px; color:#b0b0b0;}
+			.copy a{color:#757575;}
+			.copy a:hover, .copy a:focus{color:#ff6709;}
+
+	/*##################### 버리는 영역 ###############################
+		validator 검사후 left 값에 only 0으로 되면서 오류가 발생할수 있음
+				+ 오류가 발생하지 않을경우 left:-9999px 사용
+				+ 오류가 발생시 해결
+		h1,h3{position:absolute; width:0px; height:0px; font-size:0px; line-height:0; overflow:hidden; left:0;}
+	*/
+	h1,h3{position:absolute; width:1px; height:1px; font-size:1px; line-height:0; overflow:hidden; left:-9999px;}
+  </style>
+ </head>
+ <body>
+	<div id="wrap">
+		<h1>샤오미</h1>
+		<header id="headerWrap">
+			<div id="headerArea">
+				<div id="infoHeader">
+					<div id="leftHeader">
+						<ul>
+							<li>
+								<a href="#none" title="International">International</a><span class="gray">|</span>
+							</li>
+							<li>
+								<a href="#none" title="MIUI">MIUI</a><span class="gray">|</span>
+							</li>
+							<li>
+								<select id="lang">
+									<option value="International" selected="selected">International</option>
+									<option value="Mainland China 简体中文">Mainland China 简体中文</option>
+									<option value="Hong Kong 繁體中文">Hong Kong 繁體中文</option>
+									<option value="Taiwan 繁體中文">Taiwan 繁體中文</option>
+									<option value="Singapore">Singapore</option>
+									<option value="Malaysia">Malaysia</option>
+									<option value="Philippines">Philippines </option>
+								</select>
+							</li>
+						</ul>
+					</div>
+					<div id="rightHeader">
+						<ul>
+							<li>
+								<a href="#none" title="Sign in">SIGN IN</a><span class="gray">|</span>
+							</li>
+							<li>
+								<a href="#none" title="Sign up">SIGN UP</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<nav id="navWrap">
+				<div id="nav">
+					<div id="logo">
+						<a href="http://www.mi.com/en/" title="샤오미페이지">
+							<img src="img/logo.png" alt="샤오미로고"/>
+						</a>
+					</div>
+					<div id="gnb">
+						<ul>
+							<li>
+								<a href="#none" title="Mi Phones">Mi Phones</a>
+							</li>
+							<li>
+								<a href="#none" title="Redmi Phones">Redmi Phones</a>
+							</li>
+							<li>
+								<a href="#none" title="Mi TV">Mi TV</a>
+							</li>
+							<li>
+								<a href="#none" title="Smart Devices">Smart Devices</a>
+							</li>
+							<li>
+								<a href="#none" title="Audio">Audio</a>
+							</li>
+							<li>
+								<a href="#none" title="Mi Power Bank">Mi Power Bank</a>
+							</li>
+							<li>
+								<a href="#none" title="All Products">All Products</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<div id="container">
+			<section id="visual">
+				<h3>광고영역</h3>
+				<ul>
+					<li>
+						<div class="descBox">
+							<dl>
+								<dt>
+									Mi Max 2
+								</dt>
+								<dt class="dtTitle">
+									Big display, bigger battery
+								</dt>
+								<dd class="desc">
+									6.44" large immersive display<br/>
+									5300mAh two-day battery<br/>
+									Sony IMX386 large-pixel camera<br/> 
+									4GB RAM, Snapdragon 625
+								</dd>
+								<dd class="learnMore">
+									<a href="#none" title="Learn more">
+										Learn more
+									</a>
+								</dd>
+							</dl>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<section id="section">
+				<h2>VIDEO</h2>
+				<ul>
+					<li>
+						<a href="#none" title="비디오0">
+							<img src="img/sub0.jpg" alt="비디오이미지0"/>
+						</a>
+					</li>
+					<li>
+						<a href="#none" title="비디오1">
+							<img src="img/sub1.jpg" alt="비디오이미지1"/>
+						</a>
+					</li>
+					<li>
+						<a href="#none" title="비디오2">
+							<img src="img/sub2.jpg" alt="비디오이미지2"/>
+						</a>
+					</li>
+				</ul>
+			</section>
+			<section id="subVisual">
+				<h3>광고영역2</h3>
+			</section>
+		</div>
+		<footer id="footerWrap">
+			<div id="footerArea">
+				<dl>
+					<dt>
+						<strong>SHOP AND LEARN</strong>
+					</dt>
+					<dd>
+						<a href="#none" title="Mi Box">
+							Mi Box
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Mi Band 2">
+							Mi Band 2
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Mi Power Bank 5000mAh">
+							Mi Power Bank 5000mAh
+						</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<strong>SUPPORT</strong>
+					</dt>
+					<dd>
+						<a href="#none" title="Warranty">
+							Warranty
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Shipping">
+							Shipping
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Payment">
+							Payment
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Shopping FAQ">
+							Shopping FAQ
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Product Authentication">
+							Product Authentication
+						</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<strong>ABOUT US</strong>
+					</dt>
+					<dd>
+						<a href="#none" title="Xiaomi">
+							Xiaomi
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Press & Media">
+							Press & Media
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="User Agreement">
+							User Agreement
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Privacy Policy">
+							Privacy Policy
+						</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<strong>CONTACT US</strong>
+					</dt>
+					<dd>
+						<a href="#none" title="Email">
+							Email
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Facebook">
+							Facebook
+						</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<strong>FOLLOW MI</strong>
+					</dt>
+					<dd>
+						<a href="#none" title="Twitter">
+							Twitter
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Google+">
+							Google+
+						</a>
+					</dd>
+					<dd>
+						<a href="#none" title="Facebook">
+							Facebook
+						</a>
+					</dd>
+				</dl>
+			</div>
+			<p class="copy">
+				Copyright © 2010 - 2018 <a href="#none" title="xiaomi">Xiaomi</a>. All Rights Reserved
+			</p>
+		</footer>
+	</div>
+ </body>
+</html>

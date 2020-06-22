@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+ <meta charset="utf-8">
+  <title> clickBtn </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+	jQuery(document).ready(function(){
+	
+		$("h1").css({"backgroundColor":"yellow", "width":"200px", "textAlign":"center", "height":"60px", "lineHeight":"60px", "margin":"0 auto","cursor":"pointer","boxShadow":"3px 3px 10px #aaa"});
+		$("h2").css({"backgroundColor":"yellow", "width":"200px", "textAlign":"center", "height":"50px", "lineHeight":"50px", "margin":"20px auto","borderRadius":"50px", "boxShadow":"3px 3px 10px #aaa","cursor":"pointer"});
+		$("h3").css({"backgroundColor":"orange", "width":"200px", "textAlign":"center", "height":"50px", "lineHeight":"50px", "margin":"20px auto","borderRadius":"50px", "boxShadow":"3px 3px 10px #aaa", "cursor":"pointer"});
+		$("li").css({"width":"200px", "height":"200px", "backgroundColor":"aqua","marginBottom":"30px"});
+		$("p").css({"width":"250px", "height":"250px", "backgroundColor":"pink","cursor":"pointer","boxShadow":"3px 3px 10px #aaa"});
+
+
+		// 클릭성공 (h1, 클릭, 알림창)
+		$("h1").click(function(){
+			alert("클릭 성공");
+		});
+
+		//h2(clickEVENT1) 클릭하면 box1, box2의 블릿기호가 없어짐(h2, 클릭, box들)
+		$("h2").click(function(){
+			$("li").css({"listStyleType":"none"});//(li, css리스트스타일타입, li)
+		});
+
+		//h3(clickEVENT2) 클릭하면 box2, box2의 dotted가 있는 테두리가 생성(h3, 클릭, box들)
+		$("h3").click(function(){
+			$("li").css({"border":"2px dotted orange"})//(li, css보더, li)
+		})
+
+		//p_click TEST 박스는 클릭하면 글자가 가운데 정렬됨(p박스, 클릭, p박스)
+		$("p").click(function(){
+			$("p").css({"textAlign":"center","lineHeight":"250px"});//(p, css글씨정렬, p)
+		})
+	});
+  </script>
+ </head>
+ <body>
+	<div id="wrap">
+		<h1>click</h1>
+		<h2>clickEVENT1</h2>
+		<h3>clickEVENT2</h3>
+		<ul>
+			<li class="box1">box1</li>
+			<li class="box2">box2</li>
+		</ul>
+		<p>p_click Test</p>
+	</div>
+ </body>
+</html>
+<!--
+	중요: 대상,이벤트,이벤트핸들러 작성
+
+	1) h1으로 만들기 : click박스 누르면 알림창 띄우기
+	2) h2(clickEVENT1) 클릭하면 box1, box2의 블릿기호가 없어짐
+	3) h3(clickEVENT2) 클릭하면 box2, box2의 dotted가 있는 테두리가 생성
+	4) p_click TEST 박스는 클릭하면 글자가 가운데 정렬됨
+-->

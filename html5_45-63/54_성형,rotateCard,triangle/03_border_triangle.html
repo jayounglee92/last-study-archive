@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <title> border_triangle </title>
+  <style>
+	div{ 
+
+		 width:30px;
+		  border-top:40px solid transparent;
+		  border-bottom:40px solid transparent;
+		  border-right:40px solid green;
+		  
+	}
+
+  </style>
+ </head>
+ <body>
+	<div></div>
+ </body>
+</html>
+<!--
+	border는 기본 적으로 테두리를 만들때 사용!
+		안에 담고 있는 객체를 기준으로 테두리를 만듬
+
+	가상객체
+		대상:before
+		대상:after
+			도형으로 만들기
+				content:""; display:block;
+
+	+ border의 경우 담고 있는 내용이 없으면 도형으로 사용이 가능함!
+		+border는 일러스트처럼 벡터 방식을 사용하기 때문에 
+		브라우저에서 확대해도 깨지지 않는다.
+
+
+		+ 색상에서 투명을 적용할때는 rgba를 사용하여 투명으로 만들기
+			+ opacity 안에 담고 있는 모든 값들을 불투명하게 만듬
+			+ transparent( 투명! )
+-->
